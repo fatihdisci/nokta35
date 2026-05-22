@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next"
 import { Playfair_Display, JetBrains_Mono } from "next/font/google"
+import Script from "next/script"
 import "./globals.css"
 import { Navbar } from "@/components/layout/Navbar"
 import { Footer } from "@/components/layout/Footer"
@@ -76,6 +77,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="tr" className={`${playfair.variable} ${jetbrains.variable}`}>
+      <head>
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9695860606070067"
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
+      </head>
       <body>
         <Navbar />
         <main>{children}</main>
