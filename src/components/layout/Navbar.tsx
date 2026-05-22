@@ -7,7 +7,6 @@ const NAV_ITEMS = [
   { href: "/saglik", label: "Sağlık" },
   { href: "/otoparklar", label: "Otopark" },
   { href: "/hava", label: "Hava" },
-  { href: "/hal-fiyatlari", label: "Hal" },
 ]
 
 export function Navbar() {

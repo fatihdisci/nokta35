@@ -29,7 +29,6 @@ export function Footer() {
             <li><Link href="/ulasim" className="hover:text-cream">Ulaşım</Link></li>
             <li><Link href="/su-baraj" className="hover:text-cream">Su & Baraj</Link></li>
             <li><Link href="/saglik" className="hover:text-cream">Sağlık</Link></li>
-            <li><Link href="/hal-fiyatlari" className="hover:text-cream">Hal Fiyatları</Link></li>
           </ul>
         </div>
 

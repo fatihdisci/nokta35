@@ -11,6 +11,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/su-baraj`, lastModified: now, changeFrequency: "hourly", priority: 0.8 },
     { url: `${base}/saglik`, lastModified: now, changeFrequency: "daily", priority: 0.8 },
     { url: `${base}/ulasim`, lastModified: now, changeFrequency: "daily", priority: 0.7 },
-    { url: `${base}/hal-fiyatlari`, lastModified: now, changeFrequency: "daily", priority: 0.7 },
   ]
 }

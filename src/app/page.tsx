@@ -6,7 +6,7 @@ import { EczanePanel } from "@/components/widgets/EczanePanel"
 import { KesintiAlert } from "@/components/widgets/KesintiAlert"
 import { OtoparkWidget } from "@/components/widgets/OtoparkWidget"
 import { HavaWidget } from "@/components/widgets/HavaWidget"
-import { HalGrid } from "@/components/widgets/HalGrid"
+
 import { IzbanSefer } from "@/components/widgets/IzbanSefer"
 import { MetroTramvay } from "@/components/widgets/MetroTramvay"
 import { AdSlot } from "@/components/ads/AdSlot"
@@ -88,20 +88,7 @@ export default function HomePage() {
         <AdSlot id="AD-3" size="inline" />
       </div>
 
-      <Suspense
-        fallback={
-          <section className="container">
-            <div className="h-12 bg-light-gray animate-pulse mb-4" />
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-              {[...Array(8)].map((_, i) => (
-                <div key={i} className="aspect-square bg-light-gray animate-pulse" />
-              ))}
-            </div>
-          </section>
-        }
-      >
-        <HalGrid />
-      </Suspense>
+
 
       <div className="container">
         <AdSlot id="AD-4" size="inline" />

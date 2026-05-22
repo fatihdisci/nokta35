@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next"
 import { Playfair_Display, JetBrains_Mono } from "next/font/google"
-import Script from "next/script"
+
 import "./globals.css"
 import { Navbar } from "@/components/layout/Navbar"
 import { Footer } from "@/components/layout/Footer"
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     template: "%s · nokta35",
   },
   description:
-    "İzmir Büyükşehir Belediyesi açık verilerini gerçek zamanlı görselleştiren bağımsız şehir veri platformu. Baraj doluluk, nöbetçi eczane, otopark, ESHOT/İZBAN, hal fiyatları.",
+    "İzmir Büyükşehir Belediyesi açık verilerini gerçek zamanlı görselleştiren bağımsız şehir veri platformu. Baraj doluluk, nöbetçi eczane, otopark, ESHOT/İZBAN.",
   applicationName: "nokta35",
   keywords: [
     "İzmir",
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     "nöbetçi eczane",
     "ESHOT",
     "İZBAN",
-    "hal fiyatları",
+
     "şehir paneli",
     "izmir büyükşehir",
     "nokta35",
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "nokta35 — İzmir açık veri paneli",
-    description: "Baraj, otobüs, eczane, hal fiyatları — tek noktadan.",
+    description: "Baraj, otobüs, eczane, otopark — tek noktadan.",
   },
   robots: {
     index: true,
@@ -78,11 +78,10 @@ export default function RootLayout({
   return (
     <html lang="tr" className={`${playfair.variable} ${jetbrains.variable}`}>
       <head>
-        <Script
+        <script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9695860606070067"
           crossOrigin="anonymous"
-          strategy="afterInteractive"
         />
       </head>
       <body>
