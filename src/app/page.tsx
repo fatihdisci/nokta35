@@ -1,6 +1,5 @@
 import { Suspense } from "react"
 import { Ticker } from "@/components/layout/Ticker"
-import { MapClient } from "@/components/map/MapClient"
 import { StatBar } from "@/components/widgets/StatBar"
 import { BarajWidget } from "@/components/widgets/BarajWidget"
 import { EczanePanel } from "@/components/widgets/EczanePanel"
@@ -64,27 +63,21 @@ export default function HomePage() {
         <AdSlot id="AD-1" size="leaderboard" />
       </div>
 
-      <section className="container grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="md:col-span-2 space-y-6">
-          <div className="relative h-[480px] md:h-[560px] border-2 border-ink bg-light-gray overflow-hidden">
-            <MapClient />
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <Suspense fallback={<WidgetSkeleton title="Barajlar" />}>
-              <BarajWidget />
-            </Suspense>
-            <Suspense fallback={<WidgetSkeleton title="Su Kesintisi" />}>
-              <KesintiAlert />
-            </Suspense>
-          </div>
-        </div>
-        <aside className="space-y-6">
-          <Suspense fallback={<WidgetSkeleton title="Nöbetçi Eczane" />}>
-            <EczanePanel />
-          </Suspense>
-          <AdSlot id="AD-2" size="rectangle" className="my-0" />
-        </aside>
+      <section className="container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <Suspense fallback={<WidgetSkeleton title="Barajlar" />}>
+          <BarajWidget />
+        </Suspense>
+        <Suspense fallback={<WidgetSkeleton title="Nöbetçi Eczane" />}>
+          <EczanePanel />
+        </Suspense>
+        <Suspense fallback={<WidgetSkeleton title="Su Kesintisi" />}>
+          <KesintiAlert />
+        </Suspense>
       </section>
+
+      <div className="container flex justify-center">
+        <AdSlot id="AD-2" size="rectangle" />
+      </div>
 
       <div className="container">
         <AdSlot id="AD-3" size="inline" />
