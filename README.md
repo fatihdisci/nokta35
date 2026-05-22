@@ -192,12 +192,21 @@ Tüm renkler CSS değişkeni olarak `globals.css`'te tanımlanmış, Tailwind co
 ### `/ulasim` — ESHOT / İZBAN
 - ESHOT hat bazlı otobüs konumları, İZBAN sefer saatleri ve ücret hesaplayıcı
 
-### `/harita` — Tam Ekran Harita
-- MapLibre GL JS, `'use client'` zorunlu (SSR çalışmaz)
-- Katman seçici: otopark, eczane, pazar yeri
+### `/harita` — Tam Ekran Harita ⚠️ Aktif Değil
+- Dosya mevcut ama `<Placeholder>` bileşeni gösteriyor ("Yakında")
+- `robots: { index: false }` ile arama motorlarından gizlenmiş
+- Navbar'da bağlantısı yok, kullanıcıya expose edilmiyor
+- `MapClient.tsx`, `MapWrapper.tsx`, `LayerControl.tsx` bileşenleri yazılı
+- MapLibre GL JS kurulu (`maplibre-gl` dependency mevcut)
+- `'use client'` zorunlu — MapLibre SSR çalışmaz, `MapWrapper` dynamic import ile guard ediyor
+- Aktif etmek için: Placeholder'ı gerçek harita ile değiştir, Navbar'a ekle, sitemap'e ekle, `robots` override'ı kaldır
 
-### `/hal-fiyatlari` — Hal Fiyatları
-- CSV fetch + PapaParse, Vercel Cron günlük güncelleme
+### `/hal-fiyatlari` — Hal Fiyatları ⚠️ Aktif Değil
+- Dosya mevcut ama `<Placeholder>` bileşeni gösteriyor ("Yapım aşamasında")
+- Navbar'da bağlantısı yok, kullanıcıya expose edilmiyor
+- `lib/hal.ts` ve `/api/hal/route.ts` altyapısı hazır, `HalGrid` bileşeni var
+- Ana sayfada 8 ürünlük özet widget halihazırda çalışıyor
+- Aktif etmek için: Placeholder'ı kaldır, gerçek içeriği yaz, Navbar'a ekle, sitemap'e ekle
 
 ---
 
@@ -477,14 +486,38 @@ npm run lint
 
 ---
 
+## Aktif Olmayan Sayfalar
+
+Bu dosyalar kodlanmış ama kullanıcıya kapalı:
+
+| Sayfa | Durum | Engel |
+|---|---|---|
+| `/harita` | `<Placeholder>` | `robots: noindex`, Navbar'da yok |
+| `/hal-fiyatlari` | `<Placeholder>` | Navbar'da yok, sitemap'te yok |
+
+Altyapıları (lib, api route, bileşenler) tamamen hazır. Placeholder kaldırılıp Navbar + sitemap'e eklenmesi yeterli.
+
+---
+
 ## Yapılacaklar
 
-- [ ] SEO: her sayfa için genişletilmiş meta description + OG görseli
-- [ ] Sitemap'e etkinlikler, hal-fiyatlari, onemli-yerler sayfalarını ekle
-- [ ] AdSense onayı sonrası gerçek reklam birimleri entegrasyonu
-- [ ] Bülten / e-posta özeti (sabah İzmir raporu) — altyapı henüz yok
-- [ ] Etkinlik detay sayfaları (`/etkinlikler/[slug]`) — SSG ile pre-render
-- [ ] Su kesintisi haritası (`/su-baraj` alt haritası)
-- [ ] ESHOT anlık otobüs haritası (gerçek zamanlı WebSocket veya polling)
-- [ ] İZBAN ücret hesaplayıcı UI geliştirme
-- [ ] Lighthouse skoru ≥ 90 hedefi (şu an Core Web Vitals takibi başlatılmadı)
+### SEO
+- [ ] Sitemap'e etkinlikler ve onemli-yerler sayfalarını ekle (şu an eksik)
+- [ ] Her sayfa için `<FaqSection>` / FAQPage JSON-LD genişletme
+- [ ] Etkinlik detay sayfaları (`/etkinlikler/[slug]`) — SSG, her etkinlik kendi URL'sine kavuşur
+- [ ] `/harita` ve `/hal-fiyatlari` aktif edilince sitemap + robots güncellenmeli
+
+### Özellik
+- [ ] `/harita` aktif et — MapLibre katmanları (otopark, eczane, pazar)
+- [ ] `/hal-fiyatlari` aktif et — filtreli liste, geçmiş grafiği
+- [ ] ESHOT anlık otobüs haritası (30 sn polling)
+- [ ] İZBAN ücret hesaplayıcı UI tamamlama
+- [ ] Su kesintisi ilçe bazlı harita
+
+### Monetizasyon
+- [ ] AdSense onayı sonrası gerçek reklam unit ID'leri entegrasyonu
+- [ ] Bülten / sabah İzmir özeti (altyapı henüz yok)
+
+### Teknik
+- [ ] Lighthouse skoru ≥ 90 (Core Web Vitals takibi başlatılmadı)
+- [ ] `/api/*` rate limiting (şu an sınırsız)
