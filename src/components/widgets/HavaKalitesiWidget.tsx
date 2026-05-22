@@ -1,16 +1,11 @@
-import { getHavaKalitesi, havaKalitesiAdi, havaKalitesiIlce, parsePollutant, pm10Seviye } from "@/lib/data"
+import { getHavaKalitesi, pm10Seviye } from "@/lib/data"
 import { WidgetMore } from "./WidgetMore"
 
 const LIMIT = 5
 
 export async function HavaKalitesiWidget() {
   const istasyonlar = await getHavaKalitesi()
-
-  const withPm10 = istasyonlar
-    .map((s) => ({ ...s, _pm10: parsePollutant(s.PM10) }))
-    .filter((s) => s._pm10 !== null)
-    .sort((a, b) => (b._pm10 ?? 0) - (a._pm10 ?? 0))
-
+  const withPm10 = istasyonlar.filter((s) => s.pm10 !== null).sort((a, b) => (b.pm10 ?? 0) - (a.pm10 ?? 0))
   const list = withPm10.slice(0, LIMIT)
 
   return (
@@ -18,7 +13,7 @@ export async function HavaKalitesiWidget() {
       <header className="flex items-baseline justify-between mb-4">
         <h2 className="font-serif-display text-2xl">Hava Kalitesi</h2>
         <span className="text-[10px] uppercase tracking-widest text-gray">
-          {istasyonlar.length > 0 ? `${istasyonlar.length} istasyon` : "İzmir"}
+          {istasyonlar.length > 0 ? `${istasyonlar.length} istasyon` : "PM10"}
         </span>
       </header>
 
@@ -30,24 +25,17 @@ export async function HavaKalitesiWidget() {
         <>
           <ul className="space-y-2 text-xs flex-1">
             {list.map((s, i) => {
-              const pm10 = s._pm10 as number
+              const pm10 = s.pm10 as number
               const sev = pm10Seviye(pm10)
-              const adi = havaKalitesiAdi(s) || havaKalitesiIlce(s) || `İstasyon ${i + 1}`
+              const adi = s.istasyonAdi || s.ilce || `İstasyon ${i + 1}`
               return (
-                <li
-                  key={`${adi}-${i}`}
-                  className="flex items-baseline justify-between border-b border-light-gray pb-2 last:border-0"
-                >
+                <li key={`${adi}-${i}`} className="flex items-baseline justify-between border-b border-light-gray pb-2 last:border-0">
                   <span className="uppercase tracking-wide font-mono text-ink truncate pr-2 max-w-[55%]">
                     {adi}
                   </span>
                   <span className="flex items-baseline gap-2 whitespace-nowrap">
-                    <span className={`text-[10px] uppercase tracking-widest ${sev.renk}`}>
-                      {sev.label}
-                    </span>
-                    <span className="font-mono text-sm text-orange">
-                      {pm10.toFixed(0)} µg/m³
-                    </span>
+                    <span className={`text-[10px] uppercase tracking-widest ${sev.renk}`}>{sev.label}</span>
+                    <span className="font-mono text-sm text-orange">{pm10.toFixed(0)} µg/m³</span>
                   </span>
                 </li>
               )

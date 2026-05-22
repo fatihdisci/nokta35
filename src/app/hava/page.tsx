@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import { getHavaDurumu, havaLabel } from "@/lib/hava"
-import { getHavaKalitesi, havaKalitesiAdi, havaKalitesiIlce, parsePollutant, pm10Seviye } from "@/lib/data"
+import { getHavaKalitesi, pm10Seviye } from "@/lib/data"
 import { breadcrumbJsonLd, datasetJsonLd, JsonLdScript, faqJsonLd } from "@/lib/jsonLd"
 import { FaqSection } from "@/components/widgets/FaqSection"
 
@@ -25,7 +25,7 @@ function fmtNum(n: number | null | undefined, suf = "") {
 
 export default async function Page() {
   const [hava, kalitesiRaw] = await Promise.all([getHavaDurumu(), getHavaKalitesi()])
-  const kalitesi = kalitesiRaw.map((s) => ({ ...s, _pm10: parsePollutant(s.PM10) })).filter((s) => s._pm10 !== null)
+  const kalitesi = kalitesiRaw.filter((s) => s.pm10 !== null)
   const list = hava ?? []
   const sorted = [...list].sort((a, b) => a.ilce.localeCompare(b.ilce, "tr"))
 
@@ -186,13 +186,13 @@ export default async function Page() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
               {kalitesi.map((s, i) => {
-                const pm10 = s._pm10 as number
+                const pm10 = s.pm10 as number
                 const sev = pm10Seviye(pm10)
-                const adi = havaKalitesiAdi(s) || havaKalitesiIlce(s) || `İstasyon ${i + 1}`
-                const ilce = havaKalitesiIlce(s)
-                const no2 = parsePollutant(s.NO2)
-                const so2 = parsePollutant(s.SO2)
-                const co = parsePollutant(s.CO)
+                const adi = s.istasyonAdi || s.ilce || `İstasyon ${i + 1}`
+                const ilce = s.ilce
+                const no2 = s.no2
+                const so2 = s.so2
+                const co = s.co
                 return (
                   <article
                     key={`${adi}-${i}`}
@@ -240,9 +240,9 @@ export default async function Page() {
                         )}
                       </div>
                     )}
-                    {s.Tarih && (
+                    {s.tarih && (
                       <div className="text-[9px] text-gray font-mono mt-auto pt-1">
-                        {s.Tarih}{s.Saat ? ` · ${s.Saat}` : ""}
+                        {s.tarih}
                       </div>
                     )}
                   </article>

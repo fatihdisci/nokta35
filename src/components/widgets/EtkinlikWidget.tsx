@@ -3,7 +3,7 @@ import { WidgetMore } from "./WidgetMore"
 
 const LIMIT = 5
 
-function formatTarih(tarih?: string): string {
+function formatTarih(tarih: string): string {
   if (!tarih) return ""
   try {
     const d = new Date(tarih)
@@ -16,7 +16,7 @@ function formatTarih(tarih?: string): string {
 
 export async function EtkinlikWidget() {
   const etkinlikler = await getEtkinlikler()
-  const yakinlar = etkinlikler.slice(0, LIMIT)
+  const list = etkinlikler.slice(0, LIMIT)
 
   return (
     <section className="border-2 border-ink bg-cream p-5 flex flex-col">
@@ -27,30 +27,29 @@ export async function EtkinlikWidget() {
         </span>
       </header>
 
-      {yakinlar.length === 0 ? (
+      {list.length === 0 ? (
         <div className="text-xs text-gray uppercase tracking-widest py-4">
           Yaklaşan etkinlik bilgisi bulunamadı
         </div>
       ) : (
         <>
           <ul className="space-y-3 text-xs flex-1">
-            {yakinlar.map((e, i) => (
-              <li key={`${e.EtkinlikAdi}-${i}`} className="border-l-2 border-orange pl-3 py-1">
+            {list.map((e, i) => (
+              <li key={`${e.adi || i}`} className="border-l-2 border-orange pl-3 py-1">
                 <div className="font-mono uppercase tracking-wide text-ink leading-tight truncate">
-                  {e.EtkinlikAdi}
+                  {e.adi || "—"}
                 </div>
-                {e.EtkinlikTuru && (
+                {(e.tur || e.ilce) && (
                   <div className="text-[10px] uppercase tracking-widest text-orange mt-0.5">
-                    {e.EtkinlikTuru}
-                    {e.ILCE ? ` · ${e.ILCE}` : ""}
+                    {[e.tur, e.ilce].filter(Boolean).join(" · ")}
                   </div>
                 )}
-                <div className="text-gray mt-0.5 font-mono text-[10px]">
-                  {e.Mekan && <span>{e.Mekan}</span>}
-                  {e.BaslangicTarihi && (
-                    <span className="ml-1 text-ink">· {formatTarih(e.BaslangicTarihi)}</span>
-                  )}
-                </div>
+                {(e.mekan || e.baslangic) && (
+                  <div className="text-gray mt-0.5 font-mono text-[10px]">
+                    {e.mekan && <span>{e.mekan}</span>}
+                    {e.baslangic && <span className="ml-1 text-ink">· {formatTarih(e.baslangic)}</span>}
+                  </div>
+                )}
               </li>
             ))}
           </ul>

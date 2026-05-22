@@ -15,8 +15,8 @@ export const revalidate = 3600
 
 export default async function EtkinliklerPage() {
   const etkinlikler = await getEtkinlikler()
-  const turler = [...new Set(etkinlikler.map((e) => e.EtkinlikTuru).filter(Boolean) as string[])].sort()
-  const ilceler = [...new Set(etkinlikler.map((e) => e.ILCE).filter(Boolean) as string[])].sort()
+  const turler = [...new Set(etkinlikler.map((e) => e.tur).filter(Boolean))].sort()
+  const ilceler = [...new Set(etkinlikler.map((e) => e.ilce).filter(Boolean))].sort()
 
   const breadcrumb = breadcrumbJsonLd([{ name: "Etkinlikler", href: "/etkinlikler" }])
 
