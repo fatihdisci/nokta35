@@ -108,6 +108,29 @@ export type PazarYeriItem = {
   gun?: number
 }
 
+export type EtkinlikItem = {
+  EtkinlikAdi: string
+  EtkinlikTuru?: string
+  Mekan?: string
+  BaslangicTarihi?: string
+  BitisTarihi?: string
+  Adres?: string
+  BiletLinki?: string
+  UcretsizMi?: boolean | string
+  ILCE?: string
+  ENLEM?: number
+  BOYLAM?: number
+}
+
+type RawEtkinlikResponse = EtkinlikItem[] | { etkinlikler?: EtkinlikItem[]; Etkinlikler?: EtkinlikItem[] }
+
+export const getEtkinlikler = async (): Promise<EtkinlikItem[]> => {
+  const raw = await getIzmir<RawEtkinlikResponse>("/api/ibb/kultursanat/etkinlikler", 3600)
+  if (!raw) return []
+  if (Array.isArray(raw)) return raw
+  return raw.etkinlikler ?? raw.Etkinlikler ?? []
+}
+
 type RawPazarResponse = { onemliyer?: Record<string, unknown>[] }
 
 export const getPazarYerleri = async (): Promise<PazarYeriItem[]> => {
