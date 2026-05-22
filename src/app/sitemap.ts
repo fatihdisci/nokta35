@@ -9,7 +9,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/su-baraj`, lastModified: now, changeFrequency: "hourly", priority: 0.9 },
     { url: `${base}/hava`, lastModified: now, changeFrequency: "hourly", priority: 0.9 },
     { url: `${base}/saglik`, lastModified: now, changeFrequency: "hourly", priority: 0.9 },
-    { url: `${base}/harita`, lastModified: now, changeFrequency: "weekly", priority: 0.3 },
     { url: `${base}/ulasim`, lastModified: now, changeFrequency: "hourly", priority: 0.9 },
+    { url: `${base}/etkinlikler`, lastModified: now, changeFrequency: "daily", priority: 0.8 },
+    { url: `${base}/onemli-yerler`, lastModified: now, changeFrequency: "daily", priority: 0.7 },
   ]
 }

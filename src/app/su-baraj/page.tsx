@@ -4,7 +4,7 @@ import { breadcrumbJsonLd, datasetJsonLd, JsonLdScript, faqJsonLd } from "@/lib/
 import { FaqSection } from "@/components/widgets/FaqSection"
 
 export const metadata: Metadata = {
-  title: "İzmir Baraj Doluluk Oranları ve Su Kesintileri · nokta35",
+  title: "İzmir Baraj Doluluk Oranları ve Su Kesintileri",
   description: "İzmir barajlarının (Tahtalı, Balçova, Ürkmez, Gördes) anlık doluluk yüzdeleri, su yükseklikleri, aktif kapasiteleri ve İZSU güncel su kesintileri listesi.",
   alternates: {
     canonical: "/su-baraj",

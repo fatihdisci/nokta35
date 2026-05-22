@@ -4,7 +4,7 @@ import { breadcrumbJsonLd, datasetJsonLd, JsonLdScript, faqJsonLd } from "@/lib/
 import { FaqSection } from "@/components/widgets/FaqSection"
 
 export const metadata: Metadata = {
-  title: "İzmir Otopark Doluluk Oranları · İZELMAN & İZUM · nokta35",
+  title: "İzmir Otopark Doluluk Oranları · İZELMAN & İZUM",
   description: "İzmir genelindeki tüm İZELMAN ve İZUM otoparklarının anlık boş ve dolu kapasiteleri, konumları, ücretli/ücretsiz durumları ve güncel doluluk yüzdeleri.",
   alternates: {
     canonical: "/otoparklar",

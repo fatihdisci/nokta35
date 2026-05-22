@@ -5,7 +5,7 @@ import { breadcrumbJsonLd, datasetJsonLd, JsonLdScript, faqJsonLd } from "@/lib/
 import { FaqSection } from "@/components/widgets/FaqSection"
 
 export const metadata: Metadata = {
-  title: "İzmir Nöbetçi Eczaneler · Güncel Canlı Liste · nokta35",
+  title: "İzmir Nöbetçi Eczaneler · Güncel Canlı Liste",
   description: "İzmir'de bugünün nöbetçi eczaneleri. Konak, Karşıyaka, Bornova, Buca dahil tüm 30 ilçenin nöbetçi eczane adresleri, telefonları ve konum detayları.",
   alternates: {
     canonical: "/saglik",

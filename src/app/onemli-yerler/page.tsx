@@ -1,14 +1,14 @@
 import type { Metadata } from "next"
 import { getPazarYerleri, GUN_ADLARI } from "@/lib/data"
 import { PazarList } from "@/components/widgets/PazarList"
-import { JsonLdScript } from "@/lib/jsonLd"
+import { breadcrumbJsonLd, datasetJsonLd, faqJsonLd, JsonLdScript } from "@/lib/jsonLd"
+import { FaqSection } from "@/components/widgets/FaqSection"
 
 export const revalidate = 86400
 
 export const metadata: Metadata = {
-  title: "Semt Pazarları · İzmir",
-  description:
-    "İzmir'deki tüm semt pazarları: hangi gün nerede pazar kurulur, ilçe ve güne göre filtrele, haritada bul.",
+  title: "İzmir Semt Pazarları · Hangi Gün Nerede Pazar Var",
+  description: "İzmir'deki tüm semt pazarları: Karşıyaka, Konak, Bornova, Buca, Çeşme ve 30 ilçede hangi gün nerede pazar kurulduğu, adresleri ve konumları.",
   alternates: { canonical: "/onemli-yerler" },
   keywords: [
     "İzmir semt pazarları",
@@ -18,14 +18,6 @@ export const metadata: Metadata = {
     "izmir cuma pazarı",
     "semt pazarı nerede",
   ],
-}
-
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "ItemList",
-  name: "İzmir Semt Pazarları",
-  description: "İzmir Büyükşehir Belediyesi açık verilerinden derlenen semt pazarı konumları",
-  url: "https://nokta35.com/onemli-yerler",
 }
 
 export default async function OnemliYerlerPage() {
@@ -38,9 +30,35 @@ export default async function OnemliYerlerPage() {
     if (p.gun !== undefined) gunSayilari[p.gun] = (gunSayilari[p.gun] ?? 0) + 1
   })
 
+  const faqItems = [
+    {
+      question: "İzmir'de bugün kaç semt pazarı kurulu?",
+      answer: bugunAcik.length > 0
+        ? `Bugün (${GUN_ADLARI[bugunIndex]}) İzmir genelinde ${bugunAcik.length} semt pazarı kurulmaktadır. Bu pazarlar ${[...new Set(bugunAcik.map(p => p.ILCE).filter(Boolean))].slice(0, 4).join(", ")} ve diğer ilçelerde bulunmaktadır.`
+        : `Bugün (${GUN_ADLARI[bugunIndex]}) İzmir'de kayıtlı açık pazar bulunmamaktadır.`,
+    },
+    {
+      question: "İzmir'de semt pazarları hangi günler kurulur?",
+      answer: `İzmir genelindeki ${pazarlar.length} semt pazarı haftanın her günü farklı ilçelerde kurulmaktadır. Günlük ve ilçe bazlı filtreleme ile aradığınız pazarı kolayca bulabilirsiniz.`,
+    },
+    {
+      question: "İzmir semt pazarı verileri nereden alınıyor?",
+      answer: "Semt pazarı konum ve gün bilgileri İzmir Büyükşehir Belediyesi'nin CBS (Coğrafi Bilgi Sistemi) açık veri platformundan alınmaktadır. Veriler günlük olarak güncellenmektedir.",
+    },
+  ]
+
+  const breadcrumb = breadcrumbJsonLd([{ name: "Semt Pazarları", href: "/onemli-yerler" }])
+  const dataset = datasetJsonLd({
+    name: "İzmir Semt Pazarları Konum ve Gün Veri Seti",
+    description: "İzmir Büyükşehir Belediyesi CBS sisteminden alınan semt pazarı konumları, ilçe bilgileri ve hangi günlerde kurulduğu verileri.",
+    url: "/onemli-yerler",
+    keywords: ["İzmir semt pazarları", "İzmir pazar yerleri", "hangi gün pazar"],
+  })
+  const faqSchema = faqJsonLd(faqItems)
+
   return (
     <>
-      <JsonLdScript data={jsonLd} />
+      <JsonLdScript data={[breadcrumb, dataset, faqSchema]} />
 
       {/* Hero */}
       <section className="container py-12">
@@ -90,6 +108,8 @@ export default async function OnemliYerlerPage() {
       <section className="container pb-16">
         <PazarList pazarlar={pazarlar} bugunIndex={bugunIndex} />
       </section>
+
+      <FaqSection items={faqItems} />
 
       {/* Kaynak notu */}
       <div className="container pb-8">

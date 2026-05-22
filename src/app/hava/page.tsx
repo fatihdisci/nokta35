@@ -5,7 +5,7 @@ import { breadcrumbJsonLd, datasetJsonLd, JsonLdScript, faqJsonLd } from "@/lib/
 import { FaqSection } from "@/components/widgets/FaqSection"
 
 export const metadata: Metadata = {
-  title: "İzmir Anlık Hava Durumu · 30 İlçe Canlı Sıcaklık · nokta35",
+  title: "İzmir Anlık Hava Durumu · 30 İlçe Canlı Sıcaklık",
   description: "İzmir ve 30 ilçesinin (Konak, Karşıyaka, Bornova, Buca, Çeşme vb.) anlık hava durumu, rüzgar hızı, nem oranı ve hissedilen sıcaklık değerleri.",
   alternates: {
     canonical: "/hava",
