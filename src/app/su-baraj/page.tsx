@@ -125,7 +125,7 @@ export default async function Page() {
         )}
       </section>
 
-      <section className="container py-8">
+      <section id="su-kesintileri" className="container py-8">
         <header className="border-b-2 border-ink pb-3 mb-6 flex items-baseline justify-between">
           <h2 className="font-serif-display text-4xl md:text-5xl">
             Su Kesintileri

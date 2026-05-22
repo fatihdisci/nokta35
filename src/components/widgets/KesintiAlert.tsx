@@ -58,7 +58,7 @@ export async function KesintiAlert() {
         ))}
       </ul>
       {kesintiler.length > LIMIT && (
-        <WidgetMore href="/su-baraj" count={kesintiler.length} />
+        <WidgetMore href="/su-baraj#su-kesintileri" count={kesintiler.length} />
       )}
     </section>
   )
