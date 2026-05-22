@@ -168,9 +168,11 @@ export const getEtkinlikler = async (): Promise<EtkinlikItem[]> => {
 }
 
 // --- Hava Kalitesi ---
+// API flat satır listesi döndürür: her satır bir (bölge × gaz) ölçümü
+// { BolgeAdi, GazAdi:"PM10"|"SO2"|..., OlcumDegeri:"45", OlcumTarihi }
+// Bölgeye göre gruplayıp pivot ediyoruz.
 
 export type HavaKalitesiItem = {
-  _raw: RawRecord
   istasyonAdi: string
   ilce: string
   pm10: number | null
@@ -181,58 +183,52 @@ export type HavaKalitesiItem = {
   tarih: string
 }
 
-function numField(r: RawRecord, ...keys: string[]): number | null {
-  for (const k of keys) {
-    const v = r[k]
-    if (v === undefined || v === null) continue
-    const n = typeof v === "number" ? v : parseFloat(String(v).replace(",", "."))
-    if (!isNaN(n)) return n
-  }
-  return null
+type RawCevreOlcum = {
+  BolgeAdi?: string
+  GazAdi?: string
+  OlcumDegeri?: string | number
+  OlcumTarihi?: string
+  BolgeId?: number
+  GazId?: number
 }
 
-// Handle nested Olcumler/Parametreler array pattern
-function pollutantFromNested(r: RawRecord, paramName: string): number | null {
-  const nested = (r.Olcumler ?? r.Parametreler ?? r.olcumler ?? r.parametreler ?? r.Degerler) as RawRecord[] | undefined
-  if (!Array.isArray(nested)) return null
-  for (const item of nested) {
-    const paramKey = String(item.Parametre ?? item.ParametreAdi ?? item.Kod ?? item.Ad ?? "")
-    if (paramKey.toLowerCase() === paramName.toLowerCase()) {
-      return numField(item, "Deger", "Ortalama", "Son", "Value", "deger")
+function parseDeger(v?: string | number): number | null {
+  if (v === undefined || v === null || v === "") return null
+  const n = typeof v === "number" ? v : parseFloat(String(v).replace(",", "."))
+  return isNaN(n) ? null : n
+}
+
+function groupCevreOlcumler(rows: RawCevreOlcum[]): HavaKalitesiItem[] {
+  const map = new Map<string, HavaKalitesiItem>()
+  for (const row of rows) {
+    const bolge = (row.BolgeAdi ?? "").trim()
+    if (!bolge) continue
+    if (!map.has(bolge)) {
+      map.set(bolge, {
+        istasyonAdi: bolge,
+        ilce: bolge,
+        pm10: null, no2: null, so2: null, co: null, o3: null,
+        tarih: row.OlcumTarihi?.slice(0, 10) ?? "",
+      })
     }
+    const entry = map.get(bolge)!
+    const deger = parseDeger(row.OlcumDegeri)
+    if (deger === null) continue
+    const gaz = (row.GazAdi ?? "").toUpperCase()
+    if (gaz === "PM10") entry.pm10 = deger
+    else if (gaz === "SO2") entry.so2 = deger
+    else if (gaz === "NO2") entry.no2 = deger
+    else if (gaz === "CO") entry.co = deger
+    else if (gaz === "O3") entry.o3 = deger
   }
-  return null
-}
-
-function normalizeHavaKalitesi(r: RawRecord): HavaKalitesiItem {
-  return {
-    _raw: r,
-    istasyonAdi: strField(r, "IstasyonAdi", "StasyonAdi", "Adi", "ADI", "IstasyonNo", "istasyonAdi", "name"),
-    ilce: strField(r, "ILCE", "Ilce", "IlceAdi", "ilce"),
-    pm10: numField(r, "PM10", "Pm10", "pm10", "PM_10", "DegerPM10", "PM10Deger") ?? pollutantFromNested(r, "PM10"),
-    no2: numField(r, "NO2", "No2", "no2", "NO_2") ?? pollutantFromNested(r, "NO2"),
-    so2: numField(r, "SO2", "So2", "so2", "SO_2") ?? pollutantFromNested(r, "SO2"),
-    co: numField(r, "CO", "Co", "co") ?? pollutantFromNested(r, "CO"),
-    o3: numField(r, "O3", "o3") ?? pollutantFromNested(r, "O3"),
-    tarih: strField(r, "Tarih", "TarihSaat", "Saat", "tarih"),
-  }
-}
-
-type RawHavaKalitesiResponse = RawRecord[] | {
-  havakalitest?: RawRecord[]
-  HavaKalitesi?: RawRecord[]
-  istasyonlar?: RawRecord[]
-  Istasyonlar?: RawRecord[]
-  result?: RawRecord[]
+  return Array.from(map.values())
 }
 
 export const getHavaKalitesi = async (): Promise<HavaKalitesiItem[]> => {
-  const raw = await getIzmir<RawHavaKalitesiResponse>("/api/ibb/cevre/havadegerleri", 3600)
+  const raw = await getIzmir<RawCevreOlcum[] | RawRecord>("/api/ibb/cevre/havadegerleri", 3600)
   if (!raw) return []
-  const arr: RawRecord[] = Array.isArray(raw)
-    ? raw
-    : (raw.havakalitest ?? raw.HavaKalitesi ?? raw.istasyonlar ?? raw.Istasyonlar ?? raw.result ?? [])
-  return arr.map(normalizeHavaKalitesi)
+  const arr = Array.isArray(raw) ? (raw as RawCevreOlcum[]) : []
+  return groupCevreOlcumler(arr)
 }
 
 export function havaKalitesiAdi(item: HavaKalitesiItem): string {
