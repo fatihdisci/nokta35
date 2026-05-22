@@ -1,8 +1,13 @@
+import type { Metadata } from "next"
 import { getHavaDurumu, havaLabel } from "@/lib/hava"
+import { breadcrumbJsonLd, datasetJsonLd, JsonLdScript } from "@/lib/jsonLd"
 
-export const metadata = {
-  title: "Hava Durumu",
-  description: "İzmir 30 ilçesi için anlık hava durumu, sıcaklık, rüzgar, nem.",
+export const metadata: Metadata = {
+  title: "İzmir Anlık Hava Durumu · 30 İlçe Canlı Sıcaklık · nokta35",
+  description: "İzmir ve 30 ilçesinin (Konak, Karşıyaka, Bornova, Buca, Çeşme vb.) anlık hava durumu, rüzgar hızı, nem oranı ve hissedilen sıcaklık değerleri.",
+  alternates: {
+    canonical: "/hava",
+  },
 }
 export const revalidate = 900
 
@@ -30,8 +35,18 @@ export default async function Page() {
   const min = sicakliklar.length ? Math.min(...sicakliklar) : null
   const max = sicakliklar.length ? Math.max(...sicakliklar) : null
 
+  const breadcrumb = breadcrumbJsonLd([{ name: "Hava Durumu", href: "/hava" }])
+  const dataset = datasetJsonLd({
+    name: "İzmir 30 İlçe Hava Durumu Veri Seti",
+    description: "Open-Meteo ve meteoroloji istasyonları aracılığıyla sağlanan İzmir'in 30 ilçesine ait anlık sıcaklık, hissedilen sıcaklık, rüzgar hızı ve nem oranları.",
+    url: "/hava",
+    keywords: ["İzmir hava durumu", "İzmir ilçeleri hava durumu", "İzmir anlık sıcaklık", "İzmir nem oranları"],
+  })
+
   return (
-    <section className="container py-8">
+    <>
+      <JsonLdScript data={[breadcrumb, dataset]} />
+      <section className="container py-8">
       <header className="border-b-2 border-ink pb-3 mb-6">
         <div className="flex items-baseline justify-between">
           <h1 className="font-serif-display text-4xl md:text-5xl">Hava Durumu</h1>
@@ -116,5 +131,6 @@ export default async function Page() {
         </div>
       )}
     </section>
+    </>
   )
 }

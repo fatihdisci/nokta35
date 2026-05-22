@@ -1,4 +1,5 @@
 import { Suspense } from "react"
+import type { Metadata } from "next"
 import { Ticker } from "@/components/layout/Ticker"
 import { StatBar } from "@/components/widgets/StatBar"
 import { BarajWidget } from "@/components/widgets/BarajWidget"
@@ -10,6 +11,14 @@ import { HavaWidget } from "@/components/widgets/HavaWidget"
 import { IzbanSefer } from "@/components/widgets/IzbanSefer"
 import { MetroTramvay } from "@/components/widgets/MetroTramvay"
 import { AdSlot } from "@/components/ads/AdSlot"
+
+export const metadata: Metadata = {
+  title: "nokta35 · Tek noktadan İzmir'e dair her şey",
+  description: "İzmir Büyükşehir Belediyesi açık verilerini gerçek zamanlı görselleştiren bağımsız şehir veri platformu. Baraj doluluk oranları, nöbetçi eczaneler, otopark kapasiteleri, hava durumu ve ulaşım saatleri.",
+  alternates: {
+    canonical: "/",
+  },
+}
 
 export const revalidate = 60
 

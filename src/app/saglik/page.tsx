@@ -1,9 +1,13 @@
+import type { Metadata } from "next"
 import { getEczaneler } from "@/lib/data"
+import { breadcrumbJsonLd, datasetJsonLd, JsonLdScript } from "@/lib/jsonLd"
 
-export const metadata = {
-  title: "Sağlık · Nöbetçi Eczane",
-  description:
-    "Bugünün İzmir nöbetçi eczanelerinin tam listesi: isim, adres, telefon, bölge.",
+export const metadata: Metadata = {
+  title: "İzmir Nöbetçi Eczaneler · Güncel Canlı Liste · nokta35",
+  description: "İzmir'de bugünün nöbetçi eczaneleri. Konak, Karşıyaka, Bornova, Buca dahil tüm 30 ilçenin nöbetçi eczane adresleri, telefonları ve konum detayları.",
+  alternates: {
+    canonical: "/saglik",
+  },
 }
 export const revalidate = 1800
 
@@ -21,8 +25,18 @@ export default async function Page() {
   }
   const bolgeler = Array.from(grouped.keys()).sort()
 
+  const breadcrumb = breadcrumbJsonLd([{ name: "Sağlık", href: "/saglik" }])
+  const dataset = datasetJsonLd({
+    name: "İzmir Nöbetçi Eczaneler Canlı Veri Seti",
+    description: "İzmir ilindeki tüm ilçelerin bugünkü nöbetçi eczaneleri listesi, telefon numaraları, adresleri ve bölge açıklamaları.",
+    url: "/saglik",
+    keywords: ["İzmir nöbetçi eczane", "İzmir bugün nöbetçi eczaneler", "Konak nöbetçi eczane", "Karşıyaka nöbetçi eczane", "Bornova nöbetçi eczane"],
+  })
+
   return (
-    <section className="container py-8">
+    <>
+      <JsonLdScript data={[breadcrumb, dataset]} />
+      <section className="container py-8">
       <header className="border-b-2 border-ink pb-3 mb-6 flex items-baseline justify-between">
         <h1 className="font-serif-display text-4xl md:text-5xl">
           Nöbetçi Eczane
@@ -82,5 +96,6 @@ export default async function Page() {
         </div>
       )}
     </section>
+    </>
   )
 }

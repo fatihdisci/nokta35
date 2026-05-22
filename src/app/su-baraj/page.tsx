@@ -1,9 +1,13 @@
+import type { Metadata } from "next"
 import { getBarajlar, getKesintiler } from "@/lib/data"
+import { breadcrumbJsonLd, datasetJsonLd, JsonLdScript } from "@/lib/jsonLd"
 
-export const metadata = {
-  title: "Su & Baraj",
-  description:
-    "İzmir barajlarının anlık doluluk oranı + tüm aktif su kesintileri (İZSU).",
+export const metadata: Metadata = {
+  title: "İzmir Baraj Doluluk Oranları ve Su Kesintileri · nokta35",
+  description: "İzmir barajlarının (Tahtalı, Balçova, Ürkmez, Gördes) anlık doluluk yüzdeleri, su yükseklikleri, aktif kapasiteleri ve İZSU güncel su kesintileri listesi.",
+  alternates: {
+    canonical: "/su-baraj",
+  },
 }
 export const revalidate = 600
 
@@ -34,8 +38,17 @@ export default async function Page() {
         )
       : 0
 
+  const breadcrumb = breadcrumbJsonLd([{ name: "Su & Baraj", href: "/su-baraj" }])
+  const dataset = datasetJsonLd({
+    name: "İzmir Baraj Doluluk Oranları ve Aktif Su Kesintileri Veri Seti",
+    description: "İzmir barajları (Tahtalı, Balçova, Ürkmez, Gördes, Alaçatı Kutlu Aktaş) anlık doluluk yüzdeleri, su hacimleri ve İZSU Genel Müdürlüğü tarafından bildirilen güncel ilçe bazlı su kesintileri.",
+    url: "/su-baraj",
+    keywords: ["İzmir baraj doluluk", "İzmir su kesintileri", "İZSU kesinti sorgulama", "İzmir baraj su seviyesi", "Tahtalı barajı doluluk"],
+  })
+
   return (
     <>
+      <JsonLdScript data={[breadcrumb, dataset]} />
       <section className="container py-8">
         <header className="border-b-2 border-ink pb-3 mb-6">
           <div className="flex items-baseline justify-between">

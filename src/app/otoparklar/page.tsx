@@ -1,9 +1,13 @@
+import type { Metadata } from "next"
 import { getOtoparklar, otoparkKapasite } from "@/lib/data"
+import { breadcrumbJsonLd, datasetJsonLd, JsonLdScript } from "@/lib/jsonLd"
 
-export const metadata = {
-  title: "Otoparklar",
-  description:
-    "İzmir İZELMAN / İzum otoparkları anlık doluluk verisi. Tüm otoparkların dolu/boş kapasitesi.",
+export const metadata: Metadata = {
+  title: "İzmir Otopark Doluluk Oranları · İZELMAN & İZUM · nokta35",
+  description: "İzmir genelindeki tüm İZELMAN ve İZUM otoparklarının anlık boş ve dolu kapasiteleri, konumları, ücretli/ücretsiz durumları ve güncel doluluk yüzdeleri.",
+  alternates: {
+    canonical: "/otoparklar",
+  },
 }
 export const revalidate = 30
 
@@ -34,8 +38,18 @@ export default async function OtoparklarPage() {
   const totKap = list.reduce((s, x) => s + x.total, 0)
   const ortDoluluk = totKap > 0 ? Math.round((totDolu / totKap) * 100) : 0
 
+  const breadcrumb = breadcrumbJsonLd([{ name: "Otoparklar", href: "/otoparklar" }])
+  const dataset = datasetJsonLd({
+    name: "İzmir Otopark Kapasite ve Anlık Doluluk Veri Seti",
+    description: "İzmir Büyükşehir Belediyesi İZELMAN ve İZUM otoparkları anlık doluluk oranları, boş/dolu yer sayıları, otopark kapasiteleri ve konum bilgileri.",
+    url: "/otoparklar",
+    keywords: ["İzmir otopark doluluk", "İZELMAN otopark", "İzmir ücretsiz otoparklar", "İzmir otopark kapasiteleri"],
+  })
+
   return (
-    <section className="container py-8">
+    <>
+      <JsonLdScript data={[breadcrumb, dataset]} />
+      <section className="container py-8">
       <header className="border-b-2 border-ink pb-3 mb-6">
         <div className="flex items-baseline justify-between">
           <h1 className="font-serif-display text-4xl md:text-5xl">Otoparklar</h1>
@@ -109,5 +123,6 @@ export default async function OtoparklarPage() {
         </div>
       )}
     </section>
+    </>
   )
 }

@@ -4,6 +4,7 @@ import { Playfair_Display, JetBrains_Mono } from "next/font/google"
 import "./globals.css"
 import { Navbar } from "@/components/layout/Navbar"
 import { Footer } from "@/components/layout/Footer"
+import { organizationJsonLd, JsonLdScript } from "@/lib/jsonLd"
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -83,6 +84,7 @@ export default function RootLayout({
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9695860606070067"
           crossOrigin="anonymous"
         />
+        <JsonLdScript data={organizationJsonLd()} />
       </head>
       <body>
         <Navbar />

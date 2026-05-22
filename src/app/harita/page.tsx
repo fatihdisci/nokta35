@@ -1,9 +1,16 @@
+import type { Metadata } from "next"
 import { Placeholder } from "@/components/layout/Placeholder"
 
-export const metadata = {
-  title: "Harita",
-  description:
-    "İzmir canlı harita: otobüs, eczane, otopark, pazar yerleri — yakında.",
+export const metadata: Metadata = {
+  title: "Harita · nokta35",
+  description: "İzmir canlı harita: otobüs, eczane, otopark, pazar yerleri — yakında.",
+  alternates: {
+    canonical: "/harita",
+  },
+  robots: {
+    index: false,
+    follow: true,
+  },
 }
 
 export default function Page() {
