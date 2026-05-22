@@ -1,6 +1,10 @@
 import { MapClient } from "@/components/map/MapClient"
 
-export const metadata = { title: "Harita — nokta35" }
+export const metadata = {
+  title: "Harita",
+  description:
+    "İzmir canlı harita: otobüs konumları, nöbetçi eczane, otopark doluluk, pazar yerleri tek ekranda.",
+}
 
 export default function Page() {
   return (

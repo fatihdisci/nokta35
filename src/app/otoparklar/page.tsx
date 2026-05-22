@@ -1,6 +1,10 @@
 import { getOtoparklar, otoparkKapasite } from "@/lib/data"
 
-export const metadata = { title: "Otoparklar — nokta35" }
+export const metadata = {
+  title: "Otoparklar",
+  description:
+    "İzmir İZELMAN / İzum otoparkları anlık doluluk verisi. Tüm otoparkların dolu/boş kapasitesi.",
+}
 export const revalidate = 30
 
 function Bar({ pct }: { pct: number }) {
