@@ -113,6 +113,7 @@ export type RawRecord = Record<string, unknown>
 
 export type EtkinlikItem = {
   _raw: RawRecord
+  id: number
   adi: string
   tur: string
   mekan: string
@@ -122,6 +123,9 @@ export type EtkinlikItem = {
   biletLinki: string
   ucretsiz: boolean
   ilce: string
+  resim: string
+  aciklama: string
+  detayUrl: string
 }
 
 function strField(r: RawRecord, ...keys: string[]): string {
@@ -133,6 +137,10 @@ function strField(r: RawRecord, ...keys: string[]): string {
   return ""
 }
 
+function stripHtml(s: string): string {
+  return s.replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim()
+}
+
 function normalizeEtkinlik(r: RawRecord): EtkinlikItem {
   const ucretsizVal = r.UcretsizMi ?? r.Ucretsiz ?? r.ucretsizmi ?? r.ucretsiz ?? r.Free ?? ""
   const ucretsiz =
@@ -142,17 +150,24 @@ function normalizeEtkinlik(r: RawRecord): EtkinlikItem {
     String(ucretsizVal).toLowerCase() === "true" ||
     String(ucretsizVal).toLowerCase() === "evet"
 
+  const slug = strField(r, "EtkinlikUrl", "Slug", "slug", "Url", "URL")
+  const kisaAciklama = strField(r, "KisaAciklama", "Aciklama", "Ozet", "Tanim", "Description")
+
   return {
     _raw: r,
-    adi: strField(r, "EtkinlikAdi", "Adi", "ADI", "Ad", "Baslik", "BASLIK", "etkinlikAdi", "name", "Name", "Etkinlik"),
-    tur: strField(r, "EtkinlikTuru", "Tur", "TUR", "Kategori", "KATEGORI", "Tip", "TIP", "EtkinlikTur", "type"),
-    mekan: strField(r, "Mekan", "MekanAdi", "MEKAN", "mekan", "Salon", "Yer", "YER"),
-    baslangic: strField(r, "BaslangicTarihi", "Tarih", "TARIH", "TarihSaat", "BaslangicZamani", "StartDate"),
-    bitis: strField(r, "BitisTarihi", "BitisTarih", "BitisZamani", "EndDate"),
+    id: typeof r.Id === "number" ? r.Id : 0,
+    adi: strField(r, "Adi", "EtkinlikAdi", "ADI", "Ad", "Baslik", "BASLIK", "name", "Name", "Etkinlik"),
+    tur: strField(r, "Tur", "EtkinlikTuru", "TUR", "Kategori", "KATEGORI", "Tip", "TIP", "type"),
+    mekan: strField(r, "EtkinlikMerkezi", "Mekan", "MekanAdi", "MEKAN", "Salon", "Yer", "YER"),
+    baslangic: strField(r, "EtkinlikBaslamaTarihi", "BaslangicTarihi", "Tarih", "TARIH", "TarihSaat", "StartDate"),
+    bitis: strField(r, "EtkinlikBitisTarihi", "BitisTarihi", "BitisTarih", "BitisZamani", "EndDate"),
     adres: strField(r, "Adres", "ADRES", "adres", "Konum"),
-    biletLinki: strField(r, "BiletLinki", "BiletUrl", "BiletLink", "Url", "URL", "Link"),
+    biletLinki: strField(r, "BiletSatisLinki", "BiletLinki", "BiletUrl", "BiletLink"),
     ucretsiz,
     ilce: strField(r, "ILCE", "Ilce", "IlceAdi", "ilce"),
+    resim: strField(r, "KucukAfis", "Resim", "AfisUrl", "Image", "image"),
+    aciklama: kisaAciklama ? stripHtml(kisaAciklama) : "",
+    detayUrl: slug ? `https://kultursanat.izmir.bel.tr/etkinlik/${slug}` : "",
   }
 }
 

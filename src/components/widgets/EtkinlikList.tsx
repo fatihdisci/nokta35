@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useMemo } from "react"
+import Image from "next/image"
 import type { EtkinlikItem } from "@/lib/data"
 
 function formatTarih(tarih: string): string {
@@ -94,49 +95,80 @@ export function EtkinlikList({ etkinlikler }: { etkinlikler: EtkinlikItem[] }) {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {filtered.map((e, i) => (
             <article
-              key={`${e.adi}-${i}`}
-              className="border-2 border-light-gray hover:border-ink bg-cream p-4 transition-colors flex flex-col gap-2"
+              key={e.id || `${e.adi}-${i}`}
+              className="border-2 border-light-gray hover:border-ink bg-cream transition-colors flex flex-col"
             >
-              {e.tur && (
-                <span className="self-start text-[9px] uppercase tracking-[0.2em] px-2 py-0.5 bg-ink text-cream">
-                  {e.tur}
-                </span>
+              {e.resim && (
+                <div className="relative w-full h-44 overflow-hidden border-b-2 border-light-gray">
+                  <Image
+                    src={e.resim}
+                    alt={e.adi || "Etkinlik"}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-cover"
+                    unoptimized
+                  />
+                </div>
               )}
 
-              <h3 className="font-mono text-sm uppercase tracking-wide text-ink leading-tight">
-                {e.adi || "—"}
-              </h3>
-
-              <div className="space-y-0.5 text-[11px] flex-1">
-                {e.ilce && <div className="text-orange uppercase tracking-widest font-mono">{e.ilce}</div>}
-                {e.mekan && <div className="text-gray uppercase tracking-wide">{e.mekan}</div>}
-                {e.adres && e.adres !== e.mekan && (
-                  <div className="text-gray normal-case tracking-normal leading-snug">{e.adres}</div>
-                )}
-                {(e.baslangic || e.bitis) && (
-                  <div className="text-ink/70 font-mono text-[10px] mt-1">
-                    {formatTarih(e.baslangic)}
-                    {e.bitis && e.bitis !== e.baslangic && <span> → {formatTarih(e.bitis)}</span>}
-                  </div>
-                )}
-              </div>
-
-              <div className="flex items-center gap-2 mt-auto flex-wrap">
-                {e.ucretsiz && (
-                  <span className="text-[9px] uppercase tracking-[0.2em] px-2 py-0.5 border border-orange text-orange">
-                    Ücretsiz
+              <div className="p-4 flex flex-col gap-2 flex-1">
+                {e.tur && (
+                  <span className="self-start text-[9px] uppercase tracking-[0.2em] px-2 py-0.5 bg-ink text-cream">
+                    {e.tur}
                   </span>
                 )}
-                {e.biletLinki && (
-                  <a
-                    href={e.biletLinki}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-[9px] uppercase tracking-[0.2em] text-orange hover:underline border border-orange px-2 py-1 hover:bg-orange hover:text-cream transition-colors"
-                  >
-                    Bilet →
-                  </a>
+
+                <h3 className="font-serif-display text-base leading-tight text-ink">
+                  {e.adi || "—"}
+                </h3>
+
+                {e.aciklama && (
+                  <p className="text-[11px] text-gray leading-snug line-clamp-3">
+                    {e.aciklama}
+                  </p>
                 )}
+
+                <div className="space-y-0.5 text-[11px] flex-1 mt-1">
+                  {e.ilce && <div className="text-orange uppercase tracking-widest font-mono">{e.ilce}</div>}
+                  {e.mekan && <div className="text-gray uppercase tracking-wide font-mono">{e.mekan}</div>}
+                  {e.adres && e.adres !== e.mekan && (
+                    <div className="text-gray normal-case tracking-normal leading-snug">{e.adres}</div>
+                  )}
+                  {(e.baslangic || e.bitis) && (
+                    <div className="text-ink/70 font-mono text-[10px] mt-1">
+                      {formatTarih(e.baslangic)}
+                      {e.bitis && e.bitis !== e.baslangic && <span> → {formatTarih(e.bitis)}</span>}
+                    </div>
+                  )}
+                </div>
+
+                <div className="flex items-center gap-2 mt-auto pt-2 flex-wrap">
+                  {e.ucretsiz && (
+                    <span className="text-[9px] uppercase tracking-[0.2em] px-2 py-0.5 border border-orange text-orange">
+                      Ücretsiz
+                    </span>
+                  )}
+                  {e.detayUrl && (
+                    <a
+                      href={e.detayUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[9px] uppercase tracking-[0.2em] text-orange border border-orange px-2 py-1 hover:bg-orange hover:text-cream transition-colors"
+                    >
+                      Detay →
+                    </a>
+                  )}
+                  {e.biletLinki && (
+                    <a
+                      href={e.biletLinki}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[9px] uppercase tracking-[0.2em] text-orange border border-orange px-2 py-1 hover:bg-orange hover:text-cream transition-colors"
+                    >
+                      Bilet →
+                    </a>
+                  )}
+                </div>
               </div>
             </article>
           ))}

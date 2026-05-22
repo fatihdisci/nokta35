@@ -34,24 +34,35 @@ export async function EtkinlikWidget() {
       ) : (
         <>
           <ul className="space-y-3 text-xs flex-1">
-            {list.map((e, i) => (
-              <li key={`${e.adi || i}`} className="border-l-2 border-orange pl-3 py-1">
-                <div className="font-mono uppercase tracking-wide text-ink leading-tight truncate">
-                  {e.adi || "—"}
-                </div>
-                {(e.tur || e.ilce) && (
-                  <div className="text-[10px] uppercase tracking-widest text-orange mt-0.5">
-                    {[e.tur, e.ilce].filter(Boolean).join(" · ")}
+            {list.map((e, i) => {
+              const content = (
+                <>
+                  <div className="font-mono uppercase tracking-wide text-ink leading-tight truncate">
+                    {e.adi || "—"}
                   </div>
-                )}
-                {(e.mekan || e.baslangic) && (
-                  <div className="text-gray mt-0.5 font-mono text-[10px]">
-                    {e.mekan && <span>{e.mekan}</span>}
-                    {e.baslangic && <span className="ml-1 text-ink">· {formatTarih(e.baslangic)}</span>}
-                  </div>
-                )}
-              </li>
-            ))}
+                  {(e.tur || e.ilce) && (
+                    <div className="text-[10px] uppercase tracking-widest text-orange mt-0.5">
+                      {[e.tur, e.ilce].filter(Boolean).join(" · ")}
+                    </div>
+                  )}
+                  {(e.mekan || e.baslangic) && (
+                    <div className="text-gray mt-0.5 font-mono text-[10px]">
+                      {e.mekan && <span>{e.mekan}</span>}
+                      {e.baslangic && <span className="ml-1 text-ink">· {formatTarih(e.baslangic)}</span>}
+                    </div>
+                  )}
+                </>
+              )
+              return (
+                <li key={e.id || `${e.adi}-${i}`} className="border-l-2 border-orange pl-3 py-1">
+                  {e.detayUrl ? (
+                    <a href={e.detayUrl} target="_blank" rel="noopener noreferrer" className="hover:text-orange transition-colors block">
+                      {content}
+                    </a>
+                  ) : content}
+                </li>
+              )
+            })}
           </ul>
           <WidgetMore href="/etkinlikler" count={etkinlikler.length} />
         </>
