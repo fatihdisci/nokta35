@@ -102,22 +102,22 @@ export function IzbanSefer() {
         return h * 60 + m
       }
       const currentMin = parseTimeToMin(currentTime)
-      const cutoffMin = currentMin - 10 // Show flights that left up to 10 minutes ago
 
-      const nextIdx = seferler.findIndex((s) => {
+      // The actual next flight is strictly greater than or equal to the actual current time
+      const highlightIdxInOriginal = seferler.findIndex((s) => {
         const timeStr = s.HareketSaati?.slice(0, 5) ?? ""
         if (!timeStr) return false
-        return parseTimeToMin(timeStr) >= cutoffMin
+        return parseTimeToMin(timeStr) >= currentMin
       })
 
-      if (nextIdx === -1) {
+      if (highlightIdxInOriginal === -1) {
         // All flights departed for today, show last 18
         displayedSeferler = seferler.slice(-18)
       } else {
         // Show up to 2 past flights for context and fill up to 18
-        const startIdx = Math.max(0, nextIdx - 2)
+        const startIdx = Math.max(0, highlightIdxInOriginal - 2)
         displayedSeferler = seferler.slice(startIdx, startIdx + 18)
-        nextSeferIndex = nextIdx - startIdx
+        nextSeferIndex = highlightIdxInOriginal - startIdx
       }
     } else {
       // Fallback if client time not loaded yet
