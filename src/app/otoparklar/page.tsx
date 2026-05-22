@@ -139,6 +139,16 @@ export default async function OtoparklarPage() {
                   <span>{x.o.provider ?? "—"}</span>
                   <span>{x.o.isPaid ? "Ücretli" : "Ücretsiz"}</span>
                 </div>
+                {x.o.lat && x.o.lng && (
+                  <a
+                    href={`https://www.google.com/maps/dir/?api=1&destination=${x.o.lat},${x.o.lng}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="self-start text-[9px] uppercase tracking-[0.2em] text-orange border border-orange px-2 py-1 hover:bg-orange hover:text-cream transition-colors"
+                  >
+                    Haritada Gör →
+                  </a>
+                )}
               </article>
             ))}
           </div>

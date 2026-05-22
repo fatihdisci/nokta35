@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import { getEczaneler } from "@/lib/data"
+import { parseCoord } from "@/lib/api"
 import { breadcrumbJsonLd, datasetJsonLd, JsonLdScript, faqJsonLd } from "@/lib/jsonLd"
 import { FaqSection } from "@/components/widgets/FaqSection"
 
@@ -107,6 +108,20 @@ export default async function Page() {
                             {e.Telefon}
                           </a>
                         )}
+                        {e.LokasyonX && e.LokasyonY && (() => {
+                          const lat = parseCoord(e.LokasyonX)
+                          const lon = parseCoord(e.LokasyonY)
+                          return !isNaN(lat) && !isNaN(lon) && lat !== 0 ? (
+                            <a
+                              href={`https://www.google.com/maps/dir/?api=1&destination=${lat},${lon}`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="mt-auto self-start text-[9px] uppercase tracking-[0.2em] text-orange border border-orange px-2 py-1 hover:bg-orange hover:text-cream transition-colors"
+                            >
+                              Haritada Gör →
+                            </a>
+                          ) : null
+                        })()}
                       </article>
                     ))}
                   </div>
