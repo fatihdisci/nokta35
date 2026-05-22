@@ -17,7 +17,7 @@ import { HavaKalitesiWidget } from "@/components/widgets/HavaKalitesiWidget"
 
 export const metadata: Metadata = {
   title: { absolute: "nokta35 · Tek noktadan İzmir'e dair her şey" },
-  description: "İzmir Büyükşehir Belediyesi açık verilerini gerçek zamanlı görselleştiren bağımsız şehir veri platformu. Baraj doluluk oranları, nöbetçi eczaneler, otopark kapasiteleri, hava durumu ve ulaşım saatleri.",
+  description: "İzmir açık veri platformu: baraj doluluk, nöbetçi eczane, otopark kapasitesi, hava durumu, İZBAN sefer saatleri ve su kesintileri — tek sayfada, anlık.",
   alternates: {
     canonical: "/",
   },
