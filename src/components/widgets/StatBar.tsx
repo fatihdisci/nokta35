@@ -5,6 +5,7 @@ import {
   getKesintiler,
   otoparkKapasite,
 } from "@/lib/data"
+import { getHavaDurumu } from "@/lib/hava"
 
 function toNum(v: unknown): number {
   if (typeof v === "number") return v
@@ -15,11 +16,12 @@ function toNum(v: unknown): number {
 type Stat = { label: string; value: string; unit?: string }
 
 export async function StatBar() {
-  const [barajlar, eczaneler, otoparklar, kesintiler] = await Promise.all([
+  const [barajlar, eczaneler, otoparklar, kesintiler, hava] = await Promise.all([
     getBarajlar(),
     getEczaneler(),
     getOtoparklar(),
     getKesintiler(),
+    getHavaDurumu(),
   ])
 
   const ortBaraj =
@@ -41,15 +43,19 @@ export async function StatBar() {
   }
   const doluluk = totKap > 0 ? Math.round((totDolu / totKap) * 100) : null
 
+  const konak = hava?.find((h) => h.ilce === "Konak")
+  const ortSicaklik = (() => {
+    if (!hava) return null
+    const s = hava.map((h) => h.sicaklik).filter((x): x is number => x !== null)
+    if (!s.length) return null
+    return Math.round(s.reduce((a, b) => a + b, 0) / s.length)
+  })()
+
   const stats: Stat[] = [
     {
       label: "Ort. Baraj",
       value: ortBaraj !== null ? `${ortBaraj}` : "—",
       unit: "%",
-    },
-    {
-      label: "Otobüs",
-      value: "canlı",
     },
     {
       label: "Nöbetçi Eczane",
@@ -65,8 +71,15 @@ export async function StatBar() {
       value: kesintiler ? `${kesintiler.length}` : "—",
     },
     {
-      label: "Hava",
-      value: "—",
+      label: "Konak",
+      value:
+        konak && konak.sicaklik !== null ? `${Math.round(konak.sicaklik)}` : "—",
+      unit: "°",
+    },
+    {
+      label: "Ort. Hava",
+      value: ortSicaklik !== null ? `${ortSicaklik}` : "—",
+      unit: "°",
     },
   ]
 

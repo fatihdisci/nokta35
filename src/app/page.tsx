@@ -4,10 +4,10 @@ import { StatBar } from "@/components/widgets/StatBar"
 import { BarajWidget } from "@/components/widgets/BarajWidget"
 import { EczanePanel } from "@/components/widgets/EczanePanel"
 import { KesintiAlert } from "@/components/widgets/KesintiAlert"
+import { OtoparkWidget } from "@/components/widgets/OtoparkWidget"
+import { HavaWidget } from "@/components/widgets/HavaWidget"
 import { HalGrid } from "@/components/widgets/HalGrid"
-import { EshotYaklasan } from "@/components/widgets/EshotYaklasan"
 import { IzbanSefer } from "@/components/widgets/IzbanSefer"
-import { IzbanUcret } from "@/components/widgets/IzbanUcret"
 import { MetroTramvay } from "@/components/widgets/MetroTramvay"
 import { AdSlot } from "@/components/ads/AdSlot"
 
@@ -46,7 +46,7 @@ export default function HomePage() {
           <span className="text-orange">İzmir'e</span> dair her şey.
         </h1>
         <p className="mt-6 max-w-2xl text-sm text-gray uppercase tracking-wide leading-relaxed">
-          Barajlardan otobüslere, nöbetçi eczaneden hal fiyatlarına —
+          Barajlardan eczaneye, otoparktan hava durumuna —
           açık veri ile gerçek zamanlı şehir paneli.
         </p>
       </section>
@@ -73,11 +73,16 @@ export default function HomePage() {
         <Suspense fallback={<WidgetSkeleton title="Su Kesintisi" />}>
           <KesintiAlert />
         </Suspense>
+        <Suspense fallback={<WidgetSkeleton title="Otoparklar" />}>
+          <OtoparkWidget />
+        </Suspense>
+        <Suspense fallback={<WidgetSkeleton title="Hava Durumu" />}>
+          <HavaWidget />
+        </Suspense>
+        <div className="flex items-center justify-center">
+          <AdSlot id="AD-2" size="rectangle" className="my-0" />
+        </div>
       </section>
-
-      <div className="container flex justify-center">
-        <AdSlot id="AD-2" size="rectangle" />
-      </div>
 
       <div className="container">
         <AdSlot id="AD-3" size="inline" />
@@ -106,17 +111,14 @@ export default function HomePage() {
         <header className="flex items-baseline justify-between mb-4 border-b-2 border-ink pb-2">
           <h2 className="font-serif-display text-3xl">Ulaşım</h2>
           <span className="text-[10px] uppercase tracking-[0.2em] text-gray">
-            ESHOT · İZBAN · Metro
+            İZBAN · Metro · Tramvay
           </span>
         </header>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <EshotYaklasan />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <IzbanSefer />
           <MetroTramvay />
         </div>
       </section>
-
-      <IzbanUcret />
 
       <div className="container">
         <AdSlot id="AD-5" size="leaderboard" />
