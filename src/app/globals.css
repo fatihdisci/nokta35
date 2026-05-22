@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --cream: #f4f1ea;
+  --ink: #1a1a1a;
+  --orange: #d63800;
+  --gray: #888888;
+  --light-gray: #e8e4db;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body {
+  background-color: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-jetbrains), ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+/* 32px brutalist grid texture */
+body {
+  position: relative;
+  min-height: 100vh;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    linear-gradient(to right, rgba(26, 26, 26, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(26, 26, 26, 0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+main,
+header,
+footer,
+section {
+  position: relative;
+  z-index: 1;
+}
+
+.font-serif-display {
+  font-family: var(--font-playfair), Georgia, serif;
+}
