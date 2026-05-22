@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     canonical: "/hava",
   },
 }
-export const revalidate = 3600
+export const revalidate = 900
 
 function fmtT(n: number | null | undefined) {
   if (n === null || n === undefined) return "—"

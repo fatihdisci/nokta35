@@ -3,8 +3,9 @@ import { getPazarYerleri, GUN_ADLARI } from "@/lib/data"
 import { PazarList } from "@/components/widgets/PazarList"
 import { breadcrumbJsonLd, datasetJsonLd, faqJsonLd, JsonLdScript } from "@/lib/jsonLd"
 import { FaqSection } from "@/components/widgets/FaqSection"
+import { istanbulGunu } from "@/lib/utils"
 
-export const revalidate = 86400
+export const revalidate = 1800
 
 export const metadata: Metadata = {
   title: "İzmir Semt Pazarları · Hangi Gün Nerede Pazar Var",
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
 
 export default async function OnemliYerlerPage() {
   const pazarlar = await getPazarYerleri()
-  const bugunIndex = new Date().getDay()
+  const bugunIndex = istanbulGunu()
   const bugunAcik = pazarlar.filter((p) => p.gun === bugunIndex)
 
   const gunSayilari: Record<number, number> = {}

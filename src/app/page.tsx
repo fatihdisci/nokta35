@@ -14,6 +14,7 @@ import { FaqSection } from "@/components/widgets/FaqSection"
 import { PazarWidget } from "@/components/widgets/PazarWidget"
 import { EtkinlikWidget } from "@/components/widgets/EtkinlikWidget"
 import { HavaKalitesiWidget } from "@/components/widgets/HavaKalitesiWidget"
+import { LiveClock } from "@/components/layout/LiveClock"
 
 export const metadata: Metadata = {
   title: { absolute: "nokta35 · Tek noktadan İzmir'e dair her şey" },
@@ -39,13 +40,6 @@ function WidgetSkeleton({ title }: { title: string }) {
 }
 
 export default function HomePage() {
-  const today = new Date().toLocaleDateString("tr-TR", {
-    weekday: "long",
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-  })
-
   const faqItems = [
     {
       question: "nokta35 nedir ve hangi İzmir verilerini sunar?",
@@ -67,9 +61,7 @@ export default function HomePage() {
     <>
       <JsonLdScript data={faqSchema} />
       <section className="container py-12">
-        <div className="text-xs uppercase tracking-[0.2em] text-gray mb-4">
-          {today} · İzmir
-        </div>
+        <LiveClock />
         <h1 className="font-serif-display text-5xl md:text-7xl leading-[0.95] text-ink">
           Tek noktadan
           <br />
