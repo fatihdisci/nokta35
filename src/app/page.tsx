@@ -13,6 +13,7 @@ import { faqJsonLd, JsonLdScript } from "@/lib/jsonLd"
 import { FaqSection } from "@/components/widgets/FaqSection"
 import { PazarWidget } from "@/components/widgets/PazarWidget"
 import { EtkinlikWidget } from "@/components/widgets/EtkinlikWidget"
+import { HavaKalitesiWidget } from "@/components/widgets/HavaKalitesiWidget"
 
 export const metadata: Metadata = {
   title: "nokta35 · Tek noktadan İzmir'e dair her şey",
@@ -113,6 +114,9 @@ export default function HomePage() {
         </Suspense>
         <Suspense fallback={<WidgetSkeleton title="Etkinlikler" />}>
           <EtkinlikWidget />
+        </Suspense>
+        <Suspense fallback={<WidgetSkeleton title="Hava Kalitesi" />}>
+          <HavaKalitesiWidget />
         </Suspense>
       </section>
 

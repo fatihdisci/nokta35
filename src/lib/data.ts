@@ -131,6 +131,52 @@ export const getEtkinlikler = async (): Promise<EtkinlikItem[]> => {
   return raw.etkinlikler ?? raw.Etkinlikler ?? []
 }
 
+export type HavaKalitesiItem = {
+  IstasyonAdi?: string
+  StasyonAdi?: string
+  Adi?: string
+  ILCE?: string
+  Ilce?: string
+  PM10?: number | string
+  PM25?: number | string
+  NO2?: number | string
+  SO2?: number | string
+  CO?: number | string
+  O3?: number | string
+  Tarih?: string
+  Saat?: string
+}
+
+export function havaKalitesiAdi(item: HavaKalitesiItem): string {
+  return item.IstasyonAdi ?? item.StasyonAdi ?? item.Adi ?? ""
+}
+
+export function havaKalitesiIlce(item: HavaKalitesiItem): string {
+  return item.ILCE ?? item.Ilce ?? ""
+}
+
+export function pm10Seviye(pm10: number): { label: string; renk: string } {
+  if (pm10 <= 50) return { label: "İyi", renk: "text-green-600" }
+  if (pm10 <= 100) return { label: "Orta", renk: "text-yellow-600" }
+  if (pm10 <= 200) return { label: "Hassas", renk: "text-orange" }
+  return { label: "Sağlıksız", renk: "text-red-600" }
+}
+
+export function parsePollutant(val?: number | string): number | null {
+  if (val === undefined || val === null) return null
+  const n = typeof val === "number" ? val : parseFloat(String(val).replace(",", "."))
+  return isNaN(n) ? null : n
+}
+
+type RawHavaKalitesiResponse = HavaKalitesiItem[] | { havakalitest?: HavaKalitesiItem[]; HavaKalitesi?: HavaKalitesiItem[]; istasyonlar?: HavaKalitesiItem[] }
+
+export const getHavaKalitesi = async (): Promise<HavaKalitesiItem[]> => {
+  const raw = await getIzmir<RawHavaKalitesiResponse>("/api/ibb/cevre/havadegerleri", 3600)
+  if (!raw) return []
+  if (Array.isArray(raw)) return raw
+  return raw.havakalitest ?? raw.HavaKalitesi ?? raw.istasyonlar ?? []
+}
+
 type RawPazarResponse = { onemliyer?: Record<string, unknown>[] }
 
 export const getPazarYerleri = async (): Promise<PazarYeriItem[]> => {
