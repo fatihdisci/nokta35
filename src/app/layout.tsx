@@ -1,5 +1,7 @@
 import type { Metadata, Viewport } from "next"
 import { Playfair_Display, JetBrains_Mono } from "next/font/google"
+import Script from "next/script"
+import { Analytics } from "@vercel/analytics/react"
 
 import "./globals.css"
 import { Navbar } from "@/components/layout/Navbar"
@@ -76,6 +78,8 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  const gaId = process.env.NEXT_PUBLIC_GA_ID
+
   return (
     <html lang="tr" className={`${playfair.variable} ${jetbrains.variable}`}>
       <head>
@@ -85,12 +89,30 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
         <JsonLdScript data={organizationJsonLd()} />
+        {gaId && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
+              strategy="afterInteractive"
+            />
+            <Script id="google-analytics" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${gaId}');
+              `}
+            </Script>
+          </>
+        )}
       </head>
       <body>
         <Navbar />
         <main>{children}</main>
         <Footer />
+        <Analytics />
       </body>
     </html>
   )
 }
+
