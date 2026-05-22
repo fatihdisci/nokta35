@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { getBarajlar, getKesintiler } from "@/lib/data"
-import { breadcrumbJsonLd, datasetJsonLd, JsonLdScript } from "@/lib/jsonLd"
+import { breadcrumbJsonLd, datasetJsonLd, JsonLdScript, faqJsonLd } from "@/lib/jsonLd"
+import { FaqSection } from "@/components/widgets/FaqSection"
 
 export const metadata: Metadata = {
   title: "İzmir Baraj Doluluk Oranları ve Su Kesintileri · nokta35",
@@ -46,9 +47,28 @@ export default async function Page() {
     keywords: ["İzmir baraj doluluk", "İzmir su kesintileri", "İZSU kesinti sorgulama", "İzmir baraj su seviyesi", "Tahtalı barajı doluluk"],
   })
 
+  const faqItems = [
+    {
+      question: "İzmir barajlarının güncel doluluk oranı ne kadar?",
+      answer: `İzmir genelindeki barajların anlık ortalama doluluk oranı %${ortDoluluk} olarak ölçülmüştür. En güncel veriler İZSU Genel Müdürlüğü altyapısından anlık olarak alınmaktadır.`,
+    },
+    {
+      question: "İzmir'de şu an aktif su kesintisi var mı?",
+      answer: kesintiler && kesintiler.length > 0
+        ? `Evet, şu anda İzmir genelinde İZSU tarafından bildirilen ${kesintiler.length} adet aktif su kesintisi bulunmaktadır. Kesinti detaylarına, etkilenen mahallelere ve tahmini sürelerine sayfamızdan ulaşabilirsiniz.`
+        : "Hayır, şu anda İzmir genelinde İZSU tarafından bildirilen aktif bir su kesintisi bulunmamaktadır. Şehir şebekesinde normal su akışı devam etmektedir.",
+    },
+    {
+      question: "İzmir'in en büyük su kaynağı olan Tahtalı Barajı nerede?",
+      answer: "Tahtalı Barajı, İzmir'in Menderes ilçesinde yer almakta olup, şehrin içme suyu ihtiyacının çok büyük bir kısmını tek başına karşılamaktadır. Barajın doluluk oranı ve yüksekliği İZSU verileriyle anlık güncellenmektedir.",
+    }
+  ]
+
+  const faqSchema = faqJsonLd(faqItems)
+
   return (
     <>
-      <JsonLdScript data={[breadcrumb, dataset]} />
+      <JsonLdScript data={[breadcrumb, dataset, faqSchema]} />
       <section className="container py-8">
         <header className="border-b-2 border-ink pb-3 mb-6">
           <div className="flex items-baseline justify-between">
@@ -174,6 +194,7 @@ export default async function Page() {
           </div>
         )}
       </section>
+      <FaqSection items={faqItems} />
     </>
   )
 }

@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { getOtoparklar, otoparkKapasite } from "@/lib/data"
-import { breadcrumbJsonLd, datasetJsonLd, JsonLdScript } from "@/lib/jsonLd"
+import { breadcrumbJsonLd, datasetJsonLd, JsonLdScript, faqJsonLd } from "@/lib/jsonLd"
+import { FaqSection } from "@/components/widgets/FaqSection"
 
 export const metadata: Metadata = {
   title: "İzmir Otopark Doluluk Oranları · İZELMAN & İZUM · nokta35",
@@ -36,6 +37,7 @@ export default async function OtoparklarPage() {
 
   const totDolu = list.reduce((s, x) => s + x.occupied, 0)
   const totKap = list.reduce((s, x) => s + x.total, 0)
+  const totBos = totKap - totDolu
   const ortDoluluk = totKap > 0 ? Math.round((totDolu / totKap) * 100) : 0
 
   const breadcrumb = breadcrumbJsonLd([{ name: "Otoparklar", href: "/otoparklar" }])
@@ -46,83 +48,104 @@ export default async function OtoparklarPage() {
     keywords: ["İzmir otopark doluluk", "İZELMAN otopark", "İzmir ücretsiz otoparklar", "İzmir otopark kapasiteleri"],
   })
 
+  const faqItems = [
+    {
+      question: "İzmir otoparklarının anlık ortalama doluluk oranı ne kadar?",
+      answer: `İzmir genelindeki otoparkların güncel ortalama doluluk oranı %${ortDoluluk} olarak hesaplanmıştır. İzlenen toplam ${list.length} otoparkta şu anda ${totDolu} araç park etmiş durumdadır.`,
+    },
+    {
+      question: "İzmir genelinde anlık kaç boş otopark yeri var?",
+      answer: `Şu an İzmir genelinde İZELMAN ve İZUM otoparklarındaki toplam ${totKap} araçlık kapasitenin ${totBos} kadarı boştur ve park edilmeye hazırdır. Boş yer durumu verileri her 30 saniyede bir güncellenmektedir.`,
+    },
+    {
+      question: "Hangi İzmir otoparklarında doluluk oranı en yüksektir?",
+      answer: list.length > 0
+        ? `Şu anda en yüksek doluluk oranına sahip otopark ${list[0]?.o?.name ?? "listemizin ilk sırasındaki otoparktır"} (%${Math.round(list[0]?.pct ?? 0)} doluluk). Diğer tüm otoparkların güncel doluluk sıralamasını ve boş yer durumlarını sayfamızdan inceleyebilirsiniz.`
+        : "Otopark doluluk oranları anlık olarak güncellenmekte ve en doludan en boşa doğru sıralanmaktadır.",
+    }
+  ]
+
+  const faqSchema = faqJsonLd(faqItems)
+
   return (
     <>
-      <JsonLdScript data={[breadcrumb, dataset]} />
+      <JsonLdScript data={[breadcrumb, dataset, faqSchema]} />
       <section className="container py-8">
-      <header className="border-b-2 border-ink pb-3 mb-6">
-        <div className="flex items-baseline justify-between">
-          <h1 className="font-serif-display text-4xl md:text-5xl">Otoparklar</h1>
-          <span className="text-[10px] uppercase tracking-[0.2em] text-gray">
-            Anlık · İZELMAN / İzum
-          </span>
-        </div>
-        <div className="mt-3 grid grid-cols-3 gap-4 text-xs font-mono">
-          <div>
-            <div className="text-[10px] uppercase tracking-widest text-gray">
-              Toplam Otopark
-            </div>
-            <div className="font-serif-display text-3xl text-ink">{list.length}</div>
+        <header className="border-b-2 border-ink pb-3 mb-6">
+          <div className="flex items-baseline justify-between">
+            <h1 className="font-serif-display text-4xl md:text-5xl">Otoparklar</h1>
+            <span className="text-[10px] uppercase tracking-[0.2em] text-gray">
+              Anlık · İZELMAN / İzum
+            </span>
           </div>
-          <div>
-            <div className="text-[10px] uppercase tracking-widest text-gray">
-              Ort. Doluluk
+          <div className="mt-3 grid grid-cols-3 gap-4 text-xs font-mono">
+            <div>
+              <div className="text-[10px] uppercase tracking-widest text-gray">
+                Toplam Otopark
+              </div>
+              <div className="font-serif-display text-3xl text-ink">{list.length}</div>
             </div>
-            <div className="font-serif-display text-3xl text-orange">
-              %{ortDoluluk}
+            <div>
+              <div className="text-[10px] uppercase tracking-widest text-gray">
+                Ort. Doluluk
+              </div>
+              <div className="font-serif-display text-3xl text-orange">
+                %{ortDoluluk}
+              </div>
+            </div>
+            <div>
+              <div className="text-[10px] uppercase tracking-widest text-gray">
+                Toplam Kapasite
+              </div>
+              <div className="font-serif-display text-3xl text-ink">{totKap}</div>
             </div>
           </div>
-          <div>
-            <div className="text-[10px] uppercase tracking-widest text-gray">
-              Toplam Kapasite
-            </div>
-            <div className="font-serif-display text-3xl text-ink">{totKap}</div>
+        </header>
+
+        {list.length === 0 ? (
+          <div className="text-xs text-gray uppercase tracking-widest py-12 text-center">
+            Veri alınamadı
           </div>
-        </div>
-      </header>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {list.map((x, i) => (
+              <article
+                key={`${x.o.name ?? i}`}
+                className="border-2 border-ink bg-cream p-4 flex flex-col gap-3"
+              >
+                <div className="flex justify-between items-start gap-2">
+                  <h2 className="font-serif-display text-lg leading-tight">
+                    {x.o.name ?? "—"}
+                  </h2>
+                  <span
+                    className={
+                      "text-[10px] uppercase tracking-widest shrink-0 " +
+                      (x.o.status === "Opened" ? "text-ink" : "text-orange")
+                    }
+                  >
+                    {x.o.status === "Opened" ? "Açık" : x.o.status ?? "—"}
+                  </span>
+                </div>
 
-      {list.length === 0 ? (
-        <div className="text-xs text-gray uppercase tracking-widest py-12 text-center">
-          Veri alınamadı
-        </div>
-      ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {list.map((x, i) => (
-            <article
-              key={`${x.o.name ?? i}`}
-              className="border-2 border-ink bg-cream p-4 flex flex-col gap-3"
-            >
-              <div className="flex justify-between items-start gap-2">
-                <h2 className="font-serif-display text-lg leading-tight">
-                  {x.o.name ?? "—"}
-                </h2>
-                <span
-                  className={
-                    "text-[10px] uppercase tracking-widest shrink-0 " +
-                    (x.o.status === "Opened" ? "text-ink" : "text-orange")
-                  }
-                >
-                  {x.o.status === "Opened" ? "Açık" : x.o.status ?? "—"}
-                </span>
-              </div>
+                <div className="flex justify-between text-xs font-mono">
+                  <span className="text-gray">
+                    {x.occupied}/{x.total} dolu
+                  </span>
+                  <span className="text-orange">%{Math.round(x.pct)}</span>
+                </div>
+                <Bar pct={x.pct} />
 
-              <div className="flex justify-between text-xs font-mono">
-                <span className="text-gray">
-                  {x.occupied}/{x.total} dolu
-                </span>
-                <span className="text-orange">%{Math.round(x.pct)}</span>
-              </div>
-              <Bar pct={x.pct} />
-
-              <div className="flex justify-between text-[10px] uppercase tracking-widest text-gray pt-2 border-t border-light-gray">
-                <span>{x.o.provider ?? "—"}</span>
-                <span>{x.o.isPaid ? "Ücretli" : "Ücretsiz"}</span>
-              </div>
-            </article>
-          ))}
-        </div>
-      )}
-    </section>
+                <div className="flex justify-between text-[10px] uppercase tracking-widest text-gray pt-2 border-t border-light-gray">
+                  <span>{x.o.provider ?? "—"}</span>
+                  <span>{x.o.isPaid ? "Ücretli" : "Ücretsiz"}</span>
+                </div>
+              </article>
+            ))}
+          </div>
+        )}
+      </section>
+      <FaqSection items={faqItems} />
     </>
   )
 }
+

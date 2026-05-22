@@ -11,6 +11,8 @@ import { HavaWidget } from "@/components/widgets/HavaWidget"
 import { IzbanSefer } from "@/components/widgets/IzbanSefer"
 import { MetroTramvay } from "@/components/widgets/MetroTramvay"
 import { AdSlot } from "@/components/ads/AdSlot"
+import { faqJsonLd, JsonLdScript } from "@/lib/jsonLd"
+import { FaqSection } from "@/components/widgets/FaqSection"
 
 export const metadata: Metadata = {
   title: "nokta35 · Tek noktadan İzmir'e dair her şey",
@@ -43,8 +45,26 @@ export default function HomePage() {
     year: "numeric",
   })
 
+  const faqItems = [
+    {
+      question: "nokta35 nedir ve hangi İzmir verilerini sunar?",
+      answer: "nokta35, İzmir Büyükşehir Belediyesi, İZSU, İZELMAN ve İZUM gibi resmi kurumların açık veri kaynaklarını entegre ederek İzmir'e dair anlık şehir verilerini tek bir panelde toplayan bağımsız ve reklamsız şehir veri platformudur. Sitemizden baraj doluluk oranlarını, nöbetçi eczaneleri, su kesintilerini, otopark doluluk durumlarını, güncel hava durumunu ve ulaşım sefer saatlerini canlı takip edebilirsiniz.",
+    },
+    {
+      question: "nokta35 platformundaki İzmir verileri ne sıklıkla güncellenir?",
+      answer: "Verilerimizin güncelleme sıklığı veri türüne göre değişir. Otopark doluluk ve otobüs konumları gibi canlı veriler 30 saniyede bir güncellenirken; nöbetçi eczaneler 30 dakikada bir, baraj dolulukları ve su kesintileri saatlik, hava durumu ise her 15 dakikada bir otomatik olarak güncellenmektedir.",
+    },
+    {
+      question: "nokta35 İzmir şehir platformu resmi bir web sitesi midir?",
+      answer: "Hayır, nokta35 herhangi bir resmi kuruma veya belediyeye bağlı olmayan, İzmir'in dijital ekosistemini ve açık veri kullanımını desteklemek amacıyla geliştirilmiş tamamen bağımsız bir sivil teknoloji (civic tech) projesidir.",
+    }
+  ]
+
+  const faqSchema = faqJsonLd(faqItems)
+
   return (
     <>
+      <JsonLdScript data={faqSchema} />
       <section className="container py-12">
         <div className="text-xs uppercase tracking-[0.2em] text-gray mb-4">
           {today} · İzmir
@@ -97,8 +117,6 @@ export default function HomePage() {
         <AdSlot id="AD-3" size="inline" />
       </div>
 
-
-
       <div className="container">
         <AdSlot id="AD-4" size="inline" />
       </div>
@@ -116,9 +134,12 @@ export default function HomePage() {
         </div>
       </section>
 
+      <FaqSection items={faqItems} />
+
       <div className="container">
         <AdSlot id="AD-5" size="leaderboard" />
       </div>
     </>
   )
 }
+
