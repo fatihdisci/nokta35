@@ -76,3 +76,54 @@ export function otoparkKapasite(o: OtoparkItem) {
   const occupied = o.occupancy?.total?.occupied ?? 0
   return { free, occupied, total: free + occupied }
 }
+
+const GUN_PATTERNS: [RegExp, number][] = [
+  [/cumartesi/i, 6],
+  [/pazartesi/i, 1],
+  [/sal[ıi]/i, 2],
+  [/[çc]ar[şs]amba/i, 3],
+  [/per[şs]embe/i, 4],
+  [/cuma/i, 5],
+  [/pazar(?!tesi)/i, 0],
+]
+
+export function parsePazarGun(aciklama?: string): number | undefined {
+  if (!aciklama) return undefined
+  for (const [pattern, day] of GUN_PATTERNS) {
+    if (pattern.test(aciklama)) return day
+  }
+  return undefined
+}
+
+export const GUN_ADLARI = ["Pazar", "Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi"]
+
+export type PazarYeriItem = {
+  ILCE: string
+  MAHALLE: string
+  YOL?: string
+  ADI: string
+  ACIKLAMA?: string
+  BOYLAM: number
+  ENLEM: number
+  gun?: number
+}
+
+type RawPazarResponse = { onemliyer?: Record<string, unknown>[] }
+
+export const getPazarYerleri = async (): Promise<PazarYeriItem[]> => {
+  const data = await getIzmir<RawPazarResponse>("/api/ibb/cbs/pazaryerleri", 86400)
+  const rows = data?.onemliyer ?? []
+  return rows.map((r) => {
+    const aciklama = r.ACIKLAMA ? String(r.ACIKLAMA) : undefined
+    return {
+      ILCE: String(r.ILCE ?? ""),
+      MAHALLE: String(r.MAHALLE ?? ""),
+      YOL: r.YOL ? String(r.YOL) : undefined,
+      ADI: String(r.ADI ?? ""),
+      ACIKLAMA: aciklama,
+      BOYLAM: parseFloat(String(r.BOYLAM ?? "0").replace(",", ".")),
+      ENLEM: parseFloat(String(r.ENLEM ?? "0").replace(",", ".")),
+      gun: parsePazarGun(aciklama),
+    }
+  })
+}

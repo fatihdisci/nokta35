@@ -11,6 +11,7 @@ import { HavaWidget } from "@/components/widgets/HavaWidget"
 import { AdSlot } from "@/components/ads/AdSlot"
 import { faqJsonLd, JsonLdScript } from "@/lib/jsonLd"
 import { FaqSection } from "@/components/widgets/FaqSection"
+import { PazarWidget } from "@/components/widgets/PazarWidget"
 
 export const metadata: Metadata = {
   title: "nokta35 · Tek noktadan İzmir'e dair her şey",
@@ -106,9 +107,9 @@ export default function HomePage() {
         <Suspense fallback={<WidgetSkeleton title="Hava Durumu" />}>
           <HavaWidget />
         </Suspense>
-        <div className="flex items-center justify-center">
-          <AdSlot id="AD-2" size="rectangle" className="my-0" />
-        </div>
+        <Suspense fallback={<WidgetSkeleton title="Semt Pazarları" />}>
+          <PazarWidget />
+        </Suspense>
       </section>
 
       <div className="container">

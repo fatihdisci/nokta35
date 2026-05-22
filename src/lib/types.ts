@@ -35,3 +35,14 @@ export type OtobusKonum = {
   KoorX: string
   KoorY: string
 }
+
+export type PazarYeri = {
+  ILCE: string
+  MAHALLE: string
+  YOL?: string
+  ADI: string
+  ACIKLAMA?: string
+  BOYLAM: number
+  ENLEM: number
+  gun?: number
+}
