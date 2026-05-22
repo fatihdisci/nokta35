@@ -78,7 +78,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  const gaId = process.env.NEXT_PUBLIC_GA_ID
+  const gaId = process.env.NEXT_PUBLIC_GA_ID || "G-VB5V8C9MP0"
 
   return (
     <html lang="tr" className={`${playfair.variable} ${jetbrains.variable}`}>
