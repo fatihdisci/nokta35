@@ -8,21 +8,23 @@ import { LayerControl, type LayerKey } from "./LayerControl"
 const IZMIR_CENTER: [number, number] = [27.1287, 38.4192]
 const DEFAULT_BUS_HAT = "20"
 
+// CARTO Positron — minimal gri/krem, brutalist tasarımla uyumlu
 const RASTER_STYLE = {
   version: 8 as const,
   sources: {
-    osm: {
+    base: {
       type: "raster" as const,
       tiles: [
-        "https://a.tile.openstreetmap.org/{z}/{x}/{y}.png",
-        "https://b.tile.openstreetmap.org/{z}/{x}/{y}.png",
-        "https://c.tile.openstreetmap.org/{z}/{x}/{y}.png",
+        "https://a.basemaps.cartocdn.com/light_all/{z}/{x}/{y}@2x.png",
+        "https://b.basemaps.cartocdn.com/light_all/{z}/{x}/{y}@2x.png",
+        "https://c.basemaps.cartocdn.com/light_all/{z}/{x}/{y}@2x.png",
+        "https://d.basemaps.cartocdn.com/light_all/{z}/{x}/{y}@2x.png",
       ],
       tileSize: 256,
-      attribution: "© OpenStreetMap",
+      attribution: "© OpenStreetMap · © CARTO",
     },
   },
-  layers: [{ id: "osm", type: "raster" as const, source: "osm" }],
+  layers: [{ id: "base", type: "raster" as const, source: "base" }],
 }
 
 
@@ -117,8 +119,16 @@ export function MapWrapper() {
       }
     })
     ro.observe(ref.current)
-    // ilk resize'i bir tick sonra zorla (dynamic import + grid layout için)
-    const initTimer = setTimeout(() => map.resize(), 100)
+    // Birden çok zamanlamada resize zorla (dynamic import + fonts + grid layout sırasında container yüksekliği değişir)
+    const initTimers = [50, 200, 500, 1000, 2000].map((ms) =>
+      setTimeout(() => {
+        try {
+          map.resize()
+        } catch {
+          // ignore
+        }
+      }, ms),
+    )
 
     map.on("load", () => {
       const keys: LayerKey[] = ["pazar", "otopark", "eczane", "otobus"]
@@ -169,7 +179,7 @@ export function MapWrapper() {
 
     mapRef.current = map
     return () => {
-      clearTimeout(initTimer)
+      initTimers.forEach(clearTimeout)
       ro.disconnect()
       map.remove()
       mapRef.current = null
@@ -268,8 +278,11 @@ export function MapWrapper() {
   }, [active.otobus, active.otopark])
 
   return (
-    <div className="relative w-full h-full">
-      <div ref={ref} className="absolute inset-0" style={{ minHeight: 300 }} />
+    <div
+      ref={ref}
+      className="relative w-full h-full"
+      style={{ position: "absolute", inset: 0 }}
+    >
       {mapError && (
         <div className="absolute inset-0 flex items-center justify-center bg-cream/90 text-orange text-xs uppercase tracking-widest p-4 text-center z-20">
           {mapError}
@@ -278,7 +291,7 @@ export function MapWrapper() {
       <div className="absolute top-3 left-3 z-10">
         <LayerControl active={active} onChange={setActive} />
       </div>
-      <div className="absolute bottom-3 left-3 z-10 text-[10px] uppercase tracking-[0.2em] bg-ink text-cream px-2 py-1">
+      <div className="absolute bottom-3 left-3 z-10 text-[10px] uppercase tracking-[0.2em] bg-ink text-cream px-2 py-1 pointer-events-none">
         canlı · otobüs hat {DEFAULT_BUS_HAT}
       </div>
     </div>
