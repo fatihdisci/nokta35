@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useState, useCallback } from "react"
 
 type Istasyon = {
   IstasyonId?: number | string
@@ -37,7 +37,22 @@ export function IzbanSefer() {
   const [seferler, setSeferler] = useState<Sefer[] | null>(null)
   const [err, setErr] = useState<string | null>(null)
   const [loading, setLoading] = useState(false)
+  const [currentTime, setCurrentTime] = useState("")
 
+  // Get current local time on client to avoid SSR hydration mismatches
+  useEffect(() => {
+    const updateTime = () => {
+      const now = new Date()
+      const hours = String(now.getHours()).padStart(2, "0")
+      const minutes = String(now.getMinutes()).padStart(2, "0")
+      setCurrentTime(`${hours}:${minutes}`)
+    }
+    updateTime()
+    const interval = setInterval(updateTime, 60000)
+    return () => clearInterval(interval)
+  }, [])
+
+  // Initial fetch for stations
   useEffect(() => {
     fetch("/api/izban/istasyonlar")
       .then((r) => r.json())
@@ -52,7 +67,7 @@ export function IzbanSefer() {
       .catch(() => setErr("İstasyon listesi alınamadı"))
   }, [])
 
-  async function sorgu() {
+  const sorgu = useCallback(async () => {
     if (!kalkis || !varis || kalkis === varis) return
     setLoading(true)
     setErr(null)
@@ -67,6 +82,47 @@ export function IzbanSefer() {
     } finally {
       setLoading(false)
     }
+  }, [kalkis, varis])
+
+  // Trigger query automatically when station selections are ready/change
+  useEffect(() => {
+    if (kalkis && varis && kalkis !== varis) {
+      sorgu()
+    }
+  }, [kalkis, varis, sorgu])
+
+  // Filter and highlight logic based on current local time
+  let displayedSeferler: Sefer[] = []
+  let nextSeferIndex = -1
+
+  if (seferler && seferler.length > 0) {
+    if (currentTime) {
+      const parseTimeToMin = (t: string) => {
+        const [h, m] = t.split(":").map(Number)
+        return h * 60 + m
+      }
+      const currentMin = parseTimeToMin(currentTime)
+      const cutoffMin = currentMin - 10 // Show flights that left up to 10 minutes ago
+
+      const nextIdx = seferler.findIndex((s) => {
+        const timeStr = s.HareketSaati?.slice(0, 5) ?? ""
+        if (!timeStr) return false
+        return parseTimeToMin(timeStr) >= cutoffMin
+      })
+
+      if (nextIdx === -1) {
+        // All flights departed for today, show last 18
+        displayedSeferler = seferler.slice(-18)
+      } else {
+        // Show up to 2 past flights for context and fill up to 18
+        const startIdx = Math.max(0, nextIdx - 2)
+        displayedSeferler = seferler.slice(startIdx, startIdx + 18)
+        nextSeferIndex = nextIdx - startIdx
+      }
+    } else {
+      // Fallback if client time not loaded yet
+      displayedSeferler = seferler.slice(0, 18)
+    }
   }
 
   return (
@@ -76,38 +132,47 @@ export function IzbanSefer() {
       </div>
       <div className="font-serif-display text-2xl mt-1 mb-3">Sefer Saatleri</div>
 
-      <div className="grid grid-cols-1 gap-2 mb-3">
-        <select
-          value={kalkis}
-          onChange={(e) => setKalkis(e.target.value)}
-          className="border-2 border-ink bg-cream px-2 py-1 text-xs font-mono uppercase tracking-wide focus:outline-none focus:border-orange"
-        >
-          <option value="">Kalkış</option>
-          {istasyonlar.map((i, idx) => (
-            <option key={idx} value={getId(i)}>
-              {getAd(i)}
-            </option>
-          ))}
-        </select>
-        <select
-          value={varis}
-          onChange={(e) => setVaris(e.target.value)}
-          className="border-2 border-ink bg-cream px-2 py-1 text-xs font-mono uppercase tracking-wide focus:outline-none focus:border-orange"
-        >
-          <option value="">Varış</option>
-          {istasyonlar.map((i, idx) => (
-            <option key={idx} value={getId(i)}>
-              {getAd(i)}
-            </option>
-          ))}
-        </select>
+      <div className="grid grid-cols-1 gap-2 mb-4">
+        <div className="grid grid-cols-2 gap-2">
+          <div className="flex flex-col gap-1">
+            <span className="text-[9px] uppercase font-mono text-gray">Kalkış İstasyonu</span>
+            <select
+              value={kalkis}
+              onChange={(e) => setKalkis(e.target.value)}
+              className="border-2 border-ink bg-cream px-2 py-1 text-xs font-mono uppercase tracking-wide focus:outline-none focus:border-orange w-full"
+            >
+              <option value="">Kalkış</option>
+              {istasyonlar.map((i, idx) => (
+                <option key={idx} value={getId(i)}>
+                  {getAd(i)}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className="flex flex-col gap-1">
+            <span className="text-[9px] uppercase font-mono text-gray">Varış İstasyonu</span>
+            <select
+              value={varis}
+              onChange={(e) => setVaris(e.target.value)}
+              className="border-2 border-ink bg-cream px-2 py-1 text-xs font-mono uppercase tracking-wide focus:outline-none focus:border-orange w-full"
+            >
+              <option value="">Varış</option>
+              {istasyonlar.map((i, idx) => (
+                <option key={idx} value={getId(i)}>
+                  {getAd(i)}
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
+
         <button
           type="button"
           onClick={sorgu}
           disabled={loading || !kalkis || !varis || kalkis === varis}
-          className="bg-ink text-cream py-1.5 text-[10px] uppercase tracking-[0.2em] hover:bg-orange transition-colors disabled:opacity-40"
+          className="bg-ink text-cream py-1.5 text-[10px] uppercase tracking-[0.2em] hover:bg-orange transition-colors disabled:opacity-40 w-full"
         >
-          {loading ? "Yükleniyor…" : "Sefer Saatleri"}
+          {loading ? "Yükleniyor…" : "GÜNCELLE"}
         </button>
       </div>
 
@@ -123,17 +188,38 @@ export function IzbanSefer() {
           </div>
         )}
         {seferler && seferler.length > 0 && (
-          <ul className="grid grid-cols-3 gap-1 text-xs font-mono">
-            {seferler.slice(0, 18).map((s, i) => (
-              <li
-                key={i}
-                className="border border-light-gray px-1 py-0.5 text-center"
-                title={`Varış: ${shortTime(s.VarisSaati)}`}
-              >
-                {shortTime(s.HareketSaati)}
-              </li>
-            ))}
-          </ul>
+          <div className="space-y-3">
+            <div className="flex justify-between items-baseline text-[10px] uppercase font-mono text-gray border-b border-light-gray pb-1">
+              <span>Seferler ({seferler.length} adet)</span>
+              {currentTime && <span>Saat: {currentTime}</span>}
+            </div>
+            <ul className="grid grid-cols-3 gap-2 text-xs font-mono">
+              {displayedSeferler.map((s, idx) => {
+                const isNext = idx === nextSeferIndex
+                return (
+                  <li
+                    key={idx}
+                    className={`border px-1.5 py-1 text-center transition-all flex flex-col justify-center items-center ${
+                      isNext
+                        ? "border-orange bg-orange/10 text-orange font-bold ring-2 ring-orange/30 scale-[1.03]"
+                        : "border-light-gray text-ink"
+                    }`}
+                    title={`Varış: ${shortTime(s.VarisSaati)}`}
+                  >
+                    <div>{shortTime(s.HareketSaati)}</div>
+                    {isNext && (
+                      <span className="text-[8px] block uppercase tracking-widest text-orange mt-0.5 leading-none font-bold animate-pulse">
+                        Sıradaki
+                      </span>
+                    )}
+                  </li>
+                )
+              })}
+            </ul>
+            <p className="text-[9px] font-mono text-gray mt-2 italic leading-relaxed">
+              * Seferlerin üzerine gelerek tahmini varış saatini görebilirsiniz. Listelenen saatler İzmir Büyükşehir Belediyesi canlı açık verilerinden anlık süzülmüştür.
+            </p>
+          </div>
         )}
       </div>
     </div>

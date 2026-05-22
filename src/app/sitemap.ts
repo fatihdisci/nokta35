@@ -10,6 +10,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/hava`, lastModified: now, changeFrequency: "hourly", priority: 0.9 },
     { url: `${base}/saglik`, lastModified: now, changeFrequency: "hourly", priority: 0.9 },
     { url: `${base}/harita`, lastModified: now, changeFrequency: "weekly", priority: 0.3 },
-    { url: `${base}/ulasim`, lastModified: now, changeFrequency: "weekly", priority: 0.3 },
+    { url: `${base}/ulasim`, lastModified: now, changeFrequency: "hourly", priority: 0.9 },
   ]
 }

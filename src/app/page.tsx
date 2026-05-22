@@ -8,8 +8,6 @@ import { KesintiAlert } from "@/components/widgets/KesintiAlert"
 import { OtoparkWidget } from "@/components/widgets/OtoparkWidget"
 import { HavaWidget } from "@/components/widgets/HavaWidget"
 
-import { IzbanSefer } from "@/components/widgets/IzbanSefer"
-import { MetroTramvay } from "@/components/widgets/MetroTramvay"
 import { AdSlot } from "@/components/ads/AdSlot"
 import { faqJsonLd, JsonLdScript } from "@/lib/jsonLd"
 import { FaqSection } from "@/components/widgets/FaqSection"
@@ -121,18 +119,7 @@ export default function HomePage() {
         <AdSlot id="AD-4" size="inline" />
       </div>
 
-      <section className="container">
-        <header className="flex items-baseline justify-between mb-4 border-b-2 border-ink pb-2">
-          <h2 className="font-serif-display text-3xl">Ulaşım</h2>
-          <span className="text-[10px] uppercase tracking-[0.2em] text-gray">
-            İZBAN · Metro · Tramvay
-          </span>
-        </header>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <IzbanSefer />
-          <MetroTramvay />
-        </div>
-      </section>
+
 
       <FaqSection items={faqItems} />
 
