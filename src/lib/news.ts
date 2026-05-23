@@ -32,6 +32,37 @@ function getTag(xml: string, tag: string): string {
   return decodeEntities(unwrapCdata(m[1]))
 }
 
+// Allowed sources: AA + İzmir-specific local outlets
+const KAYNAK_ALLOWLIST = [
+  "aa",
+  "anadolu ajansı",
+  "anadolu ajansi",
+  "yeni asır",
+  "yeni asir",
+  "9 eylül",
+  "9 eylul",
+  "ege",        // Ege'de Son Söz, Ege Telgraf, vb.
+  "izmir",      // İzmir Haber, İzmir Gazetesi, vb.
+  "egeli",
+  "demokrasi",
+  "halkin sesi",
+  "halkın sesi",
+]
+
+function kaynakIzinli(kaynak: string): boolean {
+  if (!kaynak) return false
+  const k = kaynak
+    .toLowerCase()
+    .replace(/İ/g, "i")
+    .replace(/ı/g, "i")
+    .replace(/ğ/g, "g")
+    .replace(/ş/g, "s")
+    .replace(/ç/g, "c")
+    .replace(/ö/g, "o")
+    .replace(/ü/g, "u")
+  return KAYNAK_ALLOWLIST.some((term) => k.includes(term))
+}
+
 function parseItem(itemXml: string): HaberItem {
   let baslik = getTag(itemXml, "title")
   const link = getTag(itemXml, "link")
@@ -71,7 +102,13 @@ export async function getIzmirHaberleri(): Promise<HaberItem[]> {
       const it = parseItem(m[1])
       if (it.baslik && it.link) items.push(it)
     }
-    return items
+
+    const filtered = items.filter((it) => kaynakIzinli(it.kaynak))
+    const result = filtered.length >= 3 ? filtered : items
+
+    return result.sort(
+      (a, b) => new Date(b.tarih).getTime() - new Date(a.tarih).getTime()
+    )
   } catch {
     return []
   }
