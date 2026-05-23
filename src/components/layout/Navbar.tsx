@@ -13,6 +13,7 @@ const NAV_ITEMS = [
   { href: "/hava", label: "Hava" },
   { href: "/onemli-yerler", label: "Pazarlar" },
   { href: "/etkinlikler", label: "Etkinlikler" },
+  { href: "/haberler", label: "Haberler" },
 ]
 
 export function Navbar() {

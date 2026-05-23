@@ -14,6 +14,7 @@ import { FaqSection } from "@/components/widgets/FaqSection"
 import { PazarWidget } from "@/components/widgets/PazarWidget"
 import { EtkinlikWidget } from "@/components/widgets/EtkinlikWidget"
 import { HavaKalitesiWidget } from "@/components/widgets/HavaKalitesiWidget"
+import { HaberWidget } from "@/components/widgets/HaberWidget"
 import { LiveClock } from "@/components/layout/LiveClock"
 
 export const metadata: Metadata = {
@@ -109,6 +110,9 @@ export default function HomePage() {
         </Suspense>
         <Suspense fallback={<WidgetSkeleton title="Hava Kalitesi" />}>
           <HavaKalitesiWidget />
+        </Suspense>
+        <Suspense fallback={<WidgetSkeleton title="Haberler" />}>
+          <HaberWidget />
         </Suspense>
       </section>
 
