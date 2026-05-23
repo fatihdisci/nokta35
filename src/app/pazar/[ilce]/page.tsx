@@ -1,28 +1,43 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import { getPazarYerleri, GUN_ADLARI } from "@/lib/data"
-import { slugify, istanbulGunu } from "@/lib/utils"
+import { slugify, istanbulGunu, IZMIR_ILCELERI } from "@/lib/utils"
 import { breadcrumbJsonLd, faqJsonLd, JsonLdScript } from "@/lib/jsonLd"
 import { FaqSection } from "@/components/widgets/FaqSection"
-import { notFound } from "next/navigation"
 
 export const revalidate = 3600
+export const dynamicParams = true
 
 type Props = { params: { ilce: string } }
 
+function slugToTitle(slug: string): string {
+  const match = IZMIR_ILCELERI.find((i) => slugify(i) === slug)
+  if (match) return match
+  return slug
+    .split("-")
+    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+    .join(" ")
+}
+
 async function getIlceData(ilceSlug: string) {
-  const pazarlar = await getPazarYerleri()
+  let pazarlar: Awaited<ReturnType<typeof getPazarYerleri>> = []
+  try { pazarlar = await getPazarYerleri() } catch { /* boş geç */ }
   const filtered = pazarlar.filter((p) => slugify(p.ILCE ?? "") === ilceSlug)
-  const ilceAdi = filtered[0]?.ILCE ?? null
+  const ilceAdi = filtered[0]?.ILCE ?? slugToTitle(ilceSlug)
   return { filtered, ilceAdi }
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { filtered, ilceAdi } = await getIlceData(params.ilce)
-  if (!ilceAdi) return { title: "Semt Pazarları" }
 
-  const baslik = `${ilceAdi} Semt Pazarları · Hangi Gün Nerede`
-  const aciklama = `${ilceAdi} ilçesindeki ${filtered.length} semt pazarı: hangi gün kurulduğu, adresi ve konumu. İzmir ${ilceAdi} pazar yerleri.`
+  const baslik =
+    filtered.length > 0
+      ? `${ilceAdi} Semt Pazarları · Hangi Gün Nerede`
+      : `${ilceAdi} Semt Pazarları · İzmir`
+  const aciklama =
+    filtered.length > 0
+      ? `${ilceAdi} ilçesindeki ${filtered.length} semt pazarı: hangi gün kurulduğu, adresi ve konumu. İzmir ${ilceAdi} pazar yerleri.`
+      : `İzmir ${ilceAdi} ilçesindeki semt pazarları, kurulduğu günler ve mahalle konumları. İBB CBS açık verisi.`
 
   return {
     title: baslik,
@@ -33,14 +48,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export async function generateStaticParams() {
-  const pazarlar = await getPazarYerleri()
-  const ilceler = [...new Set(pazarlar.map((p) => p.ILCE).filter(Boolean))]
-  return ilceler.map((i) => ({ ilce: slugify(i) }))
+  const sluglar = new Set<string>(IZMIR_ILCELERI.map((i) => slugify(i)))
+  try {
+    const pazarlar = await getPazarYerleri()
+    for (const p of pazarlar) {
+      if (p.ILCE) sluglar.add(slugify(p.ILCE))
+    }
+  } catch { /* fallback'le yetin */ }
+  return [...sluglar].filter(Boolean).map((ilce) => ({ ilce }))
 }
 
 export default async function PazarIlcePage({ params }: Props) {
   const { filtered, ilceAdi } = await getIlceData(params.ilce)
-  if (!ilceAdi) notFound()
 
   const bugunIndex = istanbulGunu()
   const bugunPazarlar = filtered.filter((p) => p.gun === bugunIndex)
@@ -109,6 +128,19 @@ export default async function PazarIlcePage({ params }: Props) {
                 </div>
               ))}
             </div>
+          </div>
+        )}
+
+        {filtered.length === 0 && (
+          <div className="border-2 border-light-gray bg-cream p-8 text-center">
+            <p className="text-sm text-gray uppercase tracking-widest">
+              Bu ilçe için kayıtlı semt pazarı bulunamadı
+            </p>
+            <p className="text-[11px] text-gray mt-3 max-w-md mx-auto">
+              İzmir Büyükşehir Belediyesi CBS sistemi {ilceAdi} ilçesi için pazar yeri
+              kaydı paylaşmıyor olabilir. Diğer ilçelerin pazar listesi için ana sayfaya
+              bakınız.
+            </p>
           </div>
         )}
 

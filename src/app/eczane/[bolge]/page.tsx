@@ -2,29 +2,44 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { getEczaneler } from "@/lib/data"
 import { parseCoord } from "@/lib/api"
-import { slugify } from "@/lib/utils"
+import { slugify, IZMIR_ILCELERI } from "@/lib/utils"
 import { breadcrumbJsonLd, faqJsonLd, JsonLdScript } from "@/lib/jsonLd"
 import { FaqSection } from "@/components/widgets/FaqSection"
-import { notFound } from "next/navigation"
+
+function slugToTitle(slug: string): string {
+  // İzmir ilçe isimleri için doğru Türkçe karakterli karşılığını bul
+  const match = IZMIR_ILCELERI.find((i) => slugify(i) === slug)
+  if (match) return match
+  return slug
+    .split("-")
+    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+    .join(" ")
+}
 
 export const revalidate = 1800
+export const dynamicParams = true
 
 type Props = { params: { bolge: string } }
 
 async function getBolgeData(bolgeSlug: string) {
-  const eczaneler = await getEczaneler()
-  const tum = eczaneler ?? []
+  let tum: Awaited<ReturnType<typeof getEczaneler>> = []
+  try { tum = (await getEczaneler()) ?? [] } catch { /* boş geç */ }
   const filtered = tum.filter((e) => slugify(e.Bolge ?? "") === bolgeSlug)
-  const bolgeAdi = filtered[0]?.Bolge ?? null
-  return { filtered, bolgeAdi, toplamEczane: tum.length }
+  const bolgeAdi = filtered[0]?.Bolge ?? slugToTitle(bolgeSlug)
+  return { filtered, bolgeAdi }
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { filtered, bolgeAdi } = await getBolgeData(params.bolge)
-  if (!bolgeAdi) return { title: "Nöbetçi Eczane" }
 
-  const baslik = `${bolgeAdi} Nöbetçi Eczane · Bugün ${filtered.length} Eczane`
-  const aciklama = `${bolgeAdi} bölgesinde bugün nöbet tutan ${filtered.length} eczane. Adres, telefon ve harita bilgileriyle İzmir ${bolgeAdi} nöbetçi eczane listesi.`
+  const baslik =
+    filtered.length > 0
+      ? `${bolgeAdi} Nöbetçi Eczane · Bugün ${filtered.length} Eczane`
+      : `${bolgeAdi} Nöbetçi Eczane · Bugün`
+  const aciklama =
+    filtered.length > 0
+      ? `${bolgeAdi} bölgesinde bugün nöbet tutan ${filtered.length} eczane. Adres, telefon ve harita bilgileriyle İzmir ${bolgeAdi} nöbetçi eczane listesi.`
+      : `İzmir ${bolgeAdi} bölgesindeki nöbetçi eczane listesi — adres, telefon ve harita konumları ile bugün açık eczaneler.`
 
   return {
     title: baslik,
@@ -35,19 +50,26 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export async function generateStaticParams() {
-  const eczaneler = await getEczaneler()
-  const bolgeler = [...new Set((eczaneler ?? []).map((e) => e.Bolge).filter(Boolean))]
-  return bolgeler.map((b) => ({ bolge: slugify(b!) }))
+  const sluglar = new Set<string>(IZMIR_ILCELERI.map((i) => slugify(i)))
+  try {
+    const eczaneler = await getEczaneler()
+    for (const e of eczaneler ?? []) {
+      if (e.Bolge) sluglar.add(slugify(e.Bolge))
+    }
+  } catch { /* fallback'le yetin */ }
+  return [...sluglar].filter(Boolean).map((bolge) => ({ bolge }))
 }
 
 export default async function EczaneBolgePage({ params }: Props) {
   const { filtered, bolgeAdi } = await getBolgeData(params.bolge)
-  if (!bolgeAdi) notFound()
 
   const faqItems = [
     {
       question: `${bolgeAdi} bölgesinde bugün kaç nöbetçi eczane var?`,
-      answer: `Bugün ${bolgeAdi} bölgesinde ${filtered.length} nöbetçi eczane hizmet vermektedir. ${filtered.map((e) => e.Adi).slice(0, 3).join(", ")} bu eczaneler arasındadır.`,
+      answer:
+        filtered.length > 0
+          ? `Bugün ${bolgeAdi} bölgesinde ${filtered.length} nöbetçi eczane hizmet vermektedir. ${filtered.map((e) => e.Adi).slice(0, 3).join(", ")} bu eczaneler arasındadır.`
+          : `${bolgeAdi} bölgesinde bugün için listelenmiş nöbetçi eczane bulunmuyor. Liste her 30 dakikada bir İzmir Büyükşehir Belediyesi açık verisinden güncellenir.`,
     },
     {
       question: `${bolgeAdi} nöbetçi eczane bilgileri güncel mi?`,

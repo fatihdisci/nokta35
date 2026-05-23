@@ -32,3 +32,12 @@ export function titleCase(s: string): string {
     .replace(/\b\w/g, (c) => c.toUpperCase())
     .replace(/İ/g, "İ")
 }
+
+// İzmir'in 30 resmî ilçesi — sitemap fallback ve dinamik sayfa pre-render için
+export const IZMIR_ILCELERI = [
+  "Aliağa", "Balçova", "Bayındır", "Bayraklı", "Bergama", "Beydağ",
+  "Bornova", "Buca", "Çeşme", "Çiğli", "Dikili", "Foça",
+  "Gaziemir", "Güzelbahçe", "Karabağlar", "Karaburun", "Karşıyaka",
+  "Kemalpaşa", "Kınık", "Kiraz", "Konak", "Menderes", "Menemen",
+  "Narlıdere", "Ödemiş", "Seferihisar", "Selçuk", "Tire", "Torbalı", "Urla",
+] as const
