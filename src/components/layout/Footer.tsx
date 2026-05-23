@@ -35,18 +35,19 @@ export function Footer() {
         </div>
 
         <div className="space-y-2">
-          <h3 className="text-orange uppercase tracking-widest mb-3">Veri Kaynakları</h3>
+          <h3 className="text-orange uppercase tracking-widest mb-3">Proje</h3>
           <ul className="space-y-2 text-gray">
-            <li><a href="https://acikveri.bizizmir.com" target="_blank" rel="noopener" className="hover:text-cream">acikveri.bizizmir.com</a></li>
-            <li><a href="https://openapi.izmir.bel.tr" target="_blank" rel="noopener" className="hover:text-cream">openapi.izmir.bel.tr</a></li>
+            <li><Link href="/hakkinda" className="hover:text-cream">Hakkında</Link></li>
+            <li><Link href="/veri-kaynaklari" className="hover:text-cream">Veri Kaynakları</Link></li>
+            <li><a href="https://github.com/fatihdisci/nokta35" target="_blank" rel="noopener" className="hover:text-cream">GitHub</a></li>
           </ul>
         </div>
 
         <div className="space-y-2">
-          <h3 className="text-orange uppercase tracking-widest mb-3">İletişim</h3>
+          <h3 className="text-orange uppercase tracking-widest mb-3">Açık Veri</h3>
           <ul className="space-y-2 text-gray">
-            <li>nokta35.com</li>
-            <li>Reklam / sponsor için iletişime geçin</li>
+            <li><a href="https://acikveri.bizizmir.com" target="_blank" rel="noopener" className="hover:text-cream">acikveri.bizizmir.com</a></li>
+            <li><a href="https://openapi.izmir.bel.tr" target="_blank" rel="noopener" className="hover:text-cream">openapi.izmir.bel.tr</a></li>
           </ul>
         </div>
       </div>

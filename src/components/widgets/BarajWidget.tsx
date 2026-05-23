@@ -1,4 +1,6 @@
+import Link from "next/link"
 import { getBarajlar } from "@/lib/data"
+import { slugify } from "@/lib/utils"
 import { WidgetMore } from "./WidgetMore"
 
 function toNum(v: unknown): number {
@@ -40,14 +42,17 @@ export async function BarajWidget() {
                 pct < 25 ? "bg-orange" : pct < 50 ? "bg-orange/70" : "bg-ink"
               return (
                 <li key={b.BarajKuyuId ?? i} className="space-y-1">
-                  <div className="flex justify-between items-baseline text-xs">
+                  <Link
+                    href={b.BarajKuyuAdi ? `/baraj/${slugify(b.BarajKuyuAdi)}` : "/su-baraj"}
+                    className="flex justify-between items-baseline text-xs hover:text-orange transition-colors"
+                  >
                     <span className="uppercase tracking-wide truncate pr-2">
                       {b.BarajKuyuAdi ?? "—"}
                     </span>
                     <span className="font-mono text-ink whitespace-nowrap">
                       %{Number.isNaN(d) ? "—" : Math.round(d)}
                     </span>
-                  </div>
+                  </Link>
                   <div className="h-2 bg-light-gray border border-ink/10">
                     <div className={`h-full ${color}`} style={{ width: `${pct}%` }} />
                   </div>

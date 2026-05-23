@@ -1,5 +1,7 @@
 import type { Metadata } from "next"
+import Link from "next/link"
 import { getBarajlar, getKesintiler } from "@/lib/data"
+import { slugify } from "@/lib/utils"
 import { breadcrumbJsonLd, datasetJsonLd, JsonLdScript, faqJsonLd } from "@/lib/jsonLd"
 import { FaqSection } from "@/components/widgets/FaqSection"
 
@@ -114,9 +116,16 @@ export default async function Page() {
                   className="border-2 border-ink bg-cream p-5 flex flex-col gap-3"
                 >
                   <div className="flex justify-between items-baseline">
-                    <h2 className="font-serif-display text-2xl leading-tight">
-                      {b.BarajKuyuAdi ?? "—"}
-                    </h2>
+                    {b.BarajKuyuAdi ? (
+                      <Link
+                        href={`/baraj/${slugify(b.BarajKuyuAdi)}`}
+                        className="font-serif-display text-2xl leading-tight hover:text-orange transition-colors"
+                      >
+                        {b.BarajKuyuAdi}
+                      </Link>
+                    ) : (
+                      <h2 className="font-serif-display text-2xl leading-tight">—</h2>
+                    )}
                     <span className="font-mono text-2xl text-orange">
                       %{Number.isNaN(d) ? "—" : Math.round(d)}
                     </span>
