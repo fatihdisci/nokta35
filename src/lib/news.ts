@@ -103,8 +103,14 @@ export async function getIzmirHaberleri(): Promise<HaberItem[]> {
       if (it.baslik && it.link) items.push(it)
     }
 
-    const filtered = items.filter((it) => kaynakIzinli(it.kaynak))
-    const result = filtered.length >= 3 ? filtered : items
+    const ikiGunOnce = Date.now() - 2 * 24 * 60 * 60 * 1000
+    const guncel = items.filter((it) => {
+      const t = new Date(it.tarih).getTime()
+      return !isNaN(t) && t >= ikiGunOnce
+    })
+
+    const filtered = guncel.filter((it) => kaynakIzinli(it.kaynak))
+    const result = filtered.length >= 3 ? filtered : guncel
 
     return result.sort(
       (a, b) => new Date(b.tarih).getTime() - new Date(a.tarih).getTime()
