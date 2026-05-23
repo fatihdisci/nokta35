@@ -15,6 +15,5 @@ export default function robots(): MetadataRoute.Robots {
       },
     ],
     sitemap: "https://nokta35.com/sitemap.xml",
-    host: "https://nokta35.com",
   }
 }
