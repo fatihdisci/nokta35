@@ -1,6 +1,8 @@
 import type { Metadata } from "next"
+import Link from "next/link"
 import { getEczaneler } from "@/lib/data"
 import { parseCoord } from "@/lib/api"
+import { slugify } from "@/lib/utils"
 import { breadcrumbJsonLd, datasetJsonLd, JsonLdScript, faqJsonLd } from "@/lib/jsonLd"
 import { FaqSection } from "@/components/widgets/FaqSection"
 
@@ -77,8 +79,13 @@ export default async function Page() {
               const items = grouped.get(bolge) ?? []
               return (
                 <div key={bolge}>
-                  <h2 className="font-serif-display text-2xl text-orange mb-3 border-b border-ink pb-1">
-                    {bolge}{" "}
+                  <h2 className="font-serif-display text-2xl text-orange mb-3 border-b border-ink pb-1 flex items-baseline gap-3">
+                    <Link
+                      href={`/eczane/${slugify(bolge)}`}
+                      className="hover:underline"
+                    >
+                      {bolge}
+                    </Link>
                     <span className="text-[10px] uppercase tracking-widest text-gray">
                       ({items.length})
                     </span>

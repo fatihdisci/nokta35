@@ -1,8 +1,10 @@
 "use client"
 
 import { useState, useMemo } from "react"
+import Link from "next/link"
 import type { PazarYeriItem } from "@/lib/data"
 import { GUN_ADLARI } from "@/lib/data"
+import { slugify } from "@/lib/utils"
 
 const GUN_ORDER = [1, 2, 3, 4, 5, 6, 0]
 
@@ -149,9 +151,12 @@ export function PazarList({
 
                 {/* Konum bilgisi */}
                 <div className="space-y-0.5 text-[11px]">
-                  <div className="text-orange uppercase tracking-widest font-mono">
+                  <Link
+                    href={`/pazar/${slugify(p.ILCE)}`}
+                    className="text-orange uppercase tracking-widest font-mono hover:underline"
+                  >
                     {p.ILCE}
-                  </div>
+                  </Link>
                   {p.MAHALLE && (
                     <div className="text-gray uppercase tracking-wide">
                       {p.MAHALLE}

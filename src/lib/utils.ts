@@ -12,3 +12,23 @@ export function istanbulGunu(): number {
     new Date().toLocaleString("en-US", { timeZone: "Europe/Istanbul" })
   ).getDay()
 }
+
+export function slugify(s: string): string {
+  return s
+    .replace(/Ğ/g, "g").replace(/ğ/g, "g")
+    .replace(/Ü/g, "u").replace(/ü/g, "u")
+    .replace(/Ş/g, "s").replace(/ş/g, "s")
+    .replace(/İ/g, "i").replace(/ı/g, "i")
+    .replace(/Ö/g, "o").replace(/ö/g, "o")
+    .replace(/Ç/g, "c").replace(/ç/g, "c")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "")
+}
+
+export function titleCase(s: string): string {
+  return s
+    .toLowerCase()
+    .replace(/\b\w/g, (c) => c.toUpperCase())
+    .replace(/İ/g, "İ")
+}
