@@ -28,6 +28,9 @@ import * as karbonAyak from "./karbon-ayak-izi-nedir-hesaplanir"
 import * as suKesinti from "./izmir-su-kesintileri-nedenler"
 import * as metro from "./izmir-metrosu-guzergahlar-istasyonlar"
 import * as toplanma from "./toplanma-alani-nedir-nasil-bulunur"
+import * as izmirkart from "./izmirkart-nedir-nasil-kullanilir"
+import * as isiAdasi from "./isi-adasi-etkisi-nedir"
+import * as sifirAtik from "./sifir-atik-yasam-baslangic"
 
 export type BlogPost = BlogMeta & { Body: ComponentType }
 
@@ -59,6 +62,9 @@ const RAW: BlogPost[] = [
   { ...suKesinti.meta, Body: suKesinti.Body },
   { ...metro.meta, Body: metro.Body },
   { ...toplanma.meta, Body: toplanma.Body },
+  { ...izmirkart.meta, Body: izmirkart.Body },
+  { ...isiAdasi.meta, Body: isiAdasi.Body },
+  { ...sifirAtik.meta, Body: sifirAtik.Body },
 ]
 
 export const POSTS: BlogPost[] = [...RAW].sort((a, b) =>
