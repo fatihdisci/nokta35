@@ -1,10 +1,15 @@
-import { getOtoparklar, otoparkKapasite } from "@/lib/data"
+import { getOtoparklar, otoparkKapasite, OTOPARK_KEY } from "@/lib/data"
+import { getCacheTimestamp } from "@/lib/redis"
 import { WidgetMore } from "./WidgetMore"
+import { DataAge } from "./DataAge"
 
 const LIMIT = 5
 
 export async function OtoparkWidget() {
-  const otoparklar = await getOtoparklar()
+  const [otoparklar, ts] = await Promise.all([
+    getOtoparklar(),
+    getCacheTimestamp(OTOPARK_KEY),
+  ])
 
   const enriched = (otoparklar ?? [])
     .map((o) => {
@@ -21,9 +26,10 @@ export async function OtoparkWidget() {
     <section className="border-2 border-ink bg-cream p-5 flex flex-col">
       <header className="flex items-baseline justify-between mb-4">
         <h2 className="font-serif-display text-2xl">Otoparklar</h2>
-        <span className="text-[10px] uppercase tracking-widest text-gray">
-          Anlık doluluk
-        </span>
+        <div className="flex items-baseline gap-2">
+          <DataAge ts={ts} />
+          <span className="text-[10px] uppercase tracking-widest text-gray">Anlık</span>
+        </div>
       </header>
 
       {list.length === 0 ? (

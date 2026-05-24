@@ -14,6 +14,8 @@ export const metadata: Metadata = {
   ],
 }
 
+const PAGE_SIZE = 9
+
 function formatDate(iso: string): string {
   try {
     return new Date(iso).toLocaleDateString("tr-TR", {
@@ -26,9 +28,16 @@ function formatDate(iso: string): string {
   }
 }
 
-export default function BlogIndexPage() {
+type Props = { searchParams: { sayfa?: string } }
+
+export default function BlogIndexPage({ searchParams }: Props) {
   const breadcrumb = breadcrumbJsonLd([{ name: "Blog", href: "/blog" }])
   const kategoriler = [...new Set(POSTS.map((p) => p.category))].sort()
+
+  const rawPage = parseInt(searchParams?.sayfa ?? "1", 10)
+  const totalPages = Math.ceil(POSTS.length / PAGE_SIZE)
+  const page = Math.max(1, Math.min(isNaN(rawPage) ? 1 : rawPage, totalPages))
+  const pagePosts = POSTS.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE)
 
   return (
     <>
@@ -47,9 +56,9 @@ export default function BlogIndexPage() {
         </p>
       </section>
 
-      <section className="container pb-16">
+      <section className="container pb-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {POSTS.map((p) => (
+          {pagePosts.map((p) => (
             <article
               key={p.slug}
               className="border-2 border-light-gray hover:border-ink bg-cream p-5 transition-colors flex flex-col"
@@ -83,6 +92,49 @@ export default function BlogIndexPage() {
           ))}
         </div>
       </section>
+
+      {totalPages > 1 && (
+        <nav className="container pb-16 flex items-center justify-between gap-4">
+          <span className="text-[10px] uppercase tracking-widest text-gray font-mono">
+            {(page - 1) * PAGE_SIZE + 1}–{Math.min(page * PAGE_SIZE, POSTS.length)} / {POSTS.length} yazı
+          </span>
+
+          <div className="flex items-center gap-1">
+            {page > 1 && (
+              <Link
+                href={page - 1 === 1 ? "/blog" : `/blog?sayfa=${page - 1}`}
+                className="text-[10px] uppercase tracking-widest px-3 py-1.5 border-2 border-ink hover:bg-ink hover:text-cream transition-colors"
+              >
+                ← Önceki
+              </Link>
+            )}
+
+            {Array.from({ length: totalPages }, (_, i) => i + 1).map((n) => (
+              <Link
+                key={n}
+                href={n === 1 ? "/blog" : `/blog?sayfa=${n}`}
+                className={
+                  "text-[10px] font-mono px-2.5 py-1.5 border-2 transition-colors " +
+                  (n === page
+                    ? "border-orange bg-orange text-cream"
+                    : "border-light-gray hover:border-ink")
+                }
+              >
+                {n}
+              </Link>
+            ))}
+
+            {page < totalPages && (
+              <Link
+                href={`/blog?sayfa=${page + 1}`}
+                className="text-[10px] uppercase tracking-widest px-3 py-1.5 border-2 border-ink hover:bg-ink hover:text-cream transition-colors"
+              >
+                Sonraki →
+              </Link>
+            )}
+          </div>
+        </nav>
+      )}
     </>
   )
 }

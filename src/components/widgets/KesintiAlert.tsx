@@ -1,19 +1,22 @@
-import { getKesintiler } from "@/lib/data"
+import { getKesintiler, KESINTI_KEY } from "@/lib/data"
+import { getCacheTimestamp } from "@/lib/redis"
 import { WidgetMore } from "./WidgetMore"
+import { DataAge } from "./DataAge"
 
 const LIMIT = 5
 
 export async function KesintiAlert() {
-  const kesintiler = await getKesintiler()
+  const [kesintiler, ts] = await Promise.all([
+    getKesintiler(),
+    getCacheTimestamp(KESINTI_KEY),
+  ])
   const list = kesintiler?.slice(0, LIMIT) ?? []
 
   if (!kesintiler) {
     return (
       <section className="border-2 border-ink bg-cream p-5">
         <h2 className="font-serif-display text-2xl mb-2">Su Kesintisi</h2>
-        <div className="text-xs text-gray uppercase tracking-widest">
-          Veri alınamadı
-        </div>
+        <div className="text-xs text-gray uppercase tracking-widest">Veri alınamadı</div>
       </section>
     )
   }
@@ -21,7 +24,10 @@ export async function KesintiAlert() {
   if (kesintiler.length === 0) {
     return (
       <section className="border-2 border-ink bg-cream p-5">
-        <h2 className="font-serif-display text-2xl mb-2">Su Kesintisi</h2>
+        <div className="flex items-baseline justify-between mb-1">
+          <h2 className="font-serif-display text-2xl">Su Kesintisi</h2>
+          <DataAge ts={ts} />
+        </div>
         <div className="text-xs uppercase tracking-widest text-gray">
           Aktif kesinti yok · <span className="text-ink">İZSU normal akış</span>
         </div>
@@ -33,9 +39,12 @@ export async function KesintiAlert() {
     <section className="border-2 border-orange bg-orange/10 p-5 flex flex-col">
       <header className="flex items-baseline justify-between mb-3">
         <h2 className="font-serif-display text-2xl text-ink">Su Kesintisi</h2>
-        <span className="text-[10px] uppercase tracking-widest text-orange font-bold">
-          {kesintiler.length} aktif
-        </span>
+        <div className="flex items-baseline gap-2">
+          <DataAge ts={ts} />
+          <span className="text-[10px] uppercase tracking-widest text-orange font-bold">
+            {kesintiler.length} aktif
+          </span>
+        </div>
       </header>
       <ul className="space-y-3 text-xs flex-1">
         {list.map((k, i) => (

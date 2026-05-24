@@ -1,7 +1,9 @@
 import Link from "next/link"
-import { getBarajlar } from "@/lib/data"
+import { getBarajlar, BARAJ_KEY } from "@/lib/data"
+import { getCacheTimestamp } from "@/lib/redis"
 import { slugify } from "@/lib/utils"
 import { WidgetMore } from "./WidgetMore"
+import { DataAge } from "./DataAge"
 
 function toNum(v: unknown): number {
   if (typeof v === "number") return v
@@ -16,16 +18,20 @@ function clamp(n: number, min = 0, max = 100) {
 const LIMIT = 5
 
 export async function BarajWidget() {
-  const barajlar = await getBarajlar()
+  const [barajlar, ts] = await Promise.all([
+    getBarajlar(),
+    getCacheTimestamp(BARAJ_KEY),
+  ])
   const list = barajlar?.slice(0, LIMIT) ?? []
 
   return (
     <section className="border-2 border-ink bg-cream p-5 flex flex-col">
       <header className="flex items-baseline justify-between mb-4">
         <h2 className="font-serif-display text-2xl">Barajlar</h2>
-        <span className="text-[10px] uppercase tracking-widest text-gray">
-          Doluluk
-        </span>
+        <div className="flex items-baseline gap-2">
+          <DataAge ts={ts} />
+          <span className="text-[10px] uppercase tracking-widest text-gray">Doluluk</span>
+        </div>
       </header>
 
       {!barajlar || list.length === 0 ? (

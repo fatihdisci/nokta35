@@ -1,4 +1,5 @@
-import { IZMIR_API } from "./api"
+import { IZMIR_API, fetchIzmir } from "./api"
+import { cached } from "./redis"
 
 async function getIzmir<T>(path: string, revalidate: number): Promise<T | null> {
   try {
@@ -12,6 +13,13 @@ async function getIzmir<T>(path: string, revalidate: number): Promise<T | null> 
     return null
   }
 }
+
+// Redis cache keys — shared with /api/* routes so any fetch warms the cache
+export const BARAJ_KEY = "baraj:durum"
+export const ECZANE_KEY = "eczane:nobetci"
+export const OTOPARK_KEY = "otopark:doluluk"
+export const KESINTI_KEY = "su:kesinti"
+export const HAVA_KEY = "cevre:havakalitest:v2"
 
 export type BarajItem = {
   BarajKuyuAdi?: string
@@ -60,16 +68,16 @@ export type KesintiItem = {
 }
 
 export const getBarajlar = () =>
-  getIzmir<BarajItem[]>("/api/izsu/barajdurum", 3600)
+  cached(BARAJ_KEY, 3600, () => fetchIzmir<BarajItem[]>("/api/izsu/barajdurum")).catch(() => null)
 
 export const getEczaneler = () =>
-  getIzmir<EczaneItem[]>("/api/ibb/nobetcieczaneler", 3600)
+  cached(ECZANE_KEY, 3600, () => fetchIzmir<EczaneItem[]>("/api/ibb/nobetcieczaneler")).catch(() => null)
 
 export const getOtoparklar = () =>
-  getIzmir<OtoparkItem[]>("/api/ibb/izum/otoparklar", 30)
+  cached(OTOPARK_KEY, 30, () => fetchIzmir<OtoparkItem[]>("/api/ibb/izum/otoparklar")).catch(() => null)
 
 export const getKesintiler = () =>
-  getIzmir<KesintiItem[]>("/api/izsu/arizakaynaklisukesintileri", 3600)
+  cached(KESINTI_KEY, 3600, () => fetchIzmir<KesintiItem[]>("/api/izsu/arizakaynaklisukesintileri")).catch(() => null)
 
 export function otoparkKapasite(o: OtoparkItem) {
   const free = o.occupancy?.total?.free ?? 0
@@ -240,10 +248,11 @@ function groupCevreOlcumler(rows: RawCevreOlcum[]): HavaKalitesiItem[] {
 }
 
 export const getHavaKalitesi = async (): Promise<HavaKalitesiItem[]> => {
-  const raw = await getIzmir<RawCevreOlcum[] | RawRecord>("/api/ibb/cevre/havadegerleri", 3600)
-  if (!raw) return []
-  const arr = Array.isArray(raw) ? (raw as RawCevreOlcum[]) : []
-  return groupCevreOlcumler(arr)
+  const raw = await cached(HAVA_KEY, 3600, async () => {
+    const r = await fetchIzmir<RawCevreOlcum[] | RawRecord>("/api/ibb/cevre/havadegerleri")
+    return Array.isArray(r) ? r : []
+  }).catch(() => [] as RawCevreOlcum[])
+  return groupCevreOlcumler(raw as RawCevreOlcum[])
 }
 
 export function havaKalitesiAdi(item: HavaKalitesiItem): string {

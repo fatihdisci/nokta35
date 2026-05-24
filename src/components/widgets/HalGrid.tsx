@@ -1,4 +1,4 @@
-import { redis } from "@/lib/redis"
+import { redis, getCacheTimestamp } from "@/lib/redis"
 import { fetchHalCsv, type HalFiyat } from "@/lib/hal"
 
 const KEY = "hal:sebze"
@@ -14,6 +14,7 @@ async function loadHal(): Promise<HalFiyat[]> {
     const data = await fetchHalCsv(url)
     if (redis && data.length > 0) {
       await redis.set(KEY, data, { ex: 86400 })
+      await redis.set(`${KEY}:ts`, Math.floor(Date.now() / 1000), { ex: 86400 + 600 })
     }
     return data
   } catch {
@@ -30,20 +31,30 @@ function fmt(n: number | null): string {
 }
 
 export async function HalGrid() {
-  const all = await loadHal()
+  const [all, ts] = await Promise.all([loadHal(), getCacheTimestamp(KEY)])
   const items = all.slice(0, 8)
 
   return (
     <section className="container">
       <header className="flex items-baseline justify-between mb-4 border-b-2 border-ink pb-2">
         <h2 className="font-serif-display text-3xl">Hal Fiyatları</h2>
-        <span className="text-[10px] uppercase tracking-[0.2em] text-gray">
-          {items.length > 0
-            ? items[0].tarih
-              ? items[0].tarih
-              : "Günlük güncel"
-            : "Yapılandırılmadı"}
-        </span>
+        <div className="flex items-baseline gap-3 text-[10px] uppercase tracking-[0.2em] text-gray">
+          {ts && (
+            <span className="font-mono normal-case tracking-normal text-[9px] text-gray/60">
+              {(() => {
+                const diff = Math.floor(Date.now() / 1000) - ts
+                if (diff < 3600) return `${Math.floor(diff / 60)} dk önce`
+                if (diff < 86400) return `${Math.floor(diff / 3600)} sa önce`
+                return `${Math.floor(diff / 86400)} gün önce`
+              })()}
+            </span>
+          )}
+          <span>
+            {items.length > 0
+              ? items[0].tarih ?? "Günlük güncel"
+              : "Yapılandırılmadı"}
+          </span>
+        </div>
       </header>
 
       {items.length === 0 ? (

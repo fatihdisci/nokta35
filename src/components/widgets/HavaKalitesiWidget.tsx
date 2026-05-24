@@ -1,10 +1,15 @@
-import { getHavaKalitesi, pm10Seviye } from "@/lib/data"
+import { getHavaKalitesi, pm10Seviye, HAVA_KEY } from "@/lib/data"
+import { getCacheTimestamp } from "@/lib/redis"
+import { DataAge } from "./DataAge"
 import { WidgetMore } from "./WidgetMore"
 
 const LIMIT = 5
 
 export async function HavaKalitesiWidget() {
-  const istasyonlar = await getHavaKalitesi()
+  const [istasyonlar, ts] = await Promise.all([
+    getHavaKalitesi(),
+    getCacheTimestamp(HAVA_KEY),
+  ])
   const withPm10 = istasyonlar.filter((s) => s.pm10 !== null).sort((a, b) => (b.pm10 ?? 0) - (a.pm10 ?? 0))
   const list = withPm10.slice(0, LIMIT)
 
@@ -12,9 +17,12 @@ export async function HavaKalitesiWidget() {
     <section className="border-2 border-ink bg-cream p-5 flex flex-col">
       <header className="flex items-baseline justify-between mb-4">
         <h2 className="font-serif-display text-2xl">Hava Kalitesi</h2>
-        <span className="text-[10px] uppercase tracking-widest text-gray">
-          {istasyonlar.length > 0 ? `${istasyonlar.length} istasyon` : "PM10"}
-        </span>
+        <div className="flex items-baseline gap-2">
+          <DataAge ts={ts} />
+          <span className="text-[10px] uppercase tracking-widest text-gray">
+            {istasyonlar.length > 0 ? `${istasyonlar.length} istasyon` : "PM10"}
+          </span>
+        </div>
       </header>
 
       {list.length === 0 ? (
