@@ -52,7 +52,7 @@
 |-----|-------|--------|------|
 | Pillar | ✅ | Türkiye'de Sağlık Sistemi: Birinci, İkinci, Üçüncü Basamak | `turkiye-saglik-sistemi-basamaklar` |
 | Cluster | ✅ | Nöbetçi Eczane Sistemi Nasıl İşler? | `nobetci-eczane-sistemi-nasil-isler` |
-| Cluster | 📝 | Aile Sağlığı Merkezi (ASM) Nedir? Nasıl Kayıt Olunur? | `aile-sagligi-merkezi-asm-nedir` |
+| Cluster | ✅ | Aile Sağlığı Merkezi (ASM) Nedir? Nasıl Kayıt Olunur? | `aile-sagligi-merkezi-asm-nedir` |
 | Cluster | 📝 | Acil Servis mi, ASM mi? Doğru Tercih Kılavuzu | `acil-servis-mi-asm-mi` |
 | Cluster | 📝 | SGK ile Hangi İlaçlar Karşılanır? Katkı Payı Nasıl Hesaplanır? | `sgk-ilac-katkipayı-nasil-hesaplanir` |
 | Cluster | 📝 | Reçetesiz İlaçlar: OTC Kategorisi Nedir? | `recetesiz-ilaclar-otc-nedir` |
@@ -111,7 +111,7 @@
 
 | Tip | Durum | Başlık | Slug |
 |-----|-------|--------|------|
-| Pillar | 📝 | Sürdürülebilir Yaşam Nedir? Evden Başlamak İçin Kılavuz | `surdurulebilir-yasam-nedir-rehber` |
+| Pillar | ✅ | Sürdürülebilir Yaşam Nedir? Evden Başlamak İçin Kılavuz | `surdurulebilir-yasam-nedir-rehber` |
 | Cluster | 📝 | Sıfır Atık Yaşam: Başlangıç için 10 Adım | `sifir-atik-yasam-baslangic` |
 | Cluster | 📝 | Gıda İsrafını Önlemek: Pratik Yöntemler ve Tarifler | `gida-israfi-onlemek-pratik-yontemler` |
 | Cluster | 📝 | Kompost Nedir? Evde Kompost Nasıl Yapılır? | `kompost-nedir-evde-nasil-yapilir` |
@@ -129,7 +129,7 @@
 | Tip | Durum | Başlık | Slug |
 |-----|-------|--------|------|
 | Pillar | ✅ | Depreme Hazırlık: Ev, Çanta, Tahliye Planı | `depreme-hazirlik-rehberi` |
-| Cluster | 📝 | Deprem Çantası: İçinde Ne Olmalı? (Güncel Liste) | `deprem-cantasi-icinde-ne-olmali` |
+| Cluster | ✅ | Deprem Çantası: İçinde Ne Olmalı? (Güncel Liste) | `deprem-cantasi-icinde-ne-olmali` |
 | Cluster | 📝 | Sel ve Taşkın: Öncesinde ve Sırasında Ne Yapmalı? | `sel-taskin-oncesi-sirasinda-ne-yapmali` |
 | Cluster | 📝 | AFAD Nedir? Afetlerde Rolü ve İletişim Bilgileri | `afad-nedir-afetlerde-rolu` |
 | Cluster | 📝 | Toplanma Alanı Nedir? Nasıl Bulunur? | `toplanma-alani-nedir-nasil-bulunur` |
@@ -166,7 +166,7 @@
 | Şehir & Kentsel | 0/1 | 0 | 4 | 5 |
 | **Toplam** | **3/9** | **6** | **46** | **62** |
 
-**Şu an yayında:** 15 yazı
+**Şu an yayında:** 18 yazı
 **Öncelikli sonraki adım:** Cluster yazıları + Sürdürülebilir Yaşam Pillar
 
 ---

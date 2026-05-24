@@ -16,6 +16,9 @@ import * as izBaraj from "./izmir-barajlari-tahtatli-gordes-balcova"
 import * as saglik from "./turkiye-saglik-sistemi-basamaklar"
 import * as izRehber from "./izmir-rehberi-cografya-iklim-ilceler"
 import * as deprem from "./depreme-hazirlik-rehberi"
+import * as surdurulebilir from "./surdurulebilir-yasam-nedir-rehber"
+import * as asm from "./aile-sagligi-merkezi-asm-nedir"
+import * as depremCanta from "./deprem-cantasi-icinde-ne-olmali"
 
 export type BlogPost = BlogMeta & { Body: ComponentType }
 
@@ -35,6 +38,9 @@ const RAW: BlogPost[] = [
   { ...saglik.meta, Body: saglik.Body },
   { ...izRehber.meta, Body: izRehber.Body },
   { ...deprem.meta, Body: deprem.Body },
+  { ...surdurulebilir.meta, Body: surdurulebilir.Body },
+  { ...asm.meta, Body: asm.Body },
+  { ...depremCanta.meta, Body: depremCanta.Body },
 ]
 
 export const POSTS: BlogPost[] = [...RAW].sort((a, b) =>
