@@ -8,18 +8,18 @@ export const meta: BlogMeta = {
   date: "2026-05-24",
   category: "Ulaşım",
   summary:
-    "BİSİM (Bisiklet İzmir), İzmir Büyükşehir Belediyesi'nin sahil koridoru boyunca kurduğu istasyon bazlı bisiklet paylaşım sistemidir. İzmirkart ile entegre çalışır. Üyelik ve tarife için güncel bilgiye BİSİM'in resmi mobil uygulaması veya İZELMAN kanalları üzerinden ulaşılmalıdır.",
+    "BİSİM (Bisiklet İzmir), İzmir Büyükşehir Belediyesi'nin sahil koridoru boyunca kurduğu istasyon bazlı bisiklet paylaşım sistemidir. İzmirkart ile entegre çalışır. Üyelik ve tarife için güncel bilgiye BİSİM'in resmi mobil uygulaması veya İBB'nin BİSİM sayfası üzerinden ulaşılmalıdır.",
   readTime: 5,
   faq: [
     {
       question: "BİSİM nedir, kim işletir?",
       answer:
-        "BİSİM (Bisiklet İzmir), İzmir Büyükşehir Belediyesi'nin oluşturduğu ve İZELMAN A.Ş.'nin işlettiği istasyon bazlı bisiklet paylaşım sistemidir. Sahil koridoru başta olmak üzere şehrin çeşitli noktalarında kiralama istasyonları bulunur.",
+        "BİSİM (Bisiklet İzmir), İzmir Büyükşehir Belediyesi'nin bisiklet paylaşım sistemidir. Sahil koridoru başta olmak üzere şehrin çeşitli noktalarında istasyon bazlı kiralama imkânı sunar. Operasyonu İBB'ye bağlı şirketler aracılığıyla yürütülmektedir; güncel işletmeci ve hizmet sağlayıcı için BİSİM'in resmi kanalları esas alınmalıdır.",
     },
     {
       question: "BİSİM'e üye olmak için ne gerekir?",
       answer:
-        "BİSİM üyeliği için İzmirkart veya resmi mobil uygulama üzerinden kayıt yaptırılabilir. Güncel üyelik koşulları ve belgeler için BİSİM'in resmi uygulaması veya İZELMAN web sitesi incelenmelidir. Ücret ve üyelik planları dönemsel olarak değiştiğinden resmi kaynak esas alınmalıdır.",
+        "BİSİM üyeliği için resmi mobil uygulama veya İzmirkart entegrasyonu üzerinden kayıt yapılabilir. Güncel üyelik koşulları, belgeler ve tarifeler için BİSİM'in resmi uygulaması ya da İzmir Büyükşehir Belediyesi'nin BİSİM sayfası incelenmelidir. Ücret ve üyelik planları dönemsel olarak değiştiğinden resmi kaynak esas alınmalıdır.",
     },
     {
       question: "BİSİM istasyonları nerede?",
@@ -29,7 +29,7 @@ export const meta: BlogMeta = {
     {
       question: "Bisiklet ne kadar süre kullanılabilir, ücret nasıl hesaplanır?",
       answer:
-        "BİSİM'de ücretsiz kullanım süresi ve sonrasındaki ücretlendirme sistemi dönemsel olarak güncellenebilmektedir. Kısa mesafe kullanım genellikle belirli bir süre ücretsiz ya da düşük ücretlidir; uzun süreli kullanımda ek ücret uygulanır. Güncel tarife için BİSİM'in resmi uygulaması veya İZELMAN kanalları esas alınmalıdır.",
+        "BİSİM'de ücretsiz kullanım süresi ve sonrasındaki ücretlendirme sistemi dönemsel olarak güncellenebilmektedir. Kısa mesafe kullanım genellikle belirli bir süre düşük ücretlidir; uzun süreli kullanımda ek dakika ücreti uygulanır. Güncel tarife için BİSİM'in resmi uygulaması veya İBB'nin BİSİM sayfası esas alınmalıdır.",
     },
     {
       question: "Bisiklet hasarlı iade edilirse ne olur?",
@@ -54,10 +54,12 @@ export function Body() {
       <h2>BİSİM Nedir?</h2>
       <p>
         BİSİM, <strong>İzmir Büyükşehir Belediyesi</strong> öncülüğünde
-        kurulan ve <strong>İZELMAN A.Ş.</strong> tarafından işletilen
-        bisiklet paylaşım sistemidir. Sistem, sabit istasyonlar arasında
-        bisiklet alıp bırakmaya dayanır; istasyonlar elektronik kilit
-        sistemiyle donatılmıştır.
+        kurulan istasyon bazlı bisiklet paylaşım sistemidir. Sistem,
+        sabit istasyonlar arasında bisiklet alıp bırakmaya dayanır;
+        istasyonlar elektronik kilit sistemiyle donatılmıştır.
+        Operasyonu, İBB'ye bağlı şirketler aracılığıyla yürütülür;
+        güncel hizmet sağlayıcı bilgisi için BİSİM resmi kanalları
+        esas alınmalıdır.
       </p>
       <p>
         BİSİM, İzmir'in kentiçi aktif ulaşım altyapısının bir parçasıdır;
@@ -110,7 +112,7 @@ export function Body() {
       <p>
         Üyelik ücretleri ve planları periyodik olarak güncellenebilir.
         Güncel bilgi için{" "}
-        <strong>resmi BİSİM uygulaması veya İZELMAN web sitesi</strong>{" "}
+        <strong>resmi BİSİM uygulaması veya İBB'nin BİSİM sayfası</strong>{" "}
         esas alınmalıdır.
       </p>
 
@@ -149,7 +151,7 @@ export function Body() {
       <p>
         <strong>Önemli:</strong> Tarife bilgileri bu yazı yayımlandıktan
         sonra güncellenmiş olabilir. En güncel bilgi için BİSİM uygulamasını
-        veya İZELMAN'ın resmi kanallarını takip edin.
+        veya İBB'nin resmi BİSİM kanallarını takip edin.
       </p>
 
       <h2>Bisiklet Güvenliği</h2>

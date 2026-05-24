@@ -14,7 +14,7 @@ export const meta: BlogMeta = {
     {
       question: "İZELMAN nedir?",
       answer:
-        "İZELMAN A.Ş. (İzmir Elektrikli Ulaşım A.Ş.), İzmir Büyükşehir Belediyesi'ne bağlı bir şehir içi ulaşım ve otopark işletme kuruluşudur. Adında 'elektrikli' geçmesine karşın aynı zamanda kapalı ve açık otopark tesislerini de işletmektedir. İzmirkart sistemini de İZELMAN yönetir.",
+        "İZELMAN A.Ş., İzmir Büyükşehir Belediyesi'ne bağlı bir şirkettir; kapalı ve açık otopark tesislerinin işletmeciliğini yürütür. Şirketin güncel hizmet kapsamı ve diğer faaliyet alanları için kurumun resmi web sitesi izelaman.com.tr esas alınmalıdır.",
     },
     {
       question: "İZELMAN otoparkları nerede?",
@@ -52,20 +52,19 @@ export function Body() {
 
       <h2>İZELMAN Nedir?</h2>
       <p>
-        <strong>İZELMAN A.Ş.</strong> (İzmir Elektrikli Ulaşım A.Ş.),
-        İzmir Büyükşehir Belediyesi'ne bağlı bir kuruluştur.
-        Görev alanı:
+        <strong>İZELMAN A.Ş.</strong>, İzmir Büyükşehir Belediyesi'ne
+        bağlı bir kuruluştur. Otopark işletmeciliği başlıca faaliyet
+        alanıdır:
       </p>
       <ul>
         <li>Kapalı ve açık otopark işletmeciliği</li>
         <li>Parkmetre ve yol kenarı park alanı yönetimi</li>
-        <li>İzmirkart sistemi yönetimi</li>
         <li>Akıllı otopark altyapısı</li>
       </ul>
       <p>
-        şeklinde özetlenebilir. İZELMAN'ın resmi web sitesi{" "}
-        güncel tesis listesi, ücret tarifesi ve hizmet saatlerini
-        yayımlar.
+        İZELMAN'ın resmi web sitesi güncel tesis listesi, ücret tarifesi
+        ve hizmet saatlerini yayımlar. Kurumun tüm faaliyet alanları ve
+        bağlı hizmetler için resmi kanalı esas alınmalıdır.
       </p>
 
       <h2>Otopark Tipleri</h2>

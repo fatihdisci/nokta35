@@ -14,7 +14,7 @@ export const meta: BlogMeta = {
     {
       question: "LGS nedir, kim girer?",
       answer:
-        "LGS (Liselere Geçiş Sistemi), Türkiye'de 8. sınıf öğrencilerinin liselere yerleşmesini düzenleyen sistemdir. Her yıl Haziran ayında yapılan merkezi sınav; Türkçe, matematik, fen bilimleri, inkılap tarihi ve din eğitimi gibi derslerden oluşur. Sınav sonucuna göre oluşan puan, öğrencinin lise tercihlerini belirler.",
+        "LGS (Liselere Geçiş Sistemi), Türkiye'de 8. sınıf öğrencilerinin liselere yerleşmesini düzenleyen sistemdir. Her yıl Haziran ayında yapılan merkezi sınav; Türkçe, matematik, fen bilimleri, inkılap tarihi, din kültürü ve yabancı dil gibi derslerden oluşur. Sınav sonucuna göre standartlaştırılarak hesaplanan puan, öğrencinin lise tercihlerini belirler. Puan ölçeği 500 üzerindendir; ancak hesaplama metodolojisi yıllara göre güncellenebileceğinden güncel kılavuz esas alınmalıdır.",
     },
     {
       question: "Taban puan nedir, neden her yıl değişir?",
@@ -66,9 +66,13 @@ export function Body() {
         <li>Din Kültürü ve Ahlak Bilgisi (veya Yabancı Dil — seçmeli)</li>
       </ul>
       <p>
-        Sınav sonucu <strong>100 üzerinden puan</strong> şeklinde açıklanır.
-        Bu puan, öğrencinin tercih listesine göre okula yerleşiminde
-        kullanılır.
+        Sınav sonucu, ham doğru sayılarının standartlaştırılmasıyla
+        <strong> 500 üzerinden bir merkezi sınav puanı</strong> şeklinde
+        açıklanır. Bu puan, öğrencinin tercih listesine göre okula
+        yerleşiminde belirleyicidir. Puanlamanın matematiksel ayrıntıları
+        ve katsayılar MEB tarafından yıllık olarak güncellenebilir;
+        güncel formül için ÖSYM ve MEB'in yayımladığı resmi LGS kılavuzu
+        esas alınmalıdır.
       </p>
 
       <h2>Taban Puan Nedir?</h2>
@@ -84,9 +88,10 @@ export function Body() {
         <li>Sınıf geçme ve bölgesel faktörlere</li>
       </ul>
       <p>
-        göre her yıl değişir. Bu nedenle geçen yıl 480 olan taban puan,
-        bu yıl 492 veya 465 olabilir. Geçmiş yıl verileri yalnızca
-        kaba bir fikir verir.
+        göre her yıl değişir. Bu nedenle bir okul için geçen yıl
+        hesaplanan taban puan, bu yıl daha yüksek veya daha düşük
+        olabilir. Geçmiş yıl verileri yalnızca kaba bir referans noktası
+        sağlar; kesin yerleştirme tahmini için kullanılmamalıdır.
       </p>
 
       <h2>Güncel Taban Puanlara Nereden Ulaşılır?</h2>

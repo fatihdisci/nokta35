@@ -24,7 +24,7 @@ export const meta: BlogMeta = {
     {
       question: "Toplum Ruh Sağlığı Merkezi'ne nasıl başvurulur?",
       answer:
-        "Toplum Ruh Sağlığı Merkezleri'ne (TRSM) sevkle veya doğrudan başvuru yapılabilir. Doğrudan başvuruda kimlik belgesi yeterlidir. Merkez psikiyatristi gerekli görürse bireyi psikolog veya sosyal çalışmacıya yönlendirir. ALO 182 (Sağlık Bakanlığı Hattı) veya e-Nabız uygulaması üzerinden en yakın merkeze ulaşılabilir.",
+        "Toplum Ruh Sağlığı Merkezleri'ne (TRSM) sevkle veya doğrudan başvuru yapılabilir. Doğrudan başvuruda kimlik belgesi yeterlidir. Merkez psikiyatristi gerekli görürse bireyi psikolog veya sosyal çalışmacıya yönlendirir. En yakın merkezi öğrenmek için MHRS (182) üzerinden randevu sistemini sorgulayabilir veya e-Nabız ile aile hekiminizden yönlendirme alabilirsiniz.",
     },
     {
       question: "ASM'de psikolojik destek alınabilir mi?",
@@ -72,7 +72,8 @@ export function Body() {
       </p>
       <ul>
         <li>
-          <strong>ALO 182</strong> (Sağlık Bakanlığı Hattı) aranabilir.
+          <strong>MHRS (182)</strong> üzerinden ilçe ve hastane bazında
+          ruh sağlığı poliklinikleri sorgulanabilir.
         </li>
         <li>
           <strong>e-Nabız</strong> uygulaması üzerinden aile hekiminize
@@ -164,24 +165,28 @@ export function Body() {
 
       <h2>Kriz Anında Ne Yapmalı?</h2>
       <p>
-        Acil psikolojik destek gerektiren durumlarda:
+        Acil psikolojik destek gerektiren durumlarda doğru kanallar:
       </p>
       <ul>
         <li>
-          <strong>182</strong> — Sağlık Bakanlığı ALO Psikiyatri Hattı
-          (kriz danışma hizmetleri)
+          <strong>112</strong> — Tıbbi acil durum hattı. Yaşamı tehdit eden
+          her durum için (intihar düşüncesi, kendine veya başkasına zarar
+          verme riski dahil) öncelikli aranacak numaradır.
         </li>
         <li>
-          <strong>112</strong> — Tıbbi acil durum
+          <strong>Acil servis:</strong> Her devlet ve eğitim hastanesinin
+          acil servisi psikiyatrik kriz değerlendirmesi yapabilir; doğrudan
+          başvuru ile psikiyatri uzmanına ulaşılır.
         </li>
         <li>
-          <strong>Acil servis:</strong> Her devlet hastanesinin acil
-          servisi psikiyatrik kriz değerlendirmesi yapabilir
+          <strong>Yeşilay Danışmanlık Hattı (115):</strong> Bağımlılık ve
+          ilgili psiko-sosyal sorunlarda ücretsiz danışmanlık.
         </li>
       </ul>
       <p>
-        Destek almak için beklemeye gerek yoktur. Yukarıdaki resmi
-        kanallardan herhangi biriyle iletişime geçmek yeterlidir.
+        Destek almak için beklemeye gerek yoktur. Hayati risk taşıyan
+        durumlarda mutlaka 112 aranmalı veya en yakın hastane acil
+        servisine başvurulmalıdır.
       </p>
       <p>
         İzmir sağlık sistemi hakkında daha fazla bilgi için:{" "}
