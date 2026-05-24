@@ -170,6 +170,54 @@ export function governmentServiceJsonLd(opts: ServiceOptions) {
 }
 
 /* ------------------------------------------------------------------ */
+/*  Article (blog yazıları için)                                       */
+/* ------------------------------------------------------------------ */
+
+type ArticleOptions = {
+  title: string
+  description: string
+  slug: string
+  datePublished: string
+  dateModified?: string
+  category: string
+  readTime?: number // dakika; wordCount tahmininde kullanılır
+  keywords?: string[]
+}
+
+export function articleJsonLd(opts: ArticleOptions) {
+  const url = `${SITE_URL}/blog/${opts.slug}`
+  const modified = opts.dateModified ?? opts.datePublished
+  // ~200 kelime/dakika okuma hızı varsayımı
+  const wordCount = opts.readTime ? opts.readTime * 200 : undefined
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: opts.title,
+    description: opts.description,
+    datePublished: opts.datePublished,
+    dateModified: modified,
+    inLanguage: "tr",
+    articleSection: opts.category,
+    url,
+    mainEntityOfPage: { "@type": "WebPage", "@id": url },
+    author: {
+      "@type": "Organization",
+      name: SITE_NAME,
+      url: SITE_URL,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: SITE_NAME,
+      url: SITE_URL,
+    },
+    isAccessibleForFree: true,
+    ...(wordCount && { wordCount }),
+    ...(opts.keywords && opts.keywords.length > 0 && { keywords: opts.keywords.join(", ") }),
+  }
+}
+
+/* ------------------------------------------------------------------ */
 /*  FAQPage (Soru-Cevap için)                                          */
 /* ------------------------------------------------------------------ */
 

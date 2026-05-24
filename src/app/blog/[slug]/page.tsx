@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import { POSTS, getPostBySlug, getRelatedPosts } from "@/content/blog"
-import { breadcrumbJsonLd, faqJsonLd, JsonLdScript } from "@/lib/jsonLd"
+import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, JsonLdScript } from "@/lib/jsonLd"
 import { FaqSection } from "@/components/widgets/FaqSection"
 
 export const dynamicParams = false
@@ -26,6 +26,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: post.description,
       type: "article",
       publishedTime: post.date,
+      modifiedTime: post.dateModified ?? post.date,
+      section: post.category,
     },
     twitter: {
       card: "summary",
@@ -47,19 +49,6 @@ function formatDate(iso: string): string {
   }
 }
 
-function articleJsonLd(post: { title: string; description: string; date: string; slug: string }) {
-  return {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    headline: post.title,
-    description: post.description,
-    datePublished: post.date,
-    author: { "@type": "Organization", name: "nokta35" },
-    publisher: { "@type": "Organization", name: "nokta35" },
-    mainEntityOfPage: `https://nokta35.com/blog/${post.slug}`,
-  }
-}
-
 export default function BlogPostPage({ params }: Props) {
   const post = getPostBySlug(params.slug)
   if (!post) notFound()
@@ -72,9 +61,20 @@ export default function BlogPostPage({ params }: Props) {
     { name: post.title, href: `/blog/${post.slug}` },
   ])
 
+  const article = articleJsonLd({
+    title: post.title,
+    description: post.description,
+    slug: post.slug,
+    datePublished: post.date,
+    dateModified: post.dateModified,
+    category: post.category,
+    readTime: post.readTime,
+    keywords: [post.category, "İzmir", "nokta35"],
+  })
+
   const jsonLdData: Record<string, unknown>[] = [
     breadcrumb as Record<string, unknown>,
-    articleJsonLd(post) as Record<string, unknown>,
+    article as Record<string, unknown>,
   ]
   if (post.faq && post.faq.length > 0) {
     jsonLdData.push(faqJsonLd(post.faq) as Record<string, unknown>)

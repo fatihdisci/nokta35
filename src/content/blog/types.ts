@@ -9,4 +9,5 @@ export type BlogMeta = {
   summary: string
   readTime: number // dakika
   faq: FaqItem[] // SEO/GEO için zorunlu soru-cevap bölümü
+  dateModified?: string // ISO YYYY-MM-DD; yoksa date kullanılır
 }
