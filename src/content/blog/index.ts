@@ -6,6 +6,10 @@ import * as pm from "./pm10-pm25-nedir"
 import * as su from "./su-tasarrufu-yontemleri"
 import * as ecz from "./nobetci-eczane-sistemi"
 import * as bar from "./baraj-doluluk-orani-nedir"
+import * as oto from "./otobus-hat-numaralandirma"
+import * as avr from "./acik-veri-nedir"
+import * as kur from "./kuraklik-nedir-olculur"
+import * as trbar from "./turkiye-onemli-barajlari"
 
 export type BlogPost = BlogMeta & { Body: ComponentType }
 
@@ -15,6 +19,10 @@ const RAW: BlogPost[] = [
   { ...su.meta, Body: su.Body },
   { ...ecz.meta, Body: ecz.Body },
   { ...bar.meta, Body: bar.Body },
+  { ...oto.meta, Body: oto.Body },
+  { ...avr.meta, Body: avr.Body },
+  { ...kur.meta, Body: kur.Body },
+  { ...trbar.meta, Body: trbar.Body },
 ]
 
 export const POSTS: BlogPost[] = [...RAW].sort((a, b) =>
