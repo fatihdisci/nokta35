@@ -1,6 +1,12 @@
+import type { Metadata } from "next"
 import { Placeholder } from "@/components/layout/Placeholder"
 
-export const metadata = { title: "Hal Fiyatları — nokta35" }
+export const metadata: Metadata = {
+  title: "Hal Fiyatları",
+  description: "İzmir sebze, meyve, balık hal fiyatları — yakında.",
+  alternates: { canonical: "/hal-fiyatlari" },
+  robots: { index: false, follow: true },
+}
 
 export default function Page() {
   return (

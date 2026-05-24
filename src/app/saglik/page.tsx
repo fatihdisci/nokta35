@@ -1,10 +1,13 @@
 import type { Metadata } from "next"
+import Link from "next/link"
 import { getEczaneler } from "@/lib/data"
+import { parseCoord } from "@/lib/api"
+import { slugify } from "@/lib/utils"
 import { breadcrumbJsonLd, datasetJsonLd, JsonLdScript, faqJsonLd } from "@/lib/jsonLd"
 import { FaqSection } from "@/components/widgets/FaqSection"
 
 export const metadata: Metadata = {
-  title: "İzmir Nöbetçi Eczaneler · Güncel Canlı Liste · nokta35",
+  title: "İzmir Nöbetçi Eczaneler · Güncel Canlı Liste",
   description: "İzmir'de bugünün nöbetçi eczaneleri. Konak, Karşıyaka, Bornova, Buca dahil tüm 30 ilçenin nöbetçi eczane adresleri, telefonları ve konum detayları.",
   alternates: {
     canonical: "/saglik",
@@ -76,8 +79,13 @@ export default async function Page() {
               const items = grouped.get(bolge) ?? []
               return (
                 <div key={bolge}>
-                  <h2 className="font-serif-display text-2xl text-orange mb-3 border-b border-ink pb-1">
-                    {bolge}{" "}
+                  <h2 className="font-serif-display text-2xl text-orange mb-3 border-b border-ink pb-1 flex items-baseline gap-3">
+                    <Link
+                      href={`/eczane/${slugify(bolge)}`}
+                      className="hover:underline"
+                    >
+                      {bolge}
+                    </Link>
                     <span className="text-[10px] uppercase tracking-widest text-gray">
                       ({items.length})
                     </span>
@@ -107,6 +115,20 @@ export default async function Page() {
                             {e.Telefon}
                           </a>
                         )}
+                        {e.LokasyonX && e.LokasyonY && (() => {
+                          const lat = parseCoord(e.LokasyonX)
+                          const lon = parseCoord(e.LokasyonY)
+                          return !isNaN(lat) && !isNaN(lon) && lat !== 0 ? (
+                            <a
+                              href={`https://www.google.com/maps/dir/?api=1&destination=${lat},${lon}`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="mt-auto self-start text-[9px] uppercase tracking-[0.2em] text-orange border border-orange px-2 py-1 hover:bg-orange hover:text-cream transition-colors"
+                            >
+                              Haritada Gör →
+                            </a>
+                          ) : null
+                        })()}
                       </article>
                     ))}
                   </div>

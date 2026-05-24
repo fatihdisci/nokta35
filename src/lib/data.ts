@@ -108,51 +108,150 @@ export type PazarYeriItem = {
   gun?: number
 }
 
+// Raw record from API - field names unknown until runtime
+export type RawRecord = Record<string, unknown>
+
 export type EtkinlikItem = {
-  EtkinlikAdi: string
-  EtkinlikTuru?: string
-  Mekan?: string
-  BaslangicTarihi?: string
-  BitisTarihi?: string
-  Adres?: string
-  BiletLinki?: string
-  UcretsizMi?: boolean | string
-  ILCE?: string
-  ENLEM?: number
-  BOYLAM?: number
+  _raw: RawRecord
+  id: number
+  adi: string
+  tur: string
+  mekan: string
+  baslangic: string
+  bitis: string
+  adres: string
+  biletLinki: string
+  ucretsiz: boolean
+  ilce: string
+  resim: string
+  aciklama: string
+  detayUrl: string
 }
 
-type RawEtkinlikResponse = EtkinlikItem[] | { etkinlikler?: EtkinlikItem[]; Etkinlikler?: EtkinlikItem[] }
+function strField(r: RawRecord, ...keys: string[]): string {
+  for (const k of keys) {
+    if (r[k] !== undefined && r[k] !== null && String(r[k]).trim() !== "") {
+      return String(r[k]).trim()
+    }
+  }
+  return ""
+}
+
+function stripHtml(s: string): string {
+  return s.replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim()
+}
+
+function normalizeEtkinlik(r: RawRecord): EtkinlikItem {
+  const ucretsizVal = r.UcretsizMi ?? r.Ucretsiz ?? r.ucretsizmi ?? r.ucretsiz ?? r.Free ?? ""
+  const ucretsiz =
+    ucretsizVal === true ||
+    ucretsizVal === 1 ||
+    String(ucretsizVal).toLowerCase().includes("ücretsiz") ||
+    String(ucretsizVal).toLowerCase() === "true" ||
+    String(ucretsizVal).toLowerCase() === "evet"
+
+  const slug = strField(r, "EtkinlikUrl", "Slug", "slug", "Url", "URL")
+  const kisaAciklama = strField(r, "KisaAciklama", "Aciklama", "Ozet", "Tanim", "Description")
+
+  return {
+    _raw: r,
+    id: typeof r.Id === "number" ? r.Id : 0,
+    adi: strField(r, "Adi", "EtkinlikAdi", "ADI", "Ad", "Baslik", "BASLIK", "name", "Name", "Etkinlik"),
+    tur: strField(r, "Tur", "EtkinlikTuru", "TUR", "Kategori", "KATEGORI", "Tip", "TIP", "type"),
+    mekan: strField(r, "EtkinlikMerkezi", "Mekan", "MekanAdi", "MEKAN", "Salon", "Yer", "YER"),
+    baslangic: strField(r, "EtkinlikBaslamaTarihi", "BaslangicTarihi", "Tarih", "TARIH", "TarihSaat", "StartDate"),
+    bitis: strField(r, "EtkinlikBitisTarihi", "BitisTarihi", "BitisTarih", "BitisZamani", "EndDate"),
+    adres: strField(r, "Adres", "ADRES", "adres", "Konum"),
+    biletLinki: strField(r, "BiletSatisLinki", "BiletLinki", "BiletUrl", "BiletLink"),
+    ucretsiz,
+    ilce: strField(r, "ILCE", "Ilce", "IlceAdi", "ilce"),
+    resim: strField(r, "KucukAfis", "Resim", "AfisUrl", "Image", "image"),
+    aciklama: kisaAciklama ? stripHtml(kisaAciklama) : "",
+    detayUrl: slug ? `https://kultursanat.izmir.bel.tr/etkinlik/${slug}` : "",
+  }
+}
+
+type RawEtkinlikResponse = RawRecord[] | { etkinlikler?: RawRecord[]; Etkinlikler?: RawRecord[]; result?: RawRecord[]; Result?: RawRecord[] }
 
 export const getEtkinlikler = async (): Promise<EtkinlikItem[]> => {
   const raw = await getIzmir<RawEtkinlikResponse>("/api/ibb/kultursanat/etkinlikler", 3600)
   if (!raw) return []
-  if (Array.isArray(raw)) return raw
-  return raw.etkinlikler ?? raw.Etkinlikler ?? []
+  const arr: RawRecord[] = Array.isArray(raw)
+    ? raw
+    : (raw.etkinlikler ?? raw.Etkinlikler ?? raw.result ?? raw.Result ?? [])
+  return arr.map(normalizeEtkinlik)
 }
 
+// --- Hava Kalitesi ---
+// API flat satır listesi döndürür: her satır bir (bölge × gaz) ölçümü
+// { BolgeAdi, GazAdi:"PM10"|"SO2"|..., OlcumDegeri:"45", OlcumTarihi }
+// Bölgeye göre gruplayıp pivot ediyoruz.
+
 export type HavaKalitesiItem = {
-  IstasyonAdi?: string
-  StasyonAdi?: string
-  Adi?: string
-  ILCE?: string
-  Ilce?: string
-  PM10?: number | string
-  PM25?: number | string
-  NO2?: number | string
-  SO2?: number | string
-  CO?: number | string
-  O3?: number | string
-  Tarih?: string
-  Saat?: string
+  istasyonAdi: string
+  ilce: string
+  pm10: number | null
+  no2: number | null
+  so2: number | null
+  co: number | null
+  o3: number | null
+  tarih: string
+}
+
+type RawCevreOlcum = {
+  BolgeAdi?: string
+  GazAdi?: string
+  OlcumDegeri?: string | number
+  OlcumTarihi?: string
+  BolgeId?: number
+  GazId?: number
+}
+
+function parseDeger(v?: string | number): number | null {
+  if (v === undefined || v === null || v === "") return null
+  const n = typeof v === "number" ? v : parseFloat(String(v).replace(",", "."))
+  return isNaN(n) ? null : n
+}
+
+function groupCevreOlcumler(rows: RawCevreOlcum[]): HavaKalitesiItem[] {
+  const map = new Map<string, HavaKalitesiItem>()
+  for (const row of rows) {
+    const bolge = (row.BolgeAdi ?? "").trim()
+    if (!bolge) continue
+    if (!map.has(bolge)) {
+      map.set(bolge, {
+        istasyonAdi: bolge,
+        ilce: bolge,
+        pm10: null, no2: null, so2: null, co: null, o3: null,
+        tarih: row.OlcumTarihi?.slice(0, 10) ?? "",
+      })
+    }
+    const entry = map.get(bolge)!
+    const deger = parseDeger(row.OlcumDegeri)
+    if (deger === null) continue
+    const gaz = (row.GazAdi ?? "").toUpperCase()
+    if (gaz === "PM10") entry.pm10 = deger
+    else if (gaz === "SO2") entry.so2 = deger
+    else if (gaz === "NO2") entry.no2 = deger
+    else if (gaz === "CO") entry.co = deger
+    else if (gaz === "O3") entry.o3 = deger
+  }
+  return Array.from(map.values())
+}
+
+export const getHavaKalitesi = async (): Promise<HavaKalitesiItem[]> => {
+  const raw = await getIzmir<RawCevreOlcum[] | RawRecord>("/api/ibb/cevre/havadegerleri", 3600)
+  if (!raw) return []
+  const arr = Array.isArray(raw) ? (raw as RawCevreOlcum[]) : []
+  return groupCevreOlcumler(arr)
 }
 
 export function havaKalitesiAdi(item: HavaKalitesiItem): string {
-  return item.IstasyonAdi ?? item.StasyonAdi ?? item.Adi ?? ""
+  return item.istasyonAdi
 }
 
 export function havaKalitesiIlce(item: HavaKalitesiItem): string {
-  return item.ILCE ?? item.Ilce ?? ""
+  return item.ilce
 }
 
 export function pm10Seviye(pm10: number): { label: string; renk: string } {
@@ -166,15 +265,6 @@ export function parsePollutant(val?: number | string): number | null {
   if (val === undefined || val === null) return null
   const n = typeof val === "number" ? val : parseFloat(String(val).replace(",", "."))
   return isNaN(n) ? null : n
-}
-
-type RawHavaKalitesiResponse = HavaKalitesiItem[] | { havakalitest?: HavaKalitesiItem[]; HavaKalitesi?: HavaKalitesiItem[]; istasyonlar?: HavaKalitesiItem[] }
-
-export const getHavaKalitesi = async (): Promise<HavaKalitesiItem[]> => {
-  const raw = await getIzmir<RawHavaKalitesiResponse>("/api/ibb/cevre/havadegerleri", 3600)
-  if (!raw) return []
-  if (Array.isArray(raw)) return raw
-  return raw.havakalitest ?? raw.HavaKalitesi ?? raw.istasyonlar ?? []
 }
 
 type RawPazarResponse = { onemliyer?: Record<string, unknown>[] }

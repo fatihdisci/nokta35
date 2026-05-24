@@ -4,7 +4,7 @@ import { breadcrumbJsonLd, datasetJsonLd, JsonLdScript, faqJsonLd } from "@/lib/
 import { FaqSection } from "@/components/widgets/FaqSection"
 
 export const metadata: Metadata = {
-  title: "İzmir Otopark Doluluk Oranları · İZELMAN & İZUM · nokta35",
+  title: "İzmir Otopark Doluluk Oranları · İZELMAN & İZUM",
   description: "İzmir genelindeki tüm İZELMAN ve İZUM otoparklarının anlık boş ve dolu kapasiteleri, konumları, ücretli/ücretsiz durumları ve güncel doluluk yüzdeleri.",
   alternates: {
     canonical: "/otoparklar",
@@ -139,6 +139,16 @@ export default async function OtoparklarPage() {
                   <span>{x.o.provider ?? "—"}</span>
                   <span>{x.o.isPaid ? "Ücretli" : "Ücretsiz"}</span>
                 </div>
+                {x.o.lat && x.o.lng && (
+                  <a
+                    href={`https://www.google.com/maps/dir/?api=1&destination=${x.o.lat},${x.o.lng}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="self-start text-[9px] uppercase tracking-[0.2em] text-orange border border-orange px-2 py-1 hover:bg-orange hover:text-cream transition-colors"
+                  >
+                    Haritada Gör →
+                  </a>
+                )}
               </article>
             ))}
           </div>

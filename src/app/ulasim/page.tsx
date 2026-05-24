@@ -6,8 +6,8 @@ import { AdSlot } from "@/components/ads/AdSlot"
 import { breadcrumbJsonLd, governmentServiceJsonLd, faqJsonLd, JsonLdScript } from "@/lib/jsonLd"
 
 export const metadata: Metadata = {
-  title: "İzmir Canlı Ulaşım Rehberi · İZBAN Sefer Saatleri, ESHOT & Metro · nokta35",
-  description: "İzmir genelinde İZBAN sefer saatleri canlı sorgulama, metro ve tramvay hatları güncel durak ve sefer bilgileri, ESHOT otobüs entegrasyonu ve coğrafi ulaşım rehberi.",
+  title: "İzmir Canlı Ulaşım Rehberi · İZBAN Sefer Saatleri, ESHOT & Metro",
+  description: "İzmir İZBAN sefer saatleri canlı sorgulama, metro ve tramvay hatları güncel durak bilgileri, ESHOT otobüs entegrasyonu ve İzmirim Kart rehberi.",
   alternates: {
     canonical: "/ulasim",
   },

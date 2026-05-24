@@ -14,10 +14,12 @@ import { FaqSection } from "@/components/widgets/FaqSection"
 import { PazarWidget } from "@/components/widgets/PazarWidget"
 import { EtkinlikWidget } from "@/components/widgets/EtkinlikWidget"
 import { HavaKalitesiWidget } from "@/components/widgets/HavaKalitesiWidget"
+import { HaberWidget } from "@/components/widgets/HaberWidget"
+import { LiveClock } from "@/components/layout/LiveClock"
 
 export const metadata: Metadata = {
-  title: "nokta35 · Tek noktadan İzmir'e dair her şey",
-  description: "İzmir Büyükşehir Belediyesi açık verilerini gerçek zamanlı görselleştiren bağımsız şehir veri platformu. Baraj doluluk oranları, nöbetçi eczaneler, otopark kapasiteleri, hava durumu ve ulaşım saatleri.",
+  title: { absolute: "nokta35 · Tek noktadan İzmir'e dair her şey" },
+  description: "İzmir açık veri platformu: baraj doluluk, nöbetçi eczane, otopark kapasitesi, hava durumu, İZBAN sefer saatleri ve su kesintileri — tek sayfada, anlık.",
   alternates: {
     canonical: "/",
   },
@@ -39,13 +41,6 @@ function WidgetSkeleton({ title }: { title: string }) {
 }
 
 export default function HomePage() {
-  const today = new Date().toLocaleDateString("tr-TR", {
-    weekday: "long",
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-  })
-
   const faqItems = [
     {
       question: "nokta35 nedir ve hangi İzmir verilerini sunar?",
@@ -67,9 +62,7 @@ export default function HomePage() {
     <>
       <JsonLdScript data={faqSchema} />
       <section className="container py-12">
-        <div className="text-xs uppercase tracking-[0.2em] text-gray mb-4">
-          {today} · İzmir
-        </div>
+        <LiveClock />
         <h1 className="font-serif-display text-5xl md:text-7xl leading-[0.95] text-ink">
           Tek noktadan
           <br />
@@ -117,6 +110,9 @@ export default function HomePage() {
         </Suspense>
         <Suspense fallback={<WidgetSkeleton title="Hava Kalitesi" />}>
           <HavaKalitesiWidget />
+        </Suspense>
+        <Suspense fallback={<WidgetSkeleton title="Haberler" />}>
+          <HaberWidget />
         </Suspense>
       </section>
 

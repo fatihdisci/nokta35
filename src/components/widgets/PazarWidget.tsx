@@ -1,10 +1,11 @@
 import { getPazarYerleri, GUN_ADLARI } from "@/lib/data"
+import { istanbulGunu } from "@/lib/utils"
 import { WidgetMore } from "./WidgetMore"
 
 const LIMIT = 5
 
 export async function PazarWidget() {
-  const bugun = new Date().getDay()
+  const bugun = istanbulGunu()
   const pazarlar = await getPazarYerleri()
   const bugunAcik = pazarlar.filter((p) => p.gun === bugun)
   const list = bugunAcik.slice(0, LIMIT)

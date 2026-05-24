@@ -1,22 +1,22 @@
 import { cached } from "@/lib/redis"
 import { fetchIzmir, jsonResponse, errorResponse } from "@/lib/api"
-import type { EtkinlikItem } from "@/lib/data"
+import type { RawRecord } from "@/lib/data"
 
 export const revalidate = 0
 export const dynamic = "force-dynamic"
 
 const TTL = 3600
 
-type RawResponse = EtkinlikItem[] | { etkinlikler?: EtkinlikItem[]; Etkinlikler?: EtkinlikItem[] }
+type RawResponse = RawRecord[] | { etkinlikler?: RawRecord[]; Etkinlikler?: RawRecord[]; result?: RawRecord[] }
 
-function normalize(raw: RawResponse): EtkinlikItem[] {
+function normalize(raw: RawResponse): RawRecord[] {
   if (Array.isArray(raw)) return raw
-  return raw.etkinlikler ?? raw.Etkinlikler ?? []
+  return raw.etkinlikler ?? raw.Etkinlikler ?? raw.result ?? []
 }
 
 export async function GET() {
   try {
-    const data = await cached("etkinlik:list", TTL, async () => {
+    const data = await cached("etkinlik:list:v2", TTL, async () => {
       const raw = await fetchIzmir<RawResponse>("/api/ibb/kultursanat/etkinlikler")
       return normalize(raw)
     })
