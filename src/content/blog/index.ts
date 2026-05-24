@@ -46,6 +46,13 @@ import * as ucretsizEtkinlik from "./izmir-ucretsiz-etkinlik-alanlari"
 import * as kutuphane from "./izmir-7-24-acik-kutuphaneler"
 import * as geriDonusum from "./izmir-geri-donusum-elektronik-atik"
 import * as ucretsizSpor from "./izmir-ucretsiz-spor-tesisleri-parkurlar"
+import * as gedizKesinti from "./gediz-elektrik-kesintisi-sorgulama"
+import * as liseTaban from "./izmir-lise-taban-puanlari-lgs-rehberi"
+import * as ucPsikolog from "./izmir-ucretsiz-psikolog-ruh-sagligi"
+import * as izelaman from "./izmir-otopark-izelaman-rehberi"
+import * as bisim from "./bisim-bisiklet-izmir-kullanim-rehberi"
+import * as sivilasma from "./izmir-zemin-sivilasma-riski"
+import * as kiraFiyat from "./izmir-kira-fiyatlari-nasil-arastirilir"
 
 export type BlogPost = BlogMeta & { Body: ComponentType }
 
@@ -95,6 +102,13 @@ const RAW: BlogPost[] = [
   { ...kutuphane.meta, Body: kutuphane.Body },
   { ...geriDonusum.meta, Body: geriDonusum.Body },
   { ...ucretsizSpor.meta, Body: ucretsizSpor.Body },
+  { ...gedizKesinti.meta, Body: gedizKesinti.Body },
+  { ...liseTaban.meta, Body: liseTaban.Body },
+  { ...ucPsikolog.meta, Body: ucPsikolog.Body },
+  { ...izelaman.meta, Body: izelaman.Body },
+  { ...bisim.meta, Body: bisim.Body },
+  { ...sivilasma.meta, Body: sivilasma.Body },
+  { ...kiraFiyat.meta, Body: kiraFiyat.Body },
 ]
 
 export const POSTS: BlogPost[] = [...RAW].sort((a, b) =>
