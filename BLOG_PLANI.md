@@ -50,7 +50,7 @@
 
 | Tip | Durum | Başlık | Slug |
 |-----|-------|--------|------|
-| Pillar | 📝🔥 | Türkiye'de Sağlık Sistemi: Birinci, İkinci, Üçüncü Basamak | `turkiye-saglik-sistemi-basamaklar` |
+| Pillar | ✅ | Türkiye'de Sağlık Sistemi: Birinci, İkinci, Üçüncü Basamak | `turkiye-saglik-sistemi-basamaklar` |
 | Cluster | ✅ | Nöbetçi Eczane Sistemi Nasıl İşler? | `nobetci-eczane-sistemi-nasil-isler` |
 | Cluster | 📝 | Aile Sağlığı Merkezi (ASM) Nedir? Nasıl Kayıt Olunur? | `aile-sagligi-merkezi-asm-nedir` |
 | Cluster | 📝 | Acil Servis mi, ASM mi? Doğru Tercih Kılavuzu | `acil-servis-mi-asm-mi` |
@@ -96,7 +96,7 @@
 
 | Tip | Durum | Başlık | Slug |
 |-----|-------|--------|------|
-| Pillar | 📝🔥 | İzmir Rehberi: Coğrafya, İklim, İlçeler, Ulaşım | `izmir-rehberi-cografya-iklim-ilceler` |
+| Pillar | ✅ | İzmir Rehberi: Coğrafya, İklim, İlçeler, Ulaşım | `izmir-rehberi-cografya-iklim-ilceler` |
 | Cluster | 📝 | İzmir'in İlçeleri: Kaç İlçe Var, Hangisi Nerede? | `izmir-ilceleri-kac-ilce-var` |
 | Cluster | 📝 | İzmir'de Hava Nasıl? İklim Özellikleri ve Mevsimler | `izmir-hava-iklim-ozellikleri` |
 | Cluster | 📝 | İzmir'de Pazar Yerleri: Hangi Gün, Hangi İlçede? | `izmir-pazar-yerleri-rehberi` |
@@ -128,7 +128,7 @@
 
 | Tip | Durum | Başlık | Slug |
 |-----|-------|--------|------|
-| Pillar | 📝🔥 | Depreme Hazırlık: Ev, Çanta, Tahliye Planı | `depreme-hazirlik-rehberi` |
+| Pillar | ✅ | Depreme Hazırlık: Ev, Çanta, Tahliye Planı | `depreme-hazirlik-rehberi` |
 | Cluster | 📝 | Deprem Çantası: İçinde Ne Olmalı? (Güncel Liste) | `deprem-cantasi-icinde-ne-olmali` |
 | Cluster | 📝 | Sel ve Taşkın: Öncesinde ve Sırasında Ne Yapmalı? | `sel-taskin-oncesi-sirasinda-ne-yapmali` |
 | Cluster | 📝 | AFAD Nedir? Afetlerde Rolü ve İletişim Bilgileri | `afad-nedir-afetlerde-rolu` |
@@ -166,8 +166,8 @@
 | Şehir & Kentsel | 0/1 | 0 | 4 | 5 |
 | **Toplam** | **3/9** | **6** | **46** | **62** |
 
-**Şu an yayında:** 12 yazı
-**Öncelikli sonraki adım:** Kalan Pillar yazılarını tamamla (4 eksik Pillar var)
+**Şu an yayında:** 15 yazı
+**Öncelikli sonraki adım:** Cluster yazıları + Sürdürülebilir Yaşam Pillar
 
 ---
 
@@ -176,10 +176,13 @@
 1. ~~**Hava Kalitesi Rehberi** (Pillar)~~ ✅
 2. ~~**İzmir Toplu Taşıma Rehberi** (Pillar)~~ ✅
 3. ~~**İzmir Barajları** (Cluster)~~ ✅
-4. **Türkiye Sağlık Sistemi** (Pillar) — nöbetçi eczane cluster'ının pillar'ı
-5. **İzmir Rehberi** (Pillar) — en geniş kitleye hitap eder
-6. **Depreme Hazırlık** (Pillar) — İzmir'e özgü, yüksek arama hacmi
+4. ~~**Türkiye Sağlık Sistemi** (Pillar)~~ ✅
+5. ~~**İzmir Rehberi** (Pillar)~~ ✅
+6. ~~**Depreme Hazırlık** (Pillar)~~ ✅
 7. **Sürdürülebilir Yaşam** (Pillar) — geniş ulusal trafik çeker
+8. **ASM Nedir? Nasıl Kayıt Olunur?** (Cluster) — sağlık pillar'ına bağlanır
+9. **Deprem Çantası** (Cluster) — deprem pillar'ına bağlanır
+10. **İZBAN Nedir?** (Cluster) — ulaşım pillar'ına bağlanır
 
 ---
 
