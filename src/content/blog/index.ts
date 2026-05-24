@@ -10,6 +10,9 @@ import * as oto from "./otobus-hat-numaralandirma"
 import * as avr from "./acik-veri-nedir"
 import * as kur from "./kuraklik-nedir-olculur"
 import * as trbar from "./turkiye-onemli-barajlari"
+import * as havaRehber from "./hava-kalitesi-rehberi"
+import * as izUlasim from "./izmir-toplu-tasima-rehberi"
+import * as izBaraj from "./izmir-barajlari-tahtatli-gordes-balcova"
 
 export type BlogPost = BlogMeta & { Body: ComponentType }
 
@@ -23,6 +26,9 @@ const RAW: BlogPost[] = [
   { ...avr.meta, Body: avr.Body },
   { ...kur.meta, Body: kur.Body },
   { ...trbar.meta, Body: trbar.Body },
+  { ...havaRehber.meta, Body: havaRehber.Body },
+  { ...izUlasim.meta, Body: izUlasim.Body },
+  { ...izBaraj.meta, Body: izBaraj.Body },
 ]
 
 export const POSTS: BlogPost[] = [...RAW].sort((a, b) =>

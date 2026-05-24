@@ -14,7 +14,7 @@
 
 | Tip | Durum | Başlık | Slug |
 |-----|-------|--------|------|
-| Pillar | 📝🔥 | Hava Kalitesi Nedir? AKİ, PM2.5, NO₂ — Eksiksiz Rehber | `hava-kalitesi-rehberi` |
+| Pillar | ✅ | Hava Kalitesi Nedir? AKİ, PM2.5, NO₂ — Eksiksiz Rehber | `hava-kalitesi-rehberi` |
 | Cluster | ✅ | Hava Kalitesi İndeksi (AKİ) Nedir? | `hava-kalitesi-indeksi-aki-nedir` |
 | Cluster | ✅ | PM10 ve PM2.5 Nedir? Sağlığa Etkileri | `pm10-pm25-nedir-saglik-etkileri` |
 | Cluster | 📝 | Ozon (O₃) Kirliliği Nedir? İnsan Sağlığına Etkileri | `ozon-kirliligi-nedir-saglik-etkileri` |
@@ -35,7 +35,7 @@
 | Pillar | ✅ | Baraj Doluluk Oranı Nedir? Neden Önemli? | `baraj-doluluk-orani-nedir-neden-onemli` |
 | Cluster | ✅ | Türkiye'nin Önemli Barajları ve İşlevleri | `turkiyenin-onemli-barajlari-ve-islevleri` |
 | Cluster | ✅ | Evde Su Tasarrufu: 12 Pratik Yöntem | `evde-su-tasarrufu-12-pratik-yontem` |
-| Cluster | 📝🔥 | İzmir'in Barajları: Tahtalı, Gördes, Balçova, Kemer | `izmir-barajlari-tahtatli-gordes-balcova` |
+| Cluster | ✅ | İzmir'in Barajları: Tahtalı, Gördes, Balçova, Kemer | `izmir-barajlari-tahtatli-gordes-balcova` |
 | Cluster | 📝 | İzmir'de Su Kesintileri: Nedenler ve Ne Yapmalı? | `izmir-su-kesintileri-nedenler` |
 | Cluster | 📝 | Su Sertliği Nedir? Sert Su Sağlığa Zararlı mı? | `su-sertligi-nedir-sagliga-zarari` |
 | Cluster | 📝 | Yeraltı Suyu Nedir? Nasıl Oluşur, Nasıl Kullanılır? | `yeralti-suyu-nedir-nasil-olusur` |
@@ -65,7 +65,7 @@
 
 | Tip | Durum | Başlık | Slug |
 |-----|-------|--------|------|
-| Pillar | 📝🔥 | İzmir Toplu Taşıma Rehberi: ESHOT, İZBAN, Metro, Vapur | `izmir-toplu-tasima-rehberi` |
+| Pillar | ✅ | İzmir Toplu Taşıma Rehberi: ESHOT, İZBAN, Metro, Vapur | `izmir-toplu-tasima-rehberi` |
 | Cluster | ✅ | İzmir Otobüs Hatları Nasıl Numaralandırılır? | `izmir-otobus-hatlari-nasil-numaralandirilir` |
 | Cluster | 📝 | İZBAN Nedir? İstasyonlar ve Güzergah Haritası | `izban-nedir-istasyonlar-guzergah` |
 | Cluster | 📝 | İzmir Metrosu: Güzergahlar, İstasyonlar, Ücretler | `izmir-metrosu-guzergahlar-istasyonlar` |
@@ -155,10 +155,10 @@
 
 | Küme | Pillar | Yazılan Cluster | Planlanan Cluster | Toplam |
 |------|--------|-----------------|-------------------|--------|
-| Hava Kalitesi | 0/1 | 2 | 5 | 8 |
-| Su & Baraj | 2/2 ✅ | 2 | 6 | 10 |
+| Hava Kalitesi | 1/1 ✅ | 2 | 5 | 8 |
+| Su & Baraj | 2/2 ✅ | 3 | 5 | 10 |
 | Sağlık | 0/1 | 1 | 4 | 6 |
-| Ulaşım | 0/1 | 1 | 5 | 7 |
+| Ulaşım | 1/1 ✅ | 1 | 5 | 7 |
 | Açık Veri | 1/1 ✅ | 0 | 5 | 6 |
 | İzmir Genel | 0/1 | 0 | 5 | 6 |
 | Sürdürülebilir Yaşam | 0/1 | 0 | 7 | 8 |
@@ -166,19 +166,20 @@
 | Şehir & Kentsel | 0/1 | 0 | 4 | 5 |
 | **Toplam** | **3/9** | **6** | **46** | **62** |
 
-**Şu an yayında:** 9 yazı
-**Öncelikli sonraki adım:** Her kümenin Pillar yazısını tamamla (6 eksik Pillar var)
+**Şu an yayında:** 12 yazı
+**Öncelikli sonraki adım:** Kalan Pillar yazılarını tamamla (4 eksik Pillar var)
 
 ---
 
 ## ÖNCELİK SIRASI (🔥 Önce Bunlar)
 
-1. **Hava Kalitesi Rehberi** (Pillar) — AKİ + PM + NO₂ + Ozon tek çatıda
-2. **İzmir Toplu Taşıma Rehberi** (Pillar) — yerel kitle için kritik
-3. **Türkiye Sağlık Sistemi** (Pillar) — nöbetçi eczane cluster'ının pillar'ı
-4. **İzmir Barajları** (Cluster) — siteyle doğrudan bağlantılı, veri sayfasını besler
+1. ~~**Hava Kalitesi Rehberi** (Pillar)~~ ✅
+2. ~~**İzmir Toplu Taşıma Rehberi** (Pillar)~~ ✅
+3. ~~**İzmir Barajları** (Cluster)~~ ✅
+4. **Türkiye Sağlık Sistemi** (Pillar) — nöbetçi eczane cluster'ının pillar'ı
 5. **İzmir Rehberi** (Pillar) — en geniş kitleye hitap eder
 6. **Depreme Hazırlık** (Pillar) — İzmir'e özgü, yüksek arama hacmi
+7. **Sürdürülebilir Yaşam** (Pillar) — geniş ulusal trafik çeker
 
 ---
 
