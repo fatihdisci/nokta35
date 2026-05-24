@@ -100,7 +100,7 @@
 | Cluster | 📝 | İzmir'in İlçeleri: Kaç İlçe Var, Hangisi Nerede? | `izmir-ilceleri-kac-ilce-var` |
 | Cluster | 📝 | İzmir'de Hava Nasıl? İklim Özellikleri ve Mevsimler | `izmir-hava-iklim-ozellikleri` |
 | Cluster | ✅ | İzmir'de Pazar Yerleri: Hangi Gün, Hangi İlçede? | `izmir-pazar-yerleri-rehberi` |
-| Cluster | 📝 | İzmir'de Deprem Riski: Fay Hatları ve Hazırlık | `izmir-deprem-riski-fay-hatlari` |
+| Cluster | ✅ | İzmir'de Deprem Riski: Fay Hatları ve Hazırlık | `izmir-deprem-riski-fay-hatlari` |
 | Cluster | 📝 | İzmir'de Yaşam Maliyeti: 2026 Güncel Rehber | `izmir-yasam-maliyeti-2026` |
 
 ---
@@ -118,7 +118,7 @@
 | Cluster | 📝 | Organik Tarım Nedir? Konvansiyonel Tarımdan Farkı | `organik-tarim-nedir-farki` |
 | Cluster | 📝 | Yenilenebilir Enerji Türleri: Güneş, Rüzgar, Jeotermal | `yenilenebilir-enerji-turleri` |
 | Cluster | 📝 | Evde Solar Panel: Kurulum, Maliyet, Geri Dönüş Süresi | `evde-solar-panel-kurulum-maliyet` |
-| Cluster | 📝 | Karbon Ayak İzi Nedir? Nasıl Hesaplanır? | `karbon-ayak-izi-nedir-hesaplanir` |
+| Cluster | ✅ | Karbon Ayak İzi Nedir? Nasıl Hesaplanır? | `karbon-ayak-izi-nedir-hesaplanir` |
 
 ---
 
@@ -131,7 +131,7 @@
 | Pillar | ✅ | Depreme Hazırlık: Ev, Çanta, Tahliye Planı | `depreme-hazirlik-rehberi` |
 | Cluster | ✅ | Deprem Çantası: İçinde Ne Olmalı? (Güncel Liste) | `deprem-cantasi-icinde-ne-olmali` |
 | Cluster | 📝 | Sel ve Taşkın: Öncesinde ve Sırasında Ne Yapmalı? | `sel-taskin-oncesi-sirasinda-ne-yapmali` |
-| Cluster | 📝 | AFAD Nedir? Afetlerde Rolü ve İletişim Bilgileri | `afad-nedir-afetlerde-rolu` |
+| Cluster | ✅ | AFAD Nedir? Afetlerde Rolü ve İletişim Bilgileri | `afad-nedir-afetlerde-rolu` |
 | Cluster | 📝 | Toplanma Alanı Nedir? Nasıl Bulunur? | `toplanma-alani-nedir-nasil-bulunur` |
 | Cluster | 📝 | Tsunami Riski: Ege Kıyılarında Durum | `tsunami-riski-ege-kiyi` |
 
@@ -166,7 +166,7 @@
 | Şehir & Kentsel | 0/1 | 0 | 4 | 5 |
 | **Toplam** | **3/9** | **6** | **46** | **62** |
 
-**Şu an yayında:** 21 yazı
+**Şu an yayında:** 24 yazı
 **Öncelikli sonraki adım:** Cluster yazıları + Sürdürülebilir Yaşam Pillar
 
 ---

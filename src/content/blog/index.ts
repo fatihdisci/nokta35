@@ -22,6 +22,9 @@ import * as depremCanta from "./deprem-cantasi-icinde-ne-olmali"
 import * as izban from "./izban-nedir-istasyonlar-guzergah"
 import * as pazarYerleri from "./izmir-pazar-yerleri-rehberi"
 import * as acilAsmMi from "./acil-servis-mi-asm-mi"
+import * as izDeprem from "./izmir-deprem-riski-fay-hatlari"
+import * as afad from "./afad-nedir-afetlerde-rolu"
+import * as karbonAyak from "./karbon-ayak-izi-nedir-hesaplanir"
 
 export type BlogPost = BlogMeta & { Body: ComponentType }
 
@@ -47,6 +50,9 @@ const RAW: BlogPost[] = [
   { ...izban.meta, Body: izban.Body },
   { ...pazarYerleri.meta, Body: pazarYerleri.Body },
   { ...acilAsmMi.meta, Body: acilAsmMi.Body },
+  { ...izDeprem.meta, Body: izDeprem.Body },
+  { ...afad.meta, Body: afad.Body },
+  { ...karbonAyak.meta, Body: karbonAyak.Body },
 ]
 
 export const POSTS: BlogPost[] = [...RAW].sort((a, b) =>
