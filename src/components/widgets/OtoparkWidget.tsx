@@ -1,24 +1,79 @@
-import { getOtoparklar, otoparkKapasite, OTOPARK_KEY } from "@/lib/data"
-import { getCacheTimestamp } from "@/lib/redis"
+"use client"
+import { useEffect, useRef, useState } from "react"
+import type { OtoparkItem } from "@/lib/data"
 import { WidgetMore } from "./WidgetMore"
-import { DataAge } from "./DataAge"
 
 const LIMIT = 5
+const POLL_MS = 30_000
 
-export async function OtoparkWidget() {
-  const [otoparklar, ts] = await Promise.all([
-    getOtoparklar(),
-    getCacheTimestamp(OTOPARK_KEY),
-  ])
+type Enriched = {
+  o: OtoparkItem
+  free: number
+  occupied: number
+  total: number
+  pct: number
+}
 
-  const enriched = (otoparklar ?? [])
+function kapasite(o: OtoparkItem) {
+  const free = o.occupancy?.total?.free ?? 0
+  const occupied = o.occupancy?.total?.occupied ?? 0
+  return { free, occupied, total: free + occupied }
+}
+
+function enrich(items: OtoparkItem[]): Enriched[] {
+  return items
     .map((o) => {
-      const { free, occupied, total } = otoparkKapasite(o)
+      const { free, occupied, total } = kapasite(o)
       const pct = total > 0 ? (occupied / total) * 100 : 0
       return { o, free, occupied, total, pct }
     })
     .filter((x) => x.total > 0)
     .sort((a, b) => b.pct - a.pct)
+}
+
+export function OtoparkWidget() {
+  const [enriched, setEnriched] = useState<Enriched[]>([])
+  const [age, setAge] = useState<number | null>(null)
+  const [loading, setLoading] = useState(true)
+  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null)
+
+  async function load() {
+    try {
+      const res = await fetch("/api/otopark", { cache: "no-store" })
+      if (!res.ok) return
+      const data: OtoparkItem[] = await res.json()
+      setEnriched(enrich(data))
+      setAge(Math.floor(Date.now() / 1000))
+    } catch {
+      // ignore
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  useEffect(() => {
+    load()
+    timerRef.current = setInterval(load, POLL_MS)
+    return () => {
+      if (timerRef.current) clearInterval(timerRef.current)
+    }
+  }, [])
+
+  const [now, setNow] = useState(Math.floor(Date.now() / 1000))
+  useEffect(() => {
+    const t = setInterval(() => setNow(Math.floor(Date.now() / 1000)), 5000)
+    return () => clearInterval(t)
+  }, [])
+
+  const diff = age !== null ? now - age : null
+  const ageLabel =
+    diff === null
+      ? null
+      : diff < 60
+        ? `${diff}s`
+        : diff < 3600
+          ? `${Math.floor(diff / 60)} dk`
+          : `${Math.floor(diff / 3600)} sa`
 
   const list = enriched.slice(0, LIMIT)
 
@@ -27,12 +82,20 @@ export async function OtoparkWidget() {
       <header className="flex items-baseline justify-between mb-4">
         <h2 className="font-serif-display text-2xl">Otoparklar</h2>
         <div className="flex items-baseline gap-2">
-          <DataAge ts={ts} />
+          {ageLabel && (
+            <span className="text-[9px] font-mono text-gray/60 tabular-nums" title="Son veri çekimi">
+              {ageLabel} önce
+            </span>
+          )}
           <span className="text-[10px] uppercase tracking-widest text-gray">Anlık</span>
         </div>
       </header>
 
-      {list.length === 0 ? (
+      {loading ? (
+        <div className="text-xs text-gray uppercase tracking-widest py-4 animate-pulse">
+          Yükleniyor…
+        </div>
+      ) : list.length === 0 ? (
         <div className="text-xs text-gray uppercase tracking-widest py-4">
           Veri alınamadı
         </div>
