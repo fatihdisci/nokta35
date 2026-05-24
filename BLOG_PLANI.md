@@ -53,7 +53,7 @@
 | Pillar | ✅ | Türkiye'de Sağlık Sistemi: Birinci, İkinci, Üçüncü Basamak | `turkiye-saglik-sistemi-basamaklar` |
 | Cluster | ✅ | Nöbetçi Eczane Sistemi Nasıl İşler? | `nobetci-eczane-sistemi-nasil-isler` |
 | Cluster | ✅ | Aile Sağlığı Merkezi (ASM) Nedir? Nasıl Kayıt Olunur? | `aile-sagligi-merkezi-asm-nedir` |
-| Cluster | 📝 | Acil Servis mi, ASM mi? Doğru Tercih Kılavuzu | `acil-servis-mi-asm-mi` |
+| Cluster | ✅ | Acil Servis mi, ASM mi? Doğru Tercih Kılavuzu | `acil-servis-mi-asm-mi` |
 | Cluster | 📝 | SGK ile Hangi İlaçlar Karşılanır? Katkı Payı Nasıl Hesaplanır? | `sgk-ilac-katkipayı-nasil-hesaplanir` |
 | Cluster | 📝 | Reçetesiz İlaçlar: OTC Kategorisi Nedir? | `recetesiz-ilaclar-otc-nedir` |
 
@@ -67,7 +67,7 @@
 |-----|-------|--------|------|
 | Pillar | ✅ | İzmir Toplu Taşıma Rehberi: ESHOT, İZBAN, Metro, Vapur | `izmir-toplu-tasima-rehberi` |
 | Cluster | ✅ | İzmir Otobüs Hatları Nasıl Numaralandırılır? | `izmir-otobus-hatlari-nasil-numaralandirilir` |
-| Cluster | 📝 | İZBAN Nedir? İstasyonlar ve Güzergah Haritası | `izban-nedir-istasyonlar-guzergah` |
+| Cluster | ✅ | İZBAN Nedir? İstasyonlar ve Güzergah Haritası | `izban-nedir-istasyonlar-guzergah` |
 | Cluster | 📝 | İzmir Metrosu: Güzergahlar, İstasyonlar, Ücretler | `izmir-metrosu-guzergahlar-istasyonlar` |
 | Cluster | 📝 | İzmir Vapurları: Güzergahlar ve Seferler | `izmir-vapurlari-guzergahlar-seferler` |
 | Cluster | 📝 | İZMİRKART Nedir? Nasıl Yüklenir ve Kullanılır? | `izmirkart-nedir-nasil-kullanilir` |
@@ -99,7 +99,7 @@
 | Pillar | ✅ | İzmir Rehberi: Coğrafya, İklim, İlçeler, Ulaşım | `izmir-rehberi-cografya-iklim-ilceler` |
 | Cluster | 📝 | İzmir'in İlçeleri: Kaç İlçe Var, Hangisi Nerede? | `izmir-ilceleri-kac-ilce-var` |
 | Cluster | 📝 | İzmir'de Hava Nasıl? İklim Özellikleri ve Mevsimler | `izmir-hava-iklim-ozellikleri` |
-| Cluster | 📝 | İzmir'de Pazar Yerleri: Hangi Gün, Hangi İlçede? | `izmir-pazar-yerleri-rehberi` |
+| Cluster | ✅ | İzmir'de Pazar Yerleri: Hangi Gün, Hangi İlçede? | `izmir-pazar-yerleri-rehberi` |
 | Cluster | 📝 | İzmir'de Deprem Riski: Fay Hatları ve Hazırlık | `izmir-deprem-riski-fay-hatlari` |
 | Cluster | 📝 | İzmir'de Yaşam Maliyeti: 2026 Güncel Rehber | `izmir-yasam-maliyeti-2026` |
 
@@ -166,7 +166,7 @@
 | Şehir & Kentsel | 0/1 | 0 | 4 | 5 |
 | **Toplam** | **3/9** | **6** | **46** | **62** |
 
-**Şu an yayında:** 18 yazı
+**Şu an yayında:** 21 yazı
 **Öncelikli sonraki adım:** Cluster yazıları + Sürdürülebilir Yaşam Pillar
 
 ---
