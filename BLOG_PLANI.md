@@ -36,7 +36,7 @@
 | Cluster | ✅ | Türkiye'nin Önemli Barajları ve İşlevleri | `turkiyenin-onemli-barajlari-ve-islevleri` |
 | Cluster | ✅ | Evde Su Tasarrufu: 12 Pratik Yöntem | `evde-su-tasarrufu-12-pratik-yontem` |
 | Cluster | ✅ | İzmir'in Barajları: Tahtalı, Gördes, Balçova, Kemer | `izmir-barajlari-tahtatli-gordes-balcova` |
-| Cluster | 📝 | İzmir'de Su Kesintileri: Nedenler ve Ne Yapmalı? | `izmir-su-kesintileri-nedenler` |
+| Cluster | ✅ | İzmir'de Su Kesintileri: Nedenler ve Ne Yapmalı? | `izmir-su-kesintileri-nedenler` |
 | Cluster | 📝 | Su Sertliği Nedir? Sert Su Sağlığa Zararlı mı? | `su-sertligi-nedir-sagliga-zarari` |
 | Cluster | 📝 | Yeraltı Suyu Nedir? Nasıl Oluşur, Nasıl Kullanılır? | `yeralti-suyu-nedir-nasil-olusur` |
 | Cluster | 📝 | Yağmur Suyu Hasadı: Evde Yağmur Suyu Toplamak | `yagmur-suyu-hasadi-evde-toplama` |
@@ -68,7 +68,7 @@
 | Pillar | ✅ | İzmir Toplu Taşıma Rehberi: ESHOT, İZBAN, Metro, Vapur | `izmir-toplu-tasima-rehberi` |
 | Cluster | ✅ | İzmir Otobüs Hatları Nasıl Numaralandırılır? | `izmir-otobus-hatlari-nasil-numaralandirilir` |
 | Cluster | ✅ | İZBAN Nedir? İstasyonlar ve Güzergah Haritası | `izban-nedir-istasyonlar-guzergah` |
-| Cluster | 📝 | İzmir Metrosu: Güzergahlar, İstasyonlar, Ücretler | `izmir-metrosu-guzergahlar-istasyonlar` |
+| Cluster | ✅ | İzmir Metrosu: Güzergahlar, İstasyonlar, Ücretler | `izmir-metrosu-guzergahlar-istasyonlar` |
 | Cluster | 📝 | İzmir Vapurları: Güzergahlar ve Seferler | `izmir-vapurlari-guzergahlar-seferler` |
 | Cluster | 📝 | İZMİRKART Nedir? Nasıl Yüklenir ve Kullanılır? | `izmirkart-nedir-nasil-kullanilir` |
 | Cluster | 📝 | İzmir'de Araç Kiralama vs. Toplu Taşıma: Maliyet Karşılaştırması | `izmir-arac-kiralama-toplu-tasima` |
@@ -132,7 +132,7 @@
 | Cluster | ✅ | Deprem Çantası: İçinde Ne Olmalı? (Güncel Liste) | `deprem-cantasi-icinde-ne-olmali` |
 | Cluster | 📝 | Sel ve Taşkın: Öncesinde ve Sırasında Ne Yapmalı? | `sel-taskin-oncesi-sirasinda-ne-yapmali` |
 | Cluster | ✅ | AFAD Nedir? Afetlerde Rolü ve İletişim Bilgileri | `afad-nedir-afetlerde-rolu` |
-| Cluster | 📝 | Toplanma Alanı Nedir? Nasıl Bulunur? | `toplanma-alani-nedir-nasil-bulunur` |
+| Cluster | ✅ | Toplanma Alanı Nedir? Nasıl Bulunur? | `toplanma-alani-nedir-nasil-bulunur` |
 | Cluster | 📝 | Tsunami Riski: Ege Kıyılarında Durum | `tsunami-riski-ege-kiyi` |
 
 ---
@@ -166,7 +166,7 @@
 | Şehir & Kentsel | 0/1 | 0 | 4 | 5 |
 | **Toplam** | **3/9** | **6** | **46** | **62** |
 
-**Şu an yayında:** 24 yazı
+**Şu an yayında:** 27 yazı
 **Öncelikli sonraki adım:** Cluster yazıları + Sürdürülebilir Yaşam Pillar
 
 ---
