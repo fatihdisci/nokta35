@@ -17,7 +17,6 @@ async function getIzmir<T>(path: string, revalidate: number): Promise<T | null> 
 // Redis cache keys — shared with /api/* routes so any fetch warms the cache
 export const BARAJ_KEY = "baraj:durum"
 export const ECZANE_KEY = "eczane:nobetci"
-export const OTOPARK_KEY = "otopark:doluluk"
 export const KESINTI_KEY = "su:kesinti"
 export const HAVA_KEY = "cevre:havakalitest:v2"
 
@@ -43,21 +42,6 @@ export type EczaneItem = {
   LokasyonY?: string | number
 }
 
-export type OtoparkOccupancy = {
-  total?: { free?: number; occupied?: number }
-}
-
-export type OtoparkItem = {
-  name?: string
-  status?: string
-  address?: string
-  provider?: string
-  lat?: number
-  lng?: number
-  occupancy?: OtoparkOccupancy
-  isPaid?: boolean
-}
-
 export type KesintiItem = {
   IlceAdi?: string
   Mahalleler?: string
@@ -73,17 +57,8 @@ export const getBarajlar = () =>
 export const getEczaneler = () =>
   cached(ECZANE_KEY, 3600, () => fetchIzmir<EczaneItem[]>("/api/ibb/nobetcieczaneler")).catch(() => null)
 
-export const getOtoparklar = () =>
-  cached(OTOPARK_KEY, 30, () => fetchIzmir<OtoparkItem[]>("/api/ibb/izum/otoparklar")).catch(() => null)
-
 export const getKesintiler = () =>
   cached(KESINTI_KEY, 3600, () => fetchIzmir<KesintiItem[]>("/api/izsu/arizakaynaklisukesintileri")).catch(() => null)
-
-export function otoparkKapasite(o: OtoparkItem) {
-  const free = o.occupancy?.total?.free ?? 0
-  const occupied = o.occupancy?.total?.occupied ?? 0
-  return { free, occupied, total: free + occupied }
-}
 
 const GUN_PATTERNS: [RegExp, number][] = [
   [/cumartesi/i, 6],

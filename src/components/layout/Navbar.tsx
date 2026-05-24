@@ -9,7 +9,6 @@ const NAV_ITEMS = [
   { href: "/ulasim", label: "Ulaşım" },
   { href: "/su-baraj", label: "Su & Baraj" },
   { href: "/saglik", label: "Sağlık" },
-  { href: "/otoparklar", label: "Otopark" },
   { href: "/hava", label: "Hava" },
   { href: "/onemli-yerler", label: "Pazarlar" },
   { href: "/etkinlikler", label: "Etkinlikler" },

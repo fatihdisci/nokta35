@@ -36,12 +36,6 @@ const KAYNAKLAR: Kaynak[] = [
     aciklama: "Bugünün nöbetçi eczaneleri, adresleri ve telefonları.",
   },
   {
-    baslik: "Otopark Doluluk",
-    saglayici: "İZUM",
-    guncelleme: "anlık",
-    aciklama: "Otoparkların dolu/boş yer sayıları ve kapasiteleri.",
-  },
-  {
     baslik: "Ulaşım",
     saglayici: "ESHOT / İZBAN",
     guncelleme: "anlık",

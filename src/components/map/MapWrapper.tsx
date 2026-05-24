@@ -69,7 +69,6 @@ const LAYER_STYLES: Record<
 > = {
   otobus: { color: "#d63800", radius: 5, stroke: "#1a1a1a" },
   eczane: { color: "#1a1a1a", radius: 5, stroke: "#f4f1ea" },
-  otopark: { color: "#888888", radius: 5, stroke: "#1a1a1a" },
   pazar: { color: "#d63800", radius: 4, stroke: "#1a1a1a" },
 }
 
@@ -82,7 +81,6 @@ export function MapWrapper() {
   const [active, setActive] = useState<Record<LayerKey, boolean>>({
     otobus: true,
     eczane: true,
-    otopark: true,
     pazar: false,
   })
 
@@ -131,7 +129,7 @@ export function MapWrapper() {
     )
 
     map.on("load", () => {
-      const keys: LayerKey[] = ["pazar", "otopark", "eczane", "otobus"]
+      const keys: LayerKey[] = ["pazar", "eczane", "otobus"]
       for (const k of keys) {
         const s = LAYER_STYLES[k]
         map.addSource(`src-${k}`, { type: "geojson", data: empty })
@@ -218,23 +216,6 @@ export function MapWrapper() {
             sub: [o.Bolge, o.Adres, o.Telefon].filter(Boolean).join(" · "),
           })),
         )
-      } else if (k === "otopark") {
-        const r = await fetch("/api/otopark")
-        const items = (await r.json()) as unknown[]
-        src.setData(
-          pointsFrom(items, "lng", "lat", (o) => {
-            const occ = (o.occupancy ?? {}) as {
-              total?: { free?: number; occupied?: number }
-            }
-            const free = occ.total?.free ?? 0
-            const occupied = occ.total?.occupied ?? 0
-            const total = free + occupied
-            return {
-              title: o.name ?? "Otopark",
-              sub: `${occupied}/${total} dolu · ${free} boş`,
-            }
-          }),
-        )
       } else if (k === "pazar") {
         const r = await fetch("/api/pazar")
         const items = (await r.json()) as unknown[]
@@ -264,18 +245,17 @@ export function MapWrapper() {
 
   async function refreshAll() {
     await Promise.all(
-      (["eczane", "otopark", "pazar", "otobus"] as LayerKey[]).map(loadLayer),
+      (["eczane", "pazar", "otobus"] as LayerKey[]).map(loadLayer),
     )
   }
 
-  // canlı: otobüs 30 sn, otopark 30 sn
+  // canlı: otobüs 30 sn
   useEffect(() => {
     const t = setInterval(() => {
       if (active.otobus) void loadLayer("otobus")
-      if (active.otopark) void loadLayer("otopark")
     }, 30_000)
     return () => clearInterval(t)
-  }, [active.otobus, active.otopark])
+  }, [active.otobus])
 
   return (
     <div

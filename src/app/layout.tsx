@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     template: "%s · nokta35",
   },
   description:
-    "İzmir Büyükşehir Belediyesi açık verilerini gerçek zamanlı görselleştiren bağımsız şehir veri platformu. Baraj doluluk, nöbetçi eczane, otopark, ESHOT/İZBAN.",
+    "İzmir Büyükşehir Belediyesi açık verilerini gerçek zamanlı görselleştiren bağımsız şehir veri platformu. Baraj doluluk, nöbetçi eczane, hava kalitesi, ESHOT/İZBAN.",
   applicationName: "nokta35",
   keywords: [
     "İzmir",
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "nokta35 — İzmir açık veri paneli",
-    description: "Baraj, otobüs, eczane, otopark — tek noktadan.",
+    description: "Baraj, otobüs, eczane, hava kalitesi — tek noktadan.",
   },
   robots: {
     index: true,

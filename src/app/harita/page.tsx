@@ -3,7 +3,7 @@ import { Placeholder } from "@/components/layout/Placeholder"
 
 export const metadata: Metadata = {
   title: "Harita · nokta35",
-  description: "İzmir canlı harita: otobüs, eczane, otopark, pazar yerleri — yakında.",
+  description: "İzmir canlı harita: otobüs, eczane, pazar yerleri — yakında.",
   alternates: {
     canonical: "/harita",
   },
@@ -18,7 +18,7 @@ export default function Page() {
     <Placeholder
       title="Harita"
       faz="Yakında"
-      desc="Canlı otobüs konumları, nöbetçi eczane, otopark doluluk ve pazar yerleri tek haritada. Şimdilik veriler kategorilerine göre kendi sayfalarında."
+      desc="Canlı otobüs konumları, nöbetçi eczane ve pazar yerleri tek haritada. Şimdilik veriler kategorilerine göre kendi sayfalarında."
     />
   )
 }

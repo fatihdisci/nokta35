@@ -1,9 +1,7 @@
 import {
   getBarajlar,
   getEczaneler,
-  getOtoparklar,
   getKesintiler,
-  otoparkKapasite,
 } from "@/lib/data"
 import { getHavaDurumu } from "@/lib/hava"
 
@@ -16,10 +14,9 @@ function toNum(v: unknown): number {
 type Stat = { label: string; value: string; unit?: string }
 
 export async function StatBar() {
-  const [barajlar, eczaneler, otoparklar, kesintiler, hava] = await Promise.all([
+  const [barajlar, eczaneler, kesintiler, hava] = await Promise.all([
     getBarajlar(),
     getEczaneler(),
-    getOtoparklar(),
     getKesintiler(),
     getHavaDurumu(),
   ])
@@ -31,17 +28,6 @@ export async function StatBar() {
             barajlar.length,
         )
       : null
-
-  let totDolu = 0
-  let totKap = 0
-  if (otoparklar) {
-    for (const o of otoparklar) {
-      const { occupied, total } = otoparkKapasite(o)
-      totDolu += occupied
-      totKap += total
-    }
-  }
-  const doluluk = totKap > 0 ? Math.round((totDolu / totKap) * 100) : null
 
   const konak = hava?.find((h) => h.ilce === "Konak")
   const ortSicaklik = (() => {
@@ -62,11 +48,6 @@ export async function StatBar() {
       value: eczaneler ? `${eczaneler.length}` : "—",
     },
     {
-      label: "Otopark",
-      value: doluluk !== null ? `${doluluk}` : "—",
-      unit: "% dolu",
-    },
-    {
       label: "Su Kesintisi",
       value: kesintiler ? `${kesintiler.length}` : "—",
     },
@@ -85,7 +66,7 @@ export async function StatBar() {
 
   return (
     <section className="border-y-2 border-ink bg-cream">
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 divide-x divide-y md:divide-y-0 divide-light-gray">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 divide-x divide-y md:divide-y-0 divide-light-gray">
         {stats.map((s) => (
           <div key={s.label} className="px-4 py-5 flex flex-col gap-1">
             <span className="text-[10px] uppercase tracking-[0.2em] text-gray">

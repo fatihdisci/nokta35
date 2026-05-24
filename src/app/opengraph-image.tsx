@@ -96,7 +96,7 @@ export default function OG() {
             paddingTop: 20,
           }}
         >
-          <span>Baraj · Otobüs · Eczane · Otopark</span>
+          <span>Baraj · Otobüs · Eczane · Hava Kalitesi</span>
           <span>nokta35.com</span>
         </div>
       </div>

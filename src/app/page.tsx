@@ -5,7 +5,6 @@ import { StatBar } from "@/components/widgets/StatBar"
 import { BarajWidget } from "@/components/widgets/BarajWidget"
 import { EczanePanel } from "@/components/widgets/EczanePanel"
 import { KesintiAlert } from "@/components/widgets/KesintiAlert"
-import { OtoparkWidget } from "@/components/widgets/OtoparkWidget"
 import { HavaWidget } from "@/components/widgets/HavaWidget"
 
 import { AdSlot } from "@/components/ads/AdSlot"
@@ -19,7 +18,7 @@ import { LiveClock } from "@/components/layout/LiveClock"
 
 export const metadata: Metadata = {
   title: { absolute: "nokta35 · Tek noktadan İzmir'e dair her şey" },
-  description: "İzmir açık veri platformu: baraj doluluk, nöbetçi eczane, otopark kapasitesi, hava durumu, İZBAN sefer saatleri ve su kesintileri — tek sayfada, anlık.",
+  description: "İzmir açık veri platformu: baraj doluluk, nöbetçi eczane, hava durumu, hava kalitesi, İZBAN sefer saatleri ve su kesintileri — tek sayfada, anlık.",
   alternates: {
     canonical: "/",
   },
@@ -44,11 +43,11 @@ export default function HomePage() {
   const faqItems = [
     {
       question: "nokta35 nedir ve hangi İzmir verilerini sunar?",
-      answer: "nokta35, İzmir Büyükşehir Belediyesi, İZSU, İZELMAN ve İZUM gibi resmi kurumların açık veri kaynaklarını entegre ederek İzmir'e dair anlık şehir verilerini tek bir panelde toplayan bağımsız ve reklamsız şehir veri platformudur. Sitemizden baraj doluluk oranlarını, nöbetçi eczaneleri, su kesintilerini, otopark doluluk durumlarını, güncel hava durumunu ve ulaşım sefer saatlerini canlı takip edebilirsiniz.",
+      answer: "nokta35, İzmir Büyükşehir Belediyesi ve İZSU gibi resmi kurumların açık veri kaynaklarını entegre ederek İzmir'e dair anlık şehir verilerini tek bir panelde toplayan bağımsız ve reklamsız şehir veri platformudur. Sitemizden baraj doluluk oranlarını, nöbetçi eczaneleri, su kesintilerini, güncel hava durumunu, hava kalitesi ölçümlerini ve ulaşım sefer saatlerini canlı takip edebilirsiniz.",
     },
     {
       question: "nokta35 platformundaki İzmir verileri ne sıklıkla güncellenir?",
-      answer: "Verilerimizin güncelleme sıklığı veri türüne göre değişir. Otopark doluluk ve otobüs konumları gibi canlı veriler 30 saniyede bir güncellenirken; nöbetçi eczaneler 30 dakikada bir, baraj dolulukları ve su kesintileri saatlik, hava durumu ise her 15 dakikada bir otomatik olarak güncellenmektedir.",
+      answer: "Verilerimizin güncelleme sıklığı veri türüne göre değişir. Otobüs konumları gibi canlı veriler 30 saniyede bir güncellenirken; nöbetçi eczaneler 30 dakikada bir, baraj dolulukları ve su kesintileri saatlik, hava durumu ise her 15 dakikada bir otomatik olarak güncellenmektedir.",
     },
     {
       question: "nokta35 İzmir şehir platformu resmi bir web sitesi midir?",
@@ -69,7 +68,7 @@ export default function HomePage() {
           <span className="text-orange">İzmir'e</span> dair her şey.
         </h1>
         <p className="mt-6 max-w-2xl text-sm text-gray uppercase tracking-wide leading-relaxed">
-          Barajlardan eczaneye, otoparktan hava durumuna —
+          Barajlardan eczaneye, hava kalitesinden ulaşıma —
           açık veri ile gerçek zamanlı şehir paneli.
         </p>
       </section>
@@ -95,9 +94,6 @@ export default function HomePage() {
         </Suspense>
         <Suspense fallback={<WidgetSkeleton title="Su Kesintisi" />}>
           <KesintiAlert />
-        </Suspense>
-        <Suspense fallback={<WidgetSkeleton title="Otoparklar" />}>
-          <OtoparkWidget />
         </Suspense>
         <Suspense fallback={<WidgetSkeleton title="Hava Durumu" />}>
           <HavaWidget />

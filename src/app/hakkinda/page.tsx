@@ -28,7 +28,7 @@ export default function HakkindaPage() {
           <p>
             <strong>nokta35.com</strong>, İzmir'le ilgili güncel şehir verilerini
             tek bir sayfada toplayan bağımsız bir projedir. Baraj doluluk, nöbetçi
-            eczane, otopark doluluk, hava durumu, ulaşım ve etkinlik bilgileri
+            eczane, hava durumu, hava kalitesi, ulaşım ve etkinlik bilgileri
             gibi günlük hayatta ihtiyaç duyulan verileri sade bir arayüzle sunar.
           </p>
 

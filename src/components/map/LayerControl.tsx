@@ -1,11 +1,10 @@
 "use client"
 
-export type LayerKey = "otobus" | "eczane" | "otopark" | "pazar"
+export type LayerKey = "otobus" | "eczane" | "pazar"
 
 const LAYERS: { key: LayerKey; label: string; dot: string }[] = [
   { key: "otobus", label: "Otobüs", dot: "bg-orange" },
   { key: "eczane", label: "Eczane", dot: "bg-ink" },
-  { key: "otopark", label: "Otopark", dot: "bg-gray" },
   { key: "pazar", label: "Pazar", dot: "bg-orange" },
 ]
 

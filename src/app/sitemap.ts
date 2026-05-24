@@ -12,7 +12,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // ── Statik sayfalar ──────────────────────────────────────────────
   const staticPages: MetadataRoute.Sitemap = [
     { url: `${base}/`,                lastModified: now, changeFrequency: "hourly", priority: 1.0 },
-    { url: `${base}/otoparklar`,      lastModified: now, changeFrequency: "hourly", priority: 0.9 },
     { url: `${base}/su-baraj`,        lastModified: now, changeFrequency: "hourly", priority: 0.9 },
     { url: `${base}/hava`,            lastModified: now, changeFrequency: "hourly", priority: 0.9 },
     { url: `${base}/saglik`,          lastModified: now, changeFrequency: "hourly", priority: 0.9 },

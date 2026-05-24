@@ -71,7 +71,7 @@ export function Body() {
       <h2>Şehirler için açık verinin somut faydaları</h2>
       <h3>1. Vatandaş hizmeti çeşitliliği</h3>
       <p>
-        Bir belediye otopark doluluk verisini açık veri olarak yayınladığında,
+        Bir belediye nöbetçi eczane verisini açık veri olarak yayınladığında,
         üçüncü taraf yazılımcılar bu veriyi kullanarak yeni uygulamalar ve
         web siteleri geliştirebilir. Vatandaş, tek bir resmi uygulamaya bağlı
         kalmadan birçok farklı arayüzden bilgiye ulaşır.
