@@ -39,7 +39,6 @@ export function Footer() {
           <ul className="space-y-2 text-gray">
             <li><Link href="/hakkinda" className="hover:text-cream">Hakkında</Link></li>
             <li><Link href="/veri-kaynaklari" className="hover:text-cream">Veri Kaynakları</Link></li>
-            <li><a href="https://github.com/fatihdisci/nokta35" target="_blank" rel="noopener" className="hover:text-cream">GitHub</a></li>
           </ul>
         </div>
 
