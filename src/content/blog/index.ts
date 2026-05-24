@@ -31,6 +31,16 @@ import * as toplanma from "./toplanma-alani-nedir-nasil-bulunur"
 import * as izmirkart from "./izmirkart-nedir-nasil-kullanilir"
 import * as isiAdasi from "./isi-adasi-etkisi-nedir"
 import * as sifirAtik from "./sifir-atik-yasam-baslangic"
+import * as apiNedir from "./api-nedir-acik-veri-farki"
+import * as jsonCsvXml from "./json-csv-xml-veri-formatlari-farki"
+import * as akilliSehir from "./akilli-sehir-smart-city-nedir"
+import * as cbsGis from "./cografi-bilgi-sistemi-cbs-gis-nedir"
+import * as belAcikVeri from "./belediye-acik-verisi-durum"
+import * as sehirPlanlama from "./sehir-planlamasi-nedir-imar-rant"
+import * as kentselDonusum from "./kentsel-donusum-nedir-hak-yukumlulukler"
+import * as buyuksehirFarki from "./buyuksehir-ilce-belediyesi-farki"
+import * as imarDurumu from "./imar-durumu-nedir-nasil-sorgulanir"
+import * as ulasimPlan from "./ulasim-ana-plani-nedir"
 
 export type BlogPost = BlogMeta & { Body: ComponentType }
 
@@ -65,6 +75,16 @@ const RAW: BlogPost[] = [
   { ...izmirkart.meta, Body: izmirkart.Body },
   { ...isiAdasi.meta, Body: isiAdasi.Body },
   { ...sifirAtik.meta, Body: sifirAtik.Body },
+  { ...apiNedir.meta, Body: apiNedir.Body },
+  { ...jsonCsvXml.meta, Body: jsonCsvXml.Body },
+  { ...akilliSehir.meta, Body: akilliSehir.Body },
+  { ...cbsGis.meta, Body: cbsGis.Body },
+  { ...belAcikVeri.meta, Body: belAcikVeri.Body },
+  { ...sehirPlanlama.meta, Body: sehirPlanlama.Body },
+  { ...kentselDonusum.meta, Body: kentselDonusum.Body },
+  { ...buyuksehirFarki.meta, Body: buyuksehirFarki.Body },
+  { ...imarDurumu.meta, Body: imarDurumu.Body },
+  { ...ulasimPlan.meta, Body: ulasimPlan.Body },
 ]
 
 export const POSTS: BlogPost[] = [...RAW].sort((a, b) =>

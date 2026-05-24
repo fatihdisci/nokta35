@@ -82,11 +82,11 @@
 | Tip | Durum | Başlık | Slug |
 |-----|-------|--------|------|
 | Pillar | ✅ | Açık Veri Nedir? Şehirler İçin Neden Önemli? | `acik-veri-nedir-sehirler-icin-neden-onemli` |
-| Cluster | 📝 | API Nedir? Açık Veri ile Farkı Ne? | `api-nedir-acik-veri-farki` |
-| Cluster | 📝 | JSON, CSV, XML: Veri Formatları Arasındaki Fark | `json-csv-xml-veri-formatlari-farki` |
-| Cluster | 📝 | Akıllı Şehir (Smart City) Nedir? İzmir Örnekleri | `akilli-sehir-smart-city-nedir` |
-| Cluster | 📝 | Coğrafi Bilgi Sistemi (CBS/GIS) Nedir? | `cografi-bilgi-sistemi-cbs-gis-nedir` |
-| Cluster | 📝 | Belediye Açık Verisi: Hangi Şehirler Öncü? | `belediye-acik-verisi-durum` |
+| Cluster | ✅ | API Nedir? Açık Veri ile Farkı Ne? | `api-nedir-acik-veri-farki` |
+| Cluster | ✅ | JSON, CSV, XML: Veri Formatları Arasındaki Fark | `json-csv-xml-veri-formatlari-farki` |
+| Cluster | ✅ | Akıllı Şehir (Smart City) Nedir? Temel Kavramlar ve Örnekler | `akilli-sehir-smart-city-nedir` |
+| Cluster | ✅ | Coğrafi Bilgi Sistemi (CBS/GIS) Nedir? | `cografi-bilgi-sistemi-cbs-gis-nedir` |
+| Cluster | ✅ | Belediye Açık Verisi: Türkiye'de ve Dünyada Durum | `belediye-acik-verisi-durum` |
 
 ---
 
@@ -143,11 +143,11 @@
 
 | Tip | Durum | Başlık | Slug |
 |-----|-------|--------|------|
-| Pillar | 📝 | Şehir Planlaması Nedir? İmar, Rant, Dönüşüm | `sehir-planlamasi-nedir-imar-rant` |
-| Cluster | 📝 | Kentsel Dönüşüm Nedir? Hak ve Yükümlülükler | `kentsel-donusum-nedir-hak-yukumlulukler` |
-| Cluster | 📝 | Büyükşehir Belediyesi ile İlçe Belediyesi Farkı | `buyuksehir-ilce-belediyesi-farki` |
-| Cluster | 📝 | İmar Durumu Nedir? Nasıl Sorgulanır? | `imar-durumu-nedir-nasil-sorgulanir` |
-| Cluster | 📝 | Ulaşım Ana Planı Nedir? Şehirlerde Nasıl Hazırlanır? | `ulasim-ana-plani-nedir` |
+| Pillar | ✅ | Şehir Planlaması Nedir? İmar, Kentsel Rant ve Dönüşüm | `sehir-planlamasi-nedir-imar-rant` |
+| Cluster | ✅ | Kentsel Dönüşüm Nedir? Hak ve Yükümlülükler | `kentsel-donusum-nedir-hak-yukumlulukler` |
+| Cluster | ✅ | Büyükşehir Belediyesi ile İlçe Belediyesi Farkı | `buyuksehir-ilce-belediyesi-farki` |
+| Cluster | ✅ | İmar Durumu Nedir? Nasıl Sorgulanır ve Yorumlanır? | `imar-durumu-nedir-nasil-sorgulanir` |
+| Cluster | ✅ | Ulaşım Ana Planı Nedir? Şehirlerde Nasıl Hazırlanır? | `ulasim-ana-plani-nedir` |
 
 ---
 
@@ -159,14 +159,14 @@
 | Su & Baraj | 2/2 ✅ | 4 ✅ | 4 | 10 |
 | Sağlık | 1/1 ✅ | 3 ✅ | 2 | 6 |
 | Ulaşım | 1/1 ✅ | 4 ✅ | 2 | 7 |
-| Açık Veri | 1/1 ✅ | 0 | 5 | 6 |
+| Açık Veri | 1/1 ✅ | 5 ✅ | 0 | 6 |
 | İzmir Genel | 1/1 ✅ | 2 ✅ | 3 | 6 |
 | Sürdürülebilir Yaşam | 1/1 ✅ | 2 ✅ | 5 | 8 |
 | Afet Hazırlığı | 1/1 ✅ | 3 ✅ | 2 | 6 |
-| Şehir & Kentsel | 0/1 | 0 | 5 | 5 |
-| **Toplam** | **9/9** | **21** | **32** | **62** |
+| Şehir & Kentsel | 1/1 ✅ | 4 ✅ | 0 | 5 |
+| **Toplam** | **9/9** | **31** | **22** | **62** |
 
-**Şu an yayında:** 30 yazı
+**Şu an yayında:** 40 yazı
 **Öncelikli sonraki adım:** Cluster yazıları + Sürdürülebilir Yaşam Pillar
 
 ---
