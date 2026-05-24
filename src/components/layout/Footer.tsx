@@ -31,6 +31,7 @@ export function Footer() {
             <li><Link href="/saglik" className="hover:text-cream">Sağlık</Link></li>
             <li><Link href="/onemli-yerler" className="hover:text-cream">Semt Pazarları</Link></li>
             <li><Link href="/etkinlikler" className="hover:text-cream">Etkinlikler</Link></li>
+            <li><Link href="/blog" className="hover:text-cream">Blog</Link></li>
           </ul>
         </div>
 

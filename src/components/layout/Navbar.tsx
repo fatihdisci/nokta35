@@ -14,6 +14,7 @@ const NAV_ITEMS = [
   { href: "/onemli-yerler", label: "Pazarlar" },
   { href: "/etkinlikler", label: "Etkinlikler" },
   { href: "/haberler", label: "Haberler" },
+  { href: "/blog", label: "Blog" },
 ]
 
 export function Navbar() {
