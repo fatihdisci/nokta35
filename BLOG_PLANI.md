@@ -101,6 +101,10 @@
 | Cluster | 📝 | İzmir'de Hava Nasıl? İklim Özellikleri ve Mevsimler | `izmir-hava-iklim-ozellikleri` |
 | Cluster | ✅ | İzmir'de Pazar Yerleri: Hangi Gün, Hangi İlçede? | `izmir-pazar-yerleri-rehberi` |
 | Cluster | ✅ | İzmir'de Deprem Riski: Fay Hatları ve Hazırlık | `izmir-deprem-riski-fay-hatlari` |
+| Cluster | ✅ | İzmir Kent Lokantaları ve Halk Ekmek Büfeleri | `izmir-kent-lokantalari-halk-ekmek` |
+| Cluster | ✅ | İzmir Ücretsiz Etkinlik Alanları | `izmir-ucretsiz-etkinlik-alanlari` |
+| Cluster | ✅ | İzmir'de Geç Saatlere Kadar Açık Kütüphaneler | `izmir-7-24-acik-kutuphaneler` |
+| Cluster | ✅ | İzmir Ücretsiz Spor Tesisleri ve Yürüyüş Parkurları | `izmir-ucretsiz-spor-tesisleri-parkurlar` |
 | Cluster | 📝 | İzmir'de Yaşam Maliyeti: 2026 Güncel Rehber | `izmir-yasam-maliyeti-2026` |
 
 ---
@@ -113,6 +117,7 @@
 |-----|-------|--------|------|
 | Pillar | ✅ | Sürdürülebilir Yaşam Nedir? Evden Başlamak İçin Kılavuz | `surdurulebilir-yasam-nedir-rehber` |
 | Cluster | ✅ | Sıfır Atık Yaşam: Başlangıç için 10 Adım | `sifir-atik-yasam-baslangic` |
+| Cluster | ✅ | İzmir Geri Dönüşüm Noktaları ve Elektronik Atık Rehberi | `izmir-geri-donusum-elektronik-atik` |
 | Cluster | 📝 | Gıda İsrafını Önlemek: Pratik Yöntemler ve Tarifler | `gida-israfi-onlemek-pratik-yontemler` |
 | Cluster | 📝 | Kompost Nedir? Evde Kompost Nasıl Yapılır? | `kompost-nedir-evde-nasil-yapilir` |
 | Cluster | 📝 | Organik Tarım Nedir? Konvansiyonel Tarımdan Farkı | `organik-tarim-nedir-farki` |
@@ -160,13 +165,13 @@
 | Sağlık | 1/1 ✅ | 3 ✅ | 2 | 6 |
 | Ulaşım | 1/1 ✅ | 4 ✅ | 2 | 7 |
 | Açık Veri | 1/1 ✅ | 5 ✅ | 0 | 6 |
-| İzmir Genel | 1/1 ✅ | 2 ✅ | 3 | 6 |
-| Sürdürülebilir Yaşam | 1/1 ✅ | 2 ✅ | 5 | 8 |
+| İzmir Genel | 1/1 ✅ | 6 ✅ | 1 | 8 |
+| Sürdürülebilir Yaşam | 1/1 ✅ | 3 ✅ | 5 | 9 |
 | Afet Hazırlığı | 1/1 ✅ | 3 ✅ | 2 | 6 |
 | Şehir & Kentsel | 1/1 ✅ | 4 ✅ | 0 | 5 |
-| **Toplam** | **9/9** | **31** | **22** | **62** |
+| **Toplam** | **9/9** | **36** | **18** | **65** |
 
-**Şu an yayında:** 40 yazı
+**Şu an yayında:** 45 yazı
 **Öncelikli sonraki adım:** Cluster yazıları + Sürdürülebilir Yaşam Pillar
 
 ---

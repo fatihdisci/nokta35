@@ -41,6 +41,11 @@ import * as kentselDonusum from "./kentsel-donusum-nedir-hak-yukumlulukler"
 import * as buyuksehirFarki from "./buyuksehir-ilce-belediyesi-farki"
 import * as imarDurumu from "./imar-durumu-nedir-nasil-sorgulanir"
 import * as ulasimPlan from "./ulasim-ana-plani-nedir"
+import * as kentLok from "./izmir-kent-lokantalari-halk-ekmek"
+import * as ucretsizEtkinlik from "./izmir-ucretsiz-etkinlik-alanlari"
+import * as kutuphane from "./izmir-7-24-acik-kutuphaneler"
+import * as geriDonusum from "./izmir-geri-donusum-elektronik-atik"
+import * as ucretsizSpor from "./izmir-ucretsiz-spor-tesisleri-parkurlar"
 
 export type BlogPost = BlogMeta & { Body: ComponentType }
 
@@ -85,6 +90,11 @@ const RAW: BlogPost[] = [
   { ...buyuksehirFarki.meta, Body: buyuksehirFarki.Body },
   { ...imarDurumu.meta, Body: imarDurumu.Body },
   { ...ulasimPlan.meta, Body: ulasimPlan.Body },
+  { ...kentLok.meta, Body: kentLok.Body },
+  { ...ucretsizEtkinlik.meta, Body: ucretsizEtkinlik.Body },
+  { ...kutuphane.meta, Body: kutuphane.Body },
+  { ...geriDonusum.meta, Body: geriDonusum.Body },
+  { ...ucretsizSpor.meta, Body: ucretsizSpor.Body },
 ]
 
 export const POSTS: BlogPost[] = [...RAW].sort((a, b) =>
