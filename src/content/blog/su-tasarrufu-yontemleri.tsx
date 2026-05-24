@@ -10,6 +10,33 @@ export const meta: BlogMeta = {
   summary:
     "Kuraklık dönemlerinde her damla önemli. Günlük rutininizde küçük değişikliklerle aylık su kullanımınızı önemli ölçüde azaltabilirsiniz.",
   readTime: 6,
+  faq: [
+    {
+      question: "Evde su tasarrufu için en etkili yöntem nedir?",
+      answer:
+        "En etkili yöntem sızıntıları onarmaktır. Damlayan bir musluk günde 30 litreye kadar su kaybına neden olabilir. Yıllık olarak bu küçük bir havuzu dolduracak miktara ulaşır. Sızıntı kontrolü diğer tüm önlemlerden önce yapılmalıdır.",
+    },
+    {
+      question: "Damlayan bir musluk ne kadar su israfı yapar?",
+      answer:
+        "Saniyede bir damla akan bir musluk, günde yaklaşık 15–30 litre, yılda ise yaklaşık 5.000–10.000 litre su israfına yol açar. Bu, bir hanenin günlük su tüketiminin önemli bir bölümüne karşılık gelir.",
+    },
+    {
+      question: "Bulaşık makinesi mi elde yıkamak mı daha tasarrufludur?",
+      answer:
+        "Modern bulaşık makineleri, tam kapasiteyle çalıştırıldığında elde yıkamaktan belirgin biçimde daha az su kullanır. Yarı dolu çalıştırılması ise verimsizdir; tam dolduğunda çalıştırmak su ve enerji tasarrufu sağlar.",
+    },
+    {
+      question: "Klozet rezervuarına pet şişe koymak işe yarar mı?",
+      answer:
+        "Eski tip büyük rezervuarlarda, içine su dolu küçük bir pet şişe yerleştirmek her sifon çekişinde yaklaşık yarım litre tasarruf sağlar. Modern düşük debili klozetlerde gereksizdir, çünkü zaten optimize edilmiş hacimde su kullanırlar.",
+    },
+    {
+      question: "Bahçe sulaması için en uygun saat nedir?",
+      answer:
+        "Sabah erken (06:00–09:00 arası) veya akşam geç saatler (18:00 sonrası) en uygun saatlerdir. Öğlen saatlerinde buharlaşma yüksek olduğu için suyun büyük bölümü bitkiye ulaşmadan kaybedilir.",
+    },
+  ],
 }
 
 export function Body() {

@@ -10,6 +10,33 @@ export const meta: BlogMeta = {
   summary:
     "Açık veri; herkesin ücretsiz erişebileceği, kullanabileceği ve yeniden yayınlayabileceği yapılandırılmış kamu verisidir. Şehirleri daha şeffaf ve verimli yönetmek için temel bir araçtır.",
   readTime: 5,
+  faq: [
+    {
+      question: "Açık veri nedir kısaca?",
+      answer:
+        "Açık veri (open data); herkesin ücretsiz erişebileceği, kullanabileceği, yeniden işleyebileceği ve yeniden yayınlayabileceği, lisans kısıtlamasından arınmış yapılandırılmış veridir. Genellikle kamu kurumları tarafından JSON, CSV, XML gibi makine okunabilir formatlarda paylaşılır.",
+    },
+    {
+      question: "Açık veri ücretli midir?",
+      answer:
+        "Hayır. Açık verinin tanım gereği temel niteliklerinden biri ücretsiz erişilebilir olmasıdır. Bir veri ücretliyse veya lisans kısıtlaması içeriyorsa o veri açık veri değildir.",
+    },
+    {
+      question: "Türkiye'de açık veri portalları var mı?",
+      answer:
+        "Evet. Türkiye'de Cumhurbaşkanlığı Dijital Dönüşüm Ofisi koordinasyonunda ulusal açık veri çalışmaları yürütülmektedir. Ayrıca İstanbul, Ankara, İzmir, Bursa gibi büyükşehir belediyeleri kendi açık veri portallarını işletmektedir.",
+    },
+    {
+      question: "Açık veri ile kişisel veri arasındaki fark nedir?",
+      answer:
+        "Açık veri kamuya açıkça paylaşılan verilerdir, ancak her veri açık veri olarak yayınlanamaz. Kişisel veriler (kimlik, telefon, sağlık bilgileri), ulusal güvenlik verileri ve ticari sırlar açık veri kapsamında değildir. Açık veri çalışmalarında anonimleştirme ve toplulaştırma teknikleri yaygındır.",
+    },
+    {
+      question: "Sivil teknoloji (civic tech) nedir?",
+      answer:
+        "Sivil teknoloji; vatandaşların ve gönüllü geliştiricilerin kamuya yararlı uygulamalar geliştirdiği harekettir. Çoğunlukla açık veriye dayanır. Trafik bildirim platformları, kayıp eşya servisleri, oy izleme araçları ve şehir veri panelleri bu hareketin örnekleridir.",
+    },
+  ],
 }
 
 export function Body() {

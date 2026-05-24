@@ -10,6 +10,33 @@ export const meta: BlogMeta = {
   summary:
     "Partikül madde havada askıda kalan mikroskopik parçacıklardır. Çapına göre PM10 ve PM2.5 olarak sınıflandırılır; ikincisi solunum yoluyla kana karışabildiği için daha tehlikelidir.",
   readTime: 4,
+  faq: [
+    {
+      question: "PM10 ve PM2.5 arasındaki fark nedir?",
+      answer:
+        "PM10 çapı 10 mikrometre ve altındaki kaba partikülleri kapsar; PM2.5 ise çapı 2.5 mikrometre ve altındaki ince partikülleri. PM2.5 çok daha küçük olduğu için akciğerin en derin bölümüne (alveollere) iner ve kan dolaşımına karışabilir, bu yüzden daha tehlikelidir.",
+    },
+    {
+      question: "Sağlığa en zararlı partikül hangisi?",
+      answer:
+        "PM2.5 sağlığa daha zararlıdır. Boyutu küçük olduğu için akciğerin derinine ulaşır ve kana karışabilir. Uzun süreli maruziyet kalp-damar hastalıkları, astım atakları, KOAH ve inme riskini artırır.",
+    },
+    {
+      question: "WHO'nun önerdiği PM2.5 üst sınır değerleri nedir?",
+      answer:
+        "Dünya Sağlık Örgütü 2021 yılında yenilediği kılavuzda PM2.5 için yıllık ortalama 5 µg/m³, günlük ortalama 15 µg/m³ önermektedir. PM10 için ise yıllık 15 µg/m³, günlük 45 µg/m³ sınırı belirlenmiştir.",
+    },
+    {
+      question: "Partikül madde nereden gelir?",
+      answer:
+        "Başlıca kaynaklar trafik (özellikle dizel motorlar, fren ve lastik aşınması), sanayi, kömür ve odun yakımıyla ısınma, inşaat çalışmaları, orman yangınları ve tarımsal yakmadır. Rüzgârla taşınan toz gibi doğal kaynaklar da katkı sağlar.",
+    },
+    {
+      question: "HEPA filtreli hava temizleyici PM2.5 yakalar mı?",
+      answer:
+        "Evet. HEPA (High-Efficiency Particulate Air) filtreler, 0.3 mikrometre ve üstü parçacıkların en az %99.97'sini yakalar. Bu da PM2.5'i de büyük ölçüde filtrelediği anlamına gelir. Kapalı ortamda hava kalitesini iyileştirmek için etkili bir yöntemdir.",
+    },
+  ],
 }
 
 export function Body() {

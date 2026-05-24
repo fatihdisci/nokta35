@@ -1,0 +1,83 @@
+YENİ BLOG YAZISI ŞABLONU
+========================
+
+Her yeni yazı için src/content/blog/<slug>.tsx oluştur ve src/content/blog/index.ts
+dosyasına ekle.
+
+ZORUNLU ALANLAR:
+- slug: URL'de geçecek kebab-case ad (Türkçe karakter yok)
+- title: SEO başlığı (60–70 karakter ideal)
+- description: meta description (140–160 karakter)
+- date: "YYYY-MM-DD" formatında yayın tarihi
+- category: Tek kelime kategori (Hava, Su, Sağlık, Ulaşım, Veri, İklim, vb.)
+- summary: Kart önizlemesinde gözüken 1–2 cümle özet
+- readTime: tahmini dakika cinsinden okuma süresi
+- faq: ZORUNLU 4–6 soru-cevap (SEO/GEO için)
+
+FAQ KURALLARI:
+- 4–6 soru olmalı
+- Sorular kullanıcıların gerçekten Google'a yazacağı tarzda
+- Cevaplar 2–4 cümle, kesin ve net (AI search için bu kritik)
+- Spesifik sayılar/standartlar varsa belirt (örn. "WHO 2021 PM2.5 sınırı 5 µg/m³")
+- ASLA uydurma rakam veya iddia kullanma
+- Doğrulanamayan iddia varsa "Resmi kaynaklara bakılması önerilir" diyerek geç
+
+YAZI YAPISI:
+- Giriş paragrafı (1 paragraf, ana tanım)
+- 4–7 H2 başlığı (ana konular)
+- H2 altında gerektiğinde H3 alt başlık
+- Liste/tablo kullan (okunabilirlik için)
+- Spesifik sayı/standart varsa kaynağını belirt
+- Sonuç paragrafı
+
+GÜVENLİ İÇERİK PRENSİBİ:
+✅ Doğrulanabilir tanımlar (Wikipedia/WHO/EPA seviyesi)
+✅ Genel pratik tavsiyeler
+✅ Kanun/yönetmelik referansları (numara ile)
+✅ İyi bilinen tarihsel olaylar
+❌ Doğrulamadan spesifik rakam vermek (nüfus, kapasite vb.)
+❌ Yıl tarihleri (kuruluş tarihi vb.) — kesin değilse atla
+❌ Sıralama iddiaları ("en iyi 10") — kaynak ile destekle
+❌ Yerel iddialar (X mahalledeki Y) — doğrulanamaz
+
+
+ÖRNEK İSKELET:
+---------------------------------------------------
+import type { BlogMeta } from "./types"
+
+export const meta: BlogMeta = {
+  slug: "ornek-konu-nedir",
+  title: "Örnek Konu Nedir? Tam Rehber",
+  description: "...",
+  date: "2026-05-24",
+  category: "Kategori",
+  summary: "...",
+  readTime: 5,
+  faq: [
+    { question: "Soru 1?", answer: "Cevap 1." },
+    { question: "Soru 2?", answer: "Cevap 2." },
+    { question: "Soru 3?", answer: "Cevap 3." },
+    { question: "Soru 4?", answer: "Cevap 4." },
+    { question: "Soru 5?", answer: "Cevap 5." },
+  ],
+}
+
+export function Body() {
+  return (
+    <>
+      <p>Giriş paragrafı...</p>
+      <h2>İlk başlık</h2>
+      <p>...</p>
+    </>
+  )
+}
+---------------------------------------------------
+
+REGISTER ETMEK:
+src/content/blog/index.ts dosyasına yeni yazıyı ekle:
+
+import * as ornek from "./ornek-konu-nedir"
+const RAW: BlogPost[] = [
+  ...
+  { ...ornek.meta, Body: ornek.Body },
+]

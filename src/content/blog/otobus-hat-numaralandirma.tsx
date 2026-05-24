@@ -10,6 +10,33 @@ export const meta: BlogMeta = {
   summary:
     "İzmir'in otobüs hat numaraları rastgele değildir; anahat–besleyici hat ayrımı, harf takıları ve özel servis hatları belli bir mantığa göre kodlanır.",
   readTime: 5,
+  faq: [
+    {
+      question: "ESHOT ne demek, ne iş yapar?",
+      answer:
+        "ESHOT adı tarihsel olarak 'Elektrik, Su, Havagazı, Otobüs ve Troleybüs İşletmesi' kısaltmasından gelir. Bugün İzmir Büyükşehir Belediyesi'ne bağlı bir kuruluş olarak yalnızca toplu taşıma alanında, özellikle şehir içi otobüs hizmetinde faaliyet gösterir.",
+    },
+    {
+      question: "Otobüs hattının yanındaki 'A' veya 'B' harfi ne anlama gelir?",
+      answer:
+        "Bu harfler, ana hattan ayrılan alt varyasyonları belirtir. Genelde aynı hattın farklı bir ucunu kullanan ya da güzergahın bir bölümünü işleten seferleri ifade eder. Bu kodlama her belediyeye göre değişebilir, ülke geneli standart kural yoktur.",
+    },
+    {
+      question: "Halk otobüsü ile ESHOT otobüsü arasındaki fark nedir?",
+      answer:
+        "ESHOT otobüsleri belediyeye ait, halk otobüsleri ise özel işletmecilere aittir. Halk otobüsleri belediye denetimi ve tarifesi çerçevesinde çalışır, görsel olarak farklı renkte olabilirler ama aynı akıllı kart sistemiyle (Kentkart) ücretlendirilirler.",
+    },
+    {
+      question: "İzmir'de hangi akıllı kart kullanılır?",
+      answer:
+        "İzmir'de toplu taşımanın resmi akıllı kartı Kentkart'tır. Kentkart ile ESHOT otobüsleri, halk otobüsleri, metro, tramvay, İZBAN banliyö treni ve İzdeniz vapur seferlerinde ödeme yapılabilir; sistem genelinde aktarma indirimi de sağlar.",
+    },
+    {
+      question: "Express otobüs ne demek?",
+      answer:
+        "Express hatlar; az duraklı, uzun mesafeli ve genellikle sabah-akşam zirve saatlerinde işleyen hızlı hatlardır. Hat numarasında 'E' harfi varsa bu çoğunlukla express hat anlamına gelir. Standart hatlara göre daha az durakta indirip bindirir, daha hızlı varış sağlar.",
+    },
+  ],
 }
 
 export function Body() {

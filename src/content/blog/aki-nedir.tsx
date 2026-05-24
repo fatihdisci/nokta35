@@ -10,6 +10,33 @@ export const meta: BlogMeta = {
   summary:
     "AKİ, havadaki kirlilik seviyesini tek bir sayıya indirgeyen küresel bir ölçektir. 0–500 arası bir değer ve renk skalasıyla halka iletilir.",
   readTime: 5,
+  faq: [
+    {
+      question: "Hava Kalitesi İndeksi (AKİ) nedir?",
+      answer:
+        "AKİ, havadaki kirleticilerin (PM10, PM2.5, NO₂, O₃, SO₂, CO) ölçüm değerlerini tek bir sayıya indirgeyerek günlük hava kalitesini sınıflandıran küresel bir ölçektir. 0 ile 500 arası bir değer ve standart renk skalası ile gösterilir.",
+    },
+    {
+      question: "AKİ değeri 100 ne anlama gelir?",
+      answer:
+        "100 değeri, hava kalitesinin 'Orta' kategorisinin üst sınırıdır ve sarı ile temsil edilir. Genel nüfus için kabul edilebilir seviyededir; ancak çok hassas bireyler (astım hastaları, çocuklar, yaşlılar) hafif rahatsızlık hissedebilir.",
+    },
+    {
+      question: "AKİ kaç kategoriye ayrılır?",
+      answer:
+        "AKİ 6 kategoriye ayrılır: 0–50 İyi (yeşil), 51–100 Orta (sarı), 101–150 Hassas Gruplar İçin Sağlıksız (turuncu), 151–200 Sağlıksız (kırmızı), 201–300 Çok Sağlıksız (mor), 301 ve üzeri Tehlikeli (bordo).",
+    },
+    {
+      question: "AKİ değerini en çok hangi kirletici belirler?",
+      answer:
+        "Tek bir kirletici değil; o noktada en yüksek alt-indekse sahip kirletici belirler. Yani PM2.5, NO₂, O₃ gibi kirleticilerin her birinin alt-indeksi ayrıca hesaplanır ve en kötü olan AKİ'nin nihai değeri olur.",
+    },
+    {
+      question: "AKİ verisi Türkiye'de nereden alınır?",
+      answer:
+        "Türkiye'de hava kalitesi ölçümleri T.C. Çevre, Şehircilik ve İklim Değişikliği Bakanlığı'na bağlı sürekli hava kalitesi izleme istasyonlarında yapılır. Ölçüm verileri kamuya açık olarak gerçek zamanlı yayınlanır.",
+    },
+  ],
 }
 
 export function Body() {

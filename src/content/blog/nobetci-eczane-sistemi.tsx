@@ -10,6 +10,33 @@ export const meta: BlogMeta = {
   summary:
     "Nöbetçi eczaneler; eczanelerin kapalı olduğu gece ve resmi tatil saatlerinde halkın ilaç ihtiyacını karşılamak için sıralı olarak görevlendirilen eczanelerdir.",
   readTime: 4,
+  faq: [
+    {
+      question: "Nöbetçi eczane saatleri kaçtan kaça?",
+      answer:
+        "Hafta içi nöbetçi eczaneler genellikle akşam 19:00'dan ertesi sabah 08:30'a kadar açıktır. Hafta sonu ve resmi tatillerde ise tam gün (24 saat) hizmet verirler. Saatler il ve mevsime göre küçük farklılıklar gösterebilir.",
+    },
+    {
+      question: "Nöbetçi eczaneyi nereden öğrenebilirim?",
+      answer:
+        "Birkaç kaynaktan: e-Nabız uygulaması, Sağlık Bakanlığı resmi web sitesi, ALO 184 SABİM hattı, il eczacı odasının web sitesi ve büyükşehir belediyelerinin açık veri uygulamaları. Birçok büyükşehir belediyesi nöbetçi eczane verisini kamuya açık olarak yayınlar.",
+    },
+    {
+      question: "Nöbetçi eczanede her ilaç satılır mı?",
+      answer:
+        "Hayır. Reçetesiz alınabilen ilaçlar (OTC — Over-the-Counter) gece nöbetçi eczanede de satılabilir. Antibiyotik, reçete gerektiren ilaçlar ve kontrole tabi ilaçlar ancak geçerli bir reçete ile temin edilebilir.",
+    },
+    {
+      question: "Nöbetçi eczane sistemi nasıl belirlenir?",
+      answer:
+        "İllerdeki Eczacı Odaları, Türk Eczacıları Birliği'nin (TEB) genel ilkeleri çerçevesinde nöbet düzenini hazırlar. Bir bölgedeki eczaneler önceden belirlenmiş bir sıra ile nöbete girer; nöbet listesi genellikle yıllık olarak yayınlanır.",
+    },
+    {
+      question: "Nöbetçi eczane sistemi hangi kanun ile düzenlenir?",
+      answer:
+        "Türkiye'de eczacılık mesleğinin yasal çerçevesi 1953 yılında çıkarılan 6197 sayılı Eczacılar ve Eczaneler Hakkında Kanun ile düzenlenmiştir. Nöbet sistemi de bu kanuna bağlı olarak çıkarılan yönetmeliklerin gereğidir.",
+    },
+  ],
 }
 
 export function Body() {

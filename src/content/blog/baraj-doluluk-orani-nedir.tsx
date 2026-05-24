@@ -10,6 +10,33 @@ export const meta: BlogMeta = {
   summary:
     "Baraj doluluk oranı; bir barajda anlık olarak biriken su hacminin maksimum kapasiteye oranıdır. İçme suyu güvenliği, tarım ve enerji üretimi için kritik bir göstergedir.",
   readTime: 5,
+  faq: [
+    {
+      question: "Baraj doluluk oranı nasıl hesaplanır?",
+      answer:
+        "Baraj doluluk oranı, mevcut su hacminin maksimum kapasiteye bölünerek 100 ile çarpılmasıyla bulunur. Formül: Doluluk (%) = (Mevcut Su Hacmi ÷ Maksimum Kapasite) × 100. Sonuç yüzde olarak ifade edilir.",
+    },
+    {
+      question: "Ölü hacim nedir, neden önemlidir?",
+      answer:
+        "Ölü hacim; baraj göl tabanından su alma seviyesine kadar olan, pompayla çekilemeyen alt katmandır. Çökelti ve tortuların biriktiği bölümdür. Bir baraj %10 doluluğa düşse bile bunun büyük bölümü ölü hacim olabilir; yani gerçekte kullanılabilir su daha azdır.",
+    },
+    {
+      question: "Türkiye'de baraj doluluğu hangi mevsimde en yüksektir?",
+      answer:
+        "İlkbaharda (Mart–Mayıs) baraj doluluğu yıl içinde en yüksek seviyeye ulaşır. Kış aylarında biriken kar ve yağmurun erimesiyle akarsu debileri yükselir, barajlar dolar. Sonbaharda (Eylül–Kasım) ise doluluk yılın en düşük seviyesindedir.",
+    },
+    {
+      question: "Bir baraj neden inşa edilir?",
+      answer:
+        "Barajlar çoklu amaçlarla inşa edilir: içme suyu temini (büyükşehirlerin musluk suyu kaynağıdır), tarımsal sulama, hidroelektrik üretimi ve aşırı yağışlarda taşkın kontrolü. Bazı barajlar tek amaca, çoğu birden fazla amaca hizmet eder.",
+    },
+    {
+      question: "Türkiye'de baraj doluluk verisi nereden takip edilir?",
+      answer:
+        "Şehir içme suyu barajlarının doluluk verileri ilgili büyükşehir su idaresince (İSKİ, İZSU, BUSKİ, ASKİ vb.) düzenli yayınlanır. Devlet Su İşleri (DSİ) ise Türkiye genelinde barajların hidrolojik verisini yayınlar.",
+    },
+  ],
 }
 
 export function Body() {

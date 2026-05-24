@@ -10,6 +10,33 @@ export const meta: BlogMeta = {
   summary:
     "Kuraklık; uzun bir dönem boyunca normalden az yağış sonucu su kaynaklarının yetersiz hale gelmesidir. Tek bir kuraklık değil, dört farklı türü ve birden fazla ölçüm yöntemi vardır.",
   readTime: 6,
+  faq: [
+    {
+      question: "Kuraklık kaç türe ayrılır?",
+      answer:
+        "Kuraklık dört ana türe ayrılır: meteorolojik kuraklık (yağışın azalması), tarımsal kuraklık (toprak neminin düşmesi), hidrolojik kuraklık (akarsu ve baraj seviyelerinin azalması) ve sosyoekonomik kuraklık (su, gıda ve enerji arzının talebi karşılayamaması). Bu türler genellikle sıralı olarak ortaya çıkar.",
+    },
+    {
+      question: "SPI nedir?",
+      answer:
+        "SPI (Standartlaştırılmış Yağış İndeksi), belirli bir zaman aralığındaki yağışı bölgenin uzun yıllar ortalamasıyla karşılaştırıp standart sapma değeri üreten bir kuraklık indeksidir. Dünya Meteoroloji Örgütü (WMO) tarafından önerilen temel kuraklık göstergesidir.",
+    },
+    {
+      question: "Kuraklık ile çölleşme aynı şey mi?",
+      answer:
+        "Hayır. Kuraklık geçici (yıllar sürebilse de) bir hidrolojik dengesizliktir ve yağışlarla geri dönebilir. Çölleşme ise toprak yapısının kalıcı olarak bozulmasıdır; geri dönüşü çok zordur ve genelde kuraklığın uzun vadeli sonucu olabilir.",
+    },
+    {
+      question: "Türkiye kuraklığa karşı neden kırılgan?",
+      answer:
+        "Türkiye Akdeniz iklim kuşağındadır; yağışlar yıl içinde eşit dağılmaz, yaz ayları yağışsız geçer. Su kaynakları kışın yağan yağmur ve karla beslenir. IPCC raporlarına göre Akdeniz havzası iklim değişikliği kaynaklı kuraklık riskinin en yüksek olduğu bölgelerden biridir.",
+    },
+    {
+      question: "Hidrolojik kuraklık ile meteorolojik kuraklık arasındaki fark nedir?",
+      answer:
+        "Meteorolojik kuraklık yağışın azalmasıyla başlar; ilk işarettir. Hidrolojik kuraklık ise meteorolojik kuraklığın aylar veya yıllar sonra akarsu, baraj ve yeraltı suyu seviyelerinde görülen sonucudur. Hidrolojik kuraklık şehir su teminini ve hidroelektrik üretimini doğrudan etkiler.",
+    },
+  ],
 }
 
 export function Body() {

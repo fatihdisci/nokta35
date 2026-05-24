@@ -10,6 +10,33 @@ export const meta: BlogMeta = {
   summary:
     "Türkiye, içme suyu, sulama ve hidroelektrik üretimi için onlarca büyük baraja sahiptir. Bu yazıda en bilinen ve stratejik öneme sahip barajlarını kısa kısa tanıtıyoruz.",
   readTime: 6,
+  faq: [
+    {
+      question: "Türkiye'nin en büyük barajı hangisi?",
+      answer:
+        "Türkiye'nin en büyük barajı Atatürk Barajı'dır. Fırat Nehri üzerinde, Şanlıurfa ile Adıyaman sınırında yer alır. Güneydoğu Anadolu Projesi'nin (GAP) bel kemiği olan baraj, hem hidroelektrik üretir hem de geniş tarım alanlarının sulanmasını sağlar.",
+    },
+    {
+      question: "GAP nedir?",
+      answer:
+        "GAP (Güneydoğu Anadolu Projesi), Fırat ve Dicle nehirleri üzerine kurulan barajlar, hidroelektrik santraller ve sulama tesislerini içeren entegre bir bölgesel kalkınma projesidir. Atatürk Barajı projenin omurgasıdır. Tarım, enerji ve sosyal kalkınmayı hedefler.",
+    },
+    {
+      question: "Bir baraj ne işe yarar?",
+      answer:
+        "Barajlar çoklu amaçlara hizmet eder: içme suyu temini (büyükşehirlerin su kaynağı), tarımsal sulama, hidroelektrik üretimi, aşırı yağışlarda taşkın kontrolü ve bazen balıkçılık ile rekreasyon. Çoğu baraj birden fazla amaca hizmet eder.",
+    },
+    {
+      question: "DSİ ne yapar?",
+      answer:
+        "Devlet Su İşleri (DSİ) Genel Müdürlüğü, Türkiye'de barajların, sulama tesislerinin ve içme suyu altyapısının planlama, inşa ve işletme görevini yürüten kamu kuruluşudur. Tarım ve Orman Bakanlığı'na bağlıdır. Barajların güncel verilerini de DSİ yayınlar.",
+    },
+    {
+      question: "Türkiye'de hidroelektrik üretiminin payı nedir?",
+      answer:
+        "Türkiye, yenilenebilir enerji üretiminin önemli bir bölümünü hidroelektrik santrallerden elde eder. Atatürk, Karakaya ve Keban gibi büyük tesisler yıllık üretimde ciddi paya sahiptir. Güncel paylar Türkiye Elektrik İletim A.Ş. (TEİAŞ) ve EPDK verilerinden takip edilebilir.",
+    },
+  ],
 }
 
 export function Body() {

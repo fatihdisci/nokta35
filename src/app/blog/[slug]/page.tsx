@@ -2,7 +2,8 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import { POSTS, getPostBySlug, getRelatedPosts } from "@/content/blog"
-import { breadcrumbJsonLd, JsonLdScript } from "@/lib/jsonLd"
+import { breadcrumbJsonLd, faqJsonLd, JsonLdScript } from "@/lib/jsonLd"
+import { FaqSection } from "@/components/widgets/FaqSection"
 
 export const dynamicParams = false
 
@@ -71,9 +72,17 @@ export default function BlogPostPage({ params }: Props) {
     { name: post.title, href: `/blog/${post.slug}` },
   ])
 
+  const jsonLdData: Record<string, unknown>[] = [
+    breadcrumb as Record<string, unknown>,
+    articleJsonLd(post) as Record<string, unknown>,
+  ]
+  if (post.faq && post.faq.length > 0) {
+    jsonLdData.push(faqJsonLd(post.faq) as Record<string, unknown>)
+  }
+
   return (
     <>
-      <JsonLdScript data={[breadcrumb, articleJsonLd(post)]} />
+      <JsonLdScript data={jsonLdData} />
 
       <article className="container py-8 md:py-12">
         <div className="text-[10px] uppercase tracking-[0.2em] text-gray mb-3">
@@ -110,8 +119,12 @@ export default function BlogPostPage({ params }: Props) {
         </footer>
       </article>
 
+      {post.faq && post.faq.length > 0 && (
+        <FaqSection items={post.faq} />
+      )}
+
       {related.length > 0 && (
-        <section className="container pb-16">
+        <section className="container pb-16 pt-8">
           <h2 className="font-serif-display text-2xl mb-4 border-b border-ink pb-1">
             İlgili yazılar
           </h2>
