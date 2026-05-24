@@ -19,7 +19,7 @@
 | Cluster | ✅ | PM10 ve PM2.5 Nedir? Sağlığa Etkileri | `pm10-pm25-nedir-saglik-etkileri` |
 | Cluster | 📝 | Ozon (O₃) Kirliliği Nedir? İnsan Sağlığına Etkileri | `ozon-kirliligi-nedir-saglik-etkileri` |
 | Cluster | 📝 | Azot Dioksit (NO₂) Nedir? Trafik Kaynaklı Kirlilik | `azot-dioksit-no2-nedir` |
-| Cluster | 📝 | Isı Adası Etkisi Nedir? Şehirlerde Sıcaklık Neden Yükselir? | `isi-adasi-etkisi-nedir` |
+| Cluster | ✅ | Isı Adası Etkisi Nedir? Şehirlerde Sıcaklık Neden Yükselir? | `isi-adasi-etkisi-nedir` |
 | Cluster | 📝 | Polen Alerjisi Mevsimi: Hangi Bitkiler, Hangi Aylar? | `polen-alerjisi-mevsimi` |
 | Cluster | 📝 | İklim Değişikliği ile Kuraklık Arasındaki Bağlantı | `iklim-degisikligi-kuraklik-baglantisi` |
 
@@ -70,7 +70,7 @@
 | Cluster | ✅ | İZBAN Nedir? İstasyonlar ve Güzergah Haritası | `izban-nedir-istasyonlar-guzergah` |
 | Cluster | ✅ | İzmir Metrosu: Güzergahlar, İstasyonlar, Ücretler | `izmir-metrosu-guzergahlar-istasyonlar` |
 | Cluster | 📝 | İzmir Vapurları: Güzergahlar ve Seferler | `izmir-vapurlari-guzergahlar-seferler` |
-| Cluster | 📝 | İZMİRKART Nedir? Nasıl Yüklenir ve Kullanılır? | `izmirkart-nedir-nasil-kullanilir` |
+| Cluster | ✅ | İZMİRKART Nedir? Nasıl Yüklenir ve Kullanılır? | `izmirkart-nedir-nasil-kullanilir` |
 | Cluster | 📝 | İzmir'de Araç Kiralama vs. Toplu Taşıma: Maliyet Karşılaştırması | `izmir-arac-kiralama-toplu-tasima` |
 
 ---
@@ -112,7 +112,7 @@
 | Tip | Durum | Başlık | Slug |
 |-----|-------|--------|------|
 | Pillar | ✅ | Sürdürülebilir Yaşam Nedir? Evden Başlamak İçin Kılavuz | `surdurulebilir-yasam-nedir-rehber` |
-| Cluster | 📝 | Sıfır Atık Yaşam: Başlangıç için 10 Adım | `sifir-atik-yasam-baslangic` |
+| Cluster | ✅ | Sıfır Atık Yaşam: Başlangıç için 10 Adım | `sifir-atik-yasam-baslangic` |
 | Cluster | 📝 | Gıda İsrafını Önlemek: Pratik Yöntemler ve Tarifler | `gida-israfi-onlemek-pratik-yontemler` |
 | Cluster | 📝 | Kompost Nedir? Evde Kompost Nasıl Yapılır? | `kompost-nedir-evde-nasil-yapilir` |
 | Cluster | 📝 | Organik Tarım Nedir? Konvansiyonel Tarımdan Farkı | `organik-tarim-nedir-farki` |
@@ -155,18 +155,18 @@
 
 | Küme | Pillar | Yazılan Cluster | Planlanan Cluster | Toplam |
 |------|--------|-----------------|-------------------|--------|
-| Hava Kalitesi | 1/1 ✅ | 2 | 5 | 8 |
-| Su & Baraj | 2/2 ✅ | 3 | 5 | 10 |
-| Sağlık | 0/1 | 1 | 4 | 6 |
-| Ulaşım | 1/1 ✅ | 1 | 5 | 7 |
+| Hava Kalitesi | 1/1 ✅ | 3 ✅ | 4 | 8 |
+| Su & Baraj | 2/2 ✅ | 4 ✅ | 4 | 10 |
+| Sağlık | 1/1 ✅ | 3 ✅ | 2 | 6 |
+| Ulaşım | 1/1 ✅ | 4 ✅ | 2 | 7 |
 | Açık Veri | 1/1 ✅ | 0 | 5 | 6 |
-| İzmir Genel | 0/1 | 0 | 5 | 6 |
-| Sürdürülebilir Yaşam | 0/1 | 0 | 7 | 8 |
-| Afet Hazırlığı | 0/1 | 0 | 5 | 6 |
-| Şehir & Kentsel | 0/1 | 0 | 4 | 5 |
-| **Toplam** | **3/9** | **6** | **46** | **62** |
+| İzmir Genel | 1/1 ✅ | 2 ✅ | 3 | 6 |
+| Sürdürülebilir Yaşam | 1/1 ✅ | 2 ✅ | 5 | 8 |
+| Afet Hazırlığı | 1/1 ✅ | 3 ✅ | 2 | 6 |
+| Şehir & Kentsel | 0/1 | 0 | 5 | 5 |
+| **Toplam** | **9/9** | **21** | **32** | **62** |
 
-**Şu an yayında:** 27 yazı
+**Şu an yayında:** 30 yazı
 **Öncelikli sonraki adım:** Cluster yazıları + Sürdürülebilir Yaşam Pillar
 
 ---
