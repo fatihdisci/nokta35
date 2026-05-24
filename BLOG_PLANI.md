@@ -54,6 +54,7 @@
 | Cluster | ✅ | Nöbetçi Eczane Sistemi Nasıl İşler? | `nobetci-eczane-sistemi-nasil-isler` |
 | Cluster | ✅ | Aile Sağlığı Merkezi (ASM) Nedir? Nasıl Kayıt Olunur? | `aile-sagligi-merkezi-asm-nedir` |
 | Cluster | ✅ | Acil Servis mi, ASM mi? Doğru Tercih Kılavuzu | `acil-servis-mi-asm-mi` |
+| Cluster | ✅ | İzmir Ücretsiz Psikolog ve Ruh Sağlığı Hizmetleri | `izmir-ucretsiz-psikolog-ruh-sagligi` |
 | Cluster | 📝 | SGK ile Hangi İlaçlar Karşılanır? Katkı Payı Nasıl Hesaplanır? | `sgk-ilac-katkipayı-nasil-hesaplanir` |
 | Cluster | 📝 | Reçetesiz İlaçlar: OTC Kategorisi Nedir? | `recetesiz-ilaclar-otc-nedir` |
 
@@ -71,6 +72,7 @@
 | Cluster | ✅ | İzmir Metrosu: Güzergahlar, İstasyonlar, Ücretler | `izmir-metrosu-guzergahlar-istasyonlar` |
 | Cluster | 📝 | İzmir Vapurları: Güzergahlar ve Seferler | `izmir-vapurlari-guzergahlar-seferler` |
 | Cluster | ✅ | İZMİRKART Nedir? Nasıl Yüklenir ve Kullanılır? | `izmirkart-nedir-nasil-kullanilir` |
+| Cluster | ✅ | BİSİM Bisiklet İzmir: Nasıl Kullanılır, Üyelik ve İstasyonlar | `bisim-bisiklet-izmir-kullanim-rehberi` |
 | Cluster | 📝 | İzmir'de Araç Kiralama vs. Toplu Taşıma: Maliyet Karşılaştırması | `izmir-arac-kiralama-toplu-tasima` |
 
 ---
@@ -105,6 +107,10 @@
 | Cluster | ✅ | İzmir Ücretsiz Etkinlik Alanları | `izmir-ucretsiz-etkinlik-alanlari` |
 | Cluster | ✅ | İzmir'de Geç Saatlere Kadar Açık Kütüphaneler | `izmir-7-24-acik-kutuphaneler` |
 | Cluster | ✅ | İzmir Ücretsiz Spor Tesisleri ve Yürüyüş Parkurları | `izmir-ucretsiz-spor-tesisleri-parkurlar` |
+| Cluster | ✅ | Gediz Elektrik Kesintisi Sorgulama: SMS, Uygulama, 186 | `gediz-elektrik-kesintisi-sorgulama` |
+| Cluster | ✅ | İzmir Lise Taban Puanları: LGS Sistemi ve Resmi Sorgulama | `izmir-lise-taban-puanlari-lgs-rehberi` |
+| Cluster | ✅ | İzmir Otopark: İZELMAN Tesisleri ve Tarife | `izmir-otopark-izelaman-rehberi` |
+| Cluster | ✅ | İzmir Kira Fiyatları İlçelere Göre Nasıl Araştırılır? | `izmir-kira-fiyatlari-nasil-arastirilir` |
 | Cluster | 📝 | İzmir'de Yaşam Maliyeti: 2026 Güncel Rehber | `izmir-yasam-maliyeti-2026` |
 
 ---
@@ -138,6 +144,7 @@
 | Cluster | 📝 | Sel ve Taşkın: Öncesinde ve Sırasında Ne Yapmalı? | `sel-taskin-oncesi-sirasinda-ne-yapmali` |
 | Cluster | ✅ | AFAD Nedir? Afetlerde Rolü ve İletişim Bilgileri | `afad-nedir-afetlerde-rolu` |
 | Cluster | ✅ | Toplanma Alanı Nedir? Nasıl Bulunur? | `toplanma-alani-nedir-nasil-bulunur` |
+| Cluster | ✅ | İzmir Zemin Sıvılaşma Riski: Hangi İlçeler Tehlike Altında? | `izmir-zemin-sivilasma-riski` |
 | Cluster | 📝 | Tsunami Riski: Ege Kıyılarında Durum | `tsunami-riski-ege-kiyi` |
 
 ---
@@ -162,17 +169,18 @@
 |------|--------|-----------------|-------------------|--------|
 | Hava Kalitesi | 1/1 ✅ | 3 ✅ | 4 | 8 |
 | Su & Baraj | 2/2 ✅ | 4 ✅ | 4 | 10 |
-| Sağlık | 1/1 ✅ | 3 ✅ | 2 | 6 |
-| Ulaşım | 1/1 ✅ | 4 ✅ | 2 | 7 |
+| Sağlık | 1/1 ✅ | 4 ✅ | 2 | 7 |
+| Ulaşım | 1/1 ✅ | 5 ✅ | 1 | 7 |
 | Açık Veri | 1/1 ✅ | 5 ✅ | 0 | 6 |
-| İzmir Genel | 1/1 ✅ | 6 ✅ | 1 | 8 |
+| İzmir Genel | 1/1 ✅ | 10 ✅ | 3 | 14 |
 | Sürdürülebilir Yaşam | 1/1 ✅ | 3 ✅ | 5 | 9 |
-| Afet Hazırlığı | 1/1 ✅ | 3 ✅ | 2 | 6 |
+| Afet Hazırlığı | 1/1 ✅ | 4 ✅ | 2 | 7 |
 | Şehir & Kentsel | 1/1 ✅ | 4 ✅ | 0 | 5 |
-| **Toplam** | **9/9** | **36** | **18** | **65** |
+| **Toplam** | **9/9** | **43** | **18** | **70** |
 
-**Şu an yayında:** 45 yazı
-**Öncelikli sonraki adım:** Cluster yazıları + Sürdürülebilir Yaşam Pillar
+**Şu an yayında:** 52 yazı (9 Pillar + 43 Cluster)
+**Geride kalan:** 18 cluster
+**Öncelikli sonraki adım:** Sürdürülebilir Yaşam clusterları (5), Hava Kalitesi (Ozon, NO₂)
 
 ---
 
@@ -184,13 +192,22 @@
 4. ~~**Türkiye Sağlık Sistemi** (Pillar)~~ ✅
 5. ~~**İzmir Rehberi** (Pillar)~~ ✅
 6. ~~**Depreme Hazırlık** (Pillar)~~ ✅
-7. **Sürdürülebilir Yaşam** (Pillar) — geniş ulusal trafik çeker
-8. **ASM Nedir? Nasıl Kayıt Olunur?** (Cluster) — sağlık pillar'ına bağlanır
-9. **Deprem Çantası** (Cluster) — deprem pillar'ına bağlanır
-10. **İZBAN Nedir?** (Cluster) — ulaşım pillar'ına bağlanır
+7. ~~**Sürdürülebilir Yaşam** (Pillar)~~ ✅
+8. ~~**ASM Nedir?**~~ ✅
+9. ~~**Deprem Çantası**~~ ✅
+10. ~~**İZBAN Nedir?**~~ ✅
+
+### Sıradaki öncelikler (yazılacaklar):
+
+1. **Sürdürülebilir Yaşam clusterları** (5 yazı) — Gıda israfı, Kompost, Organik tarım, Yenilenebilir enerji, Solar panel
+2. **Hava Kalitesi clusterları** (Ozon, NO₂) — pillar'a iç link verir, mevcut hava kalitesi yazılarına yakın
+3. **Su clusterları** (Su sertliği, Yağmur hasadı, Arıtma, Yeraltı suyu)
+4. **İzmir İlçeleri** + **İklim Özellikleri** — pillar'a destek olur, geniş aramalı keyword
+5. **Sel/Taşkın** + **Tsunami Ege** — afet kümesinin tamamlanması
+6. **Yaşam Maliyeti 2026** — büyük arama hacimli ama veri gerektirir, en sona
 
 ---
 
-> Son güncelleme: 2026-05-24
+> Son güncelleme: 2026-05-24 (52 yazı yayında)
 > Yeni konu eklerken KGR kontrolü yap (allintitle / aylık hacim < 0.25 ideal).
 > Yazılan her Cluster, kendi Pillar'ına en az 1 iç link vermelidir.
