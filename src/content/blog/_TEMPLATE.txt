@@ -1,0 +1,184 @@
+YENİ BLOG YAZISI ŞABLONU
+========================
+
+Her yeni yazı için src/content/blog/<slug>.tsx oluştur ve src/content/blog/index.ts
+dosyasına ekle.
+
+─────────────────────────────────────────────────────
+ZORUNLU ALANLAR
+─────────────────────────────────────────────────────
+- slug:        URL'de geçecek kebab-case ad (Türkçe karakter yok)
+- title:       SEO başlığı (60–70 karakter ideal)
+- description: Meta description (140–160 karakter)
+- date:        "YYYY-MM-DD" formatında yayın tarihi
+- category:    Tek kelime kategori (Hava, Su, Sağlık, Ulaşım, Veri, İklim, vb.)
+- summary:     Kart önizlemesinde gözüken 1–2 cümle özet
+- readTime:    Tahmini dakika cinsinden okuma süresi
+- faq:         ZORUNLU 4–6 soru-cevap (SEO/GEO için)
+
+─────────────────────────────────────────────────────
+YAZI TİPİ — Pillar mi Cluster mi?
+─────────────────────────────────────────────────────
+Her yazı iki tipten biridir. Yazmadan önce karar ver:
+
+PILLAR (Ana Sütun):
+  - Konuyu geniş ve kapsamlı ele alır (1800–2500 kelime)
+  - "X Nedir? Tam Rehber" / "X için Eksiksiz Kılavuz" formatı
+  - Kategori başına 1 tane yeterli
+  - Tüm cluster yazılarına iç link verir
+  - Örnek: "Kuraklık Nedir? Nasıl Ölçülür ve Sınıflandırılır?"
+
+CLUSTER (Küme Yazısı):
+  - Tek spesifik soruya veya alt konuya odaklanır (800–1200 kelime)
+  - Pillar yazısına mutlaka iç link verir
+  - Arama hacmi düşük ama KGR düşük = düşük rekabet hedefler
+  - Örnek: "Evde Su Tasarrufu: 12 Pratik Yöntem"
+
+─────────────────────────────────────────────────────
+KGR (Keyword Golden Ratio) KURALI
+─────────────────────────────────────────────────────
+Yeni konu seçmeden önce şunu kontrol et:
+  allintitle:"anahtar kelime" → Google'dan aldığın sonuç sayısı
+  Aylık arama hacmi → Ahrefs/Ubersuggest/Google Trends tahmini
+  KGR = allintitle_sonucu / aylık_hacim
+  KGR < 0.25 ise → Hedef al (düşük rekabet)
+  KGR > 1.00 ise → Atla (çok rekabetli)
+
+─────────────────────────────────────────────────────
+E-E-A-T KURALLARI
+─────────────────────────────────────────────────────
+Google'ın E-E-A-T (Deneyim, Uzmanlık, Otorite, Güvenilirlik) kriterlerine uy:
+
+✅ Her spesifik bilgi için kaynak belirt:
+   "WHO 2021 yönergesine göre…", "DSİ verilerine göre…", "IPCC AR6 raporuna göre…"
+✅ Kesin rakamları yalnızca doğrulanabilir kaynaktan ver
+✅ Tarihler ve yıllar için: doğrulanamıyorsa "ilk kez tanıtıldığı dönemde" gibi muğlak ifade kullan
+✅ Yasal/tıbbi konularda "resmi kurumlara danışın" ekle
+✅ Yazının altındaki disclaimer her zaman gösterilir (page.tsx'te sabit)
+
+─────────────────────────────────────────────────────
+LLM / GEO (Generative Engine Optimization)
+─────────────────────────────────────────────────────
+Google AI Overviews, ChatGPT, Perplexity gibi sistemler tarafından alıntılanmak için:
+
+1. Her H2 başlığını başlı başına bir soruya cevap verecek şekilde yaz
+   Kötü:  <h2>Genel Bilgiler</h2>
+   İyi:   <h2>Kuraklık kaç türe ayrılır?</h2>
+
+2. Cevabı başlığın hemen altındaki ilk cümlede ver (inverted pyramid)
+   "Kuraklık dört ana türe ayrılır: meteorolojik, tarımsal, hidrolojik, sosyoekonomik."
+
+3. Spesifik sayı/standart/eşik değerleri varsa mutlaka belirt
+   "WHO 2021 PM2.5 yıllık sınırı 5 µg/m³" — kaynakla birlikte
+
+4. Mukayeseli tablolar yap: "X mi Y mi daha iyi?" sorularına tablo ile cevap ver
+
+5. FAQ kısmı ayrı bölüm olarak her yazının sonunda görünür (FaqSection component)
+   Bu kısım ayrıca FAQPage JSON-LD ile işaretlenir → AI snippet fırsatı
+
+─────────────────────────────────────────────────────
+FAQ KURALLARI
+─────────────────────────────────────────────────────
+- 4–6 soru olmalı (az = GEO kaybı, fazla = dağınık)
+- Sorular kullanıcıların gerçekten Google/ChatGPT'ye yazacağı tarzda
+- Cevaplar 2–4 cümle — kesin, net, tek başına anlamlı
+- Spesifik sayılar/standartlar varsa belirt ("WHO 2021 PM2.5 sınırı 5 µg/m³")
+- ASLA uydurma rakam veya iddia kullanma
+- Doğrulanamayan iddia varsa "Resmi kaynaklara bakılması önerilir" diyerek geç
+
+─────────────────────────────────────────────────────
+YAZI YAPISI
+─────────────────────────────────────────────────────
+- Giriş paragrafı (1–2 paragraf: konu nedir, neden önemli)
+- 4–7 H2 başlığı — her biri bir soruya/alt konuya yanıt verir
+- H2 altında gerektiğinde H3 alt başlık
+- Liste/tablo kullan (okunabilirlik + AI snippet için)
+- Spesifik sayı/standart varsa kaynağını belirt
+- Sonuç veya "Nereden takip edilir?" paragrafı (resmi kaynakları linkle)
+
+─────────────────────────────────────────────────────
+İÇ LİNK KURALI
+─────────────────────────────────────────────────────
+- Cluster yazısı: kendi kategorisinin Pillar yazısına en az 1 iç link ver
+  Örnek: Su Tasarrufu yazısı → Kuraklık Nedir? yazısına link atar
+- Pillar yazısı: kategorisindeki tüm cluster yazılarına link atar
+- Site içi link formatı: <Link href="/blog/slug-buraya">Metin</Link>
+
+─────────────────────────────────────────────────────
+GÜVENLİ İÇERİK PRENSİBİ
+─────────────────────────────────────────────────────
+✅ Doğrulanabilir tanımlar (Wikipedia/WHO/EPA/DSİ seviyesi)
+✅ Genel pratik tavsiyeler
+✅ Kanun/yönetmelik referansları (numara ile)
+✅ İyi bilinen tarihsel olaylar
+✅ Kaynaklı istatistikler
+
+❌ Doğrulamadan spesifik rakam vermek (nüfus, kapasite vb.)
+❌ Kesin yıl tarihleri (kuruluş tarihi vb.) — kaynak yoksa atla
+❌ Sıralama iddiaları ("Türkiye'nin en büyük 10…") — kaynak olmadan yazma
+❌ Yerel iddialar ("X mahalledeki Y") — doğrulanamaz
+❌ Gelecek tahmini ("2030'da X olacak") — rapor veya kurumsal kaynak olmadan
+
+─────────────────────────────────────────────────────
+ÖRNEK İSKELET
+─────────────────────────────────────────────────────
+import type { BlogMeta } from "./types"
+
+export const meta: BlogMeta = {
+  slug: "ornek-konu-nedir",
+  title: "Örnek Konu Nedir? Tam Rehber",
+  description: "...",
+  date: "2026-05-24",
+  category: "Kategori",
+  summary: "...",
+  readTime: 5,
+  faq: [
+    { question: "Soru 1?", answer: "Cevap 1." },
+    { question: "Soru 2?", answer: "Cevap 2." },
+    { question: "Soru 3?", answer: "Cevap 3." },
+    { question: "Soru 4?", answer: "Cevap 4." },
+    { question: "Soru 5?", answer: "Cevap 5." },
+  ],
+}
+
+export function Body() {
+  return (
+    <>
+      {/* Giriş: konuyu 1-2 cümlede tanımla */}
+      <p>Giriş paragrafı...</p>
+
+      {/* Her H2 başlığı bir soruya yanıt veriyor — inverted pyramid */}
+      <h2>Bu Konu Neden Önemli?</h2>
+      <p>İlk cümle doğrudan cevap. Ardından açıklama...</p>
+
+      <h2>Türleri / Çeşitleri Nelerdir?</h2>
+      <ul>
+        <li><strong>Tür 1:</strong> Açıklama</li>
+        <li><strong>Tür 2:</strong> Açıklama</li>
+      </ul>
+
+      {/* İç link — cluster ise pillar'ına link ver */}
+      {/* <p>Daha geniş bağlam için: <Link href="/blog/pillar-slug">Pillar Konusu</Link></p> */}
+    </>
+  )
+}
+
+─────────────────────────────────────────────────────
+REGISTER ETMEK
+─────────────────────────────────────────────────────
+src/content/blog/index.ts dosyasına yeni yazıyı ekle:
+
+import * as ornek from "./ornek-konu-nedir"
+const RAW: BlogPost[] = [
+  ...
+  { ...ornek.meta, Body: ornek.Body },
+]
+
+─────────────────────────────────────────────────────
+İÇERİK GÜNCELLEME PROTOKOLÜ
+─────────────────────────────────────────────────────
+Her yazıyı 6 ayda bir gözden geçir:
+  - Kaynaklardaki rakamlar değişmiş mi? (WHO, IPCC, DSİ güncellemeleri)
+  - Yeni mevzuat veya standart gelmiş mi?
+  - FAQ soruları hâlâ güncel mi?
+Güncelleme yapıldığında: date alanını yeni tarihe çek, readTime'ı kontrol et.
