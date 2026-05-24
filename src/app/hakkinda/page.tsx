@@ -64,6 +64,12 @@ export default function HakkindaPage() {
             </Link>{" "}
             sayfasından detayları görebilirsiniz.
           </p>
+          <div className="mt-8 pt-6 border-t border-light-gray text-xs text-gray">
+            Görüş ve bildirimler için:{" "}
+            <Link href="/iletisim" className="text-orange hover:underline">
+              İletişim sayfası
+            </Link>
+          </div>
         </div>
       </section>
     </>

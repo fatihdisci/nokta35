@@ -39,6 +39,7 @@ export function Footer() {
           <h3 className="text-orange uppercase tracking-widest mb-3">Proje</h3>
           <ul className="space-y-2 text-gray">
             <li><Link href="/hakkinda" className="hover:text-cream">Hakkında</Link></li>
+            <li><Link href="/iletisim" className="hover:text-cream">İletişim</Link></li>
             <li><Link href="/veri-kaynaklari" className="hover:text-cream">Veri Kaynakları</Link></li>
           </ul>
         </div>
