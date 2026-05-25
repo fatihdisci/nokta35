@@ -60,6 +60,13 @@ import * as yenilenebilir from "./yenilenebilir-enerji-turleri"
 import * as solarPanel from "./evde-solar-panel-kurulum-maliyet"
 import * as ozon from "./ozon-kirliligi-nedir-saglik-etkileri"
 import * as no2 from "./azot-dioksit-no2-trafik-kirliligi"
+import * as kurbanKesim from "./izmir-kurban-kesim-yerleri-2026"
+import * as bayramUlasim from "./izmir-bayram-ulasimi-2026"
+import * as bayramNamazi from "./bayram-namazi-saati-izmir-2026"
+import * as bayramEczane from "./izmir-bayram-nobetci-eczane-2026"
+import * as bayramBanka from "./bayramda-bankalar-ptt-avm-izmir-2026"
+import * as kurbanDeri from "./kurban-derisi-nereye-verilir-izmir-2026"
+import * as kiraArtis from "./mayis-2026-kira-artis-orani"
 
 export type BlogPost = BlogMeta & { Body: ComponentType }
 
@@ -123,6 +130,13 @@ const RAW: BlogPost[] = [
   { ...solarPanel.meta, Body: solarPanel.Body },
   { ...ozon.meta, Body: ozon.Body },
   { ...no2.meta, Body: no2.Body },
+  { ...kurbanKesim.meta, Body: kurbanKesim.Body },
+  { ...bayramUlasim.meta, Body: bayramUlasim.Body },
+  { ...bayramNamazi.meta, Body: bayramNamazi.Body },
+  { ...bayramEczane.meta, Body: bayramEczane.Body },
+  { ...bayramBanka.meta, Body: bayramBanka.Body },
+  { ...kurbanDeri.meta, Body: kurbanDeri.Body },
+  { ...kiraArtis.meta, Body: kiraArtis.Body },
 ]
 
 export const POSTS: BlogPost[] = [...RAW].sort((a, b) =>
