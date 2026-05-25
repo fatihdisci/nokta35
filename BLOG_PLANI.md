@@ -6,7 +6,7 @@
 > Her küme bir **Pillar** (ana sütun) etrafında toplanır.
 > Cluster yazıları Pillar yazısına iç link atar.
 >
-> Son güncelleme: 2026-05-25 · **78 yayında** · 22 planlanan · Hedef: 100
+> Son güncelleme: 2026-05-25 · **89 yayında** · 11 planlanan · Hedef: 100
 
 ---
 
@@ -22,10 +22,10 @@
 | Cluster | ✅ | Ozon (O₃) Kirliliği Nedir? Yüzey Ozonu ve Sağlık Etkileri | `ozon-kirliligi-nedir-saglik-etkileri` |
 | Cluster | ✅ | Azot Dioksit (NO₂) Nedir? Trafik Kaynaklı Kirlilik | `azot-dioksit-no2-trafik-kirliligi` |
 | Cluster | ✅ | Isı Adası Etkisi Nedir? Şehirlerde Sıcaklık Neden Yükselir? | `isi-adasi-etkisi-nedir` |
-| Cluster | 📝 | İzmir Polen Takvimi: Hangi Ay, Hangi Bitki? | `izmir-polen-takvimi-alerji-mevsimi` |
+| Cluster | ✅ | İzmir Polen Takvimi: Hangi Ay, Hangi Bitki? | `izmir-polen-takvimi-alerji-mevsimi` |
 | Cluster | 📝 | İklim Değişikliği ile Kuraklık Arasındaki Bağlantı | `iklim-degisikligi-kuraklik-baglantisi` |
 
-**Durum:** 6/8 ✅ · 2 yazılacak
+**Durum:** 7/8 ✅ · 1 yazılacak
 
 ---
 
@@ -41,12 +41,12 @@
 | Cluster | ✅ | Evde Su Tasarrufu: 12 Pratik Yöntem | `su-tasarrufu-yontemleri` |
 | Cluster | ✅ | İzmir'in Barajları: Tahtalı, Gördes, Balçova, Kemer | `izmir-barajlari-tahtatli-gordes-balcova` |
 | Cluster | ✅ | İzmir'de Su Kesintileri: Nedenler ve Ne Yapmalı? | `izmir-su-kesintileri-nedenler` |
-| Cluster | 📝 | Su Sertliği Nedir? Sert Su Sağlığa Zararlı mı? | `su-sertligi-nedir-sagliga-zarari` |
+| Cluster | ✅ | Su Sertliği Nedir? Sert Su Sağlığa Zararlı mı? | `su-sertligi-nedir-sagliga-zarari` |
 | Cluster | 📝 | Yeraltı Suyu Nedir? Nasıl Oluşur, Nasıl Kullanılır? | `yeralti-suyu-nedir-nasil-olusur` |
 | Cluster | 📝 | Yağmur Suyu Hasadı: Evde Yağmur Suyu Toplamak | `yagmur-suyu-hasadi-evde-toplama` |
-| Cluster | 📝 | İçme Suyu Arıtma Yöntemleri: Hangisi Sizin İçin Doğru? | `icme-suyu-aritma-yontemleri` |
+| Cluster | ✅ | İçme Suyu Arıtma Yöntemleri: Hangisi Sizin İçin Doğru? | `icme-suyu-aritma-yontemleri` |
 
-**Durum:** 6/10 ✅ · 4 yazılacak
+**Durum:** 8/10 ✅ · 2 yazılacak
 
 ---
 
@@ -62,11 +62,11 @@
 | Cluster | ✅ | Acil Servis mi, ASM mi? Doğru Tercih Kılavuzu | `acil-servis-mi-asm-mi` |
 | Cluster | ✅ | İzmir Ücretsiz Psikolog ve Ruh Sağlığı Hizmetleri | `izmir-ucretsiz-psikolog-ruh-sagligi` |
 | Cluster | ✅ | İzmir Bayram Nöbetçi Eczane 2026 | `izmir-bayram-nobetci-eczane-2026` |
-| Cluster | 📝 | SGK ile Hangi İlaçlar Karşılanır? Katkı Payı Rehberi | `sgk-ilac-katki-payi-rehberi` |
-| Cluster | 📝 | Reçetesiz (OTC) İlaçlar Nelerdir? Eczanede Nasıl Alınır? | `recetesiz-otc-ilaclar-nedir` |
+| Cluster | ✅ | SGK ile Hangi İlaçlar Karşılanır? Katkı Payı Rehberi | `sgk-ilac-katki-payi-rehberi` |
+| Cluster | ✅ | Reçetesiz (OTC) İlaçlar Nelerdir? Eczanede Nasıl Alınır? | `recetesiz-otc-ilaclar-nedir` |
 | Cluster | 📝 | Engelli Sağlık Kurulu Raporu Nasıl Alınır? | `engelli-saglik-kurulu-raporu-nasil-alinir` |
 
-**Durum:** 6/9 ✅ · 3 yazılacak
+**Durum:** 8/9 ✅ · 1 yazılacak
 
 ---
 
@@ -86,10 +86,10 @@
 | Cluster | ✅ | İzmir Otopark: İZELMAN Tesisleri Rehberi | `izmir-otopark-izelaman-rehberi` |
 | Cluster | ✅ | Adnan Menderes Havalimanı'ndan Şehir Merkezine Ulaşım | `izmir-adnan-menderes-havalimani-ulasim` |
 | Cluster | ✅ | İzmir'de Ücretsiz ve Ucuz Park Yerleri | `izmir-ucretsiz-park-yerleri` |
-| Cluster | 📝 | İzmir Vapurları: Güzergahlar, İZDENİZ Sefer Saatleri | `izmir-vapurlari-guzergahlar-seferler` |
+| Cluster | ✅ | İzmir Vapurları: Güzergahlar, İZDENİZ Sefer Saatleri | `izmir-vapurlari-guzergahlar-seferler` |
 | Cluster | 📝 | İzmir'de Araç Kiralama vs. Toplu Taşıma: Maliyet | `izmir-arac-kiralama-toplu-tasima` |
 
-**Durum:** 10/12 ✅ · 2 yazılacak
+**Durum:** 11/12 ✅ · 1 yazılacak
 
 ---
 
@@ -127,12 +127,12 @@
 | Cluster | ✅ | İzmir Lise Taban Puanları: LGS Sistemi ve Resmi Sorgulama | `izmir-lise-taban-puanlari-lgs-rehberi` |
 | Cluster | ✅ | İzmir Kira Fiyatları: Araştırma Yöntemleri | `izmir-kira-fiyatlari-nasil-arastirilir` |
 | Cluster | ✅ | İzmir Zemin Sıvılaşma Riski | `izmir-zemin-sivilasma-riski` |
-| Cluster | 📝 | İzmir'in İlçeleri: Kaç İlçe Var, Hangisi Nerede? | `izmir-ilceleri-kac-ilce-var` |
-| Cluster | 📝 | İzmir'de Hava Nasıl? İklim Özellikleri ve Mevsimler | `izmir-hava-iklim-ozellikleri` |
+| Cluster | ✅ | İzmir'in İlçeleri: Kaç İlçe Var, Hangisi Nerede? | `izmir-ilceleri-kac-ilce-var` |
+| Cluster | ✅ | İzmir'de Hava Nasıl? İklim Özellikleri ve Mevsimler | `izmir-hava-iklim-ozellikleri` |
 | Cluster | 📝 | İzmir'de Yaşam Maliyeti: 2026 Güncel Rehber | `izmir-yasam-maliyeti-2026` |
 | Cluster | 📝 | İzmir Tabiat Koruma Alanları: Doğa Yürüyüşü Rotaları | `izmir-tabiat-koruma-alanlari-doga-yuruyusu` |
 
-**Durum:** 11/15 ✅ · 4 yazılacak
+**Durum:** 13/15 ✅ · 2 yazılacak
 
 ---
 
@@ -167,10 +167,10 @@
 | Cluster | ✅ | AFAD Nedir? Afetlerde Rolü ve İletişim Bilgileri | `afad-nedir-afetlerde-rolu` |
 | Cluster | ✅ | Toplanma Alanı Nedir? Nasıl Bulunur? | `toplanma-alani-nedir-nasil-bulunur` |
 | Cluster | ✅ | İzmir Zemin Sıvılaşma Riski: Hangi İlçeler Tehlike Altında? | `izmir-zemin-sivilasma-riski` |
-| Cluster | 📝 | Sel ve Taşkın: Öncesinde ve Sırasında Ne Yapmalı? | `sel-taskin-oncesi-sirasinda-ne-yapmali` |
+| Cluster | ✅ | Sel ve Taşkın: Öncesinde ve Sırasında Ne Yapmalı? | `sel-taskin-oncesi-sirasinda-ne-yapmali` |
 | Cluster | 📝 | Tsunami Riski: Ege Kıyılarında Tarihsel Durum | `tsunami-riski-ege-kiyilari` |
 
-**Durum:** 5/7 ✅ · 2 yazılacak
+**Durum:** 6/7 ✅ · 1 yazılacak
 
 > Not: İzmir zemin sıvılaşması hem Küme 6 hem Küme 8'de geçiyor; index.ts'de tek kayıt.
 
@@ -205,14 +205,14 @@
 | Sezon | ✅ | Bayramda Bankalar, PTT ve AVM'ler Açık mı? İzmir 2026 | `bayramda-bankalar-ptt-avm-izmir-2026` |
 | Sezon | ✅ | Kurban Derisi Nereye Verilir? İzmir 2026 | `kurban-derisi-nereye-verilir-izmir-2026` |
 | Sezon | ✅ | Mayıs 2026 Kira Artış Oranı: Yasal Tavan ve Hesaplama | `mayis-2026-kira-artis-orani` |
-| Sezon | 📝 🔥 | İzmir Plajları Mavi Bayrak 2026: Tam Liste (60 Plaj) | `izmir-plajlari-mavi-bayrak-2026` |
-| Sezon | 📝 🔥 | İzmir Deniz Suyu Sıcaklığı: Aylık Ortalama Takvim | `izmir-deniz-suyu-sicakligi-aylik` |
-| Sezon | 📝 🔥 | LGS 2026 İzmir: Sınav Günü Ulaşım ve Hazırlık Rehberi | `lgs-2026-izmir-sinav-ulasim-rehberi` |
-| Sezon | 📝 🔥 | YKS 2026 İzmir: Sınav Merkezleri ve Ulaşım | `yks-2026-izmir-sinav-merkezleri` |
+| Sezon | ✅ | İzmir Plajları Mavi Bayrak 2026: Tam Liste (60 Plaj) | `izmir-plajlari-mavi-bayrak-2026` |
+| Sezon | ✅ | İzmir Deniz Suyu Sıcaklığı: Aylık Ortalama Takvim | `izmir-deniz-suyu-sicakligi-aylik` |
+| Sezon | ✅ | LGS 2026 İzmir: Sınav Günü Ulaşım ve Hazırlık Rehberi | `lgs-2026-izmir-sinav-ulasim-rehberi` |
+| Sezon | ✅ | YKS 2026 İzmir: Sınav Merkezleri ve Ulaşım | `yks-2026-izmir-sinav-merkezleri` |
 | Sezon | 📝 | Haziran 2026 Kira Artış Oranı | `haziran-2026-kira-artis-orani` |
 | Sezon | 📝 | Temmuz 2026 Kira Artış Oranı | `temmuz-2026-kira-artis-orani` |
 
-**Durum:** 7/13 ✅ · 6 yazılacak · İlk 4 acil (Haziran başı)
+**Durum:** 11/13 ✅ · 2 yazılacak
 
 ---
 
@@ -231,11 +231,11 @@ Resmi kurum adımları içerdiğinden doğruluğu kritik; uydurma bilgi yasak.
 | Cluster | ✅ | KEP Adresi Nedir? Nasıl Alınır? | `kep-adresi-nedir-nasil-alinir` |
 | Cluster | ✅ | Elektrik Sayacı Endeks Bildirimi Nasıl Yapılır? | `elektrik-sayaci-endeks-bildirimi` |
 | Cluster | ✅ | Asansör Bakımı: Kim Sorumlu, Nasıl Şikâyet Edilir? | `asansor-bakimi-kim-sorumlu` |
-| Cluster | 📝 | Adres Değişikliği Bildirimi: Ne Zaman, Nasıl? | `adres-degisikligi-bildirimi` |
-| Cluster | 📝 | Tapu Sorgusu e-Devlet'ten Nasıl Yapılır? | `tapu-sorgusu-e-devlet` |
+| Cluster | ✅ | Adres Değişikliği Bildirimi: Ne Zaman, Nasıl? | `adres-degisikligi-bildirimi` |
+| Cluster | ✅ | Tapu Sorgusu e-Devlet'ten Nasıl Yapılır? | `tapu-sorgusu-e-devlet` |
 | Cluster | 📝 | Veraset İlamı Nedir? Nasıl Alınır? | `veraset-ilami-nedir-nasil-alinir` |
 
-**Durum:** 6/9 ✅ · 3 yazılacak
+**Durum:** 8/9 ✅ · 1 yazılacak
 
 ---
 
@@ -243,18 +243,18 @@ Resmi kurum adımları içerdiğinden doğruluğu kritik; uydurma bilgi yasak.
 
 | Küme | Tamamlanan | Planlanan | Toplam |
 |------|-----------|-----------|--------|
-| 1 — Hava Kalitesi | 6 | 2 | 8 |
-| 2 — Su & Baraj | 6 | 4 | 10 |
-| 3 — Sağlık | 6 | 3 | 9 |
-| 4 — Ulaşım | 10 | 2 | 12 |
+| 1 — Hava Kalitesi | 7 | 1 | 8 |
+| 2 — Su & Baraj | 8 | 2 | 10 |
+| 3 — Sağlık | 8 | 1 | 9 |
+| 4 — Ulaşım | 11 | 1 | 12 |
 | 5 — Açık Veri | 6 | 0 | 6 |
-| 6 — İzmir Genel | 11 | 4 | 15 |
+| 6 — İzmir Genel | 13 | 2 | 15 |
 | 7 — Sürdürülebilir Yaşam | 9 | 0 | 9 |
-| 8 — Afet Hazırlığı | 5 | 2 | 7 |
+| 8 — Afet Hazırlığı | 6 | 1 | 7 |
 | 9 — Şehir & Kentsel | 5 | 0 | 5 |
 | 10 — Sezonluk & Güncel | 11 | 2 | 13 |
-| 11 — Resmi İşlemler | 6 | 3 | 9 |
-| **Toplam** | **78** | **22** | **100** |
+| 11 — Resmi İşlemler | 8 | 1 | 9 |
+| **Toplam** | **89** | **11** | **100** |
 
 ---
 
