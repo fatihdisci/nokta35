@@ -67,6 +67,10 @@ import * as bayramEczane from "./izmir-bayram-nobetci-eczane-2026"
 import * as bayramBanka from "./bayramda-bankalar-ptt-avm-izmir-2026"
 import * as kurbanDeri from "./kurban-derisi-nereye-verilir-izmir-2026"
 import * as kiraArtis from "./mayis-2026-kira-artis-orani"
+import * as maviBayrak from "./izmir-plajlari-mavi-bayrak-2026"
+import * as denizSicak from "./izmir-deniz-suyu-sicakligi-aylik"
+import * as lgs2026 from "./lgs-2026-izmir-sinav-ulasim-rehberi"
+import * as yks2026 from "./yks-2026-izmir-sinav-merkezleri"
 
 export type BlogPost = BlogMeta & { Body: ComponentType }
 
@@ -137,6 +141,10 @@ const RAW: BlogPost[] = [
   { ...bayramBanka.meta, Body: bayramBanka.Body },
   { ...kurbanDeri.meta, Body: kurbanDeri.Body },
   { ...kiraArtis.meta, Body: kiraArtis.Body },
+  { ...maviBayrak.meta, Body: maviBayrak.Body },
+  { ...denizSicak.meta, Body: denizSicak.Body },
+  { ...lgs2026.meta, Body: lgs2026.Body },
+  { ...yks2026.meta, Body: yks2026.Body },
 ]
 
 export const POSTS: BlogPost[] = [...RAW].sort((a, b) =>
