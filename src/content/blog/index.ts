@@ -79,6 +79,17 @@ import * as kepAdresi from "./kep-adresi-nedir-nasil-alinir"
 import * as endeksB from "./elektrik-sayaci-endeks-bildirimi"
 import * as asansor from "./asansor-bakimi-kim-sorumlu"
 import * as ucretsizPark from "./izmir-ucretsiz-park-yerleri"
+import * as polenTakvim from "./izmir-polen-takvimi-alerji-mevsimi"
+import * as ilceler from "./izmir-ilceleri-kac-ilce-var"
+import * as iklim from "./izmir-hava-iklim-ozellikleri"
+import * as suSertligi from "./su-sertligi-nedir-sagliga-zarari"
+import * as icmeSuyu from "./icme-suyu-aritma-yontemleri"
+import * as sgkKatki from "./sgk-ilac-katki-payi-rehberi"
+import * as otcIlac from "./recetesiz-otc-ilaclar-nedir"
+import * as selTaskin from "./sel-taskin-oncesi-sirasinda-ne-yapmali"
+import * as vapurlar from "./izmir-vapurlari-guzergahlar-seferler"
+import * as adresDeg from "./adres-degisikligi-bildirimi"
+import * as tapuSorgu from "./tapu-sorgusu-e-devlet"
 
 export type BlogPost = BlogMeta & { Body: ComponentType }
 
@@ -161,6 +172,17 @@ const RAW: BlogPost[] = [
   { ...endeksB.meta, Body: endeksB.Body },
   { ...asansor.meta, Body: asansor.Body },
   { ...ucretsizPark.meta, Body: ucretsizPark.Body },
+  { ...polenTakvim.meta, Body: polenTakvim.Body },
+  { ...ilceler.meta, Body: ilceler.Body },
+  { ...iklim.meta, Body: iklim.Body },
+  { ...suSertligi.meta, Body: suSertligi.Body },
+  { ...icmeSuyu.meta, Body: icmeSuyu.Body },
+  { ...sgkKatki.meta, Body: sgkKatki.Body },
+  { ...otcIlac.meta, Body: otcIlac.Body },
+  { ...selTaskin.meta, Body: selTaskin.Body },
+  { ...vapurlar.meta, Body: vapurlar.Body },
+  { ...adresDeg.meta, Body: adresDeg.Body },
+  { ...tapuSorgu.meta, Body: tapuSorgu.Body },
 ]
 
 export const POSTS: BlogPost[] = [...RAW].sort((a, b) =>
