@@ -124,11 +124,11 @@
 | Pillar | ✅ | Sürdürülebilir Yaşam Nedir? Evden Başlamak İçin Kılavuz | `surdurulebilir-yasam-nedir-rehber` |
 | Cluster | ✅ | Sıfır Atık Yaşam: Başlangıç için 10 Adım | `sifir-atik-yasam-baslangic` |
 | Cluster | ✅ | İzmir Geri Dönüşüm Noktaları ve Elektronik Atık Rehberi | `izmir-geri-donusum-elektronik-atik` |
-| Cluster | 📝 | Gıda İsrafını Önlemek: Pratik Yöntemler ve Tarifler | `gida-israfi-onlemek-pratik-yontemler` |
-| Cluster | 📝 | Kompost Nedir? Evde Kompost Nasıl Yapılır? | `kompost-nedir-evde-nasil-yapilir` |
-| Cluster | 📝 | Organik Tarım Nedir? Konvansiyonel Tarımdan Farkı | `organik-tarim-nedir-farki` |
-| Cluster | 📝 | Yenilenebilir Enerji Türleri: Güneş, Rüzgar, Jeotermal | `yenilenebilir-enerji-turleri` |
-| Cluster | 📝 | Evde Solar Panel: Kurulum, Maliyet, Geri Dönüş Süresi | `evde-solar-panel-kurulum-maliyet` |
+| Cluster | ✅ | Gıda İsrafını Önlemek: 12 Pratik Yöntem | `gida-israfi-onlemek-pratik-yontemler` |
+| Cluster | ✅ | Kompost Nedir? Evde Kompost Nasıl Yapılır? | `kompost-nedir-evde-nasil-yapilir` |
+| Cluster | ✅ | Organik Tarım Nedir? Konvansiyonel Tarımdan Farkı | `organik-tarim-nedir-farki` |
+| Cluster | ✅ | Yenilenebilir Enerji Türleri: Güneş, Rüzgar, Jeotermal | `yenilenebilir-enerji-turleri` |
+| Cluster | ✅ | Evde Solar Panel: Kurulum, Maliyet, Geri Dönüş Rehberi | `evde-solar-panel-kurulum-maliyet` |
 | Cluster | ✅ | Karbon Ayak İzi Nedir? Nasıl Hesaplanır? | `karbon-ayak-izi-nedir-hesaplanir` |
 
 ---
@@ -173,14 +173,14 @@
 | Ulaşım | 1/1 ✅ | 5 ✅ | 1 | 7 |
 | Açık Veri | 1/1 ✅ | 5 ✅ | 0 | 6 |
 | İzmir Genel | 1/1 ✅ | 10 ✅ | 3 | 14 |
-| Sürdürülebilir Yaşam | 1/1 ✅ | 3 ✅ | 5 | 9 |
+| Sürdürülebilir Yaşam | 1/1 ✅ | 8 ✅ | 0 | 9 |
 | Afet Hazırlığı | 1/1 ✅ | 4 ✅ | 2 | 7 |
 | Şehir & Kentsel | 1/1 ✅ | 4 ✅ | 0 | 5 |
-| **Toplam** | **9/9** | **43** | **18** | **70** |
+| **Toplam** | **9/9** | **48** | **13** | **70** |
 
-**Şu an yayında:** 52 yazı (9 Pillar + 43 Cluster)
-**Geride kalan:** 18 cluster
-**Öncelikli sonraki adım:** Sürdürülebilir Yaşam clusterları (5), Hava Kalitesi (Ozon, NO₂)
+**Şu an yayında:** 57 yazı (9 Pillar + 48 Cluster)
+**Geride kalan:** 13 cluster
+**Öncelikli sonraki adım:** Hava Kalitesi (Ozon, NO₂), Su clusterları (4), İzmir İlçeleri/İklim
 
 ---
 

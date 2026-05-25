@@ -53,6 +53,11 @@ import * as izelaman from "./izmir-otopark-izelaman-rehberi"
 import * as bisim from "./bisim-bisiklet-izmir-kullanim-rehberi"
 import * as sivilasma from "./izmir-zemin-sivilasma-riski"
 import * as kiraFiyat from "./izmir-kira-fiyatlari-nasil-arastirilir"
+import * as gidaIsrafi from "./gida-israfi-onlemek-pratik-yontemler"
+import * as kompost from "./kompost-nedir-evde-nasil-yapilir"
+import * as organikTarim from "./organik-tarim-nedir-farki"
+import * as yenilenebilir from "./yenilenebilir-enerji-turleri"
+import * as solarPanel from "./evde-solar-panel-kurulum-maliyet"
 
 export type BlogPost = BlogMeta & { Body: ComponentType }
 
@@ -109,6 +114,11 @@ const RAW: BlogPost[] = [
   { ...bisim.meta, Body: bisim.Body },
   { ...sivilasma.meta, Body: sivilasma.Body },
   { ...kiraFiyat.meta, Body: kiraFiyat.Body },
+  { ...gidaIsrafi.meta, Body: gidaIsrafi.Body },
+  { ...kompost.meta, Body: kompost.Body },
+  { ...organikTarim.meta, Body: organikTarim.Body },
+  { ...yenilenebilir.meta, Body: yenilenebilir.Body },
+  { ...solarPanel.meta, Body: solarPanel.Body },
 ]
 
 export const POSTS: BlogPost[] = [...RAW].sort((a, b) =>
