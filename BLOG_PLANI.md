@@ -17,8 +17,8 @@
 | Pillar | ✅ | Hava Kalitesi Nedir? AKİ, PM2.5, NO₂ — Eksiksiz Rehber | `hava-kalitesi-rehberi` |
 | Cluster | ✅ | Hava Kalitesi İndeksi (AKİ) Nedir? | `hava-kalitesi-indeksi-aki-nedir` |
 | Cluster | ✅ | PM10 ve PM2.5 Nedir? Sağlığa Etkileri | `pm10-pm25-nedir-saglik-etkileri` |
-| Cluster | 📝 | Ozon (O₃) Kirliliği Nedir? İnsan Sağlığına Etkileri | `ozon-kirliligi-nedir-saglik-etkileri` |
-| Cluster | 📝 | Azot Dioksit (NO₂) Nedir? Trafik Kaynaklı Kirlilik | `azot-dioksit-no2-nedir` |
+| Cluster | ✅ | Ozon (O₃) Kirliliği Nedir? Yüzey Ozonu ve Sağlık Etkileri | `ozon-kirliligi-nedir-saglik-etkileri` |
+| Cluster | ✅ | Azot Dioksit (NO₂) Nedir? Trafik Kaynaklı Kirlilik | `azot-dioksit-no2-trafik-kirliligi` |
 | Cluster | ✅ | Isı Adası Etkisi Nedir? Şehirlerde Sıcaklık Neden Yükselir? | `isi-adasi-etkisi-nedir` |
 | Cluster | 📝 | Polen Alerjisi Mevsimi: Hangi Bitkiler, Hangi Aylar? | `polen-alerjisi-mevsimi` |
 | Cluster | 📝 | İklim Değişikliği ile Kuraklık Arasındaki Bağlantı | `iklim-degisikligi-kuraklik-baglantisi` |
@@ -167,7 +167,7 @@
 
 | Küme | Pillar | Yazılan Cluster | Planlanan Cluster | Toplam |
 |------|--------|-----------------|-------------------|--------|
-| Hava Kalitesi | 1/1 ✅ | 3 ✅ | 4 | 8 |
+| Hava Kalitesi | 1/1 ✅ | 5 ✅ | 2 | 8 |
 | Su & Baraj | 2/2 ✅ | 4 ✅ | 4 | 10 |
 | Sağlık | 1/1 ✅ | 4 ✅ | 2 | 7 |
 | Ulaşım | 1/1 ✅ | 5 ✅ | 1 | 7 |
@@ -176,11 +176,11 @@
 | Sürdürülebilir Yaşam | 1/1 ✅ | 8 ✅ | 0 | 9 |
 | Afet Hazırlığı | 1/1 ✅ | 4 ✅ | 2 | 7 |
 | Şehir & Kentsel | 1/1 ✅ | 4 ✅ | 0 | 5 |
-| **Toplam** | **9/9** | **48** | **13** | **70** |
+| **Toplam** | **9/9** | **50** | **11** | **70** |
 
-**Şu an yayında:** 57 yazı (9 Pillar + 48 Cluster)
-**Geride kalan:** 13 cluster
-**Öncelikli sonraki adım:** Hava Kalitesi (Ozon, NO₂), Su clusterları (4), İzmir İlçeleri/İklim
+**Şu an yayında:** 59 yazı (9 Pillar + 50 Cluster)
+**Geride kalan:** 11 cluster
+**Öncelikli sonraki adım:** Su clusterları (4), İzmir İlçeleri/İklim (2)
 
 ---
 

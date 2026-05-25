@@ -58,6 +58,8 @@ import * as kompost from "./kompost-nedir-evde-nasil-yapilir"
 import * as organikTarim from "./organik-tarim-nedir-farki"
 import * as yenilenebilir from "./yenilenebilir-enerji-turleri"
 import * as solarPanel from "./evde-solar-panel-kurulum-maliyet"
+import * as ozon from "./ozon-kirliligi-nedir-saglik-etkileri"
+import * as no2 from "./azot-dioksit-no2-trafik-kirliligi"
 
 export type BlogPost = BlogMeta & { Body: ComponentType }
 
@@ -119,6 +121,8 @@ const RAW: BlogPost[] = [
   { ...organikTarim.meta, Body: organikTarim.Body },
   { ...yenilenebilir.meta, Body: yenilenebilir.Body },
   { ...solarPanel.meta, Body: solarPanel.Body },
+  { ...ozon.meta, Body: ozon.Body },
+  { ...no2.meta, Body: no2.Body },
 ]
 
 export const POSTS: BlogPost[] = [...RAW].sort((a, b) =>
