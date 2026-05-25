@@ -71,6 +71,14 @@ import * as maviBayrak from "./izmir-plajlari-mavi-bayrak-2026"
 import * as denizSicak from "./izmir-deniz-suyu-sicakligi-aylik"
 import * as lgs2026 from "./lgs-2026-izmir-sinav-ulasim-rehberi"
 import * as yks2026 from "./yks-2026-izmir-sinav-merkezleri"
+import * as eDevlet from "./e-devlet-ne-yapilir-rehber"
+import * as adbUlasim from "./izmir-adnan-menderes-havalimani-ulasim"
+import * as ikametgah from "./ikametgah-belgesi-nasil-alinir"
+import * as sgkDokum from "./sgk-hizmet-dokumu-e-devlet"
+import * as kepAdresi from "./kep-adresi-nedir-nasil-alinir"
+import * as endeksB from "./elektrik-sayaci-endeks-bildirimi"
+import * as asansor from "./asansor-bakimi-kim-sorumlu"
+import * as ucretsizPark from "./izmir-ucretsiz-park-yerleri"
 
 export type BlogPost = BlogMeta & { Body: ComponentType }
 
@@ -145,6 +153,14 @@ const RAW: BlogPost[] = [
   { ...denizSicak.meta, Body: denizSicak.Body },
   { ...lgs2026.meta, Body: lgs2026.Body },
   { ...yks2026.meta, Body: yks2026.Body },
+  { ...eDevlet.meta, Body: eDevlet.Body },
+  { ...adbUlasim.meta, Body: adbUlasim.Body },
+  { ...ikametgah.meta, Body: ikametgah.Body },
+  { ...sgkDokum.meta, Body: sgkDokum.Body },
+  { ...kepAdresi.meta, Body: kepAdresi.Body },
+  { ...endeksB.meta, Body: endeksB.Body },
+  { ...asansor.meta, Body: asansor.Body },
+  { ...ucretsizPark.meta, Body: ucretsizPark.Body },
 ]
 
 export const POSTS: BlogPost[] = [...RAW].sort((a, b) =>

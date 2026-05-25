@@ -6,7 +6,7 @@
 > Her küme bir **Pillar** (ana sütun) etrafında toplanır.
 > Cluster yazıları Pillar yazısına iç link atar.
 >
-> Son güncelleme: 2026-05-25 · 66 yayında · 25 planlanan · Hedef: 91
+> Son güncelleme: 2026-05-25 · **78 yayında** · 22 planlanan · Hedef: 100
 
 ---
 
@@ -84,12 +84,12 @@
 | Cluster | ✅ | BİSİM Bisiklet İzmir: Nasıl Kullanılır, İstasyonlar | `bisim-bisiklet-izmir-kullanim-rehberi` |
 | Cluster | ✅ | İzmir Bayram Ulaşımı 2026: İZBAN, ESHOT, İZDENİZ | `izmir-bayram-ulasimi-2026` |
 | Cluster | ✅ | İzmir Otopark: İZELMAN Tesisleri Rehberi | `izmir-otopark-izelaman-rehberi` |
-| Cluster | 📝 🔥 | Adnan Menderes Havalimanı'ndan Şehir Merkezine Ulaşım | `izmir-adnan-menderes-havalimani-ulasim` |
+| Cluster | ✅ | Adnan Menderes Havalimanı'ndan Şehir Merkezine Ulaşım | `izmir-adnan-menderes-havalimani-ulasim` |
+| Cluster | ✅ | İzmir'de Ücretsiz ve Ucuz Park Yerleri | `izmir-ucretsiz-park-yerleri` |
 | Cluster | 📝 | İzmir Vapurları: Güzergahlar, İZDENİZ Sefer Saatleri | `izmir-vapurlari-guzergahlar-seferler` |
-| Cluster | 📝 | İzmir'de Ücretsiz ve Ucuz Park Yerleri | `izmir-ucretsiz-park-yerleri` |
 | Cluster | 📝 | İzmir'de Araç Kiralama vs. Toplu Taşıma: Maliyet | `izmir-arac-kiralama-toplu-tasima` |
 
-**Durum:** 8/12 ✅ · 4 yazılacak · ADB havalimanı = en yüksek KGR skoru
+**Durum:** 10/12 ✅ · 2 yazılacak
 
 ---
 
@@ -225,17 +225,17 @@ Resmi kurum adımları içerdiğinden doğruluğu kritik; uydurma bilgi yasak.
 
 | Tip | Durum | Başlık | Slug |
 |-----|-------|--------|------|
-| Pillar | 📝 🔥 | e-Devlet ile Neler Yapılabilir? Başvurudan Belgeye Rehber | `e-devlet-ne-yapilir-rehber` |
-| Cluster | 📝 🔥 | İkametgah Belgesi Nasıl Alınır? (e-Devlet ve Nüfus Müdürlüğü) | `ikametgah-belgesi-nasil-alinir` |
-| Cluster | 📝 🔥 | SGK Hizmet Dökümü e-Devlet'ten Nasıl Alınır? | `sgk-hizmet-dokumu-e-devlet` |
-| Cluster | 📝 🔥 | KEP Adresi Nedir? Nasıl Alınır? | `kep-adresi-nedir-nasil-alinir` |
-| Cluster | 📝 🔥 | Elektrik Sayacı Endeks Bildirimi Nasıl Yapılır? | `elektrik-sayaci-endeks-bildirimi` |
-| Cluster | 📝 🔥 | Asansör Bakımı: Kim Sorumlu, Nasıl Şikâyet Edilir? | `asansor-bakimi-kim-sorumlu` |
+| Pillar | ✅ | e-Devlet ile Neler Yapılabilir? Başvurudan Belgeye Rehber | `e-devlet-ne-yapilir-rehber` |
+| Cluster | ✅ | İkametgah Belgesi Nasıl Alınır? (e-Devlet ve Nüfus Müdürlüğü) | `ikametgah-belgesi-nasil-alinir` |
+| Cluster | ✅ | SGK Hizmet Dökümü e-Devlet'ten Nasıl Alınır? | `sgk-hizmet-dokumu-e-devlet` |
+| Cluster | ✅ | KEP Adresi Nedir? Nasıl Alınır? | `kep-adresi-nedir-nasil-alinir` |
+| Cluster | ✅ | Elektrik Sayacı Endeks Bildirimi Nasıl Yapılır? | `elektrik-sayaci-endeks-bildirimi` |
+| Cluster | ✅ | Asansör Bakımı: Kim Sorumlu, Nasıl Şikâyet Edilir? | `asansor-bakimi-kim-sorumlu` |
 | Cluster | 📝 | Adres Değişikliği Bildirimi: Ne Zaman, Nasıl? | `adres-degisikligi-bildirimi` |
 | Cluster | 📝 | Tapu Sorgusu e-Devlet'ten Nasıl Yapılır? | `tapu-sorgusu-e-devlet` |
 | Cluster | 📝 | Veraset İlamı Nedir? Nasıl Alınır? | `veraset-ilami-nedir-nasil-alinir` |
 
-**Durum:** 0/9 ✅ · 9 yazılacak · Tüm yazılar KGR < 0.22, yüksek öncelik
+**Durum:** 6/9 ✅ · 3 yazılacak
 
 ---
 
@@ -246,15 +246,15 @@ Resmi kurum adımları içerdiğinden doğruluğu kritik; uydurma bilgi yasak.
 | 1 — Hava Kalitesi | 6 | 2 | 8 |
 | 2 — Su & Baraj | 6 | 4 | 10 |
 | 3 — Sağlık | 6 | 3 | 9 |
-| 4 — Ulaşım | 8 | 4 | 12 |
+| 4 — Ulaşım | 10 | 2 | 12 |
 | 5 — Açık Veri | 6 | 0 | 6 |
 | 6 — İzmir Genel | 11 | 4 | 15 |
 | 7 — Sürdürülebilir Yaşam | 9 | 0 | 9 |
 | 8 — Afet Hazırlığı | 5 | 2 | 7 |
 | 9 — Şehir & Kentsel | 5 | 0 | 5 |
-| 10 — Sezonluk & Güncel | 7 | 6 | 13 |
-| 11 — Resmi İşlemler (YENİ) | 0 | 9 | 9 |
-| **Toplam** | **66** | **34** | **100** |
+| 10 — Sezonluk & Güncel | 11 | 2 | 13 |
+| 11 — Resmi İşlemler | 6 | 3 | 9 |
+| **Toplam** | **78** | **22** | **100** |
 
 ---
 
@@ -269,28 +269,34 @@ Resmi kurum adımları içerdiğinden doğruluğu kritik; uydurma bilgi yasak.
 | 3 | LGS 2026 İzmir Ulaşım Rehberi | 10 Haz | Sınav: 13 Haziran Cumartesi |
 | 4 | YKS 2026 İzmir Sınav Merkezleri | 15 Haz | Sınav: 20–21 Haziran |
 
-### ⚡ YÜKSEK ÖNCELİK — KGR < 0.22, Evergreen (Sırayla Yaz)
+### ⚡ YÜKSEK ÖNCELİK — KGR < 0.22, Evergreen
 
-| Sıra | Başlık | KGR | Küme |
-|------|--------|-----|------|
-| 5 | Adnan Menderes Havalimanı'ndan Şehir Merkezine Ulaşım | ~0.15 | 4 |
-| 6 | İkametgah Belgesi Nasıl Alınır? | ~0.18 | 11 |
-| 7 | e-Devlet ile Neler Yapılabilir? (Pillar) | ~0.20 | 11 |
-| 8 | SGK Hizmet Dökümü e-Devlet'ten Nasıl Alınır? | ~0.22 | 11 |
-| 9 | KEP Adresi Nedir? Nasıl Alınır? | ~0.15 | 11 |
-| 10 | Elektrik Sayacı Endeks Bildirimi | ~0.20 | 11 |
-| 11 | Asansör Bakımı: Kim Sorumlu? | ~0.20 | 11 |
-| 12 | İzmir'de Ücretsiz ve Ucuz Park Yerleri | ~0.22 | 4 |
+| Sıra | Başlık | KGR | Küme | Durum |
+|------|--------|-----|------|-------|
+| 5 | Adnan Menderes Havalimanı'ndan Şehir Merkezine Ulaşım | ~0.15 | 4 | ✅ |
+| 6 | İkametgah Belgesi Nasıl Alınır? | ~0.18 | 11 | ✅ |
+| 7 | e-Devlet ile Neler Yapılabilir? (Pillar) | ~0.20 | 11 | ✅ |
+| 8 | SGK Hizmet Dökümü e-Devlet'ten Nasıl Alınır? | ~0.22 | 11 | ✅ |
+| 9 | KEP Adresi Nedir? Nasıl Alınır? | ~0.15 | 11 | ✅ |
+| 10 | Elektrik Sayacı Endeks Bildirimi | ~0.20 | 11 | ✅ |
+| 11 | Asansör Bakımı: Kim Sorumlu? | ~0.20 | 11 | ✅ |
+| 12 | İzmir'de Ücretsiz ve Ucuz Park Yerleri | ~0.22 | 4 | ✅ |
 
 ### 📋 ORTA ÖNCELİK — Mevcut Kümelerin Tamamlanması
 
-Küme 1: Polen Takvimi İzmir, İklim-Kuraklık Bağlantısı
-Küme 2: Su Sertliği, İçme Suyu Arıtma, Yeraltı Suyu, Yağmur Hasadı
-Küme 3: SGK İlaç Katkı Payı, OTC İlaçlar, Engelli Sağlık Kurulu
-Küme 4: İzmir Vapurları, Araç Kiralama Karşılaştırma
-Küme 6: İzmir İlçeleri, İzmir İklim Özellikleri, Tabiat Koruma Alanları
-Küme 8: Sel/Taşkın, Tsunami Ege
-Küme 11: Adres Değişikliği, Tapu Sorgusu, Veraset İlamı
+| Sıra | Başlık | Küme |
+|------|--------|------|
+| 13 | İzmir Polen Takvimi: Hangi Ay, Hangi Bitki? | 1 |
+| 14 | İzmir İlçeleri: Kaç İlçe Var, Hangisi Nerede? | 6 |
+| 15 | İzmir'de Hava Nasıl? İklim Özellikleri ve Mevsimler | 6 |
+| 16 | Su Sertliği Nedir? Sert Su Sağlığa Zararlı mı? | 2 |
+| 17 | İçme Suyu Arıtma Yöntemleri | 2 |
+| 18 | SGK İlaç Katkı Payı Rehberi | 3 |
+| 19 | Reçetesiz (OTC) İlaçlar Nelerdir? | 3 |
+| 20 | Sel ve Taşkın: Öncesinde ve Sırasında Ne Yapmalı? | 8 |
+| 21 | İzmir Vapurları: Güzergahlar, İZDENİZ Sefer Saatleri | 4 |
+| 22 | Adres Değişikliği Bildirimi | 11 |
+| 23 | Tapu Sorgusu e-Devlet'ten Nasıl Yapılır? | 11 |
 
 ### 🗓️ DÜŞÜKÖNCELİK — Araştırma / Hassas Veri Gerektirir
 
