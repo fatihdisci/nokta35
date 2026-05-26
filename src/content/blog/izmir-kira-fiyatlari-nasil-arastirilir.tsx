@@ -29,7 +29,7 @@ export const meta: BlogMeta = {
     {
       question: "Kira artışı yasal limiti nedir?",
       answer:
-        "Türkiye'de kira artış oranına yasal üst sınır uygulanmaktadır; 2024 yılı itibarıyla konut kira artışları 12 aylık TÜFE ortalamasıyla sınırlandırılmıştır. Mevcut yasal çerçeve ve güncel oran için Hazine ve Maliye Bakanlığı ile Türk Ticaret Kanunu/Borçlar Kanunu güncel hükümlerine bakılmalıdır; düzenleme değişebilir.",
+        "Türkiye'de konut kira artışlarına yasal üst sınır uygulanmaktadır; sınır 12 aylık TÜFE ortalamasına bağlıdır. Mevcut yasal çerçeve ve güncel oran için Hazine ve Maliye Bakanlığı ile Türk Borçlar Kanunu güncel hükümlerine bakılmalıdır; düzenleme değişebilir.",
     },
     {
       question: "Kiracı olarak haklarımı nereden öğrenebilirim?",
