@@ -28,16 +28,41 @@ function formatDate(iso: string): string {
   }
 }
 
-type Props = { searchParams: { sayfa?: string } }
+function buildHref(sayfa: number, kategori: string): string {
+  const params = new URLSearchParams()
+  if (kategori !== "tümü") params.set("kategori", kategori)
+  if (sayfa > 1) params.set("sayfa", String(sayfa))
+  const qs = params.toString()
+  return qs ? `/blog?${qs}` : "/blog"
+}
+
+type Props = { searchParams: { sayfa?: string; kategori?: string } }
 
 export default function BlogIndexPage({ searchParams }: Props) {
   const breadcrumb = breadcrumbJsonLd([{ name: "Blog", href: "/blog" }])
+
+  // Sort all posts newest first
+  const sorted = [...POSTS].sort(
+    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+  )
+
   const kategoriler = [...new Set(POSTS.map((p) => p.category))].sort()
+  const selectedKat = searchParams?.kategori ?? "tümü"
+
+  const filtered =
+    selectedKat === "tümü"
+      ? sorted
+      : sorted.filter((p) => p.category === selectedKat)
 
   const rawPage = parseInt(searchParams?.sayfa ?? "1", 10)
-  const totalPages = Math.ceil(POSTS.length / PAGE_SIZE)
+  const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE))
   const page = Math.max(1, Math.min(isNaN(rawPage) ? 1 : rawPage, totalPages))
-  const pagePosts = POSTS.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE)
+  const pagePosts = filtered.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE)
+
+  const btnBase =
+    "px-3 py-1.5 text-[10px] uppercase tracking-widest border-2 transition-colors whitespace-nowrap"
+  const btnActive = "bg-ink text-cream border-ink"
+  const btnPassive = "bg-cream text-ink border-light-gray hover:border-ink"
 
   return (
     <>
@@ -56,7 +81,42 @@ export default function BlogIndexPage({ searchParams }: Props) {
         </p>
       </section>
 
+      {/* Kategori filtresi */}
       <section className="container pb-8">
+        <div className="text-[10px] uppercase tracking-[0.2em] text-gray mb-3">
+          Kategoriye Göre Filtrele
+        </div>
+        <div className="flex flex-wrap gap-2 mb-8">
+          <Link
+            href="/blog"
+            className={`${btnBase} ${selectedKat === "tümü" ? btnActive : btnPassive}`}
+          >
+            Tümü ({POSTS.length})
+          </Link>
+          {kategoriler.map((k) => {
+            const count = POSTS.filter((p) => p.category === k).length
+            return (
+              <Link
+                key={k}
+                href={buildHref(1, k)}
+                className={`${btnBase} ${selectedKat === k ? btnActive : btnPassive}`}
+              >
+                {k} ({count})
+              </Link>
+            )
+          })}
+        </div>
+
+        {selectedKat !== "tümü" && (
+          <div className="mb-6 text-[10px] uppercase tracking-[0.2em] text-gray border-b border-light-gray pb-3">
+            <span className="text-ink">{filtered.length}</span> yazı · {selectedKat}
+            {" — "}
+            <Link href="/blog" className="text-orange hover:underline">
+              Filtreyi Kaldır
+            </Link>
+          </div>
+        )}
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {pagePosts.map((p) => (
             <article
@@ -64,9 +124,16 @@ export default function BlogIndexPage({ searchParams }: Props) {
               className="border-2 border-light-gray hover:border-ink bg-cream p-5 transition-colors flex flex-col"
             >
               <div className="flex items-baseline justify-between gap-2 mb-3">
-                <span className="text-[9px] uppercase tracking-[0.2em] px-2 py-0.5 bg-ink text-cream">
+                <Link
+                  href={buildHref(1, p.category)}
+                  className={`text-[9px] uppercase tracking-[0.2em] px-2 py-0.5 transition-colors ${
+                    selectedKat === p.category
+                      ? "bg-orange text-cream"
+                      : "bg-ink text-cream hover:bg-orange"
+                  }`}
+                >
                   {p.category}
-                </span>
+                </Link>
                 <span className="text-[10px] text-gray font-mono">
                   {formatDate(p.date)} · {p.readTime} dk okuma
                 </span>
@@ -94,15 +161,15 @@ export default function BlogIndexPage({ searchParams }: Props) {
       </section>
 
       {totalPages > 1 && (
-        <nav className="container pb-16 flex items-center justify-between gap-4">
+        <nav className="container pb-16 flex items-center justify-between gap-4 flex-wrap">
           <span className="text-[10px] uppercase tracking-widest text-gray font-mono">
-            {(page - 1) * PAGE_SIZE + 1}–{Math.min(page * PAGE_SIZE, POSTS.length)} / {POSTS.length} yazı
+            {(page - 1) * PAGE_SIZE + 1}–{Math.min(page * PAGE_SIZE, filtered.length)} / {filtered.length} yazı
           </span>
 
-          <div className="flex items-center gap-1">
+          <div className="flex items-center gap-1 flex-wrap">
             {page > 1 && (
               <Link
-                href={page - 1 === 1 ? "/blog" : `/blog?sayfa=${page - 1}`}
+                href={buildHref(page - 1, selectedKat)}
                 className="text-[10px] uppercase tracking-widest px-3 py-1.5 border-2 border-ink hover:bg-ink hover:text-cream transition-colors"
               >
                 ← Önceki
@@ -112,7 +179,7 @@ export default function BlogIndexPage({ searchParams }: Props) {
             {Array.from({ length: totalPages }, (_, i) => i + 1).map((n) => (
               <Link
                 key={n}
-                href={n === 1 ? "/blog" : `/blog?sayfa=${n}`}
+                href={buildHref(n, selectedKat)}
                 className={
                   "text-[10px] font-mono px-2.5 py-1.5 border-2 transition-colors " +
                   (n === page
@@ -126,7 +193,7 @@ export default function BlogIndexPage({ searchParams }: Props) {
 
             {page < totalPages && (
               <Link
-                href={`/blog?sayfa=${page + 1}`}
+                href={buildHref(page + 1, selectedKat)}
                 className="text-[10px] uppercase tracking-widest px-3 py-1.5 border-2 border-ink hover:bg-ink hover:text-cream transition-colors"
               >
                 Sonraki →

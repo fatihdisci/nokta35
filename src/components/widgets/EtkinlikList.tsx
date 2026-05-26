@@ -27,15 +27,25 @@ export function EtkinlikList({ etkinlikler }: { etkinlikler: EtkinlikItem[] }) {
     () => [...new Set(etkinlikler.map((e) => e.ilce).filter(Boolean))].sort(),
     [etkinlikler]
   )
-  const filtered = useMemo(
-    () =>
-      etkinlikler.filter((e) => {
-        const turEsles = seciliTur === "tümü" || e.tur === seciliTur
-        const ilceEsles = seciliIlce === "tümü" || e.ilce === seciliIlce
-        return turEsles && ilceEsles
-      }),
-    [etkinlikler, seciliTur, seciliIlce]
-  )
+  const today = useMemo(() => new Date().setHours(0, 0, 0, 0), [])
+
+  const filtered = useMemo(() => {
+    const list = etkinlikler.filter((e) => {
+      const turEsles = seciliTur === "tümü" || e.tur === seciliTur
+      const ilceEsles = seciliIlce === "tümü" || e.ilce === seciliIlce
+      return turEsles && ilceEsles
+    })
+
+    // Yaklaşan etkinlikler önce; tarihi olmayan ya da geçmiş olanlar sona
+    return list.sort((a, b) => {
+      const ta = a.baslangic ? new Date(a.baslangic).getTime() : Infinity
+      const tb = b.baslangic ? new Date(b.baslangic).getTime() : Infinity
+      const aGecmis = ta < today
+      const bGecmis = tb < today
+      if (aGecmis !== bGecmis) return aGecmis ? 1 : -1
+      return ta - tb
+    })
+  }, [etkinlikler, seciliTur, seciliIlce, today])
 
   const btnBase = "px-3 py-1.5 text-[10px] uppercase tracking-widest border-2 transition-colors"
   const btnActive = "bg-ink text-cream border-ink"
