@@ -5,16 +5,16 @@ export const meta: BlogMeta = {
   title: "Bayram Namazı Saat Kaçta İzmir — 27 Mayıs 2026 Kurban Bayramı",
   description:
     "İzmir'de 27 Mayıs 2026 Kurban Bayramı namazı saat kaçta? Diyanet resmi vakti, cami listesi ve bayram namazı hakkında bilmeniz gerekenler.",
-  date: "2026-05-25",
+  date: "2026-05-26",
   category: "İzmir Rehberi",
   summary:
-    "Kurban Bayramı namazı 27 Mayıs 2026 Çarşamba günü kılınacaktır. Kesin vakit Diyanet İşleri Başkanlığı tarafından açıklanır; İzmir için resmi bayram namazı vakti namazvakitleri.diyanet.gov.tr adresinden öğrenilebilir. Genel olarak bayram namazı güneş doğuşundan yaklaşık 45–75 dakika sonradır.",
+    "Kurban Bayramı namazı 27 Mayıs 2026 Çarşamba günü saat 06:25'te kılınacaktır (İzmir). Diyanet İşleri Başkanlığı'nın resmi vaktidir; ilçeye göre 1–2 dakika fark olabilir.",
   readTime: 3,
   faq: [
     {
       question: "2026 Kurban Bayramı namazı İzmir'de saat kaçta?",
       answer:
-        "Kesin vakit Diyanet İşleri Başkanlığı tarafından ilan edilir ve şehre/ilçeye göre birkaç dakika farklılık gösterebilir. İzmir'de bayram namazı genellikle güneş doğuşundan 45–75 dakika sonraya denk gelir. 27 Mayıs 2026 için resmi vakti namazvakitleri.diyanet.gov.tr adresinden veya yerel cami ilanından öğrenin.",
+        "İzmir'de 27 Mayıs 2026 Kurban Bayramı namazı saat 06:25'tir. Bu, Diyanet İşleri Başkanlığı'nın açıkladığı resmi vakittir. İlçeye göre 1–2 dakika farklılık olabilir; namazvakitleri.diyanet.gov.tr'den ilçe bazlı teyit edilebilir.",
     },
     {
       question: "Bayram namazı nerede kılınır?",
@@ -79,10 +79,10 @@ export function Body() {
         45–75 dakika sonrasına</strong> karşılık gelir.
       </p>
       <p>
-        İzmir'de 27 Mayıs 2026 için güneş doğuşu yaklaşık 05:40 civarındadır
-        (kesin değer için Diyanet takvimini esas alın). Buna göre bayram
-        namazı vakti <strong>yaklaşık 06:20–06:40</strong> aralığında
-        olması beklenmekle birlikte resmi Diyanet ilanı kesin referanstır.
+        İzmir'de 27 Mayıs 2026 sabahı güneş doğuşu yaklaşık 05:40'tır.
+        Diyanet İşleri Başkanlığı'nın açıkladığı resmi bayram namazı vakti
+        İzmir için <strong>06:25</strong>'tir. İlçeye göre 1–2 dakika
+        fark olabilir; namazvakitleri.diyanet.gov.tr'den teyit edebilirsiniz.
       </p>
 
       <h2>İzmir'de Bayram Namazı Kılınan Başlıca Yerler</h2>
