@@ -6,7 +6,7 @@ export const meta: BlogMeta = {
   description:
     "İzmir'in deprem riski neden yüksek? Ege açık deniz fayları, 2020 Sisam depremi, DASK zorunlu deprem sigortası ve İzmir için depreme hazırlık rehberi.",
   date: "2026-05-24",
-  category: "İzmir",
+  category: "İzmir Rehberi",
   summary:
     "İzmir, Ege'nin aktif tektonik yapısı nedeniyle Türkiye'nin yüksek deprem riski taşıyan kentlerinden biridir. 30 Ekim 2020 depremi bu gerçeği bir kez daha ortaya koydu. Hazırlık yaşam kurtarır.",
   readTime: 7,

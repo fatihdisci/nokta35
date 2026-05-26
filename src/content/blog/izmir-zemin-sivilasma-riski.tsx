@@ -6,7 +6,7 @@ export const meta: BlogMeta = {
   description:
     "Zemin sıvılaşması nedir, İzmir'de hangi bölgeler risk altındadır? 2020 depreminde yaşananlar, Bayraklı ve körfez düzlükleri, AFAD zemin haritası sorgulama rehberi.",
   date: "2026-05-24",
-  category: "Deprem & Afet",
+  category: "Afet & Hazırlık",
   summary:
     "Zemin sıvılaşması, deprem sırasında suya doygun kumlu zeminlerin geçici olarak akışkan hale gelmesidir. 2020 İzmir depremi bu riski somut biçimde ortaya koymuştur. Körfez çevresi alüvyal düzlükler, Bayraklı ve Bornova ovaları yüksek risk bölgeleri olarak araştırmalarda öne çıkmaktadır. AFAD zemin haritası resmi sorgulama kaynağıdır.",
   readTime: 6,

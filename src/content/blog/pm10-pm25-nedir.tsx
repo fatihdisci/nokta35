@@ -6,7 +6,7 @@ export const meta: BlogMeta = {
   description:
     "PM10 ve PM2.5 partikül maddeleri nedir, nereden gelir, sağlığa etkileri nelerdir? Dünya Sağlık Örgütü'nün önerdiği üst sınır değerler.",
   date: "2026-05-18",
-  category: "Hava",
+  category: "Hava Kalitesi",
   summary:
     "Partikül madde havada askıda kalan mikroskopik parçacıklardır. Çapına göre PM10 ve PM2.5 olarak sınıflandırılır; ikincisi solunum yoluyla kana karışabildiği için daha tehlikelidir.",
   readTime: 4,

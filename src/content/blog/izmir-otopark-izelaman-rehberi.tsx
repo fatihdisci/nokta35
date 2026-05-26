@@ -6,7 +6,7 @@ export const meta: BlogMeta = {
   description:
     "İzmir'de kapalı ve açık otopark nerede bulunur? İZELMAN A.Ş. otopark tesisleri, akıllı otopark, ücret ve İzmirkart entegrasyonu hakkında rehber.",
   date: "2026-05-24",
-  category: "İzmir Genel",
+  category: "İzmir Rehberi",
   summary:
     "İzmir'de büyükşehir belediyesine ait otoparklar İZELMAN A.Ş. tarafından işletilir. Şehir merkezinde yeraltı ve çok katlı otoparklar ile parkmetreye bağlı açık park alanları mevcuttur. İzmirkart ile ödeme desteklenir. Güncel tarife için izelaman.com.tr resmi kaynaktır.",
   readTime: 5,

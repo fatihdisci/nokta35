@@ -6,7 +6,7 @@ export const meta: BlogMeta = {
   description:
     "İzmir'de ücretsiz konser, festival, açık hava etkinliği nerede yapılır? Kültürpark, Konak Meydanı, sahiller ve İBB kültür merkezleri için kapsamlı rehber.",
   date: "2026-05-24",
-  category: "İzmir Genel",
+  category: "İzmir Rehberi",
   summary:
     "İzmir'de ücretsiz etkinliklerin büyük bölümü Kültürpark, Konak Meydanı, sahiller (Bostanlı, Kordon, Karşıyaka), İBB kültür merkezleri ve ilçe belediyelerinin açık alan organizasyonlarında yapılır. Etkinlik takvimi belediye kanallarından izlenmelidir.",
   readTime: 5,

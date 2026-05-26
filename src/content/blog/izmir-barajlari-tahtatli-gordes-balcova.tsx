@@ -6,7 +6,7 @@ export const meta: BlogMeta = {
   description:
     "İzmir'in içme suyunu sağlayan barajlar: Tahtalı, Gördes, Balçova, Kemer ve Düzce barajlarının konumu, işlevi, doluluk takibi ve kuraklıkla ilişkisi.",
   date: "2026-05-24",
-  category: "Su",
+  category: "Su & Baraj",
   summary:
     "İzmir'in içme suyu, İZSU tarafından işletilen birden fazla baraj sisteminden sağlanır. Bu barajların en büyüğü olarak bilinen Tahtalı Barajı, şehrin Avrupa yakasına hizmet eder. Güncel doluluk oranları İZSU ve nokta35.com üzerinden takip edilebilir.",
   readTime: 5,

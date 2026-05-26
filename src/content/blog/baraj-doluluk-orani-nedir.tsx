@@ -6,7 +6,7 @@ export const meta: BlogMeta = {
   description:
     "Baraj doluluk oranı nasıl hesaplanır, ölü hacim nedir, doluluk neden mevsimsel değişir? İçme suyu güvenliği için bilinmesi gerekenler.",
   date: "2026-05-10",
-  category: "Su",
+  category: "Su & Baraj",
   summary:
     "Baraj doluluk oranı; bir barajda anlık olarak biriken su hacminin maksimum kapasiteye oranıdır. İçme suyu güvenliği, tarım ve enerji üretimi için kritik bir göstergedir.",
   readTime: 5,

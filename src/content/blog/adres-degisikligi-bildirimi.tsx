@@ -168,7 +168,7 @@ export function Body() {
 
       <p>
         e-Devlet üzerinden yapılabilecek diğer işlemler için:{" "}
-        <a href="/blog/e-devlet-sifre-nasil-alinir">
+        <a href="/blog/e-devlet-ne-yapilir-rehber">
           e-Devlet Şifresi Nasıl Alınır? Adım Adım Kılavuz
         </a>
       </p>

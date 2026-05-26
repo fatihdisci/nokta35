@@ -6,7 +6,7 @@ export const meta: BlogMeta = {
   description:
     "Mutfak, banyo ve bahçede uygulanabilen 12 basit su tasarrufu yöntemi. Sızıntıdan duş süresine, klozet rezervuarından bulaşık makinesine ipuçları.",
   date: "2026-05-15",
-  category: "Su",
+  category: "Su & Baraj",
   summary:
     "Kuraklık dönemlerinde her damla önemli. Günlük rutininizde küçük değişikliklerle aylık su kullanımınızı önemli ölçüde azaltabilirsiniz.",
   readTime: 6,

@@ -6,7 +6,7 @@ export const meta: BlogMeta = {
   description:
     "Açık veri kavramı, tarihsel arka planı ve şehirlere ekonomik, sosyal, akademik katkıları. Türkiye'de açık veri portalları ve yararlanma yolları.",
   date: "2026-05-21",
-  category: "Veri",
+  category: "Açık Veri",
   summary:
     "Açık veri; herkesin ücretsiz erişebileceği, kullanabileceği ve yeniden yayınlayabileceği yapılandırılmış kamu verisidir. Şehirleri daha şeffaf ve verimli yönetmek için temel bir araçtır.",
   readTime: 5,

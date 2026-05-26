@@ -188,7 +188,7 @@ export function Body() {
       </p>
       <p>
         Partikül madde kirliliği hakkında:{" "}
-        <a href="/blog/pm10-pm25-nedir">
+        <a href="/blog/pm10-pm25-nedir-saglik-etkileri">
           PM10 ve PM2.5 Nedir? Sağlığa Etkileri ve Korunma Yolları
         </a>
       </p>

@@ -6,7 +6,7 @@ export const meta: BlogMeta = {
   description:
     "Karbon ayak izi nedir, CO₂ eşdeğeri nasıl hesaplanır? Ulaşım, beslenme, ev enerjisi ve tüketim alışkanlıklarının iklim üzerindeki etkisi ve bireysel azaltma yolları.",
   date: "2026-05-24",
-  category: "Çevre",
+  category: "Sürdürülebilir Yaşam",
   summary:
     "Karbon ayak izi, bir kişinin faaliyetlerinin neden olduğu sera gazı emisyonunu CO₂ eşdeğeri cinsinden ifade eder. Ulaşım, beslenme ve ev enerjisi en büyük bireysel kaynaklar arasındadır.",
   readTime: 6,

@@ -6,7 +6,7 @@ export const meta: BlogMeta = {
   description:
     "Sel ve taşkın öncesinde hazırlık, sel sırasında hayatta kalma kuralları ve sel sonrası güvenlik adımları. AFAD rehberine göre taşkın afet planı.",
   date: "2026-05-25",
-  category: "Afet & Güvenlik",
+  category: "Afet & Hazırlık",
   summary:
     "Sel, Türkiye'nin en sık yaşanan doğal afetlerinden biridir; İzmir dahil birçok bölgede ani sel riski mevcuttur. Hazırlık aşamasında acil çanta, tahliye güzergahı ve erken uyarı sistemlerini bilmek hayat kurtarır. Sel sırasında kesinlikle sel suyu içinde yürünmemeli veya araç kullanılmamalıdır. Güncel uyarılar için AFAD (afad.gov.tr) ve meteoroloji (mgm.gov.tr) takip edilmelidir.",
   readTime: 6,
@@ -191,7 +191,7 @@ export function Body() {
 
       <p>
         Deprem hazırlığı için:{" "}
-        <a href="/blog/deprem-cantasi-hazirlik-listesi">
+        <a href="/blog/deprem-cantasi-icinde-ne-olmali">
           Deprem Çantası: Ne Koymalı? Tam Hazırlık Listesi
         </a>
       </p>

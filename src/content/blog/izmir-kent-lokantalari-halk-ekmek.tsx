@@ -6,7 +6,7 @@ export const meta: BlogMeta = {
   description:
     "İzmir Büyükşehir Belediyesi'nin Kent Lokantaları ve Halk Ekmek büfeleri nedir, kime hizmet verir? Kapsam, hedef ve güncel listeye nasıl ulaşılır.",
   date: "2026-05-24",
-  category: "İzmir Genel",
+  category: "İzmir Rehberi",
   summary:
     "Kent Lokantası, ekonomik koşullarda sıcak yemek sunan belediye sosyal hizmetidir. Halk Ekmek büfeleri ise düşük fiyatlı temel ekmek erişimini hedefler. Konum ve fiyat bilgileri için İBB'nin resmi kanalları esas alınmalıdır.",
   readTime: 4,

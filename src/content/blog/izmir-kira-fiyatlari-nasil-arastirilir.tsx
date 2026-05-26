@@ -6,7 +6,7 @@ export const meta: BlogMeta = {
   description:
     "İzmir'de kira fiyatları neden farklı platformlarda farklı gösterir? TÜİK, Endeksa, Sahibinden verilerini doğru okuma rehberi ve ilçelere göre karşılaştırma yöntemi.",
   date: "2026-05-24",
-  category: "İzmir Genel",
+  category: "İzmir Rehberi",
   summary:
     "İzmir kira fiyatları; ilçe, konum, yapı yaşı ve oda sayısına göre geniş bir aralıkta değişir. Güvenilir veri için TÜİK Konut Kira Endeksi, Endeksa ve piyasa platformları birlikte değerlendirilmelidir. Tek bir kaynağa ya da anlık ilan fiyatlarına dayanmak yanıltıcı olabilir.",
   readTime: 6,

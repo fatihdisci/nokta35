@@ -6,7 +6,7 @@ export const meta: BlogMeta = {
   description:
     "Depreme hazırlık için ev içi güvenlik önlemleri, deprem çantasında bulunması gerekenler, tahliye planı oluşturma ve deprem sırasında-sonrasında yapılması gerekenler.",
   date: "2026-05-24",
-  category: "Afet",
+  category: "Afet & Hazırlık",
   summary:
     "Deprem hazırlığı; ev içi güvenlik düzenlemeleri, yeterli malzeme içeren bir deprem çantası ve önceden yapılmış bir tahliye planından oluşur. AFAD bu konuda ücretsiz rehber ve eğitim kaynakları sunmaktadır.",
   readTime: 8,

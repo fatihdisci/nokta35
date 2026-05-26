@@ -160,13 +160,13 @@ export function Body() {
 
       <p>
         İzmir'de diğer toplu taşıma seçenekleri için:{" "}
-        <a href="/blog/izmir-ulasim-rehberi-eshot-izban-metro">
+        <a href="/blog/izmir-toplu-tasima-rehberi">
           İzmir Ulaşım Rehberi: ESHOT, İZBAN, Metro ve Tramvay
         </a>
       </p>
       <p>
         İZBAN güzergahları ve ücretleri için:{" "}
-        <a href="/blog/izban-hatlar-istasyonlar-ucretler">
+        <a href="/blog/izban-nedir-istasyonlar-guzergah">
           İZBAN: Hatlar, İstasyonlar ve Ücret Hesaplama
         </a>
       </p>

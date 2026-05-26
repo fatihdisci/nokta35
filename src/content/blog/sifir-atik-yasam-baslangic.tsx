@@ -6,7 +6,7 @@ export const meta: BlogMeta = {
   description:
     "Sıfır atık yaşam nedir, nasıl başlanır? Alışveriş çantasından kompostlamaya, tek kullanımlık plastikten doldurulabilir ürünlere — somut 10 adımla sıfır atık yolculuğu.",
   date: "2026-05-24",
-  category: "Çevre",
+  category: "Sürdürülebilir Yaşam",
   summary:
     "Sıfır atık yaşam; çöpe giden malzeme miktarını en aza indirmeyi hedefler. Tam anlamıyla sıfır zor olsa da 5 temel ilke (reddet, azalt, yeniden kullan, geri dönüştür, kompostla) ile ciddi azaltım mümkündür.",
   readTime: 6,

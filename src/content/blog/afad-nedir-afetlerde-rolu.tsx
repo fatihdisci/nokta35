@@ -6,7 +6,7 @@ export const meta: BlogMeta = {
   description:
     "AFAD (Afet ve Acil Durum Yönetimi Başkanlığı) nedir, ne iş yapar? Deprem, sel ve diğer afetlerde AFAD'ın rolü, 122 acil hattı, toplanma alanları ve gönüllülük.",
   date: "2026-05-24",
-  category: "Afet Hazırlığı",
+  category: "Afet & Hazırlık",
   summary:
     "AFAD, Türkiye'de afet yönetiminin merkezi kurumudur. Deprem, sel, yangın ve diğer afetlerde koordinasyonu sağlar; arama-kurtarma, barınma ve rehabilitasyon hizmetlerini yürütür. Acil hat: 122.",
   readTime: 5,

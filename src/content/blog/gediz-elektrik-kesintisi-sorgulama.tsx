@@ -6,7 +6,7 @@ export const meta: BlogMeta = {
   description:
     "İzmir'de Gediz Elektrik kesintisi nasıl sorgulanır? Planlı kesinti takvimi, SMS bildirimi nasıl alınır, arıza hattı 186, mobil uygulama ve online sorgulama rehberi.",
   date: "2026-05-24",
-  category: "İzmir Genel",
+  category: "İzmir Rehberi",
   summary:
     "İzmir'de elektrik dağıtımını Gediz Elektrik Dağıtım A.Ş. (GEAŞ) yürütür. Planlı ve arıza kaynaklı kesintiler için SMS bildirimi, mobil uygulama, 7/24 arıza hattı (186) ve çevrimiçi sorgulama kanalları mevcuttur. Planlı kesintiler belediye web sitesi ve GEAŞ duyurularında önceden yayımlanır.",
   readTime: 5,

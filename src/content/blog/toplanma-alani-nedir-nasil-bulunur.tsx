@@ -6,7 +6,7 @@ export const meta: BlogMeta = {
   description:
     "Deprem toplanma alanı nedir, nasıl belirlenir ve nasıl bulunur? İzmir için e-Devlet, muhtar ve nokta35.com haritasıyla toplanma alanınızı öğrenin.",
   date: "2026-05-24",
-  category: "Afet Hazırlığı",
+  category: "Afet & Hazırlık",
   summary:
     "Toplanma alanları, deprem gibi afetlerde binadan tahliye edilen vatandaşların güvenle bir araya gelebileceği açık alanlardır. Alanınızı afet olmadan önce öğrenmek kritik önem taşır.",
   readTime: 4,

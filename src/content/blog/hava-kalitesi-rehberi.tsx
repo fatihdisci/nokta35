@@ -6,7 +6,7 @@ export const meta: BlogMeta = {
   description:
     "Hava kirleticiler (PM2.5, PM10, NO₂, O₃, SO₂, CO), AKİ kategorileri, WHO 2021 sınır değerleri ve kötü hava günlerinde korunma yöntemleri hakkında kapsamlı rehber.",
   date: "2026-05-24",
-  category: "Hava",
+  category: "Hava Kalitesi",
   summary:
     "Hava kalitesi; PM2.5, NO₂ ve ozon gibi kirleticilerin konsantrasyonuyla ölçülür. AKİ (Hava Kalitesi İndeksi) bu verileri 0–500 arası tek bir sayıya indirger. WHO 2021 yönergeleri ve Türkiye mevzuatı standartları farklıdır.",
   readTime: 9,

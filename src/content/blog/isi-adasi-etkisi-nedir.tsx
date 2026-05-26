@@ -6,7 +6,7 @@ export const meta: BlogMeta = {
   description:
     "Kentsel ısı adası etkisi nedir, neden oluşur? Asfalt, beton ve yeşil alan azlığının şehir sıcaklıklarına etkisi, sağlık riskleri ve İzmir için pratik çözümler.",
   date: "2026-05-24",
-  category: "Çevre",
+  category: "Sürdürülebilir Yaşam",
   summary:
     "Kentsel ısı adası etkisi; beton, asfalt ve binaların ısıyı tutması sonucu şehirlerin çevresindeki kırsal alanlara göre daha sıcak olması olgusudur. Yaz aylarında sağlık riski oluşturur.",
   readTime: 6,

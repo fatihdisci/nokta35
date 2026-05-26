@@ -6,7 +6,7 @@ export const meta: BlogMeta = {
   description:
     "İzmir'de ücretsiz koşu, yürüyüş ve bisiklet yapılacak yerler. Bostanlı, Kordon, Karşıyaka sahili, Kültürpark, Homeros Vadisi ve İzmir Kuş Cenneti rehberi.",
   date: "2026-05-24",
-  category: "İzmir Genel",
+  category: "İzmir Rehberi",
   summary:
     "İzmir; uzun sahil koridorları, kentsel ormanlar ve doğal vadiler sayesinde ücretsiz açık hava sporu açısından zengindir. Sahil koşu yolları, Kültürpark, Homeros Vadisi ve Yamanlar Dağı en yaygın kullanılan parkurlardır. Mahalle ölçeğinde belediye spor tesisleri de ücretsiz seçenekler sunar.",
   readTime: 5,

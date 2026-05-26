@@ -6,7 +6,7 @@ export const meta: BlogMeta = {
   description:
     "İzmir liseleri taban puanları nasıl öğrenilir? LGS nedir, puan nasıl hesaplanır, fen lisesi ve Anadolu lisesi farkı, MEB e-Okul üzerinden resmi sorgulama adımları.",
   date: "2026-05-24",
-  category: "İzmir Genel",
+  category: "İzmir Rehberi",
   summary:
     "İzmir'de liselere yerleşme Liselere Geçiş Sistemi (LGS) ile yapılır. Taban puanlar her yıl başvuru sayısına göre değişir; kesin ve güncel verilere MEB'in e-Okul sistemi ve tercih kılavuzlarından ulaşılabilir. Bu rehber sistemi ve sorgulama yollarını açıklar, belirli puan değerleri sunmaz.",
   readTime: 6,

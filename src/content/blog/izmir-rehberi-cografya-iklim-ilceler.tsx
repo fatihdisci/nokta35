@@ -6,7 +6,7 @@ export const meta: BlogMeta = {
   description:
     "İzmir hakkında her şey: Ege'nin en büyük şehri, körfez coğrafyası, Akdeniz iklimi, 30 ilçe, toplu taşıma sistemi ve şehri takip etmek için kullanışlı kaynaklar.",
   date: "2026-05-24",
-  category: "İzmir",
+  category: "İzmir Rehberi",
   summary:
     "İzmir, Ege kıyısında konumlanan ve Türkiye'nin üçüncü büyük şehri olarak bilinen bir metropoldür. Körfez çevresi coğrafyası, sıcak-kuru yazlar, ılık kışlar ve gelişmiş toplu taşıma ağıyla öne çıkar.",
   readTime: 7,

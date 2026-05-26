@@ -6,7 +6,7 @@ export const meta: BlogMeta = {
   description:
     "Deprem çantasında bulunması gereken malzemelerin AFAD önerilerine dayalı kapsamlı listesi: su, gıda, ilk yardım, belgeler, ilaçlar ve özel ihtiyaçlar için pratik rehber.",
   date: "2026-05-24",
-  category: "Afet",
+  category: "Afet & Hazırlık",
   summary:
     "Deprem çantası; sarsıntı sonrası ilk 72 saatte bağımsız yaşamı destekleyecek malzemeleri içermelidir. AFAD, su, gıda, ilk yardım malzemeleri, belgeler ve kişisel ihtiyaçları kapsayan bir temel liste önermektedir.",
   readTime: 5,

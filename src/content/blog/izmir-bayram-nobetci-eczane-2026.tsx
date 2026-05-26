@@ -128,7 +128,7 @@ export function Body() {
 
       <p>
         Nöbetçi eczane ve sağlık sistemi hakkında:{" "}
-        <a href="/blog/nobetci-eczane-sistemi">
+        <a href="/blog/nobetci-eczane-sistemi-nasil-isler">
           Nöbetçi Eczane Sistemi Nasıl Çalışır?
         </a>
       </p>

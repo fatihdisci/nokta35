@@ -6,7 +6,7 @@ export const meta: BlogMeta = {
   description:
     "Türkiye'nin en büyük ve stratejik barajları: hangi nehir üzerinde, hangi bölgede, ne işe yarar? GAP, Keban, Hirfanlı ve daha fazlasının kısa rehberi.",
   date: "2026-05-17",
-  category: "Su",
+  category: "Su & Baraj",
   summary:
     "Türkiye, içme suyu, sulama ve hidroelektrik üretimi için onlarca büyük baraja sahiptir. Bu yazıda en bilinen ve stratejik öneme sahip barajlarını kısa kısa tanıtıyoruz.",
   readTime: 6,

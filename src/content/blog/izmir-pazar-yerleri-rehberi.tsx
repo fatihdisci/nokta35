@@ -6,7 +6,7 @@ export const meta: BlogMeta = {
   description:
     "İzmir'deki semt pazarlarının rehberi: her ilçede hangi gün pazar kurulur, taze sebze ve meyve nerede bulunur, pazar yeri geleneği nasıl işler? Harita ve güncel liste.",
   date: "2026-05-24",
-  category: "İzmir",
+  category: "İzmir Rehberi",
   summary:
     "İzmir'de 30 ilçeye yayılan yüzlerce semt pazarı haftalık döngüyle kurulur. Her mahallede en az bir pazar günü bulunur; taze, mevsimlik ve yerel ürünler için en ekonomik alışveriş noktalarıdır.",
   readTime: 5,

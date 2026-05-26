@@ -168,7 +168,7 @@ export function Body() {
       </p>
       <p>
         Nöbetçi eczane bulmak için:{" "}
-        <a href="/blog/nobetci-eczane-nasil-bulunur">
+        <a href="/blog/nobetci-eczane-sistemi-nasil-isler">
           Nöbetçi Eczane Nasıl Bulunur?
         </a>
       </p>

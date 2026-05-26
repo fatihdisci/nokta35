@@ -6,7 +6,7 @@ export const meta: BlogMeta = {
   description:
     "İzmir'de ders çalışmak için nereye gidilir? Halk kütüphaneleri, üniversite kütüphaneleri, İBB millet kıraathaneleri ve uzun saatler açık çalışma alanları rehberi.",
   date: "2026-05-24",
-  category: "İzmir Genel",
+  category: "İzmir Rehberi",
   summary:
     "İzmir'de Kültür ve Turizm Bakanlığı halk kütüphaneleri, üniversite kütüphaneleri (DEÜ, EÜ, İYTE) ve belediye okuma salonları en yaygın ders çalışma noktalarıdır. Sınav dönemlerinde geç saat hizmeti veren noktalar vardır. Güncel açılış saatleri için kurumun resmi kanalları takip edilmelidir.",
   readTime: 5,

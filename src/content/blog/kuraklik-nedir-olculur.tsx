@@ -6,7 +6,7 @@ export const meta: BlogMeta = {
   description:
     "Kuraklık türleri (meteorolojik, hidrolojik, tarımsal, sosyoekonomik), kuraklık indeksleri (SPI, PDSI), kuraklığın insan ve çevre üzerindeki etkileri.",
   date: "2026-05-19",
-  category: "İklim",
+  category: "Su & Baraj",
   summary:
     "Kuraklık; uzun bir dönem boyunca normalden az yağış sonucu su kaynaklarının yetersiz hale gelmesidir. Tek bir kuraklık değil, dört farklı türü ve birden fazla ölçüm yöntemi vardır.",
   readTime: 6,

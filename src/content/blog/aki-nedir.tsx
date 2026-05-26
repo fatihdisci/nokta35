@@ -6,7 +6,7 @@ export const meta: BlogMeta = {
   description:
     "Hava Kalitesi İndeksi (AKİ) nedir, hangi kirleticileri ölçer, renk skalası ne anlama gelir? 0–500 arası AKİ değerlerinin sağlık üzerindeki etkileri.",
   date: "2026-05-20",
-  category: "Hava",
+  category: "Hava Kalitesi",
   summary:
     "AKİ, havadaki kirlilik seviyesini tek bir sayıya indirgeyen küresel bir ölçektir. 0–500 arası bir değer ve renk skalasıyla halka iletilir.",
   readTime: 5,
