@@ -119,7 +119,7 @@ export function datasetJsonLd(opts: DatasetOptions) {
     }),
     ...(opts.keywords && { keywords: opts.keywords }),
     creator: {
-      "@type": "GovernmentOrganization",
+      "@type": "Organization",
       name: opts.creator ?? "İzmir Büyükşehir Belediyesi",
       ...(opts.creatorUrl && { url: opts.creatorUrl }),
     },
