@@ -17,9 +17,11 @@ export const metadata: Metadata = {
 export default function BlogIndexPage() {
   const breadcrumb = breadcrumbJsonLd([{ name: "Blog", href: "/blog" }])
 
-  const sorted = [...POSTS].sort(
-    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
-  )
+  // Strip Body function — client components cannot receive functions as props
+  const sorted = [...POSTS]
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    .map(({ Body: _body, ...meta }) => meta)
   const kategoriler = [...new Set(POSTS.map((p) => p.category))].sort()
 
   return (
