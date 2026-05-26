@@ -4,7 +4,7 @@ export const meta: BlogMeta = {
   slug: "belediye-acik-verisi-durum",
   title: "Belediye Açık Verisi: Türkiye'de ve Dünyada Durum",
   description:
-    "Hangi belediyeler açık veri sunar? Türkiye'de belediye açık veri portalları neler? Dünyada öncü şehirler, açık veri standartları ve vatandaşın bu verilerden nasıl yararlanacağı.",
+    "Hangi belediyeler açık veri sunar? Türkiye'de belediye açık veri portalları neler? Dünyada öncü şehirler, açık veri standartları ve vatandaşın bu.",
   date: "2026-05-24",
   category: "Açık Veri",
   summary:

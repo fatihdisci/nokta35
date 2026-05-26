@@ -4,7 +4,7 @@ export const meta: BlogMeta = {
   slug: "kompost-nedir-evde-nasil-yapilir",
   title: "Kompost Nedir? Evde Kompost Nasıl Yapılır? Adım Adım Rehber",
   description:
-    "Kompost nedir, hangi atıklar kullanılır, evde veya balkondan nasıl başlanır? Yeşil-kahverengi denge, nem kontrolü ve olgunluk testi ile organik atık dönüşüm rehberi.",
+    "Kompost nedir, hangi atıklar kullanılır, evde veya balkondan nasıl başlanır? Yeşil-kahverengi denge, nem kontrolü ve olgunluk testi ile organik atık.",
   date: "2026-05-25",
   category: "Sürdürülebilir Yaşam",
   summary:

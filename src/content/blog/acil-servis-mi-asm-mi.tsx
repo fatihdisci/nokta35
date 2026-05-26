@@ -4,7 +4,7 @@ export const meta: BlogMeta = {
   slug: "acil-servis-mi-asm-mi",
   title: "Acil Servis mi, ASM mi? Doğru Tercih Rehberi",
   description:
-    "Acil servise mi yoksa aile sağlığı merkezine mi gitmelisiniz? Hangi durumlar gerçek acil, hangileri ASM'ye yönlendirilmeli? 112 ne zaman aranır? Türkiye sağlık sistemi rehberi.",
+    "Acil servise mi yoksa aile sağlığı merkezine mi gitmelisiniz? Hangi durumlar gerçek acil, hangileri ASM'ye yönlendirilmeli? 112 ne zaman aranır? Türkiye.",
   date: "2026-05-24",
   category: "Sağlık",
   summary:
@@ -30,11 +30,6 @@ export const meta: BlogMeta = {
       question: "Acil servisi gereksiz kullanmanın sonuçları nelerdir?",
       answer:
         "Acil olmayan vakalar acil servise yöneldiğinde bekleme süreleri uzar ve gerçekten acil olan hastalar daha uzun süre beklemek zorunda kalır. Ayrıca SGK kapsamında acil serviste gereksiz başvurular için ek muayene katılım payı uygulanabilir. Sistem verimliliği açısından doğru noktaya başvurmak önemlidir.",
-    },
-    {
-      question: "Triaj sistemi nedir?",
-      answer:
-        "Triaj, acil servislerde hastaların aciliyet durumuna göre önceliklendirildiği sistemdir. Hayatı tehdit eden vakalar (kırmızı) anında müdahale alırken daha az acil durumlar (sarı, yeşil) sıraya girer. Bu nedenle acil olmayan şikâyetle acil servise başvuran hastalar uzun süre bekleyebilir.",
     },
     {
       question: "ALO 182 Sağlık Hattı ne işe yarar?",

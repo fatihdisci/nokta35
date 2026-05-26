@@ -4,7 +4,7 @@ export const meta: BlogMeta = {
   slug: "sifir-atik-yasam-baslangic",
   title: "Sıfır Atık Yaşam: Başlamak İçin 10 Pratik Adım",
   description:
-    "Sıfır atık yaşam nedir, nasıl başlanır? Alışveriş çantasından kompostlamaya, tek kullanımlık plastikten doldurulabilir ürünlere — somut 10 adımla sıfır atık yolculuğu.",
+    "Sıfır atık yaşam nedir, nasıl başlanır? Alışveriş çantasından kompostlamaya, tek kullanımlık plastikten doldurulabilir ürünlere — somut 10 adımla sıfır.",
   date: "2026-05-24",
   category: "Sürdürülebilir Yaşam",
   summary:

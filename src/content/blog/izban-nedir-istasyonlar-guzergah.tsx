@@ -4,7 +4,7 @@ export const meta: BlogMeta = {
   slug: "izban-nedir-istasyonlar-guzergah",
   title: "İZBAN Nedir? Güzergah, İstasyonlar ve Kullanım Rehberi",
   description:
-    "İZBAN (İzmir Banliyö Taşımacılığı) nedir, hangi güzergahta çalışır, istasyonlar nelerdir? Aliağa'dan Selçuk'a uzanan banliyö treni, İZMİRKART kullanımı ve aktarma noktaları rehberi.",
+    "İZBAN (İzmir Banliyö Taşımacılığı) nedir, hangi güzergahta çalışır, istasyonlar nelerdir? Aliağa'dan Selçuk'a uzanan banliyö treni, İZMİRKART kullanımı ve.",
   date: "2026-05-24",
   category: "Ulaşım",
   summary:
@@ -35,11 +35,6 @@ export const meta: BlogMeta = {
       question: "İZBAN'dan metro ve vapura aktarma nasıl yapılır?",
       answer:
         "İZBAN'ın metro ile aktarma noktası Halkapınar İstasyonu'dur. Vapur aktarması için Alsancak İstasyonu'ndan iskeledeki yürüme mesafesi oldukça kısadır. Basmane İstasyonu ise ESHOT otobüsleriyle bağlantı sağlar. Tüm aktarmalarda İZMİRKART indirimli ücret uygular.",
-    },
-    {
-      question: "İZBAN sefer sıklığı nedir?",
-      answer:
-        "İZBAN, gün içinde yoğun saatlerde daha sık, gece saatlerinde daha seyrek aralıklarla sefer düzenler. Sefer saatleri ve güncel tarifeler için İZBAN'ın resmi web sitesi ya da İZMİRKART mobil uygulaması takip edilmelidir; bu bilgiler zaman içinde güncellenebilir.",
     },
   ],
 }

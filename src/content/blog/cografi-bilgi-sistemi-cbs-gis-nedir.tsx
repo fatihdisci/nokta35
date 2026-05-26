@@ -4,7 +4,7 @@ export const meta: BlogMeta = {
   slug: "cografi-bilgi-sistemi-cbs-gis-nedir",
   title: "Coğrafi Bilgi Sistemi (CBS/GIS) Nedir?",
   description:
-    "CBS (Coğrafi Bilgi Sistemi) ya da GIS nedir, ne işe yarar? Harita ile farkı, katman mantığı, belediye CBS kullanımı ve açık coğrafi veriler hakkında kapsamlı rehber.",
+    "CBS (Coğrafi Bilgi Sistemi) ya da GIS nedir, ne işe yarar? Harita ile farkı, katman mantığı, belediye CBS kullanımı ve açık coğrafi veriler hakkında.",
   date: "2026-05-24",
   category: "Açık Veri",
   summary:

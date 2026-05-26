@@ -4,7 +4,7 @@ export const meta: BlogMeta = {
   slug: "yenilenebilir-enerji-turleri",
   title: "Yenilenebilir Enerji Türleri: Güneş, Rüzgar, Jeotermal, Hidrolik",
   description:
-    "Yenilenebilir enerji türleri nelerdir? Güneş, rüzgar, jeotermal, hidrolik ve biyokütle enerjisinin nasıl çalıştığı, avantajları, dezavantajları ve Türkiye'deki durumu.",
+    "Yenilenebilir enerji türleri nelerdir? Güneş, rüzgar, jeotermal, hidrolik ve biyokütle enerjisinin nasıl çalıştığı, avantajları, dezavantajları ve.",
   date: "2026-05-25",
   category: "Sürdürülebilir Yaşam",
   summary:

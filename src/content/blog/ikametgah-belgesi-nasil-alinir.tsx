@@ -4,7 +4,7 @@ export const meta: BlogMeta = {
   slug: "ikametgah-belgesi-nasil-alinir",
   title: "İkametgah (Adres Teyit) Belgesi Nasıl Alınır? e-Devlet Rehberi",
   description:
-    "İkametgah belgesi (adres teyit belgesi) e-Devlet üzerinden ücretsiz ve anında alınır. Adım adım açıklama, nüfus müdürlüğü alternatifi ve hangi durumlarda kullanılır.",
+    "İkametgah belgesi (adres teyit belgesi) e-Devlet üzerinden ücretsiz ve anında alınır. Adım adım açıklama, nüfus müdürlüğü alternatifi ve hangi durumlarda.",
   date: "2026-05-25",
   category: "Resmi İşlemler",
   summary:

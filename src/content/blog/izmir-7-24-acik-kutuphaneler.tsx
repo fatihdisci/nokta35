@@ -4,7 +4,7 @@ export const meta: BlogMeta = {
   slug: "izmir-7-24-acik-kutuphaneler",
   title: "İzmir'de Geç Saatlere Kadar Açık Kütüphaneler ve Çalışma Alanları",
   description:
-    "İzmir'de ders çalışmak için nereye gidilir? Halk kütüphaneleri, üniversite kütüphaneleri, İBB millet kıraathaneleri ve uzun saatler açık çalışma alanları rehberi.",
+    "İzmir'de ders çalışmak için nereye gidilir? Halk kütüphaneleri, üniversite kütüphaneleri, İBB millet kıraathaneleri ve uzun saatler açık çalışma alanları.",
   date: "2026-05-24",
   category: "İzmir Rehberi",
   summary:

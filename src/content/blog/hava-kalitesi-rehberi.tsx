@@ -4,7 +4,7 @@ export const meta: BlogMeta = {
   slug: "hava-kalitesi-rehberi",
   title: "Hava Kalitesi Nedir? AKİ, PM2.5, NO₂ — Eksiksiz Rehber",
   description:
-    "Hava kirleticiler (PM2.5, PM10, NO₂, O₃, SO₂, CO), AKİ kategorileri, WHO 2021 sınır değerleri ve kötü hava günlerinde korunma yöntemleri hakkında kapsamlı rehber.",
+    "Hava kirleticiler (PM2.5, PM10, NO₂, O₃, SO₂, CO), AKİ kategorileri, WHO 2021 sınır değerleri ve kötü hava günlerinde korunma yöntemleri hakkında kapsamlı.",
   date: "2026-05-24",
   category: "Hava Kalitesi",
   summary:
@@ -35,11 +35,6 @@ export const meta: BlogMeta = {
       question: "İzmir'de hava kalitesini nereden takip edebilirim?",
       answer:
         "İzmir'de hava kalitesi verilerini Çevre, Şehircilik ve İklim Değişikliği Bakanlığı'nın Ulusal Hava Kalitesi İzleme Ağı (havaizleme.gov.tr) üzerinden istasyon bazında takip edebilirsiniz. Ayrıca nokta35.com'un ana sayfasında AKİ verisi anlık olarak gösterilmektedir.",
-    },
-    {
-      question: "Hava kirliliği hangi sağlık sorunlarına yol açar?",
-      answer:
-        "WHO verilerine göre hava kirliliği; kronik akciğer hastalığı, astım, kalp-damar hastalıkları, inme ve akciğer kanseri gibi uzun vadeli sağlık sorunlarıyla ilişkilendirilmektedir. Kısa vadede göz-boğaz tahrişi, öksürük, nefes darlığı ve baş ağrısı görülebilir. Etkinin şiddeti kirletici türüne, konsantrasyonuna ve maruziyet süresine bağlıdır.",
     },
   ],
 }

@@ -4,7 +4,7 @@ export const meta: BlogMeta = {
   slug: "izmir-plajlari-mavi-bayrak-2026",
   title: "İzmir Mavi Bayrak Plajları 2026: İlçe İlçe Rehber",
   description:
-    "İzmir'de 2026 yılında Mavi Bayrak alan plajlar hangileri? Çeşme, Urla, Foça, Seferihisar kıyılarında nitelikli plajları bulmak ve resmi listeye ulaşmak için rehber.",
+    "İzmir'de 2026 yılında Mavi Bayrak alan plajlar hangileri? Çeşme, Urla, Foça, Seferihisar kıyılarında nitelikli plajları bulmak ve resmi listeye ulaşmak.",
   date: "2026-05-25",
   category: "İzmir Rehberi",
   summary:

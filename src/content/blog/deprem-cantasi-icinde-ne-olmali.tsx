@@ -4,7 +4,7 @@ export const meta: BlogMeta = {
   slug: "deprem-cantasi-icinde-ne-olmali",
   title: "Deprem Çantası İçinde Ne Olmalı? Güncel ve Kapsamlı Liste",
   description:
-    "Deprem çantasında bulunması gereken malzemelerin AFAD önerilerine dayalı kapsamlı listesi: su, gıda, ilk yardım, belgeler, ilaçlar ve özel ihtiyaçlar için pratik rehber.",
+    "Deprem çantasında bulunması gereken malzemelerin AFAD önerilerine dayalı kapsamlı listesi: su, gıda, ilk yardım, belgeler, ilaçlar ve özel ihtiyaçlar için.",
   date: "2026-05-24",
   category: "Afet & Hazırlık",
   summary:

@@ -4,7 +4,7 @@ export const meta: BlogMeta = {
   slug: "aile-sagligi-merkezi-asm-nedir",
   title: "Aile Sağlığı Merkezi (ASM) Nedir? Nasıl Kayıt Olunur?",
   description:
-    "ASM (Aile Sağlığı Merkezi) nedir, hangi hizmetleri ücretsiz sunar? Aile hekimine nasıl kayıt olunur, randevu nasıl alınır ve ASM ile hastane acil servisi arasındaki fark.",
+    "ASM (Aile Sağlığı Merkezi) nedir, hangi hizmetleri ücretsiz sunar? Aile hekimine nasıl kayıt olunur, randevu nasıl alınır ve ASM ile hastane acil servisi.",
   date: "2026-05-24",
   category: "Sağlık",
   summary:

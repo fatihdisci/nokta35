@@ -4,7 +4,7 @@ export const meta: BlogMeta = {
   slug: "organik-tarim-nedir-farki",
   title: "Organik Tarım Nedir? Konvansiyonel Tarımdan Farkı ve Sertifikasyon",
   description:
-    "Organik tarım nedir, hangi standartlar geçerlidir? Türkiye'de organik ürün sertifikasyonu, fiyat farkının nedenleri ve tüketici olarak nasıl doğru seçim yapılır.",
+    "Organik tarım nedir, hangi standartlar geçerlidir? Türkiye'de organik ürün sertifikasyonu, fiyat farkının nedenleri ve tüketici olarak nasıl doğru seçim.",
   date: "2026-05-25",
   category: "Sürdürülebilir Yaşam",
   summary:

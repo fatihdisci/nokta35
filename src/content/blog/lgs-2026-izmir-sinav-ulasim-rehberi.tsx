@@ -4,7 +4,7 @@ export const meta: BlogMeta = {
   slug: "lgs-2026-izmir-sinav-ulasim-rehberi",
   title: "LGS 2026 İzmir: Sınav Günü Ulaşım, Hazırlık ve Sınav Yeri Rehberi",
   description:
-    "LGS 2026 İzmir'de ne zaman? 13 Haziran 2026 Cumartesi günü yapılacak Liselere Geçiş Sınavı için sınav yerine ulaşım, yanınızda bulundurmanız gerekenler ve pratik öneriler.",
+    "LGS 2026 İzmir'de ne zaman? 13 Haziran 2026 Cumartesi günü yapılacak Liselere Geçiş Sınavı için sınav yerine ulaşım, yanınızda bulundurmanız gerekenler ve.",
   date: "2026-05-25",
   category: "İzmir Rehberi",
   summary:

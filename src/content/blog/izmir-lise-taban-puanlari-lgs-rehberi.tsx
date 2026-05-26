@@ -4,7 +4,7 @@ export const meta: BlogMeta = {
   slug: "izmir-lise-taban-puanlari-lgs-rehberi",
   title: "İzmir Lise Taban Puanları: LGS Sistemi ve Resmi Sorgulama Rehberi",
   description:
-    "İzmir liseleri taban puanları nasıl öğrenilir? LGS nedir, puan nasıl hesaplanır, fen lisesi ve Anadolu lisesi farkı, MEB e-Okul üzerinden resmi sorgulama adımları.",
+    "İzmir liseleri taban puanları nasıl öğrenilir? LGS nedir, puan nasıl hesaplanır, fen lisesi ve Anadolu lisesi farkı, MEB e-Okul üzerinden resmi sorgulama.",
   date: "2026-05-24",
   category: "İzmir Rehberi",
   summary:

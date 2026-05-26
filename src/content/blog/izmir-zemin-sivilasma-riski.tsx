@@ -4,7 +4,7 @@ export const meta: BlogMeta = {
   slug: "izmir-zemin-sivilasma-riski",
   title: "İzmir Zemin Sıvılaşma Riski: Hangi İlçeler Tehlike Altında?",
   description:
-    "Zemin sıvılaşması nedir, İzmir'de hangi bölgeler risk altındadır? 2020 depreminde yaşananlar, Bayraklı ve körfez düzlükleri, AFAD zemin haritası sorgulama rehberi.",
+    "Zemin sıvılaşması nedir, İzmir'de hangi bölgeler risk altındadır? 2020 depreminde yaşananlar, Bayraklı ve körfez düzlükleri, AFAD zemin haritası sorgulama.",
   date: "2026-05-24",
   category: "Afet & Hazırlık",
   summary:

@@ -4,7 +4,7 @@ export const meta: BlogMeta = {
   slug: "gediz-elektrik-kesintisi-sorgulama",
   title: "Gediz Elektrik Kesintisi Sorgulama: SMS Bildirimi, Uygulama ve Arıza Hattı",
   description:
-    "İzmir'de Gediz Elektrik kesintisi nasıl sorgulanır? Planlı kesinti takvimi, SMS bildirimi nasıl alınır, arıza hattı 186, mobil uygulama ve online sorgulama rehberi.",
+    "İzmir'de Gediz Elektrik kesintisi nasıl sorgulanır? Planlı kesinti takvimi, SMS bildirimi nasıl alınır, arıza hattı 186, mobil uygulama ve online.",
   date: "2026-05-24",
   category: "İzmir Rehberi",
   summary:

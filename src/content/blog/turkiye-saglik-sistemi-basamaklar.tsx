@@ -4,7 +4,7 @@ export const meta: BlogMeta = {
   slug: "turkiye-saglik-sistemi-basamaklar",
   title: "Türkiye'de Sağlık Sistemi: ASM, Hastane ve Acil Servis Rehberi",
   description:
-    "Türkiye'de sağlık sisteminin üç basamağı: ASM (aile hekimliği), devlet ve özel hastaneler, üniversite hastaneleri. SGK kapsamı, acil servis ve nöbetçi eczane kılavuzu.",
+    "Türkiye'de sağlık sisteminin üç basamağı: ASM (aile hekimliği), devlet ve özel hastaneler, üniversite hastaneleri. SGK kapsamı, acil servis ve nöbetçi.",
   date: "2026-05-24",
   category: "Sağlık",
   summary:
@@ -35,11 +35,6 @@ export const meta: BlogMeta = {
       question: "Nöbetçi eczaneyi nasıl bulabilirim?",
       answer:
         "Nöbetçi eczane bilgisine birkaç yoldan ulaşılabilir: eczacı odalarının bölgesel web siteleri, Türkiye Eczacılar Birliği'nin uygulaması ve nokta35.com'un ana sayfasındaki eczane bölümü güncel nöbetçi listesini göstermektedir. Nöbetçi eczaneler günlük döner; bilgiyi o gün için kontrol etmek önerilir.",
-    },
-    {
-      question: "112 ne zaman aranır?",
-      answer:
-        "112, Türkiye'nin sağlık, yangın ve güvenlik acil hattıdır. Yaşamı tehdit eden tıbbi durumlar (kalp krizi, inme, ciddi kaza, bilinç kaybı), yangın ve güvenlik tehdidi durumlarında 112 aranmalıdır. 112 operatörleri Türkçe yanı sıra yabancı dil desteği de sunmaktadır.",
     },
   ],
 }

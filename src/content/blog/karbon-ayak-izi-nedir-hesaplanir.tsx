@@ -4,7 +4,7 @@ export const meta: BlogMeta = {
   slug: "karbon-ayak-izi-nedir-hesaplanir",
   title: "Karbon Ayak İzi Nedir? Nasıl Hesaplanır ve Azaltılır?",
   description:
-    "Karbon ayak izi nedir, CO₂ eşdeğeri nasıl hesaplanır? Ulaşım, beslenme, ev enerjisi ve tüketim alışkanlıklarının iklim üzerindeki etkisi ve bireysel azaltma yolları.",
+    "Karbon ayak izi nedir, CO₂ eşdeğeri nasıl hesaplanır? Ulaşım, beslenme, ev enerjisi ve tüketim alışkanlıklarının iklim üzerindeki etkisi ve bireysel.",
   date: "2026-05-24",
   category: "Sürdürülebilir Yaşam",
   summary:
@@ -35,11 +35,6 @@ export const meta: BlogMeta = {
       question: "Karbon ayak izi ile iklim değişikliği arasındaki bağlantı nedir?",
       answer:
         "Atmosferdeki sera gazı konsantrasyonu arttıkça daha fazla ısı tutulur ve küresel ortalama sıcaklık yükselir. IPCC'nin Altıncı Değerlendirme Raporu'na göre (2021), sıcaklık artışını 1,5 °C ile sınırlamak için 2050'ye kadar net sıfır emisyona ulaşılması gerekmektedir. Bireysel azaltım, bu hedefe katkı sağlamasının yanı sıra sistemsel dönüşüm için toplumsal talep oluşturur.",
-    },
-    {
-      question: "Karbon dengeleme (offset) nedir, güvenilir mi?",
-      answer:
-        "Karbon dengeleme, kaçınılamayan emisyonları ağaç dikimi, yenilenebilir enerji projeleri veya doğayı koruma gibi projeler aracılığıyla 'dengelemeyi' ifade eder. Ancak uzmanlar dengelemenin gerçek emisyon azaltımının yerini tutamayacağı konusunda hemfikirdir; dengeleme projesinin kalitesi ve doğrulanabilirliği kritik önem taşır.",
     },
   ],
 }

@@ -4,7 +4,7 @@ export const meta: BlogMeta = {
   slug: "izmir-pazar-yerleri-rehberi",
   title: "İzmir'de Semt Pazarları: Hangi Gün, Hangi İlçede?",
   description:
-    "İzmir'deki semt pazarlarının rehberi: her ilçede hangi gün pazar kurulur, taze sebze ve meyve nerede bulunur, pazar yeri geleneği nasıl işler? Harita ve güncel liste.",
+    "İzmir'deki semt pazarlarının rehberi: her ilçede hangi gün pazar kurulur, taze sebze ve meyve nerede bulunur, pazar yeri geleneği nasıl işler? Harita ve.",
   date: "2026-05-24",
   category: "İzmir Rehberi",
   summary:

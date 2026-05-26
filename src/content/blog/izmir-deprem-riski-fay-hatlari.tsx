@@ -36,11 +36,6 @@ export const meta: BlogMeta = {
       answer:
         "İzmir'de yaşayanlar için temel hazırlık adımları: deprem çantası hazırlamak, aile tahliye planı oluşturmak, konutu depreme dayanıklılık açısından uzman mühendise değerlendirtmek, toplanma alanını öğrenmek ve DASK sigortasını yaptırmaktır. Detaylı rehber için 'Depreme Hazırlık' yazımızı inceleyebilirsiniz.",
     },
-    {
-      question: "İzmir'deki toplanma alanları nerede?",
-      answer:
-        "AFAD ve İzmir Büyükşehir Belediyesi tarafından belirlenen toplanma alanları, park, meydan ve açık spor tesislerinde konuşlandırılmaktadır. Bulunduğunuz mahallenin toplanma alanını e-Devlet üzerinden veya muhtarlık aracılığıyla öğrenebilirsiniz. nokta35.com haritasında da toplanma alanı konumları görüntülenebilir.",
-    },
   ],
 }
 

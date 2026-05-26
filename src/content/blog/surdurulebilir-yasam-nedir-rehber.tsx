@@ -4,7 +4,7 @@ export const meta: BlogMeta = {
   slug: "surdurulebilir-yasam-nedir-rehber",
   title: "Sürdürülebilir Yaşam Nedir? Evden Başlamak İçin Kılavuz",
   description:
-    "Sürdürülebilir yaşam nedir, neden önemlidir? Su tasarrufu, enerji verimliliği, sıfır atık, gıda israfını azaltma ve bilinçli tüketim için evden başlayabileceğiniz pratik rehber.",
+    "Sürdürülebilir yaşam nedir, neden önemlidir? Su tasarrufu, enerji verimliliği, sıfır atık, gıda israfını azaltma ve bilinçli tüketim için evden.",
   date: "2026-05-24",
   category: "Çevre",
   summary:
@@ -25,11 +25,6 @@ export const meta: BlogMeta = {
       question: "Sıfır atık yaşam nedir?",
       answer:
         "Sıfır atık; çöpe gidecek malzeme miktarını en aza indirmeyi hedefleyen bir yaklaşımdır. Bu; önce tüketimi azaltmayı (azalt), sonra yeniden kullanmayı (yeniden kullan), geri dönüştürmeyi ve kompost yapmayı içerir. Tam anlamıyla sıfır atık zor olsa da bu alışkanlıklar hanehalkı atığını kayda değer ölçüde düşürebilir.",
-    },
-    {
-      question: "Karbon ayak izi nedir?",
-      answer:
-        "Karbon ayak izi; bir kişinin, kuruluşun veya ürünün sera gazı emisyonuna toplam katkısını CO₂ eşdeğeri cinsinden ifade eder. Konut ısıtma-soğutma, elektrik tüketimi, ulaşım ve beslenme alışkanlıkları bireysel karbon ayak izinin başlıca belirleyicileridir. Azaltma için önce en büyük kaynakları (uçuş, et tüketimi, ısıtma) ele almak en etkili yoldur.",
     },
     {
       question: "Gıda israfını azaltmak için ne yapılabilir?",

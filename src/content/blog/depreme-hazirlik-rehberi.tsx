@@ -4,7 +4,7 @@ export const meta: BlogMeta = {
   slug: "depreme-hazirlik-rehberi",
   title: "Depreme Hazırlık: Ev Güvenliği, Çanta ve Tahliye Planı",
   description:
-    "Depreme hazırlık için ev içi güvenlik önlemleri, deprem çantasında bulunması gerekenler, tahliye planı oluşturma ve deprem sırasında-sonrasında yapılması gerekenler.",
+    "Depreme hazırlık için ev içi güvenlik önlemleri, deprem çantasında bulunması gerekenler, tahliye planı oluşturma ve deprem sırasında-sonrasında yapılması.",
   date: "2026-05-24",
   category: "Afet & Hazırlık",
   summary:
@@ -30,11 +30,6 @@ export const meta: BlogMeta = {
       question: "Deprem sonrasında ne yapılmamalı?",
       answer:
         "Deprem sonrasında hasar görmüş binalara kesinlikle girilmemeli; artçı sarsıntılara karşı açık alanda kalınmalı; gaz kokusu varsa elektrik anahtarına dokunulmamalı ve açık alev yakılmamalıdır. Cep telefonu hatları meşgul olabileceğinden kısa mesajları tercih edin; acil aramalar için 112'yi arayın.",
-    },
-    {
-      question: "AFAD'ın acil hattı ve kaynakları nedir?",
-      answer:
-        "AFAD (Afet ve Acil Durum Yönetimi Başkanlığı), Türkiye'de afet yönetiminin koordinasyonunu yürütür. Acil durumlarda 122 (AFAD acil hattı) aranabilir. afad.gov.tr üzerinden deprem hazırlık broşürleri, risk haritaları ve il bazında toplanma alanı bilgilerine ücretsiz erişilebilir.",
     },
     {
       question: "İzmir neden deprem açısından riskli bir şehir?",

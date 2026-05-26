@@ -4,7 +4,7 @@ export const meta: BlogMeta = {
   slug: "izmir-kira-fiyatlari-nasil-arastirilir",
   title: "İzmir Kira Fiyatları İlçelere Göre Nasıl Araştırılır?",
   description:
-    "İzmir'de kira fiyatları neden farklı platformlarda farklı gösterir? TÜİK, Endeksa, Sahibinden verilerini doğru okuma rehberi ve ilçelere göre karşılaştırma yöntemi.",
+    "İzmir'de kira fiyatları neden farklı platformlarda farklı gösterir? TÜİK, Endeksa, Sahibinden verilerini doğru okuma rehberi ve ilçelere göre.",
   date: "2026-05-24",
   category: "İzmir Rehberi",
   summary:

@@ -4,7 +4,7 @@ export const meta: BlogMeta = {
   slug: "ozon-kirliligi-nedir-saglik-etkileri",
   title: "Ozon (O₃) Kirliliği Nedir? Sağlığa Etkileri ve Yüzey Ozonu",
   description:
-    "Yüzey ozonu nedir, stratosferik ozondan farkı nedir? Güneş ışığı ve egzoz gazlarından oluşan fotokimyasal sis, solunum sistemi etkileri ve hassas gruplar için öneriler.",
+    "Yüzey ozonu nedir, stratosferik ozondan farkı nedir? Güneş ışığı ve egzoz gazlarından oluşan fotokimyasal sis, solunum sistemi etkileri ve hassas gruplar.",
   date: "2026-05-25",
   category: "Hava Kalitesi",
   summary:
