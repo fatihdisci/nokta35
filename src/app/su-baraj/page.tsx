@@ -74,11 +74,35 @@ export default async function Page() {
       <section className="container py-8">
         <header className="border-b-2 border-ink pb-3 mb-6">
           <div className="flex items-baseline justify-between">
-            <h1 className="font-serif-display text-4xl md:text-5xl">Barajlar</h1>
+            <h1 className="font-serif-display text-4xl md:text-5xl">İzmir Barajları & Su Kesintileri</h1>
             <span className="text-[10px] uppercase tracking-[0.2em] text-gray">
               İZSU · canlı
             </span>
           </div>
+
+          <div className="mt-4 max-w-3xl space-y-3 text-sm leading-relaxed text-ink">
+            <p>
+              İzmir'in içme suyunu büyük ölçüde <strong>Tahtalı, Balçova,
+              Gördes ve Ürkmez barajları</strong> ile kuyu sahaları karşılar.
+              Bu sayfa, İzmir Su ve Kanalizasyon İdaresi (İZSU) açık veri
+              kaynağından çekilen güncel baraj doluluk oranlarını, su
+              yüksekliklerini ve maksimum kapasiteleri sunar. Aşağıda ayrıca
+              İZSU tarafından bildirilen aktif su kesintileri ilçe ve mahalle
+              bazlı olarak listelenmektedir.
+            </p>
+            <p className="text-gray">
+              Veriler kısa aralıklarla otomatik güncellenir.{" "}
+              <a href="/blog/baraj-doluluk-orani-nedir" className="text-orange underline">
+                Baraj doluluk oranı nedir?
+              </a>{" "}
+              ve{" "}
+              <a href="/blog/izmir-barajlari-tahtatli-gordes-balcova" className="text-orange underline">
+                İzmir'in barajları rehberi
+              </a>{" "}
+              ile konunun detayına inebilirsiniz.
+            </p>
+          </div>
+
           <div className="mt-3 grid grid-cols-2 md:grid-cols-3 gap-4 text-xs font-mono">
             <div>
               <div className="text-[10px] uppercase tracking-widest text-gray">
@@ -203,6 +227,43 @@ export default async function Page() {
           </div>
         )}
       </section>
+      <section className="container py-8">
+        <div className="border-2 border-ink p-6 bg-cream max-w-4xl">
+          <h2 className="font-serif-display text-2xl mb-4 text-ink">
+            İzmir'in Başlıca Su Kaynakları
+          </h2>
+          <div className="space-y-3 text-sm leading-relaxed text-ink">
+            <ul className="space-y-2">
+              <li>
+                <strong>Tahtalı Barajı (Menderes):</strong> İzmir'in içme suyu
+                ihtiyacının büyük bir kısmını karşılayan ana baraj. Tahtalı
+                Çayı üzerinde inşa edilmiştir; havzası mutlak ve kısa mesafeli
+                koruma alanı olarak tescillidir.
+              </li>
+              <li>
+                <strong>Balçova Barajı (Balçova):</strong> Şehir merkezine en
+                yakın baraj. İzmir'in batı yakasına su sağlar; rekreasyon ve
+                doğa yürüyüşü için de tanınır.
+              </li>
+              <li>
+                <strong>Gördes Barajı (Manisa/Gördes):</strong> Gediz Havzası
+                içinde yer alır; İzmir'e içme suyu transferi için inşa edilmiş
+                önemli bir kaynaktır.
+              </li>
+              <li>
+                <strong>Ürkmez Barajı (Seferihisar):</strong> Güney ilçelere
+                yönelik içme suyu temini sağlar.
+              </li>
+            </ul>
+            <p className="text-gray text-xs italic pt-2 border-t border-light-gray">
+              Doluluk oranı %25'in altına düştüğünde "ciddi", %10'un altında
+              "kritik" eşik olarak değerlendirilir. Kuraklık dönemlerinde
+              İZSU su tasarrufu çağrısı yapabilir.
+            </p>
+          </div>
+        </div>
+      </section>
+
       <FaqSection items={faqItems} />
     </>
   )

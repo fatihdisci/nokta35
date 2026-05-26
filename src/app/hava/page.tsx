@@ -73,10 +73,34 @@ export default async function Page() {
       <section className="container py-8">
         <header className="border-b-2 border-ink pb-3 mb-6">
           <div className="flex items-baseline justify-between">
-            <h1 className="font-serif-display text-4xl md:text-5xl">Hava Durumu</h1>
+            <h1 className="font-serif-display text-4xl md:text-5xl">İzmir Hava Durumu</h1>
             <span className="text-[10px] uppercase tracking-[0.2em] text-gray">
-              İzmir · 30 ilçe · Open-Meteo
+              30 ilçe · Open-Meteo
             </span>
+          </div>
+
+          <div className="mt-4 max-w-3xl space-y-3 text-sm leading-relaxed text-ink">
+            <p>
+              İzmir, tipik <strong>Akdeniz iklimine (Köppen Csa)</strong> sahip bir
+              kıyı şehridir: yazlar sıcak ve kurak, kışlar ılık ve yağışlı geçer.
+              Bu sayfa İzmir'in 30 ilçesinde (Konak, Karşıyaka, Bornova, Buca,
+              Çeşme, Bergama, Ödemiş ve diğerleri) anlık sıcaklık, hissedilen
+              sıcaklık, rüzgar hızı ve nem oranı değerlerini Open-Meteo üzerinden
+              15 dakikalık aralıklarla günceller.
+            </p>
+            <p className="text-gray">
+              Sayfanın alt kısmında, hava kalitesini ölçen PM10, NO₂, SO₂ ve CO
+              parametreleri de İzmir istasyonlarından çekilen verilerle
+              listelenir.{" "}
+              <a href="/blog/hava-kalitesi-rehberi" className="text-orange underline">
+                Hava kalitesi indeksi (AKİ) rehberi
+              </a>{" "}
+              ve{" "}
+              <a href="/blog/izmir-hava-iklim-ozellikleri" className="text-orange underline">
+                İzmir iklim özellikleri
+              </a>{" "}
+              için ilgili yazılarımıza bakabilirsiniz.
+            </p>
           </div>
           <div className="mt-3 grid grid-cols-3 gap-4 text-xs">
             <div>
@@ -251,6 +275,41 @@ export default async function Page() {
             </div>
           </>
         )}
+      </section>
+
+      <section className="container py-8">
+        <div className="border-2 border-ink p-6 bg-cream max-w-4xl">
+          <h2 className="font-serif-display text-2xl mb-4 text-ink">
+            İzmir'de Hava Durumu Hakkında
+          </h2>
+          <div className="space-y-3 text-sm leading-relaxed text-ink">
+            <p>
+              <strong>İzmir'de mevsimsel sıcaklık aralıkları:</strong> Ocak ayında
+              gündüz ortalama 12 °C, gece 5 °C civarındadır. Temmuz ve ağustos
+              ortalama gündüz sıcaklıkları 33–35 °C düzeyine ulaşır; zaman zaman
+              40 °C'yi aşan sıcak dalgalar görülebilir. Yıllık ortalama yağış
+              yaklaşık 680–730 mm'dir ve büyük bölümü kasım–mart döneminde düşer.
+            </p>
+            <p>
+              <strong>Poyraz ve meltem:</strong> Kuzeydoğudan esen poyraz
+              özellikle sonbahar ve kış aylarında körfezi etkiler. Yaz aylarında
+              ise batı ve kuzeybatıdan esen meltem, sahil kesimlerinde bunaltıcı
+              sıcaklığı hafifletir; Çeşme ve Alaçatı kuvvetli meltemleriyle
+              tanınır.
+            </p>
+            <p>
+              <strong>Hava kalitesi sınıflandırması:</strong> Bu sayfadaki PM10
+              değerleri Türkiye Çevre ve Şehircilik Bakanlığı eşik değerlerine
+              göre dört kategoriye ayrılır: İyi (≤50 µg/m³), Orta (51–100),
+              Hassas (101–200) ve Sağlıksız (&gt;200). NO₂ ve SO₂ değerleri
+              trafik ve sanayi kaynaklı kirliliğin göstergesidir.
+            </p>
+            <p className="text-gray text-xs italic">
+              Veriler bilgilendirme amaçlıdır; resmi tahminler için Meteoroloji
+              Genel Müdürlüğü (mgm.gov.tr) esas alınmalıdır.
+            </p>
+          </div>
+        </div>
       </section>
 
       <FaqSection items={faqItems} />

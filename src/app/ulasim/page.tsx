@@ -54,10 +54,35 @@ export default function UlasimPage() {
       <section className="container py-8">
         <header className="border-b-2 border-ink pb-3 mb-6">
           <div className="flex items-baseline justify-between">
-            <h1 className="font-serif-display text-4xl md:text-5xl">Ulaşım</h1>
+            <h1 className="font-serif-display text-4xl md:text-5xl">İzmir Ulaşım</h1>
             <span className="text-[10px] uppercase tracking-[0.2em] text-gray">
               Canlı İzmir Rehberi
             </span>
+          </div>
+
+          <div className="mt-4 max-w-3xl space-y-3 text-sm leading-relaxed text-ink">
+            <p>
+              İzmir'de toplu ulaşım dört ana sistemin entegrasyonuyla yürür:
+              {" "}<strong>ESHOT otobüsleri, İZBAN banliyö treni, İzmir Metrosu
+              ve İZDENİZ vapurları.</strong> Bu sayfada İZBAN sefer saatleri,
+              metro ve tramvay hatları ile entegre aktarma sisteminin temel
+              bilgileri canlı olarak sunulmaktadır.
+            </p>
+            <p className="text-gray">
+              Tüm sistemler tek bir akıllı kart olan{" "}
+              <strong>İzmirim Kart</strong> ile kullanılabilir.{" "}
+              <a href="/blog/izmir-toplu-tasima-rehberi" className="text-orange underline">
+                Toplu taşıma genel rehberi
+              </a>,{" "}
+              <a href="/blog/izmirkart-nedir-nasil-kullanilir" className="text-orange underline">
+                İzmirim Kart kullanımı
+              </a>{" "}
+              ve{" "}
+              <a href="/blog/izban-nedir-istasyonlar-guzergah" className="text-orange underline">
+                İZBAN istasyonları
+              </a>{" "}
+              için ilgili yazılarımızı inceleyebilirsiniz.
+            </p>
           </div>
           <div className="mt-3 grid grid-cols-2 md:grid-cols-4 gap-4 text-xs font-mono">
             <div>

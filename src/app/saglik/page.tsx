@@ -60,13 +60,38 @@ export default async function Page() {
     <>
       <JsonLdScript data={[breadcrumb, dataset, faqSchema]} />
       <section className="container py-8">
-        <header className="border-b-2 border-ink pb-3 mb-6 flex items-baseline justify-between">
-          <h1 className="font-serif-display text-4xl md:text-5xl">
-            Nöbetçi Eczane
-          </h1>
-          <span className="text-[10px] uppercase tracking-[0.2em] text-gray">
-            {list.length} eczane · {bolgeler.length} bölge
-          </span>
+        <header className="border-b-2 border-ink pb-3 mb-6">
+          <div className="flex items-baseline justify-between">
+            <h1 className="font-serif-display text-4xl md:text-5xl">
+              İzmir Nöbetçi Eczaneler
+            </h1>
+            <span className="text-[10px] uppercase tracking-[0.2em] text-gray">
+              {list.length} eczane · {bolgeler.length} bölge
+            </span>
+          </div>
+
+          <div className="mt-4 max-w-3xl space-y-3 text-sm leading-relaxed text-ink">
+            <p>
+              İzmir'de her gün yüzlerce eczane nöbetçi olarak hizmet verir.
+              Eczane nöbeti, <strong>İzmir Eczacı Odası</strong> tarafından
+              ilçe ve bölge esasına göre planlanır; gece, hafta sonu ve resmi
+              tatillerde de en yakın eczaneye 24 saat erişimi mümkün kılar.
+              Bu sayfada bugünün nöbetçi eczaneleri 30 ilçeyi kapsayan
+              bölgelere ayrılmış olarak listelenir.
+            </p>
+            <p className="text-gray">
+              Adres, telefon ve harita yön tarifi her kart üzerinden anında
+              görüntülenebilir.{" "}
+              <a href="/blog/nobetci-eczane-sistemi" className="text-orange underline">
+                Nöbetçi eczane sistemi nasıl işler?
+              </a>{" "}
+              ve{" "}
+              <a href="/blog/acil-servis-mi-asm-mi" className="text-orange underline">
+                Acil servis mi, ASM mi?
+              </a>{" "}
+              yazılarımıza da göz atabilirsiniz.
+            </p>
+          </div>
         </header>
 
         {list.length === 0 ? (
@@ -138,6 +163,57 @@ export default async function Page() {
           </div>
         )}
       </section>
+      <section className="container py-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-5xl">
+          <div className="border-2 border-ink p-6 bg-cream">
+            <h2 className="font-serif-display text-2xl mb-4 text-ink">
+              Nöbetçi Eczane Nasıl Çalışır?
+            </h2>
+            <div className="space-y-3 text-sm leading-relaxed text-ink">
+              <p>
+                Türkiye'de eczane nöbet sistemi 6197 sayılı Eczacılar ve Eczaneler
+                Hakkında Kanun ile düzenlenir. <strong>Her ilçe ve bölge için</strong>{" "}
+                il eczacı odası tarafından nöbet listesi hazırlanır; eczaneler
+                belirlenen gün ve gecelerde 24 saat açık kalmakla yükümlüdür.
+              </p>
+              <p>
+                Nöbetçi eczanede yalnızca acil ilaç temini yapılır; rutin alımlar
+                için mesai saatleri içinde diğer eczaneler tercih edilmelidir.
+                Reçeteli ilaç için reçete (e-reçete kapsamında dijital de
+                olabilir) gerekir.
+              </p>
+            </div>
+          </div>
+
+          <div className="border-2 border-ink p-6 bg-cream">
+            <h2 className="font-serif-display text-2xl mb-4 text-ink">
+              Acil Sağlık Numaraları
+            </h2>
+            <div className="space-y-3 text-sm leading-relaxed text-ink">
+              <ul className="space-y-2">
+                <li>
+                  <strong className="text-orange">112</strong> — Acil sağlık
+                  hizmetleri (ambulans). Hayati tehlike durumunda doğrudan arayın.
+                </li>
+                <li>
+                  <strong className="text-orange">184</strong> — Sağlık Bakanlığı
+                  iletişim merkezi (SABİM). Sağlık hizmetleri hakkında bilgi ve
+                  şikâyet hattı.
+                </li>
+                <li>
+                  <strong className="text-orange">182</strong> — MHRS Merkezi
+                  Hekim Randevu Sistemi telefon hattı.
+                </li>
+              </ul>
+              <p className="text-xs text-gray italic pt-2 border-t border-light-gray">
+                Hayati tehlike yoksa öncelikle aile hekiminize veya ASM'ye
+                başvurunuz; acil servisler ağır vakalara öncelik verir.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <FaqSection items={faqItems} />
     </>
   )
