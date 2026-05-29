@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next"
-import { getEczaneler, getPazarYerleri, getBarajlar } from "@/lib/data"
-import { slugify, IZMIR_ILCELERI } from "@/lib/utils"
+import { getBarajlar } from "@/lib/data"
+import { slugify } from "@/lib/utils"
 import { POSTS } from "@/content/blog"
 
 export const revalidate = 3600
@@ -10,6 +10,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date()
 
   // ── Statik sayfalar ──────────────────────────────────────────────
+  // İlçe bazlı eczane/pazar hub'ları (/saglik, /onemli-yerler) buradan
+  // linklenir; alt sayfaları sitemap'e ayrıca eklemeyiz (tarama bütçesi
+  // kalıcı, içerik dolu sayfalara yoğunlaşsın diye).
   const staticPages: MetadataRoute.Sitemap = [
     { url: `${base}/`,                lastModified: now, changeFrequency: "hourly", priority: 1.0 },
     { url: `${base}/su-baraj`,        lastModified: now, changeFrequency: "hourly", priority: 0.9 },
@@ -32,46 +35,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.6,
   }))
 
-  // Fallback: 30 İzmir ilçesi her zaman sitemap'te olsun
-  const fallbackSluglar = new Set(IZMIR_ILCELERI.map((i) => slugify(i)))
-
-  // ── Eczane bölge sayfaları (API + fallback) ─────────────────────
-  const eczaneSluglar = new Set<string>(fallbackSluglar)
-  try {
-    const eczaneler = await getEczaneler()
-    for (const e of eczaneler ?? []) {
-      if (e.Bolge) eczaneSluglar.add(slugify(e.Bolge))
-    }
-  } catch { /* API kapalıysa fallback yeterli */ }
-
-  const eczaneSayfalar: MetadataRoute.Sitemap = [...eczaneSluglar]
-    .filter(Boolean)
-    .map((slug) => ({
-      url: `${base}/eczane/${slug}`,
-      lastModified: now,
-      changeFrequency: "daily" as const,
-      priority: 0.7,
-    }))
-
-  // ── Pazar ilçe sayfaları (API + fallback) ────────────────────────
-  const pazarSluglar = new Set<string>(fallbackSluglar)
-  try {
-    const pazarlar = await getPazarYerleri()
-    for (const p of pazarlar) {
-      if (p.ILCE) pazarSluglar.add(slugify(p.ILCE))
-    }
-  } catch { /* API kapalıysa fallback yeterli */ }
-
-  const pazarSayfalar: MetadataRoute.Sitemap = [...pazarSluglar]
-    .filter(Boolean)
-    .map((slug) => ({
-      url: `${base}/pazar/${slug}`,
-      lastModified: now,
-      changeFrequency: "weekly" as const,
-      priority: 0.6,
-    }))
-
-  // ── Baraj detay sayfaları ──────────────────────────────────────
+  // ── Baraj detay sayfaları (az sayıda, kalıcı ve içerik dolu) ─────
   let barajSayfalar: MetadataRoute.Sitemap = []
   try {
     const barajlar = await getBarajlar()
@@ -88,8 +52,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   return [
     ...staticPages,
     ...blogSayfalar,
-    ...eczaneSayfalar,
-    ...pazarSayfalar,
     ...barajSayfalar,
   ]
 }
